@@ -1,0 +1,41 @@
+---
+layout: default
+---
+
+<main id="main" class="page-shell narrow">
+  <article class="post" aria-labelledby="dataset-title">
+    <header class="post-header">
+      <p class="eyebrow">Data Bite</p>
+      <h1 id="dataset-title">{{ page.title }}</h1>
+      {% if page.summary %}
+        <p class="lede">{{ page.summary }}</p>
+      {% endif %}
+      <div class="post-info">
+        {% if page.domain %}<span>{{ page.domain }}</span>{% endif %}
+        {% if page.task %}<span>{{ page.task }}</span>{% endif %}
+        {% if page.license %}<span>{{ page.license }}</span>{% endif %}
+      </div>
+    </header>
+
+    {% if page.image %}
+      <img class="dataset-hero-image" src="{{ page.image | relative_url }}" alt="{{ page.image_alt | default: page.title | escape }}" />
+    {% endif %}
+
+    <div class="post-body">
+      {{ content }}
+
+      <h2>Dataset facts</h2>
+      <ul>
+        {% if page.use_for %}<li><strong>Use for:</strong> {{ page.use_for }}</li>{% endif %}
+        {% if page.scale %}<li><strong>Scale:</strong> {{ page.scale }}</li>{% endif %}
+        {% if page.caveat %}<li><strong>Watch out:</strong> {{ page.caveat }}</li>{% endif %}
+      </ul>
+
+      <h2>Links</h2>
+      <ul>
+        {% if page.dataset_url %}<li><a href="{{ page.dataset_url }}">Dataset page</a></li>{% endif %}
+        {% if page.paper_url %}<li><a href="{{ page.paper_url }}">Paper or reference</a></li>{% endif %}
+      </ul>
+    </div>
+  </article>
+</main>
