@@ -12,9 +12,9 @@ LiteBites is a minimal English research blog for bite-sized AI and computer scie
 ## Site structure
 
 - `index.html` — Home
-- `post.html` — Post index at `/post/`
-- `gallery.html` — Gallery at `/gallery/`
-- `_posts/YYYY-MM-DD-slug.md` — Individual posts
+- `papers.html` — Paper Bites index at `/papers/`
+- `data.html` — Data Bites index at `/data/`
+- `_posts/YYYY-MM-DD-slug.md` — Individual paper posts
 - `assets/css/styles.css` — Site styles
 
 ## Local development
