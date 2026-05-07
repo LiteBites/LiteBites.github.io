@@ -10,6 +10,9 @@ permalink: /posts/:title/
 collections:
   posts:
     output: true
+  datasets:
+    output: true
+    permalink: /data/:name/
 
 defaults:
   - scope:
@@ -18,6 +21,11 @@ defaults:
     values:
       layout: post
       type: Paper brief
+  - scope:
+      path: ""
+      type: "datasets"
+    values:
+      layout: dataset
 
 markdown: kramdown
 kramdown:
