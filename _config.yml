@@ -1,0 +1,34 @@
+title: LiteBites
+description: Bite-sized notes on AI and computer science research.
+url: "https://litebites.github.io"
+baseurl: ""
+lang: en
+timezone: Asia/Seoul
+
+permalink: /posts/:title/
+
+collections:
+  posts:
+    output: true
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: post
+      type: Paper brief
+
+markdown: kramdown
+kramdown:
+  input: GFM
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - POLICY_POST.md

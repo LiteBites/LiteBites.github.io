@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="{{ site.lang | default: 'en' }}">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% if page.title %}{{ page.title }} — {% endif %}{{ site.title }}</title>
+    <meta name="description" content="{{ page.description | default: site.description | escape }}" />
+    <meta name="theme-color" content="#fbfaf7" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}" />
+    {% feed_meta %}
+    {% seo title=false %}
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <nav class="nav" aria-label="Main navigation">
+        <a class="brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+        <div class="nav-links">
+          <a {% if page.nav == 'home' %}aria-current="page"{% endif %} href="{{ '/' | relative_url }}">Home</a>
+          <a {% if page.nav == 'post' %}aria-current="page"{% endif %} href="{{ '/post/' | relative_url }}">Post</a>
+          <a {% if page.nav == 'gallery' %}aria-current="page"{% endif %} href="{{ '/gallery/' | relative_url }}">Gallery</a>
+        </div>
+      </nav>
+    </header>
+
+    {{ content }}
+
+    <footer class="site-footer">
+      <p>{{ site.title }}</p>
+      <p>{{ site.description }}</p>
+    </footer>
+  </body>
+</html>

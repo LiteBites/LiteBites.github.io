@@ -1,0 +1,56 @@
+---
+layout: default
+title: Home
+nav: home
+description: LiteBites is a minimal research blog for bite-sized AI and computer science paper notes.
+---
+
+<main id="main" class="page-shell">
+  <section class="hero" aria-labelledby="hero-title">
+    <p class="eyebrow">Bite-sized research notes</p>
+    <h1 id="hero-title">Read papers lightly. Keep the ideas carefully.</h1>
+    <p class="lede">
+      LiteBites is a quiet place for short notes on AI and computer science papers:
+      the problem, the core idea, why it matters, and what to try next.
+    </p>
+  </section>
+
+  <section class="section" aria-labelledby="latest-title">
+    <div class="section-head">
+      <h2 id="latest-title">Latest note</h2>
+      <a class="text-link" href="{{ '/post/' | relative_url }}">View all posts</a>
+    </div>
+
+    {% assign latest = site.posts | first %}
+    {% if latest %}
+      <article class="feature-note">
+        <div>
+          <p class="note-meta">{{ latest.type | default: 'Paper brief' }} · {{ latest.read_time }}</p>
+          <h3>{{ latest.title }}</h3>
+          <p>{{ latest.summary }}</p>
+        </div>
+        <a class="button" href="{{ latest.url | relative_url }}">Read note</a>
+      </article>
+    {% endif %}
+  </section>
+
+  <section class="section two-column" aria-labelledby="format-title">
+    <div>
+      <h2 id="format-title">The LiteBites format</h2>
+    </div>
+    <div class="rule-list">
+      <div>
+        <span>01</span>
+        <p>Start with the question the paper is trying to answer.</p>
+      </div>
+      <div>
+        <span>02</span>
+        <p>Explain the central idea before introducing implementation details.</p>
+      </div>
+      <div>
+        <span>03</span>
+        <p>End with practical links: demo, code, limitations, and follow-up readings.</p>
+      </div>
+    </div>
+  </section>
+</main>
