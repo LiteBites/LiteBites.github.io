@@ -5,12 +5,12 @@ short_title: "Chain-of-Zoom"
 date: 2025-05-28
 type: "Paper brief"
 read_time: "7 min read"
-venue: "arXiv 2025"
+venue: "NeurIPS 2025"
 tags:
   - Super-Resolution
   - Vision-Language Models
 summary: "Chain-of-Zoom treats extreme super-resolution as a sequence of zoom steps, using multi-scale prompts and preference alignment to guide details beyond a model's usual scale range."
-paper_url: "https://arxiv.org/abs/2505.18600"
+paper_url: "https://openreview.net/forum?id=I8S4ASqO5H"
 code_url: "https://github.com/bryanswkim/Chain-of-Zoom"
 ---
 
@@ -50,5 +50,5 @@ It is also worth checking the role of the text prompts. If the prompts are usefu
 
 ## Links
 
-- [Paper page at arXiv](https://arxiv.org/abs/2505.18600)
+- [Paper page at OpenReview](https://openreview.net/forum?id=I8S4ASqO5H)
 - [Official code on GitHub](https://github.com/bryanswkim/Chain-of-Zoom)
