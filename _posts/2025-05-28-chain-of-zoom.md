@@ -12,7 +12,6 @@ tags:
 summary: "Chain-of-Zoom treats extreme super-resolution as a sequence of zoom steps, using multi-scale prompts and preference alignment to guide details beyond a model's usual scale range."
 paper_url: "https://arxiv.org/abs/2505.18600"
 code_url: "https://github.com/bryanswkim/Chain-of-Zoom"
-source_note_url: "https://yeong813.tistory.com/6"
 ---
 
 ## Why this paper matters
@@ -53,4 +52,3 @@ It is also worth checking the role of the text prompts. If the prompts are usefu
 
 - [Paper page at arXiv](https://arxiv.org/abs/2505.18600)
 - [Official code on GitHub](https://github.com/bryanswkim/Chain-of-Zoom)
-- [Original source note](https://yeong813.tistory.com/6)

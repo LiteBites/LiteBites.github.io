@@ -12,7 +12,6 @@ tags:
 summary: "ControlNet adds spatial conditioning to pretrained text-to-image diffusion models while protecting the original model's generation quality through zero-initialized control branches."
 paper_url: "https://openaccess.thecvf.com/content/ICCV2023/html/Zhang_Adding_Conditional_Control_to_Text-to-Image_Diffusion_Models_ICCV_2023_paper.html"
 code_url: "https://github.com/lllyasviel/ControlNet"
-source_note_url: "https://yeong813.tistory.com/2"
 ---
 
 ## Why this paper matters
@@ -53,4 +52,3 @@ Also look for the balance between controllability and image quality. A method th
 
 - [Paper page at CVF Open Access](https://openaccess.thecvf.com/content/ICCV2023/html/Zhang_Adding_Conditional_Control_to_Text-to-Image_Diffusion_Models_ICCV_2023_paper.html)
 - [Official code on GitHub](https://github.com/lllyasviel/ControlNet)
-- [Original source note](https://yeong813.tistory.com/2)
