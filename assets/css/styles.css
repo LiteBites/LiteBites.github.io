@@ -509,21 +509,46 @@ h3 {
 .site-footer p:first-child { color: var(--ink); font-weight: 700; }
 
 @media (max-width: 760px) {
+  .site-header {
+    position: static;
+  }
+
   .nav {
     min-height: auto;
-    padding: 16px 18px;
-    align-items: flex-start;
-    flex-direction: column;
+    padding: 13px 18px 12px;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px 12px;
+  }
+
+  .brand {
+    flex: 1 1 auto;
   }
 
   .nav-links {
+    order: 3;
     width: 100%;
-    justify-content: space-between;
+    gap: 2px;
+    justify-content: flex-start;
+    overflow-x: auto;
+    scrollbar-width: none;
   }
 
-  .nav-links a { padding-inline: 10px; }
+  .nav-links::-webkit-scrollbar { display: none; }
 
-  .page-shell { padding: 64px 18px 88px; }
+  .nav-links a {
+    min-height: 38px;
+    padding: 8px 11px;
+    white-space: nowrap;
+  }
+
+  .theme-toggle {
+    min-height: 38px;
+    padding-inline: 11px;
+    gap: 7px;
+  }
+
+  .page-shell { padding: 52px 18px 88px; }
   .hero, .page-intro, .post-header { padding-bottom: 54px; }
 
   h1 { font-size: clamp(42px, 13vw, 64px); }
