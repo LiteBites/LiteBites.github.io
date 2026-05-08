@@ -8,9 +8,48 @@
   --line: #e8e3db;
   --line-strong: #d8d1c7;
   --accent: #111111;
+  --header-bg: rgba(251, 250, 247, 0.86);
+  --nav-active: #f0ece5;
+  --image-bg: #f3efe7;
   --max: 1080px;
   --narrow: 760px;
   --radius: 18px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    color-scheme: dark;
+    --bg: #11100f;
+    --surface: #1a1816;
+    --ink: #f4efe8;
+    --muted: #c2b9ad;
+    --faint: #8d8378;
+    --line: #302b26;
+    --line-strong: #494038;
+    --accent: #f4efe8;
+    --header-bg: rgba(17, 16, 15, 0.86);
+    --nav-active: #26221e;
+    --image-bg: #211d19;
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #11100f;
+  --surface: #1a1816;
+  --ink: #f4efe8;
+  --muted: #c2b9ad;
+  --faint: #8d8378;
+  --line: #302b26;
+  --line-strong: #494038;
+  --accent: #f4efe8;
+  --header-bg: rgba(17, 16, 15, 0.86);
+  --nav-active: #26221e;
+  --image-bg: #211d19;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
 }
 
 * { box-sizing: border-box; }
@@ -55,7 +94,7 @@ a {
 
 .site-header {
   border-bottom: 1px solid var(--line);
-  background: rgba(251, 250, 247, 0.86);
+  background: var(--header-bg);
   backdrop-filter: blur(16px);
   position: sticky;
   top: 0;
@@ -100,8 +139,39 @@ a {
 .nav-links a:focus-visible,
 .nav-links a[aria-current="page"] {
   color: var(--ink);
-  background: #f0ece5;
+  background: var(--nav-active);
   outline: none;
+}
+
+.theme-toggle {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 13px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  background: var(--surface);
+  font: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  color: var(--ink);
+  border-color: var(--line-strong);
+  background: var(--nav-active);
+  outline: none;
+}
+
+.theme-toggle-icon {
+  width: 1em;
+  display: inline-flex;
+  justify-content: center;
+  line-height: 1;
 }
 
 .page-shell {
@@ -362,7 +432,7 @@ h3 {
   aspect-ratio: 16 / 9;
   overflow: hidden;
   border-bottom: 1px solid var(--line);
-  background: #f3efe7;
+  background: var(--image-bg);
 }
 
 .data-card-image img,

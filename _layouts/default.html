@@ -5,7 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{{ site.title }}</title>
     <meta name="description" content="{{ page.description | default: site.description | escape }}" />
-    <meta name="theme-color" content="#fbfaf7" />
+    <meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#11100f" media="(prefers-color-scheme: dark)" />
+    <script>
+      (function () {
+        try {
+          var storedTheme = localStorage.getItem('litebites-theme');
+          if (storedTheme === 'light' || storedTheme === 'dark') {
+            document.documentElement.dataset.theme = storedTheme;
+          }
+        } catch (error) {}
+      })();
+    </script>
     <link rel="icon" href="{{ '/assets/favicon_detail.svg' | relative_url }}" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -28,6 +39,10 @@
           <a {% if page.nav == 'papers' %}aria-current="page"{% endif %} href="{{ '/papers/' | relative_url }}">Paper Bites</a>
           <a {% if page.nav == 'data' %}aria-current="page"{% endif %} href="{{ '/data/' | relative_url }}">Data Bites</a>
         </div>
+        <button class="theme-toggle" type="button" aria-label="Switch to dark theme" aria-pressed="false">
+          <span class="theme-toggle-icon" aria-hidden="true">☾</span>
+          <span class="theme-toggle-text">Theme</span>
+        </button>
       </nav>
     </header>
 
@@ -37,5 +52,66 @@
       <p>{{ site.title }}</p>
       <p>{{ site.description }}</p>
     </footer>
+
+    <script>
+      (function () {
+        var storageKey = 'litebites-theme';
+        var root = document.documentElement;
+        var toggle = document.querySelector('.theme-toggle');
+        var icon = document.querySelector('.theme-toggle-icon');
+        var text = document.querySelector('.theme-toggle-text');
+        var mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+        function getStoredTheme() {
+          try {
+            var value = localStorage.getItem(storageKey);
+            return value === 'light' || value === 'dark' ? value : null;
+          } catch (error) {
+            return null;
+          }
+        }
+
+        function setStoredTheme(theme) {
+          try {
+            localStorage.setItem(storageKey, theme);
+          } catch (error) {}
+        }
+
+        function activeTheme() {
+          return getStoredTheme() || (mediaQuery.matches ? 'dark' : 'light');
+        }
+
+        function applyTheme(theme) {
+          var isDark = theme === 'dark';
+          root.dataset.theme = theme;
+          if (toggle) {
+            toggle.setAttribute('aria-pressed', String(isDark));
+            toggle.setAttribute('aria-label', isDark ? 'Switch to light theme' : 'Switch to dark theme');
+          }
+          if (icon) icon.textContent = isDark ? '☀' : '☾';
+          if (text) text.textContent = isDark ? 'Light' : 'Dark';
+        }
+
+        applyTheme(activeTheme());
+
+        if (toggle) {
+          toggle.addEventListener('click', function () {
+            var nextTheme = activeTheme() === 'dark' ? 'light' : 'dark';
+            setStoredTheme(nextTheme);
+            applyTheme(nextTheme);
+          });
+        }
+
+        function handleSystemThemeChange() {
+          if (!getStoredTheme()) applyTheme(activeTheme());
+        }
+
+        if (mediaQuery.addEventListener) {
+          mediaQuery.addEventListener('change', handleSystemThemeChange);
+        } else if (mediaQuery.addListener) {
+          mediaQuery.addListener(handleSystemThemeChange);
+        }
+      })();
+    </script>
   </body>
 </html>
