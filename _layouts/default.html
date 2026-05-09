@@ -49,8 +49,16 @@
     {{ content }}
 
     <footer class="site-footer">
-      <p>{{ site.title }}</p>
-      <p>{{ site.description }}</p>
+      <div>
+        <p>{{ site.title }}</p>
+        <p>{{ site.description }}</p>
+      </div>
+      {% if site.goatcounter_code and site.goatcounter_code != "" %}
+      <p class="visitor-count" aria-live="polite">
+        <span>Today <strong data-visitor-count="today">—</strong></span>
+        <span>Total <strong data-visitor-count="total">—</strong></span>
+      </p>
+      {% endif %}
     </footer>
 
     <script>
@@ -113,5 +121,42 @@
         }
       })();
     </script>
+    {% if site.goatcounter_code and site.goatcounter_code != "" %}
+    <script>
+      (function () {
+        var counterHost = 'https://{{ site.goatcounter_code | escape }}.goatcounter.com';
+        var todayTarget = document.querySelector('[data-visitor-count="today"]');
+        var totalTarget = document.querySelector('[data-visitor-count="total"]');
+
+        if (!todayTarget || !totalTarget) return;
+
+        function todayString() {
+          var now = new Date();
+          var year = now.getFullYear();
+          var month = String(now.getMonth() + 1).padStart(2, '0');
+          var day = String(now.getDate()).padStart(2, '0');
+          return year + '-' + month + '-' + day;
+        }
+
+        function updateCount(target, query) {
+          fetch(counterHost + '/counter/TOTAL.json' + query, { credentials: 'omit' })
+            .then(function (response) {
+              if (!response.ok) throw new Error('Counter unavailable');
+              return response.json();
+            })
+            .then(function (data) {
+              target.textContent = data.count || '—';
+            })
+            .catch(function () {
+              target.textContent = '—';
+            });
+        }
+
+        updateCount(todayTarget, '?start=' + todayString());
+        updateCount(totalTarget, '');
+      })();
+    </script>
+    <script data-goatcounter="https://{{ site.goatcounter_code | escape }}.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+    {% endif %}
   </body>
 </html>

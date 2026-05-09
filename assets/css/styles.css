@@ -508,6 +508,31 @@ h3 {
 .site-footer p { margin: 0; }
 .site-footer p:first-child { color: var(--ink); font-weight: 700; }
 
+.visitor-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  color: var(--faint);
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.visitor-count span + span::before {
+  content: "";
+  width: 3px;
+  height: 3px;
+  display: inline-block;
+  margin: 0 12px 3px 0;
+  border-radius: 50%;
+  background: var(--line-strong);
+}
+
+.visitor-count strong {
+  color: var(--muted);
+  font-weight: 600;
+}
+
 @media (max-width: 760px) {
   .site-header {
     position: static;
@@ -569,6 +594,11 @@ h3 {
   .gallery-grid,
   .data-grid { grid-template-columns: 1fr; }
   .site-footer p + p { margin-top: 8px; }
+  .visitor-count {
+    justify-content: flex-start;
+    margin-top: 10px;
+    white-space: normal;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
