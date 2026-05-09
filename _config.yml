@@ -7,7 +7,7 @@ timezone: Asia/Seoul
 
 # GoatCounter site code. After creating your site at GoatCounter, set this to
 # the subdomain code, e.g. "litebites" for https://litebites.goatcounter.com.
-goatcounter_code: ""
+goatcounter_code: "litebites"
 
 permalink: /posts/:title/
 
