@@ -32,6 +32,11 @@ That design matters because it avoids a common trade-off in earlier work. Many s
 
 The pipeline has three main stages. First, the authors curate source videos from Pexels and filter them for duplicates and weak motion. That step is easy to overlook, but it matters because the final dataset quality depends heavily on whether the source videos are visually useful for editing in the first place.
 
+<figure>
+  <img src="{{ '/assets/images/papers/ditto/pipeline-04.png' | relative_url }}" alt="The Ditto synthetic data pipeline, from source video filtering through instruction generation, edited key frames, in-context video generation, and post-processing." />
+  <figcaption>Paper figure: the Ditto pipeline builds edited video triplets by combining instruction generation, key-frame image editing, depth-guided video generation, and post-generation filtering.</figcaption>
+</figure>
+
 Second, a vision-language model generates grounded edit instructions from each source video. A key frame is edited with Qwen-Image, depth is predicted from the source video, and an in-context video generator combines the edited key frame, the depth video, and the text instruction to synthesize the target edited video. A useful way to read this is as a division of labor: the edited frame defines appearance, the depth video preserves structure and motion, and the text keeps the edit semantically aligned.
 
 Third, the generated triplets go through filtering and enhancement. A VLM checks instruction fidelity, source fidelity, visual quality, and safety. The paper then uses a denoising enhancement stage to clean artifacts while trying to preserve the intended edit. With this pipeline, the authors report spending more than 12,000 GPU-days to build Ditto-1M, a dataset of roughly one million edited videos.
@@ -41,6 +46,11 @@ The training side has one more important idea: modality curriculum learning. Bec
 ## What to look at in the results
 
 The most useful evidence is not just whether the method edits a video, but whether it does so while preserving temporal coherence. The paper reports gains over prior methods on automatic metrics and on human evaluation, especially for instruction following and overall quality. In the table, their method improves both edit accuracy and temporal consistency rather than trading one for the other.
+
+<figure>
+  <img src="{{ '/assets/images/papers/ditto/results-07.png' | relative_url }}" alt="Qualitative comparison figure showing Ditto against earlier instruction-based video editing methods across stylization and local edit examples." />
+  <figcaption>Paper figure: qualitative comparisons matter here because they show whether the edited object changes clearly while identity, background, and motion remain stable across frames.</figcaption>
+</figure>
 
 The qualitative examples are also worth reading carefully. Look at stylization cases such as pixel-art or LEGO-like rendering, and local edits such as changing clothing attributes. The important question is whether the edited object changes while the rest of the video still feels like the same scene. The paper's claim is strongest when the edit is obvious but identity, motion, and background remain stable.
 
