@@ -363,6 +363,29 @@ h3 {
 
 .post-body a { color: var(--ink); }
 
+.post-body figure {
+  width: 100%;
+  max-width: 100%;
+  margin: 28px 0;
+}
+
+.post-body figure img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid var(--line);
+  border-radius: calc(var(--radius) - 4px);
+  background: var(--image-bg);
+}
+
+.post-body figcaption {
+  margin-top: 10px;
+  color: var(--faint);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
 .post-info {
   justify-content: flex-start;
   flex-wrap: wrap;
@@ -591,6 +614,8 @@ h3 {
   .post-row { padding: 24px; }
   .feature-note .button { margin-top: 24px; }
   .post-row .text-link { display: inline-block; margin-top: 18px; }
+  .post-body figure { margin: 22px 0; }
+  .post-body figcaption { font-size: 13px; }
   .gallery-grid,
   .data-grid { grid-template-columns: 1fr; }
   .site-footer p + p { margin-top: 8px; }
