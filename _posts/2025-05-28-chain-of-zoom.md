@@ -30,6 +30,11 @@ The method also uses vision-language guidance. As details become uncertain durin
 
 Chain-of-Zoom represents generation as a sequence from a low-resolution input to progressively higher-resolution states. Each step depends on recent image states instead of treating super-resolution as a single isolated transformation. This makes the process closer to next-scale prediction than one-shot restoration.
 
+<figure>
+  <img src="{{ '/assets/images/papers/chain-of-zoom/method-03.png' | relative_url }}" alt="Chain-of-Zoom method figure contrasting direct super-resolution with a repeated prompt-and-upscale process across multiple zoom states." />
+  <figcaption>Paper figure: Chain-of-Zoom avoids a single fragile jump to extreme resolution by repeating a prompt-and-upscale cycle across intermediate scale states.</figcaption>
+</figure>
+
 A central design choice is multi-scale-aware prompt extraction. The prompt generator looks at more than one resolution state, which helps it describe the content that should survive the next zoom step. This is meant to reduce hallucination compared with relying on a single sparse magnified patch.
 
 The paper also uses preference alignment for the prompt generator. In the source note, the important pieces are critic preference reward, phrase-exclusion reward, and repetition penalty. Together, these rewards encourage prompts that are semantically helpful, avoid unhelpful template phrases, and reduce repetitive text.
@@ -37,6 +42,11 @@ The paper also uses preference alignment for the prompt generator. In the source
 ## What to look at in the results
 
 The most relevant examples are extreme magnification cases where ordinary super-resolution models are likely to blur, invent, or collapse details. Look at whether Chain-of-Zoom maintains plausible structure across repeated zoom steps.
+
+<figure>
+  <img src="{{ '/assets/images/papers/chain-of-zoom/results-07.png' | relative_url }}" alt="Qualitative Chain-of-Zoom comparison across magnification levels, comparing direct super-resolution with Chain-of-Zoom variants." />
+  <figcaption>Paper figure: the qualitative comparison is the clearest evidence here, because it shows how the autoregressive zoom process preserves sharper detail at very large magnification factors.</figcaption>
+</figure>
 
 It is also worth checking the role of the text prompts. If the prompts are useful, the model should preserve semantic identity and local detail better than a scale-only pipeline. The caveat is that language guidance can also introduce hallucinated details, so alignment and prompt quality matter.
 

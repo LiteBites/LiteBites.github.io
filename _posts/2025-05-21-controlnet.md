@@ -30,6 +30,11 @@ The important stabilizing trick is zero convolution. ControlNet connects the con
 
 ControlNet starts from a pretrained text-to-image diffusion model and makes a trainable copy of relevant encoder blocks. The original model is locked, while the copied branch receives both image features and conditional features. Its outputs are added back into the main model through skip-style connections.
 
+<figure>
+  <img src="{{ '/assets/images/papers/controlnet/method-04.png' | relative_url }}" alt="ControlNet architecture showing a locked Stable Diffusion U-Net and a trainable conditional copy connected through zero convolutions." />
+  <figcaption>Paper figure: ControlNet works by attaching a trainable conditional path to a locked diffusion backbone, using zero-initialized connections so control can be learned without destabilizing the base model.</figcaption>
+</figure>
+
 Zero convolution is what makes this setup safer than directly fine-tuning or randomly attaching a new branch. Since the connecting layers initially output zero, the first behavior remains close to the original pretrained model. After the first updates, the control branch begins to participate in training without injecting arbitrary random noise into the generation path.
 
 This framing also explains why ControlNet can support many kinds of conditions. The external map changes, but the pattern is the same: preserve the pretrained diffusion model, learn a condition-aware branch, and use controlled feature injection to guide the final image.
@@ -37,6 +42,11 @@ This framing also explains why ControlNet can support many kinds of conditions. 
 ## What to look at in the results
 
 The most useful results are the examples where the same text prompt is constrained by different structural inputs. These show whether the method really follows the conditioning map rather than merely producing a plausible image.
+
+<figure>
+  <img src="{{ '/assets/images/papers/controlnet/results-01.png' | relative_url }}" alt="Qualitative ControlNet examples showing image generation guided by conditions such as Canny edges and human pose." />
+  <figcaption>Paper figure: these examples matter because they show the practical payoff of ControlNet—different condition maps can steer composition directly instead of relying on prompt wording alone.</figcaption>
+</figure>
 
 Also look for the balance between controllability and image quality. A method that follows an edge map but damages the base model's generation ability would be less useful. ControlNet's design is valuable because it tries to gain control without sacrificing the pretrained model's strengths.
 
