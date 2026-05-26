@@ -31,7 +31,7 @@ The important stabilizing trick is zero convolution. ControlNet connects the con
 ControlNet starts from a pretrained text-to-image diffusion model and makes a trainable copy of relevant encoder blocks. The original model is locked, while the copied branch receives both image features and conditional features. Its outputs are added back into the main model through skip-style connections.
 
 <figure>
-  <img src="{{ '/assets/images/papers/controlnet/method-04.png' | relative_url }}" alt="ControlNet architecture showing a locked Stable Diffusion U-Net and a trainable conditional copy connected through zero convolutions." />
+  <img src="{{ '/assets/images/papers/controlnet/method-03.png' | relative_url }}" alt="ControlNet architecture showing a locked Stable Diffusion U-Net and a trainable conditional copy connected through zero convolutions." />
   <figcaption>Paper figure: ControlNet works by attaching a trainable conditional path to a locked diffusion backbone, using zero-initialized connections so control can be learned without destabilizing the base model.</figcaption>
 </figure>
 
