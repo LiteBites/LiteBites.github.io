@@ -1,0 +1,99 @@
+---
+layout: default
+title: Knowledge Graph
+nav: graph
+graph_page: true
+description: Explore relationships among LiteBites papers and datasets.
+permalink: /graph/
+---
+
+<main id="main" class="knowledge-graph-page" data-graph-root data-source="{{ '/assets/data/knowledge-graph.json' | relative_url }}">
+  <section class="index-intro graph-intro" aria-labelledby="graph-title">
+    <div>
+      <p class="kicker">Knowledge Graph / Explore</p>
+      <h1 id="graph-title">Follow ideas.<br /><span>Find connections.</span></h1>
+    </div>
+    <div class="index-intro-copy">
+      <p>Move through LiteBites by shared research topics. Select a node to inspect its context, neighbors, and original Bite.</p>
+      <p class="index-stat graph-stat">
+        <strong data-graph-node-count>—</strong>
+        <span>connected entries<br /><span data-graph-edge-count>—</span> relationships</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="graph-section" aria-labelledby="graph-explorer-title">
+    <div class="grid-section-head">
+      <h2 id="graph-explorer-title" class="section-label">Graph Explorer</h2>
+      <span class="section-count" data-graph-summary>Loading graph…</span>
+    </div>
+
+    <div class="graph-toolbar" aria-label="Knowledge graph controls">
+      <label class="graph-search">
+        <span>Search</span>
+        <input type="search" placeholder="Title or topic" autocomplete="off" data-graph-search />
+      </label>
+      <div class="graph-filter-group" aria-label="Content type filters">
+        <button type="button" class="graph-filter is-active" aria-pressed="true" data-graph-type="paper">Paper Bites</button>
+        <button type="button" class="graph-filter is-active" aria-pressed="true" data-graph-type="dataset">Data Bites</button>
+      </div>
+      <div class="graph-view-controls" aria-label="Graph view controls">
+        <button type="button" data-graph-zoom-out aria-label="Zoom out">−</button>
+        <button type="button" data-graph-reset>Reset</button>
+        <button type="button" data-graph-zoom-in aria-label="Zoom in">+</button>
+      </div>
+    </div>
+
+    <div class="graph-workspace">
+      <div class="graph-stage-wrap">
+        <svg class="graph-stage" viewBox="0 0 1000 700" role="img" aria-labelledby="graph-svg-title graph-svg-description" data-graph-svg>
+          <title id="graph-svg-title">LiteBites knowledge graph</title>
+          <desc id="graph-svg-description">An interactive network of Paper Bites and Data Bites connected by shared research topics.</desc>
+          <g data-graph-viewport>
+            <g class="graph-edges" data-graph-edges></g>
+            <g class="graph-nodes" data-graph-nodes></g>
+          </g>
+        </svg>
+        <div class="graph-legend" aria-label="Graph legend">
+          <span><i class="legend-shape legend-paper" aria-hidden="true"></i>Paper Bite</span>
+          <span><i class="legend-shape legend-dataset" aria-hidden="true"></i>Data Bite</span>
+          <span><i class="legend-line" aria-hidden="true"></i>Shared topic</span>
+        </div>
+        <p class="graph-status" aria-live="polite" data-graph-status>Loading knowledge graph…</p>
+      </div>
+
+      <aside class="graph-inspector" aria-labelledby="graph-inspector-title" data-graph-inspector>
+        <p class="kicker">Selected Bite</p>
+        <div class="graph-inspector-empty" data-graph-empty>
+          <h2 id="graph-inspector-title">Choose a node.</h2>
+          <p>Select any Paper Bite or Data Bite to see its topics and immediate relationships.</p>
+        </div>
+        <div class="graph-inspector-content" data-graph-detail hidden>
+          <p class="note-meta" data-graph-detail-meta></p>
+          <h2 data-graph-detail-title></h2>
+          <p data-graph-detail-summary></p>
+          <div class="graph-topic-list" data-graph-detail-topics></div>
+          <a class="pill-link graph-open-link" data-graph-detail-link href="#">Open Bite →</a>
+          <div class="graph-neighbors">
+            <h3>Direct connections</h3>
+            <ul data-graph-neighbors></ul>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <noscript>
+      <p class="graph-noscript">The interactive graph requires JavaScript. Browse the same content through <a href="{{ '/papers/' | relative_url }}">Paper Bites</a> or <a href="{{ '/data/' | relative_url }}">Data Bites</a>.</p>
+    </noscript>
+  </section>
+
+  <section class="graph-directory-section" aria-labelledby="graph-directory-title">
+    <div class="grid-section-head">
+      <h2 id="graph-directory-title" class="section-label">Graph Directory</h2>
+      <span class="section-count">Accessible list / same data</span>
+    </div>
+    <div class="graph-directory" data-graph-directory></div>
+  </section>
+</main>
+
+<script src="{{ '/assets/js/knowledge-graph.js' | relative_url }}" defer></script>

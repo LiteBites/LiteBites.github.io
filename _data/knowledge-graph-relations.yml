@@ -1,0 +1,4 @@
+# Optional reviewed relationships that cannot be inferred from shared metadata.
+# Node IDs use the form "paper:slug" or "dataset:slug". Bare slugs default
+# to Paper Bites. The graph generator validates every source and target.
+relations: []

@@ -1,0 +1,850 @@
+{
+  "schemaVersion": 1,
+  "generatorVersion": 2,
+  "nodes": [
+    {
+      "id": "dataset:kolektor-sdd2",
+      "slug": "kolektor-sdd2",
+      "type": "dataset",
+      "title": "KolektorSDD2",
+      "shortTitle": "KolektorSDD2",
+      "url": "/data/kolektor-sdd2/",
+      "summary": "A surface-quality inspection dataset for studying defect segmentation under sparse and imbalanced manufacturing defect conditions.",
+      "date": null,
+      "meta": "Manufacturing / Surface defect segmentation",
+      "topics": [
+        "Anomaly Detection",
+        "Datasets",
+        "Industrial AI",
+        "Manufacturing",
+        "Surface defect segmentation"
+      ],
+      "topicWeights": {
+        "Anomaly Detection": 1,
+        "Datasets": 1,
+        "Industrial AI": 1,
+        "Manufacturing": 3,
+        "Surface defect segmentation": 3
+      },
+      "sourceHash": "f12784013b60e3cb70b4b726dca02cc78092cb904c935d2d157ea80173534bda",
+      "sourcePath": "_datasets/kolektor-sdd2.md"
+    },
+    {
+      "id": "dataset:medmnist",
+      "slug": "medmnist",
+      "type": "dataset",
+      "title": "MedMNIST",
+      "shortTitle": "MedMNIST",
+      "url": "/data/medmnist/",
+      "summary": "A standardized collection of 2D and 3D biomedical image classification datasets with MNIST-like size options for fast medical imaging experiments.",
+      "date": null,
+      "meta": "Biomedical imaging / Classification benchmark",
+      "topics": [
+        "Biomedical imaging",
+        "Classification benchmark",
+        "Computer Vision",
+        "Datasets"
+      ],
+      "topicWeights": {
+        "Biomedical imaging": 3,
+        "Classification benchmark": 3,
+        "Computer Vision": 1,
+        "Datasets": 1
+      },
+      "sourceHash": "6707735a5abab1f8503f5e52ed09d5807224b55a1fc9d213238a95120b1e2111",
+      "sourcePath": "_datasets/medmnist.md"
+    },
+    {
+      "id": "dataset:mvtec-ad",
+      "slug": "mvtec-ad",
+      "type": "dataset",
+      "title": "MVTec AD",
+      "shortTitle": "MVTec AD",
+      "url": "/data/mvtec-ad/",
+      "summary": "A real-world industrial anomaly detection dataset with defect-free training images, anomalous test images, and pixel-level annotations.",
+      "date": null,
+      "meta": "Industrial inspection / Unsupervised anomaly detection",
+      "topics": [
+        "Anomaly Detection",
+        "Computer Vision",
+        "Datasets",
+        "Industrial AI",
+        "Industrial inspection",
+        "Unsupervised anomaly detection"
+      ],
+      "topicWeights": {
+        "Anomaly Detection": 1,
+        "Computer Vision": 1,
+        "Datasets": 1,
+        "Industrial AI": 1,
+        "Industrial inspection": 3,
+        "Unsupervised anomaly detection": 3
+      },
+      "sourceHash": "adb6c56f5e50e8cb759636e48f762f6b4d57497f8b7a0a9524a1fc26681ee872",
+      "sourcePath": "_datasets/mvtec-ad.md"
+    },
+    {
+      "id": "paper:controlnet",
+      "slug": "controlnet",
+      "type": "paper",
+      "title": "Adding Conditional Control to Text-to-Image Diffusion Models",
+      "shortTitle": "ControlNet",
+      "url": "/posts/controlnet/",
+      "summary": "ControlNet adds spatial conditioning to pretrained text-to-image diffusion models while protecting the original model's generation quality through zero-initialized control branches.",
+      "date": "2025-05-21",
+      "meta": "ICCV 2023 / 7 min read",
+      "topics": [
+        "Computer Vision",
+        "Diffusion Models",
+        "Generative AI",
+        "Generative Models"
+      ],
+      "topicWeights": {
+        "Computer Vision": 1,
+        "Diffusion Models": 3,
+        "Generative AI": 1,
+        "Generative Models": 3
+      },
+      "sourceHash": "b8c1cb200dd202b11d47af208cc8422e1e1f724a9e1ca9e81d8e2720f0b2f1ab",
+      "sourcePath": "_posts/2025-05-21-controlnet.md"
+    },
+    {
+      "id": "paper:chain-of-zoom",
+      "slug": "chain-of-zoom",
+      "type": "paper",
+      "title": "Chain-of-Zoom: Extreme Super-Resolution via Scale Autoregression and Preference Alignment",
+      "shortTitle": "Chain-of-Zoom",
+      "url": "/posts/chain-of-zoom/",
+      "summary": "Chain-of-Zoom treats extreme super-resolution as a sequence of zoom steps, using multi-scale prompts and preference alignment to guide details beyond a model's usual scale range.",
+      "date": "2025-05-28",
+      "meta": "NeurIPS 2025 / 7 min read",
+      "topics": [
+        "Language Models",
+        "Multimodal AI",
+        "Super-Resolution",
+        "Vision-Language Models"
+      ],
+      "topicWeights": {
+        "Language Models": 1,
+        "Multimodal AI": 1,
+        "Super-Resolution": 3,
+        "Vision-Language Models": 3
+      },
+      "sourceHash": "a929843725c82a4bc71195445882fca7bf22e4e9f823dfc5d37276e6ddcef02b",
+      "sourcePath": "_posts/2025-05-28-chain-of-zoom.md"
+    },
+    {
+      "id": "paper:dreambooth",
+      "slug": "dreambooth",
+      "type": "paper",
+      "title": "DreamBooth: Fine Tuning Text-to-Image Diffusion Models for Subject-Driven Generation",
+      "shortTitle": "DreamBooth",
+      "url": "/posts/dreambooth/",
+      "summary": "DreamBooth turns subject-driven image generation into a lightweight personalization problem: bind a rare token to a specific subject, then regularize fine-tuning so the model keeps both the subject identity and the broader class prior.",
+      "date": "2026-05-28",
+      "meta": "CVPR 2023 / 6 min read",
+      "topics": [
+        "Computer Vision",
+        "Diffusion Models",
+        "Generative AI",
+        "Image Generation",
+        "Personalization",
+        "Transfer & Adaptation"
+      ],
+      "topicWeights": {
+        "Computer Vision": 1,
+        "Diffusion Models": 3,
+        "Generative AI": 1,
+        "Image Generation": 3,
+        "Personalization": 3,
+        "Transfer & Adaptation": 1
+      },
+      "sourceHash": "0a182c327118a18d8b7c4148fbd4ccedee9d6fd3a4b4be50d120d592e3a67ccb",
+      "sourcePath": "_posts/2026-05-28-dreambooth.md"
+    },
+    {
+      "id": "paper:pagedattention",
+      "slug": "pagedattention",
+      "type": "paper",
+      "title": "Efficient Memory Management for Large Language Model Serving with PagedAttention",
+      "shortTitle": "PagedAttention",
+      "url": "/posts/pagedattention/",
+      "summary": "PagedAttention treats the key-value cache like virtual memory, letting vLLM allocate and share fixed-size blocks on demand so more requests fit into each serving batch.",
+      "date": "2026-08-14",
+      "meta": "SOSP 2023 / 6 min read",
+      "topics": [
+        "Efficient AI",
+        "Inference",
+        "LLM Serving",
+        "Language Models",
+        "Memory Management",
+        "Systems"
+      ],
+      "topicWeights": {
+        "Efficient AI": 1,
+        "Inference": 3,
+        "LLM Serving": 3,
+        "Language Models": 1,
+        "Memory Management": 3,
+        "Systems": 3
+      },
+      "sourceHash": "0198c24ef30a2c6885d2ea5af21c872b060690cdb9a80a74fdb770f446e92887",
+      "sourcePath": "_posts/2026-08-14-pagedattention.md"
+    },
+    {
+      "id": "paper:lance-unified-multimodal",
+      "slug": "lance-unified-multimodal",
+      "type": "paper",
+      "title": "Lance: Unified Multimodal Modeling by Multi-Task Synergy",
+      "shortTitle": "Lance",
+      "url": "/posts/lance-unified-multimodal/",
+      "summary": "Lance argues that a unified image-video model works better when tasks share context but not every representation or parameter path, combining multi-task training with separate understanding and generation routes.",
+      "date": "2026-05-25",
+      "meta": "arXiv 2026 / 7 min read",
+      "topics": [
+        "Computer Vision",
+        "Generative AI",
+        "Image Generation",
+        "Multimodal AI",
+        "Multimodal Models",
+        "Video Generation"
+      ],
+      "topicWeights": {
+        "Computer Vision": 1,
+        "Generative AI": 1,
+        "Image Generation": 3,
+        "Multimodal AI": 1,
+        "Multimodal Models": 3,
+        "Video Generation": 3
+      },
+      "sourceHash": "11c81697832572ad3be843567eb23b2064995490672abf28faee2659af807403",
+      "sourcePath": "_posts/2026-05-25-lance-unified-multimodal.md"
+    },
+    {
+      "id": "paper:lora",
+      "slug": "lora",
+      "type": "paper",
+      "title": "LoRA: Low-Rank Adaptation of Large Language Models",
+      "shortTitle": "LoRA",
+      "url": "/posts/lora/",
+      "summary": "LoRA freezes a pretrained language model and learns small low-rank update matrices, making task adaptation much cheaper to train, store, and switch.",
+      "date": "2025-05-26",
+      "meta": "ICLR 2022 / 6 min read",
+      "topics": [
+        "Efficient AI",
+        "Efficient Tuning",
+        "Language Models",
+        "Large Language Models",
+        "Transfer & Adaptation"
+      ],
+      "topicWeights": {
+        "Efficient AI": 1,
+        "Efficient Tuning": 3,
+        "Language Models": 1,
+        "Large Language Models": 3,
+        "Transfer & Adaptation": 1
+      },
+      "sourceHash": "9d678238134a31f5ff19dd1f440381b099db56875a5f9cdee73b3e14f6956fc9",
+      "sourcePath": "_posts/2025-05-26-lora.md"
+    },
+    {
+      "id": "paper:mmr-ad",
+      "slug": "mmr-ad",
+      "type": "paper",
+      "title": "MMR-AD: A Large-Scale Multimodal Dataset for Benchmarking General Anomaly Detection with Multimodal Large Language Models",
+      "shortTitle": "MMR-AD",
+      "url": "/posts/mmr-ad/",
+      "summary": "MMR-AD builds a large multimodal industrial anomaly benchmark with reasoning traces, localization annotations, and cross-dataset evaluation splits, then uses it to show that current generalist MLLMs still struggle badly on practical anomaly detection and especially anomaly localization.",
+      "date": "2026-07-07",
+      "meta": "CVPR 2026 / 7 min read",
+      "topics": [
+        "Anomaly Detection",
+        "Datasets",
+        "Industrial AI",
+        "Industrial Vision",
+        "Language Models",
+        "Multimodal AI",
+        "Multimodal Models"
+      ],
+      "topicWeights": {
+        "Anomaly Detection": 3,
+        "Datasets": 3,
+        "Industrial AI": 1,
+        "Industrial Vision": 3,
+        "Language Models": 1,
+        "Multimodal AI": 1,
+        "Multimodal Models": 3
+      },
+      "sourceHash": "c328af791206daed639c95a26738031b98fad7f39c8177258b38d26f47acec47",
+      "sourcePath": "_posts/2026-07-07-mmr-ad.md"
+    },
+    {
+      "id": "paper:moeclip",
+      "slug": "moeclip",
+      "type": "paper",
+      "title": "MoECLIP: Patch-Specialized Experts for Zero-shot Anomaly Detection",
+      "shortTitle": "MoECLIP",
+      "url": "/posts/moeclip/",
+      "summary": "MoECLIP adapts CLIP to zero-shot anomaly detection by routing each patch through specialized LoRA experts, then explicitly separating those experts so patch-level specialization improves without giving up CLIP's transfer ability.",
+      "date": "2026-07-05",
+      "meta": "CVPR 2026 / 6 min read",
+      "topics": [
+        "Anomaly Detection",
+        "CLIP",
+        "Mixture of Experts",
+        "Zero-Shot Anomaly Detection"
+      ],
+      "topicWeights": {
+        "Anomaly Detection": 1,
+        "CLIP": 3,
+        "Mixture of Experts": 3,
+        "Zero-Shot Anomaly Detection": 3
+      },
+      "sourceHash": "93390cf8c4faa53beb3db01a1d0b66a9b1f14645c8fe22d1f26db8456b75a190",
+      "sourcePath": "_posts/2026-07-05-moeclip.md"
+    },
+    {
+      "id": "paper:ditto-video-editing",
+      "slug": "ditto-video-editing",
+      "type": "paper",
+      "title": "Scaling Instruction-Based Video Editing with a High-Quality Synthetic Dataset",
+      "shortTitle": "Ditto",
+      "url": "/posts/ditto-video-editing/",
+      "summary": "Ditto turns instruction-based video editing into a data problem first: it builds a million-sample synthetic dataset, then trains Editto with curriculum learning to follow text edits more reliably.",
+      "date": "2026-05-22",
+      "meta": "arXiv 2025 / 7 min read",
+      "topics": [
+        "Datasets",
+        "Generative AI",
+        "Generative Models",
+        "Video Editing"
+      ],
+      "topicWeights": {
+        "Datasets": 3,
+        "Generative AI": 1,
+        "Generative Models": 3,
+        "Video Editing": 3
+      },
+      "sourceHash": "b53f110f2b2e8cc28c05de86b437ec71f1899ad89b2115ca3d68ff58e6600fd9",
+      "sourcePath": "_posts/2026-05-22-ditto-video-editing.md"
+    },
+    {
+      "id": "paper:seal-generalization",
+      "slug": "seal-generalization",
+      "type": "paper",
+      "title": "Simulated Annealing in Early Layers Leads to Better Generalization",
+      "shortTitle": "SEAL",
+      "url": "/posts/seal-generalization/",
+      "summary": "SEAL improves iterative training by perturbing early layers with short bursts of gradient ascent instead of resetting later layers, leading to better in-distribution accuracy and much stronger transfer behavior than LLF.",
+      "date": "2026-05-26",
+      "meta": "CVPR 2023 / 6 min read",
+      "topics": [
+        "Generalization",
+        "Optimization",
+        "Transfer & Adaptation",
+        "Transfer Learning"
+      ],
+      "topicWeights": {
+        "Generalization": 3,
+        "Optimization": 3,
+        "Transfer & Adaptation": 1,
+        "Transfer Learning": 3
+      },
+      "sourceHash": "7f20fa8fe788f2891323a4b491d812dc8e6ccaf94e172a0523b54cfbdc8acf15",
+      "sourcePath": "_posts/2026-05-26-seal-generalization.md"
+    },
+    {
+      "id": "paper:slm-agents",
+      "slug": "slm-agents",
+      "type": "paper",
+      "title": "Small Language Models are the Future of Agentic AI",
+      "shortTitle": "SLMs for Agentic AI",
+      "url": "/posts/slm-agents/",
+      "summary": "This position paper argues for SLM-first agents: route repetitive, narrow calls to specialized small models and retain large models for tasks that need broad generality.",
+      "date": "2026-08-14",
+      "meta": "arXiv preprint (v2, 2025) / 5 min read",
+      "topics": [
+        "Agentic AI",
+        "Efficient AI",
+        "Efficient Inference",
+        "Language Models",
+        "Model Routing",
+        "Small Language Models"
+      ],
+      "topicWeights": {
+        "Agentic AI": 3,
+        "Efficient AI": 1,
+        "Efficient Inference": 3,
+        "Language Models": 1,
+        "Model Routing": 3,
+        "Small Language Models": 3
+      },
+      "sourceHash": "a6b7785404e2983d961824f0b6a91c578c1fd838e334bd9ccf42b695f0150d21",
+      "sourcePath": "_posts/2026-08-14-slm-agents.md"
+    },
+    {
+      "id": "paper:thinksound",
+      "slug": "thinksound",
+      "type": "paper",
+      "title": "ThinkSound: Chain-of-Thought Reasoning in Multimodal Large Language Models for Audio Generation and Editing",
+      "shortTitle": "ThinkSound",
+      "url": "/posts/thinksound/",
+      "summary": "ThinkSound treats video-to-audio as a reasoning problem rather than a one-shot mapping, using multimodal chain-of-thought to guide a unified model through foley generation, object-focused refinement, and instruction-based editing.",
+      "date": "2026-05-28",
+      "meta": "NeurIPS 2025 / 7 min read",
+      "topics": [
+        "Audio Generation",
+        "Chain-of-Thought",
+        "Generative AI",
+        "Language Models",
+        "Multimodal AI",
+        "Multimodal Models"
+      ],
+      "topicWeights": {
+        "Audio Generation": 3,
+        "Chain-of-Thought": 3,
+        "Generative AI": 1,
+        "Language Models": 1,
+        "Multimodal AI": 1,
+        "Multimodal Models": 3
+      },
+      "sourceHash": "554104fa3595485de561bf0c2e1e61ccca863ca3e427869f9c2e3cf71d4d9074",
+      "sourcePath": "_posts/2026-05-28-thinksound.md"
+    },
+    {
+      "id": "paper:vit-comer",
+      "slug": "vit-comer",
+      "type": "paper",
+      "title": "ViT-CoMer: Vision Transformer with Convolutional Multi-scale Feature Interaction for Dense Predictions",
+      "shortTitle": "ViT-CoMer",
+      "url": "/posts/vit-comer/",
+      "summary": "ViT-CoMer keeps the flexibility of a plain Vision Transformer, then adds a parallel convolutional branch so dense prediction tasks can use richer multi-scale features.",
+      "date": "2025-05-20",
+      "meta": "CVPR 2024 / 7 min read",
+      "topics": [
+        "Computer Vision",
+        "Dense Prediction"
+      ],
+      "topicWeights": {
+        "Computer Vision": 3,
+        "Dense Prediction": 3
+      },
+      "sourceHash": "6c4dddc8dff6bd4dc3954dcf59b3b3e297bdafa04dcecf747661f915fa058d8b",
+      "sourcePath": "_posts/2025-05-20-vit-comer.md"
+    }
+  ],
+  "edges": [
+    {
+      "id": "dataset:kolektor-sdd2|dataset:mvtec-ad",
+      "source": "dataset:kolektor-sdd2",
+      "target": "dataset:mvtec-ad",
+      "relation": "shared-topic",
+      "label": "Anomaly Detection · Datasets · Industrial AI",
+      "topics": [
+        "Anomaly Detection",
+        "Datasets",
+        "Industrial AI"
+      ],
+      "weight": 3,
+      "provenance": "metadata"
+    },
+    {
+      "id": "dataset:kolektor-sdd2|paper:ditto-video-editing",
+      "source": "dataset:kolektor-sdd2",
+      "target": "paper:ditto-video-editing",
+      "relation": "shared-topic",
+      "label": "Datasets",
+      "topics": [
+        "Datasets"
+      ],
+      "weight": 2,
+      "provenance": "metadata"
+    },
+    {
+      "id": "dataset:kolektor-sdd2|paper:mmr-ad",
+      "source": "dataset:kolektor-sdd2",
+      "target": "paper:mmr-ad",
+      "relation": "shared-topic",
+      "label": "Anomaly Detection · Datasets · Industrial AI",
+      "topics": [
+        "Anomaly Detection",
+        "Datasets",
+        "Industrial AI"
+      ],
+      "weight": 4,
+      "provenance": "metadata"
+    },
+    {
+      "id": "dataset:kolektor-sdd2|paper:moeclip",
+      "source": "dataset:kolektor-sdd2",
+      "target": "paper:moeclip",
+      "relation": "shared-topic",
+      "label": "Anomaly Detection",
+      "topics": [
+        "Anomaly Detection"
+      ],
+      "weight": 2,
+      "provenance": "metadata"
+    },
+    {
+      "id": "dataset:medmnist|dataset:mvtec-ad",
+      "source": "dataset:medmnist",
+      "target": "dataset:mvtec-ad",
+      "relation": "shared-topic",
+      "label": "Computer Vision · Datasets",
+      "topics": [
+        "Computer Vision",
+        "Datasets"
+      ],
+      "weight": 2,
+      "provenance": "metadata"
+    },
+    {
+      "id": "dataset:medmnist|paper:controlnet",
+      "source": "dataset:medmnist",
+      "target": "paper:controlnet",
+      "relation": "shared-topic",
+      "label": "Computer Vision",
+      "topics": [
+        "Computer Vision"
+      ],
+      "weight": 2,
+      "provenance": "metadata"
+    },
+    {
+      "id": "dataset:medmnist|paper:ditto-video-editing",
+      "source": "dataset:medmnist",
+      "target": "paper:ditto-video-editing",
+      "relation": "shared-topic",
+      "label": "Datasets",
+      "topics": [
+        "Datasets"
+      ],
+      "weight": 2,
+      "provenance": "metadata"
+    },
+    {
+      "id": "dataset:medmnist|paper:dreambooth",
+      "source": "dataset:medmnist",
+      "target": "paper:dreambooth",
+      "relation": "shared-topic",
+      "label": "Computer Vision",
+      "topics": [
+        "Computer Vision"
+      ],
+      "weight": 2,
+      "provenance": "metadata"
+    },
+    {
+      "id": "dataset:medmnist|paper:lance-unified-multimodal",
+      "source": "dataset:medmnist",
+      "target": "paper:lance-unified-multimodal",
+      "relation": "shared-topic",
+      "label": "Computer Vision",
+      "topics": [
+        "Computer Vision"
+      ],
+      "weight": 2,
+      "provenance": "metadata"
+    },
+    {
+      "id": "dataset:medmnist|paper:vit-comer",
+      "source": "dataset:medmnist",
+      "target": "paper:vit-comer",
+      "relation": "shared-topic",
+      "label": "Computer Vision",
+      "topics": [
+        "Computer Vision"
+      ],
+      "weight": 2,
+      "provenance": "metadata"
+    },
+    {
+      "id": "dataset:mvtec-ad|paper:controlnet",
+      "source": "dataset:mvtec-ad",
+      "target": "paper:controlnet",
+      "relation": "shared-topic",
+      "label": "Computer Vision",
+      "topics": [
+        "Computer Vision"
+      ],
+      "weight": 2,
+      "provenance": "metadata"
+    },
+    {
+      "id": "dataset:mvtec-ad|paper:dreambooth",
+      "source": "dataset:mvtec-ad",
+      "target": "paper:dreambooth",
+      "relation": "shared-topic",
+      "label": "Computer Vision",
+      "topics": [
+        "Computer Vision"
+      ],
+      "weight": 2,
+      "provenance": "metadata"
+    },
+    {
+      "id": "dataset:mvtec-ad|paper:mmr-ad",
+      "source": "dataset:mvtec-ad",
+      "target": "paper:mmr-ad",
+      "relation": "shared-topic",
+      "label": "Anomaly Detection · Datasets · Industrial AI",
+      "topics": [
+        "Anomaly Detection",
+        "Datasets",
+        "Industrial AI"
+      ],
+      "weight": 4,
+      "provenance": "metadata"
+    },
+    {
+      "id": "dataset:mvtec-ad|paper:moeclip",
+      "source": "dataset:mvtec-ad",
+      "target": "paper:moeclip",
+      "relation": "shared-topic",
+      "label": "Anomaly Detection",
+      "topics": [
+        "Anomaly Detection"
+      ],
+      "weight": 2,
+      "provenance": "metadata"
+    },
+    {
+      "id": "dataset:mvtec-ad|paper:vit-comer",
+      "source": "dataset:mvtec-ad",
+      "target": "paper:vit-comer",
+      "relation": "shared-topic",
+      "label": "Computer Vision",
+      "topics": [
+        "Computer Vision"
+      ],
+      "weight": 2,
+      "provenance": "metadata"
+    },
+    {
+      "id": "paper:chain-of-zoom|paper:lance-unified-multimodal",
+      "source": "paper:chain-of-zoom",
+      "target": "paper:lance-unified-multimodal",
+      "relation": "shared-topic",
+      "label": "Multimodal AI",
+      "topics": [
+        "Multimodal AI"
+      ],
+      "weight": 1,
+      "provenance": "metadata"
+    },
+    {
+      "id": "paper:chain-of-zoom|paper:mmr-ad",
+      "source": "paper:chain-of-zoom",
+      "target": "paper:mmr-ad",
+      "relation": "shared-topic",
+      "label": "Language Models · Multimodal AI",
+      "topics": [
+        "Language Models",
+        "Multimodal AI"
+      ],
+      "weight": 2,
+      "provenance": "metadata"
+    },
+    {
+      "id": "paper:chain-of-zoom|paper:thinksound",
+      "source": "paper:chain-of-zoom",
+      "target": "paper:thinksound",
+      "relation": "shared-topic",
+      "label": "Language Models · Multimodal AI",
+      "topics": [
+        "Language Models",
+        "Multimodal AI"
+      ],
+      "weight": 2,
+      "provenance": "metadata"
+    },
+    {
+      "id": "paper:controlnet|paper:ditto-video-editing",
+      "source": "paper:controlnet",
+      "target": "paper:ditto-video-editing",
+      "relation": "shared-topic",
+      "label": "Generative AI · Generative Models",
+      "topics": [
+        "Generative AI",
+        "Generative Models"
+      ],
+      "weight": 4,
+      "provenance": "metadata"
+    },
+    {
+      "id": "paper:controlnet|paper:dreambooth",
+      "source": "paper:controlnet",
+      "target": "paper:dreambooth",
+      "relation": "shared-topic",
+      "label": "Computer Vision · Diffusion Models · Generative AI",
+      "topics": [
+        "Computer Vision",
+        "Diffusion Models",
+        "Generative AI"
+      ],
+      "weight": 5,
+      "provenance": "metadata"
+    },
+    {
+      "id": "paper:ditto-video-editing|paper:mmr-ad",
+      "source": "paper:ditto-video-editing",
+      "target": "paper:mmr-ad",
+      "relation": "shared-topic",
+      "label": "Datasets",
+      "topics": [
+        "Datasets"
+      ],
+      "weight": 3,
+      "provenance": "metadata"
+    },
+    {
+      "id": "paper:dreambooth|paper:lance-unified-multimodal",
+      "source": "paper:dreambooth",
+      "target": "paper:lance-unified-multimodal",
+      "relation": "shared-topic",
+      "label": "Computer Vision · Generative AI · Image Generation",
+      "topics": [
+        "Computer Vision",
+        "Generative AI",
+        "Image Generation"
+      ],
+      "weight": 5,
+      "provenance": "metadata"
+    },
+    {
+      "id": "paper:dreambooth|paper:lora",
+      "source": "paper:dreambooth",
+      "target": "paper:lora",
+      "relation": "shared-topic",
+      "label": "Transfer & Adaptation",
+      "topics": [
+        "Transfer & Adaptation"
+      ],
+      "weight": 1,
+      "provenance": "metadata"
+    },
+    {
+      "id": "paper:dreambooth|paper:seal-generalization",
+      "source": "paper:dreambooth",
+      "target": "paper:seal-generalization",
+      "relation": "shared-topic",
+      "label": "Transfer & Adaptation",
+      "topics": [
+        "Transfer & Adaptation"
+      ],
+      "weight": 1,
+      "provenance": "metadata"
+    },
+    {
+      "id": "paper:lance-unified-multimodal|paper:mmr-ad",
+      "source": "paper:lance-unified-multimodal",
+      "target": "paper:mmr-ad",
+      "relation": "shared-topic",
+      "label": "Multimodal AI · Multimodal Models",
+      "topics": [
+        "Multimodal AI",
+        "Multimodal Models"
+      ],
+      "weight": 4,
+      "provenance": "metadata"
+    },
+    {
+      "id": "paper:lance-unified-multimodal|paper:thinksound",
+      "source": "paper:lance-unified-multimodal",
+      "target": "paper:thinksound",
+      "relation": "shared-topic",
+      "label": "Generative AI · Multimodal AI · Multimodal Models",
+      "topics": [
+        "Generative AI",
+        "Multimodal AI",
+        "Multimodal Models"
+      ],
+      "weight": 5,
+      "provenance": "metadata"
+    },
+    {
+      "id": "paper:lora|paper:pagedattention",
+      "source": "paper:lora",
+      "target": "paper:pagedattention",
+      "relation": "shared-topic",
+      "label": "Efficient AI · Language Models",
+      "topics": [
+        "Efficient AI",
+        "Language Models"
+      ],
+      "weight": 2,
+      "provenance": "metadata"
+    },
+    {
+      "id": "paper:lora|paper:seal-generalization",
+      "source": "paper:lora",
+      "target": "paper:seal-generalization",
+      "relation": "shared-topic",
+      "label": "Transfer & Adaptation",
+      "topics": [
+        "Transfer & Adaptation"
+      ],
+      "weight": 1,
+      "provenance": "metadata"
+    },
+    {
+      "id": "paper:lora|paper:slm-agents",
+      "source": "paper:lora",
+      "target": "paper:slm-agents",
+      "relation": "shared-topic",
+      "label": "Efficient AI · Language Models",
+      "topics": [
+        "Efficient AI",
+        "Language Models"
+      ],
+      "weight": 2,
+      "provenance": "metadata"
+    },
+    {
+      "id": "paper:mmr-ad|paper:moeclip",
+      "source": "paper:mmr-ad",
+      "target": "paper:moeclip",
+      "relation": "shared-topic",
+      "label": "Anomaly Detection",
+      "topics": [
+        "Anomaly Detection"
+      ],
+      "weight": 1,
+      "provenance": "metadata"
+    },
+    {
+      "id": "paper:mmr-ad|paper:thinksound",
+      "source": "paper:mmr-ad",
+      "target": "paper:thinksound",
+      "relation": "shared-topic",
+      "label": "Language Models · Multimodal AI · Multimodal Models",
+      "topics": [
+        "Language Models",
+        "Multimodal AI",
+        "Multimodal Models"
+      ],
+      "weight": 5,
+      "provenance": "metadata"
+    },
+    {
+      "id": "paper:pagedattention|paper:slm-agents",
+      "source": "paper:pagedattention",
+      "target": "paper:slm-agents",
+      "relation": "shared-topic",
+      "label": "Efficient AI · Language Models",
+      "topics": [
+        "Efficient AI",
+        "Language Models"
+      ],
+      "weight": 2,
+      "provenance": "metadata"
+    }
+  ],
+  "stats": {
+    "nodes": 16,
+    "edges": 32,
+    "papers": 13,
+    "datasets": 3
+  }
+}

@@ -9,6 +9,10 @@ timezone: Asia/Seoul
 # the subdomain code, e.g. "litebites" for https://litebites.goatcounter.com.
 goatcounter_code: "litebites"
 
+# Modular graph explorer. Set enabled to false to hide site navigation to it.
+knowledge_graph:
+  enabled: true
+
 permalink: /posts/:title/
 
 collections:
@@ -44,3 +48,4 @@ exclude:
   - Gemfile.lock
   - README.md
   - POLICY_POST.md
+  - scripts

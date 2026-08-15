@@ -1,0 +1,451 @@
+.knowledge-graph-page {
+  --graph-paper: var(--ink);
+  --graph-dataset: #5c5b55;
+  --graph-edge: color-mix(in srgb, var(--ink) 24%, transparent);
+}
+
+.graph-intro h1 {
+  font-size: clamp(50px, 6.4vw, 98px);
+}
+
+.graph-section,
+.graph-directory-section {
+  border-bottom: 1px solid var(--line);
+}
+
+.graph-toolbar {
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) auto auto;
+  align-items: end;
+  gap: 12px;
+  padding: 14px var(--pad);
+  border-bottom: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.graph-search {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 12px;
+  max-width: 560px;
+  font: 600 10px/1 "IBM Plex Mono", monospace;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.graph-search input {
+  width: 100%;
+  min-height: 44px;
+  padding: 0 14px;
+  color: var(--ink);
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 0;
+  font: 500 13px/1 "IBM Plex Mono", monospace;
+}
+
+.graph-search input:focus-visible {
+  border-color: var(--line-strong);
+  outline: 3px solid var(--signal);
+  outline-offset: 1px;
+}
+
+.graph-filter-group,
+.graph-view-controls {
+  display: flex;
+  gap: 8px;
+}
+
+.graph-filter,
+.graph-view-controls button {
+  min-height: 44px;
+  padding: 0 15px;
+  color: var(--ink);
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  cursor: pointer;
+  font: 600 10px/1 "IBM Plex Mono", monospace;
+  letter-spacing: .035em;
+  text-transform: uppercase;
+}
+
+.graph-view-controls button:first-child,
+.graph-view-controls button:last-child {
+  width: 44px;
+  padding: 0;
+  font-size: 18px;
+}
+
+.graph-filter:hover,
+.graph-filter:focus-visible,
+.graph-view-controls button:hover,
+.graph-view-controls button:focus-visible,
+.graph-filter.is-active {
+  color: var(--signal-ink);
+  background: var(--signal);
+  border-color: var(--line-strong);
+  outline: none;
+}
+
+.graph-filter:not(.is-active) {
+  color: var(--muted);
+}
+
+.graph-workspace {
+  display: grid;
+  grid-template-columns: minmax(0, 2.1fr) minmax(290px, .9fr);
+  min-height: 720px;
+  border-bottom: 1px solid var(--line);
+}
+
+.graph-stage-wrap {
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+  border-right: 1px solid var(--line);
+  background:
+    linear-gradient(90deg, transparent 49.8%, color-mix(in srgb, var(--ink) 7%, transparent) 50%, transparent 50.2%),
+    linear-gradient(transparent 49.8%, color-mix(in srgb, var(--ink) 7%, transparent) 50%, transparent 50.2%),
+    var(--grid-bg);
+  background-size: 48px 48px;
+}
+
+.graph-stage {
+  width: 100%;
+  height: 720px;
+  display: block;
+  overflow: hidden;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+}
+
+.graph-stage.is-panning { cursor: grabbing; }
+
+.graph-edge {
+  stroke: var(--graph-edge);
+  stroke-width: 1.5;
+  vector-effect: non-scaling-stroke;
+  transition: opacity 140ms ease, stroke 140ms ease, stroke-width 140ms ease;
+}
+
+.graph-edge[hidden],
+.graph-node[hidden] { display: none; }
+
+.graph-edge.is-related {
+  stroke: var(--ink);
+  stroke-width: 2.5;
+}
+
+.graph-edge.is-dim { opacity: .08; }
+
+.graph-node {
+  color: var(--ink);
+  cursor: pointer;
+  outline: none;
+  transition: opacity 140ms ease;
+}
+
+.graph-node-shape {
+  fill: var(--surface);
+  stroke: var(--ink);
+  stroke-width: 2;
+  vector-effect: non-scaling-stroke;
+  transition: fill 140ms ease, stroke 140ms ease, stroke-width 140ms ease;
+}
+
+.graph-node[data-type="dataset"] .graph-node-shape {
+  fill: var(--grid-bg);
+  stroke-dasharray: 5 3;
+}
+
+.graph-node-label {
+  fill: var(--ink);
+  font: 600 13px/1 "IBM Plex Sans", sans-serif;
+  letter-spacing: -.02em;
+  pointer-events: none;
+  paint-order: stroke;
+  stroke: var(--bg);
+  stroke-width: 4px;
+  stroke-linejoin: round;
+}
+
+.graph-node-type {
+  fill: var(--muted);
+  font: 500 8px/1 "IBM Plex Mono", monospace;
+  letter-spacing: .04em;
+  pointer-events: none;
+  text-transform: uppercase;
+  paint-order: stroke;
+  stroke: var(--bg);
+  stroke-width: 3px;
+}
+
+.graph-node:hover .graph-node-shape,
+.graph-node:focus-visible .graph-node-shape,
+.graph-node.is-selected .graph-node-shape {
+  fill: var(--signal);
+  stroke: var(--signal-ink);
+  stroke-width: 4;
+  stroke-dasharray: none;
+}
+
+.graph-node.is-selected .graph-node-label,
+.graph-node.is-selected .graph-node-type {
+  fill: var(--signal-ink);
+  stroke: var(--signal);
+}
+
+.graph-node.is-dim { opacity: .12; }
+.graph-node.is-search-match .graph-node-shape { stroke-width: 5; }
+
+.graph-legend {
+  position: absolute;
+  left: 16px;
+  bottom: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  padding: 10px 12px;
+  color: var(--muted);
+  background: color-mix(in srgb, var(--bg) 92%, transparent);
+  border: 1px solid var(--line);
+  font: 500 9px/1 "IBM Plex Mono", monospace;
+  text-transform: uppercase;
+}
+
+.graph-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.legend-shape {
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  border: 1px solid var(--ink);
+  background: var(--surface);
+}
+.legend-paper { border-radius: 50%; }
+.legend-dataset { transform: rotate(45deg) scale(.82); border-style: dashed; }
+.legend-line { width: 18px; height: 1px; display: inline-block; background: var(--muted); }
+
+.graph-status {
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  max-width: 260px;
+  margin: 0;
+  padding: 7px 9px;
+  color: var(--muted);
+  background: color-mix(in srgb, var(--bg) 92%, transparent);
+  border: 1px solid var(--line);
+  font: 500 9px/1.3 "IBM Plex Mono", monospace;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+.graph-inspector {
+  min-width: 0;
+  padding: clamp(26px, 3vw, 44px) var(--pad);
+  background: var(--surface);
+}
+
+.graph-inspector > .kicker { margin-bottom: clamp(54px, 7vw, 94px); }
+
+.graph-inspector h2 {
+  margin: 0 0 20px;
+  overflow-wrap: break-word;
+  font-size: clamp(30px, 2.6vw, 42px);
+  line-height: .94;
+  letter-spacing: -.05em;
+  text-transform: uppercase;
+}
+
+.graph-inspector-empty p,
+.graph-inspector-content > p:not(.note-meta) {
+  margin: 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.graph-inspector-content .note-meta { margin-bottom: 18px; }
+
+.graph-topic-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 26px 0;
+}
+
+.graph-topic-list span {
+  padding: 6px 8px;
+  border: 1px solid var(--line);
+  font: 500 9px/1 "IBM Plex Mono", monospace;
+  text-transform: uppercase;
+}
+
+.graph-open-link { margin-top: 4px; }
+
+.graph-neighbors {
+  margin-top: 42px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+
+.graph-neighbors h3 {
+  margin: 0 0 12px;
+  font: 600 10px/1 "IBM Plex Mono", monospace;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.graph-neighbors ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.graph-neighbor-button {
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 12px;
+  padding: 12px 0;
+  color: var(--ink);
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  cursor: pointer;
+  text-align: left;
+}
+
+.graph-neighbor-button:hover,
+.graph-neighbor-button:focus-visible {
+  color: var(--signal-ink);
+  background: var(--signal);
+  outline: 4px solid var(--signal);
+}
+
+.graph-neighbor-title {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.graph-neighbor-relation {
+  color: var(--muted);
+  font: 500 8px/1.3 "IBM Plex Mono", monospace;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+.graph-neighbor-button:hover .graph-neighbor-relation { color: var(--signal-ink); }
+
+.graph-noscript {
+  margin: 0;
+  padding: 20px var(--pad);
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+}
+
+.graph-directory {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  background: var(--line);
+  gap: 1px;
+}
+
+.graph-directory-item {
+  min-width: 0;
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 22px;
+  padding: 22px var(--pad);
+  color: var(--ink);
+  background: var(--surface);
+  text-decoration: none;
+}
+
+.graph-directory-item:hover,
+.graph-directory-item:focus-visible {
+  color: var(--signal-ink);
+  background: var(--signal);
+  outline: none;
+}
+
+.graph-directory-item[hidden] { display: none; }
+
+.graph-directory-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--muted);
+  font: 500 9px/1.3 "IBM Plex Mono", monospace;
+  text-transform: uppercase;
+}
+
+.graph-directory-item:hover .graph-directory-meta { color: var(--signal-ink); }
+
+.graph-directory-item h3 {
+  margin: 0;
+  overflow-wrap: anywhere;
+  font-size: clamp(23px, 2.6vw, 36px);
+  line-height: .98;
+  letter-spacing: -.04em;
+  text-transform: uppercase;
+}
+
+.graph-directory-topics {
+  margin: 0;
+  color: var(--muted);
+  font: 500 9px/1.5 "IBM Plex Mono", monospace;
+  text-transform: uppercase;
+}
+
+.graph-directory-item:hover .graph-directory-topics { color: var(--signal-ink); }
+
+.graph-error {
+  padding: 40px;
+  color: var(--ink);
+  font: 600 13px/1.5 "IBM Plex Mono", monospace;
+  text-align: center;
+}
+
+@media (max-width: 980px) {
+  .graph-toolbar { grid-template-columns: 1fr auto; }
+  .graph-search { grid-column: 1 / -1; max-width: none; }
+  .graph-workspace { grid-template-columns: 1fr; }
+  .graph-stage-wrap { border-right: 0; border-bottom: 1px solid var(--line); }
+  .graph-stage { height: 620px; }
+  .graph-inspector { min-height: 430px; }
+  .graph-inspector > .kicker { margin-bottom: 48px; }
+}
+
+@media (max-width: 620px) {
+  .graph-intro h1 { font-size: clamp(40px, 13.5vw, 50px); overflow-wrap: anywhere; }
+  .graph-toolbar { grid-template-columns: 1fr; align-items: stretch; }
+  .graph-search { grid-template-columns: 1fr; gap: 7px; }
+  .graph-filter-group,
+  .graph-view-controls { width: 100%; }
+  .graph-filter { flex: 1; padding-inline: 9px; }
+  .graph-view-controls button:nth-child(2) { flex: 1; }
+  .graph-stage { height: 500px; }
+  .graph-status { left: 12px; right: auto; top: 12px; text-align: left; }
+  .graph-legend { left: 12px; right: 12px; bottom: 12px; }
+  .graph-inspector { min-height: 380px; }
+  .graph-directory { grid-template-columns: 1fr; }
+  .graph-directory-item { min-height: 132px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .graph-edge,
+  .graph-node,
+  .graph-node-shape { transition: none; }
+}
