@@ -6,42 +6,49 @@ description: Curated public datasets for AI, computer vision, and applied resear
 permalink: /data/
 ---
 
-<main id="main" class="page-shell">
-  <section class="page-intro" aria-labelledby="data-bites-title">
-    <p class="eyebrow">Data Bites</p>
-    <h1 id="data-bites-title">Public datasets worth keeping close.</h1>
-    <p class="lede">
-      A lightweight index of useful public datasets: what they contain, what they are good for,
-      and what to check before using them in a project.
-    </p>
+<main id="main">
+  {% assign datasets = site.datasets | sort: "title" %}
+  <section class="index-intro data-intro" aria-labelledby="data-bites-title">
+    <div>
+      <p class="kicker">Data Bites / Index</p>
+      <h1 id="data-bites-title">Public data.<br /><span>Useful context.</span></h1>
+    </div>
+    <div class="index-intro-copy">
+      <p>A lightweight index of useful public datasets: what they contain, what they are good for, and what to check before using them in a project.</p>
+      <p class="index-stat"><strong>{{ datasets.size }}</strong><span>curated datasets<br />with caveats</span></p>
+    </div>
   </section>
 
-  <section class="data-grid" aria-label="Data Bites index">
-    {% assign datasets = site.datasets | sort: "title" %}
-    {% for dataset in datasets %}
+  <section aria-labelledby="data-index-title">
+    <div class="grid-section-head">
+      <h2 id="data-index-title" class="section-label">Dataset Index</h2>
+      <span class="section-count">A–Z / public resources</span>
+    </div>
+    <div class="data-grid">
+      {% for dataset in datasets %}
       <article class="data-card">
         {% if dataset.image %}
           <a class="data-card-image" href="{{ dataset.url | relative_url }}" aria-label="Read {{ dataset.title }}">
+            <span class="paper-card-number">DATA—0{{ forloop.index }}</span>
             <img src="{{ dataset.image | relative_url }}" alt="{{ dataset.image_alt | default: dataset.title | escape }}" loading="lazy" />
           </a>
         {% endif %}
         <div class="data-card-body">
-          <p class="note-meta">{{ dataset.domain }} · {{ dataset.task }}</p>
+          <p class="note-meta">{{ dataset.domain }} / {{ dataset.task }}</p>
           <h2><a href="{{ dataset.url | relative_url }}">{{ dataset.title }}</a></h2>
           <p>{{ dataset.summary }}</p>
-          <p class="dataset-facts">
-            <strong>Use for:</strong> {{ dataset.use_for }}<br />
-            <strong>Scale:</strong> {{ dataset.scale }}<br />
-            <strong>Watch out:</strong> {{ dataset.caveat }}
-          </p>
-          <div class="data-card-actions">
-            <a class="text-link" href="{{ dataset.url | relative_url }}">Read bite</a>
-            {% if dataset.dataset_url %}
-              <a class="text-link" href="{{ dataset.dataset_url }}">Dataset</a>
-            {% endif %}
+          <dl class="dataset-facts">
+            <div><dt>Use for</dt><dd>{{ dataset.use_for }}</dd></div>
+            <div><dt>Scale</dt><dd>{{ dataset.scale }}</dd></div>
+            <div><dt>Watch</dt><dd>{{ dataset.caveat }}</dd></div>
+          </dl>
+          <div class="card-read-row">
+            <a href="{{ dataset.url | relative_url }}">Read Data Bite</a>
+            {% if dataset.dataset_url %}<a href="{{ dataset.dataset_url }}">Dataset ↗</a>{% endif %}
           </div>
         </div>
       </article>
-    {% endfor %}
+      {% endfor %}
+    </div>
   </section>
 </main>

@@ -2,36 +2,81 @@
 layout: default
 title: Home
 nav: home
-description: LiteBites is a minimal research blog for bite-sized AI and computer science paper notes.
+description: LiteBites is a research blog for focused AI and computer science paper notes.
 ---
 
-<main id="main" class="page-shell">
-  <section class="hero" aria-labelledby="hero-title">
-    <p class="eyebrow">Bite-sized articles</p>
-    <h1 id="hero-title">Read papers lightly. Keep the ideas carefully.</h1>
-    <p class="lede">
-      LiteBites is a quiet place for short notes on AI and computer science papers:
-      the problem, the core idea, why it matters, and what to try next.
-    </p>
+<main id="main">
+  <section class="grid-hero" aria-labelledby="hero-title">
+    <div class="grid-hero-title">
+      <p class="kicker">Bite-sized research notes</p>
+      <h1 id="hero-title">Read papers <span>lightly.</span></h1>
+    </div>
+    <div class="grid-hero-copy">
+      <p>Keep the ideas carefully. Focused notes on AI and computer science—built for readers who want the argument, evidence, and limits without the noise.</p>
+      <ol class="reading-rules">
+        <li>Why the paper matters</li>
+        <li>The central idea</li>
+        <li>How the method works</li>
+        <li>What the evidence actually shows</li>
+      </ol>
+    </div>
   </section>
 
-  <section class="section" aria-labelledby="latest-title">
-    <div class="section-head">
-      <h2 id="latest-title">Latest Paper Bite</h2>
-      <a class="text-link" href="{{ '/papers/' | relative_url }}">View all Paper Bites</a>
+  <section aria-labelledby="latest-title">
+    <div class="grid-section-head">
+      <h2 id="latest-title" class="section-label">Latest Paper Bites</h2>
+      <span class="section-count">03 selected / updated {{ site.time | date: '%Y.%m' }}</span>
     </div>
 
-    {% assign latest = site.posts | first %}
-    {% if latest %}
-      <article class="feature-note">
-        <div>
-          <p class="note-meta">{{ latest.type | default: 'Paper brief' }} · {{ latest.read_time }}</p>
-          <h3>{{ latest.title }}</h3>
-          <p>{{ latest.summary }}</p>
+    <div class="featured-grid">
+      {% for post in site.posts limit:3 %}
+      <a class="paper-card" href="{{ post.url | relative_url }}">
+        <div class="paper-card-visual">
+          <span class="paper-card-number">LATEST—0{{ forloop.index }}</span>
+          {% if post.card_image %}
+            <img src="{{ post.card_image | relative_url }}" alt="{{ post.card_image_alt | default: post.short_title | default: post.title | escape }}" />
+          {% else %}
+            <span class="paper-card-monogram" aria-hidden="true">{{ post.short_title | default: post.title | truncate: 18 }}</span>
+          {% endif %}
         </div>
-        <a class="button" href="{{ latest.url | relative_url }}">Read note</a>
-      </article>
-    {% endif %}
+        <div class="paper-card-info">
+          <p class="note-meta">
+            {% if post.tags and post.tags.size > 0 %}<span>{{ post.tags | first }}</span>{% endif %}
+            <span>{{ post.read_time }}</span>
+            <span>{{ post.venue }}</span>
+          </p>
+          <h3>{{ post.short_title | default: post.title }}</h3>
+          <p>{{ post.summary }}</p>
+          <span class="card-read-row"><span>Read Paper Bite</span><span>→</span></span>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
   </section>
 
+  <section class="archive-preview" aria-labelledby="archive-preview-title">
+    <div class="archive-heading">
+      <h2 id="archive-preview-title">From the archive.</h2>
+      <a class="pill-link" href="{{ '/papers/' | relative_url }}">View all papers →</a>
+    </div>
+    <div class="archive-list">
+      {% for post in site.posts offset:3 limit:4 %}
+      <a class="archive-row" href="{{ post.url | relative_url }}">
+        <span class="archive-index">0{{ forloop.index }}</span>
+        <h3>{{ post.short_title | default: post.title }}</h3>
+        <span class="archive-tags">{{ post.tags | slice: 0, 2 | join: ' / ' }} / {{ post.read_time }}</span>
+        <span class="archive-arrow" aria-hidden="true">→</span>
+      </a>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="manifesto" aria-labelledby="method-title">
+    <div class="manifesto-title"><h2 id="method-title">Less summary.<br />More signal.</h2></div>
+    <div class="manifesto-copy">
+      <p>Every note separates the paper’s claim from its evidence—and its evidence from our interpretation.</p>
+      <p>No invented results. No decorative figures. No certainty where the paper leaves questions open.</p>
+      <a class="pill-link" href="{{ '/papers/' | relative_url }}">Start reading ↑</a>
+    </div>
+  </section>
 </main>

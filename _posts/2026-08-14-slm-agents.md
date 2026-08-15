@@ -12,6 +12,8 @@ tags:
   - Model Routing
   - Efficient Inference
 summary: "This position paper argues for SLM-first agents: route repetitive, narrow calls to specialized small models and retain large models for tasks that need broad generality."
+card_image: "/assets/images/papers/slm-agents/method-01.png"
+card_image_alt: "Agent architecture diagram from the SLM agents paper"
 paper_url: "https://arxiv.org/abs/2506.02153v2"
 project_url: "https://research.nvidia.com/labs/lpr/slm-agents/"
 ---

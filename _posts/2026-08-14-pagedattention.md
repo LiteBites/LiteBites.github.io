@@ -12,6 +12,8 @@ tags:
   - Memory Management
   - Inference
 summary: "PagedAttention treats the key-value cache like virtual memory, letting vLLM allocate and share fixed-size blocks on demand so more requests fit into each serving batch."
+card_image: "/assets/images/papers/pagedattention/method-01.png"
+card_image_alt: "PagedAttention method diagram"
 paper_url: "https://dl.acm.org/doi/10.1145/3600006.3613165"
 project_url: "https://vllm.ai/"
 code_url: "https://github.com/vllm-project/vllm"

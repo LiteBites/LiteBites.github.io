@@ -6,26 +6,36 @@ description: Browse LiteBites paper briefs and research notes.
 permalink: /papers/
 ---
 
-<main id="main" class="page-shell">
-  <section class="page-intro" aria-labelledby="paper-bites-title">
-    <p class="eyebrow">Paper Bites</p>
-    <h1 id="paper-bites-title">Small notes for reading research papers carefully.</h1>
-    <p class="lede">
-      Each Paper Bite is a focused Markdown note: why the paper matters, the core idea,
-      how it works, what to inspect in the results, and practical takeaways.
-    </p>
+<main id="main">
+  <section class="index-intro" aria-labelledby="paper-bites-title">
+    <div>
+      <p class="kicker">Paper Bites / Archive</p>
+      <h1 id="paper-bites-title">Small notes.<br /><span>Careful reading.</span></h1>
+    </div>
+    <div class="index-intro-copy">
+      <p>Each Paper Bite is a focused Markdown note: why the paper matters, the core idea, how it works, what to inspect in the results, and practical takeaways.</p>
+      <p class="index-stat"><strong>{{ site.posts.size }}</strong><span>research notes<br />and counting</span></p>
+    </div>
   </section>
 
-  <section class="post-index" aria-label="Paper Bites index">
-    {% for post in site.posts %}
-      <article class="post-row">
-        <div>
-          <p class="note-meta">{{ post.type | default: 'Paper brief' }} · {{ post.read_time }}</p>
-          <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+  <section class="paper-archive" aria-labelledby="paper-archive-title">
+    <div class="grid-section-head">
+      <h2 id="paper-archive-title" class="section-label">All Paper Bites</h2>
+      <span class="section-count">Newest first</span>
+    </div>
+    <div class="paper-archive-list">
+      {% for post in site.posts %}
+      <a class="paper-archive-row" href="{{ post.url | relative_url }}">
+        <span class="paper-archive-index">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span>
+        <div class="paper-archive-main">
+          <p class="note-meta">{{ post.date | date: '%Y.%m.%d' }} / {{ post.read_time }} / {{ post.venue }}</p>
+          <h3>{{ post.title }}</h3>
           <p>{{ post.summary }}</p>
         </div>
-        <a class="text-link" href="{{ post.url | relative_url }}">Read</a>
-      </article>
-    {% endfor %}
+        <span class="paper-archive-tags">{{ post.tags | slice: 0, 3 | join: ' / ' }}</span>
+        <span class="archive-arrow" aria-hidden="true">→</span>
+      </a>
+      {% endfor %}
+    </div>
   </section>
 </main>
