@@ -20,5 +20,25 @@ layout: default
     <div class="post-body">
       {{ content }}
     </div>
+
+    {% if page.previous or page.next %}
+      <nav id="paper-bite-navigation" class="post-pagination" aria-label="Paper Bite navigation">
+        <div class="post-pagination-links">
+          {% if page.previous %}
+            <a class="post-pagination-card post-pagination-previous" href="{{ page.previous.url | relative_url }}" rel="prev">
+              <span class="post-pagination-label">← Previous</span>
+              <span class="post-pagination-title">{{ page.previous.title }}</span>
+            </a>
+          {% endif %}
+
+          {% if page.next %}
+            <a class="post-pagination-card post-pagination-next" href="{{ page.next.url | relative_url }}" rel="next">
+              <span class="post-pagination-label">Next →</span>
+              <span class="post-pagination-title">{{ page.next.title }}</span>
+            </a>
+          {% endif %}
+        </div>
+      </nav>
+    {% endif %}
   </article>
 </main>

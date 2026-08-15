@@ -402,6 +402,66 @@ h3 {
   background: var(--line-strong);
 }
 
+.post-pagination {
+  margin-top: 64px;
+  padding-top: 34px;
+  border-top: 1px solid var(--line);
+}
+
+.post-pagination-links {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  align-items: stretch;
+}
+
+.post-pagination-card {
+  min-width: 0;
+  min-height: 112px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--ink);
+  background: var(--surface);
+  text-decoration: none;
+}
+
+.post-pagination-card:hover {
+  border-color: var(--line-strong);
+  background: var(--nav-active);
+}
+
+.post-pagination-card:focus-visible {
+  border-color: var(--line-strong);
+  background: var(--nav-active);
+  outline: 2px solid var(--line-strong);
+  outline-offset: 2px;
+}
+
+.post-pagination-label {
+  color: var(--faint);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.post-pagination-title {
+  overflow-wrap: anywhere;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.post-pagination-previous { grid-column: 1; }
+
+.post-pagination-next {
+  grid-column: 2;
+  text-align: right;
+}
+
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -616,6 +676,17 @@ h3 {
   .post-row .text-link { display: inline-block; margin-top: 18px; }
   .post-body figure { margin: 22px 0; }
   .post-body figcaption { font-size: 13px; }
+  .post-pagination { margin-top: 48px; }
+  .post-pagination-links { grid-template-columns: 1fr; }
+  .post-pagination-previous,
+  .post-pagination-next {
+    grid-column: 1;
+  }
+  .post-pagination-card {
+    width: 100%;
+    min-height: 96px;
+  }
+  .post-pagination-next { text-align: left; }
   .gallery-grid,
   .data-grid { grid-template-columns: 1fr; }
   .site-footer p + p { margin-top: 8px; }
