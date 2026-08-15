@@ -1,0 +1,86 @@
+# Machine-readable archive profile for Paper Bites.
+# Editorial policy and house style remain authoritative in POLICY_POST.md.
+
+schema_version = 1
+adapter = "jekyll"
+archive_name = "LiteBites Paper Bites"
+default_language = "en"
+
+[paths]
+content_dir = "_posts"
+assets_dir = "assets/images/papers/{slug}"
+filename_template = "{published_date}-{slug}.md"
+path_base = "archive-root"
+collision_policy = "stop"
+
+[metadata]
+format = "yaml-frontmatter"
+required = [
+  "layout",
+  "title",
+  "short_title",
+  "date",
+  "type",
+  "read_time",
+  "venue",
+  "tags",
+  "summary",
+  "paper_url",
+]
+optional = [
+  "project_url",
+  "code_url",
+  "source_note_url",
+  "card_image",
+  "card_image_alt",
+]
+tags_field = "tags"
+
+[metadata.field_map]
+source_url = "paper_url"
+
+[body]
+sections = [
+  "Why this paper matters",
+  "The bite",
+  "How it works",
+  "What to look at in the results",
+  "Practical takeaways",
+  "Links",
+]
+min_words = 900
+max_words = 1800
+
+[figures]
+mode = "recommended"
+preferred_count = 2
+link_style = "liquid"
+require_alt_text = true
+require_provenance = true
+hotlink_external_images = false
+
+[[hooks.after_write]]
+name = "knowledge-graph"
+enabled = true
+command = "ruby scripts/generate_knowledge_graph.rb"
+working_directory = "."
+deterministic = true
+idempotence_check = true
+mutates_editorial_markdown = false
+expected_outputs = [
+  "_data/knowledge-graph-state.json",
+  "assets/data/knowledge-graph.json",
+]
+
+[validation]
+commands = ["bundle exec jekyll build"]
+build_destination = "_site"
+check_relative_links = true
+check_local_images = true
+check_external_sources = true
+inspect_generated_entry = true
+
+[publishing]
+mode = "review-only"
+allow_commit_after_explicit_approval = true
+allow_remote_publish_after_explicit_approval = true
