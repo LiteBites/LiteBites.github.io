@@ -40,6 +40,7 @@
     <header class="site-header">
       <nav class="nav" aria-label="Main navigation">
         <div class="nav-links">
+          <a {% if page.nav == 'articles' %}aria-current="page"{% endif %} href="{{ '/articles/' | relative_url }}">Article Bites</a>
           <a {% if page.nav == 'papers' %}aria-current="page"{% endif %} href="{{ '/papers/' | relative_url }}">Paper Bites</a>
           <a {% if page.nav == 'data' %}aria-current="page"{% endif %} href="{{ '/data/' | relative_url }}">Data Bites</a>
           {% if site.knowledge_graph.enabled %}<a {% if page.nav == 'graph' %}aria-current="page"{% endif %} href="{{ '/graph/' | relative_url }}">Graph</a>{% endif %}
@@ -66,6 +67,7 @@
         <div class="footer-cell">
           <p class="footer-label">Browse</p>
           <div class="footer-links">
+            <a href="{{ '/articles/' | relative_url }}">Article Bites</a>
             <a href="{{ '/papers/' | relative_url }}">Paper Bites</a>
             <a href="{{ '/data/' | relative_url }}">Data Bites</a>
             {% if site.knowledge_graph.enabled %}<a href="{{ '/graph/' | relative_url }}">Knowledge Graph</a>{% endif %}

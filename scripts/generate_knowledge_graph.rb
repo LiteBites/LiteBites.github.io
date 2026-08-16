@@ -13,7 +13,7 @@ OUTPUT = File.join(ROOT, "assets", "data", "knowledge-graph.json")
 STATE = File.join(ROOT, "_data", "knowledge-graph-state.json")
 CURATED = File.join(ROOT, "_data", "knowledge-graph-relations.yml")
 SCHEMA_VERSION = 1
-GENERATOR_VERSION = 2
+GENERATOR_VERSION = 3
 MAX_INFERRED_NEIGHBORS = 4
 
 CONCEPT_RULES = {
@@ -56,13 +56,13 @@ end
 def node_from(path, type)
   data, source = front_matter(path)
   slug = slug_for(path, type)
-  direct_topics = if type == "paper"
+  direct_topics = if %w[paper article].include?(type)
                     clean_list(data["tags"])
                   else
                     clean_list([data["domain"], data["task"]])
                   end
   searchable = [
-    data["title"], data["short_title"], data["summary"], data["domain"], data["task"],
+    data["title"], data["short_title"], data["summary"], data["source_name"], data["domain"], data["task"],
     data["use_for"], direct_topics.join(" ")
   ].compact.join(" ")
   concepts = CONCEPT_RULES.filter_map do |topic, patterns|
@@ -83,10 +83,18 @@ def node_from(path, type)
     "type" => type,
     "title" => data.fetch("title"),
     "shortTitle" => data["short_title"] || data.fetch("title"),
-    "url" => type == "paper" ? "/posts/#{slug}/" : "/data/#{slug}/",
+    "url" => case type
+             when "paper" then "/posts/#{slug}/"
+             when "article" then "/articles/#{slug}/"
+             else "/data/#{slug}/"
+             end,
     "summary" => data["summary"].to_s,
     "date" => date,
-    "meta" => type == "paper" ? [data["venue"], data["read_time"]].compact.join(" / ") : [data["domain"], data["task"]].compact.join(" / "),
+    "meta" => case type
+              when "paper" then [data["venue"], data["read_time"]].compact.join(" / ")
+              when "article" then [data["source_name"], data["read_time"]].compact.join(" / ")
+              else [data["domain"], data["task"]].compact.join(" / ")
+              end,
     "topics" => topics,
     "topicWeights" => topic_weights,
     "sourceHash" => Digest::SHA256.hexdigest(source),
@@ -175,7 +183,8 @@ existing_nodes = Array(existing["nodes"]).to_h { |node| [node["sourcePath"], nod
 existing_edges = Array(existing["edges"])
 compatible = existing["schemaVersion"] == SCHEMA_VERSION && existing["generatorVersion"] == GENERATOR_VERSION
 
-sources = Dir.glob(File.join(ROOT, "_posts", "*.md")).sort.map { |path| [path, "paper"] } +
+sources = Dir.glob(File.join(ROOT, "_articles", "*.md")).sort.map { |path| [path, "article"] } +
+          Dir.glob(File.join(ROOT, "_posts", "*.md")).sort.map { |path| [path, "paper"] } +
           Dir.glob(File.join(ROOT, "_datasets", "*.md")).sort.map { |path| [path, "dataset"] }
 
 nodes = []
@@ -228,6 +237,7 @@ edges = top_edges(edges).sort_by { |edge| [edge["source"], edge["target"], edge[
 stats = {
   "nodes" => nodes.length,
   "edges" => edges.length,
+  "articles" => nodes.count { |node| node["type"] == "article" },
   "papers" => nodes.count { |node| node["type"] == "paper" },
   "datasets" => nodes.count { |node| node["type"] == "dataset" }
 }

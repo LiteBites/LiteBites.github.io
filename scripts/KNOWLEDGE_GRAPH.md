@@ -1,7 +1,7 @@
 # LiteBites Knowledge Graph
 
-The graph is an independent, static feature. It reads Paper Bite and Data Bite
-source files but does not modify them.
+The graph is an independent, static feature. It reads Article Bite, Paper Bite,
+and Data Bite source files but does not modify them.
 
 ## Update the graph
 
@@ -13,7 +13,7 @@ ruby scripts/generate_knowledge_graph.rb
 
 The generator:
 
-1. hashes every Paper Bite and Data Bite source;
+1. hashes every Article Bite, Paper Bite, and Data Bite source;
 2. reuses cached nodes and accepted edges for unchanged sources;
 3. processes only new, changed, or removed sources;
 4. retrieves candidate neighbors through a topic index rather than comparing
@@ -39,8 +39,8 @@ relations:
       - Anomaly Detection
 ```
 
-Node IDs use `paper:slug` or `dataset:slug`. The generator stops with an error
-if a curated relationship references a missing node.
+Node IDs use `article:slug`, `paper:slug`, or `dataset:slug`. The generator
+stops with an error if a curated relationship references a missing node.
 
 Metadata-derived relationships use `shared-topic` and retain the shared topic
 names as provenance. Future LLM suggestions should be reviewed before they are
@@ -67,5 +67,5 @@ Complete removal requires deleting:
 - this file
 
 Then remove the graph-only conditionals from `_layouts/default.html` and the
-`knowledge_graph` configuration block. No Paper Bite or Data Bite needs to be
-edited.
+`knowledge_graph` configuration block. No Article Bite, Paper Bite, or Data
+Bite needs to be edited.

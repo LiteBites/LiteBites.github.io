@@ -3,7 +3,7 @@ layout: default
 title: Knowledge Graph
 nav: graph
 graph_page: true
-description: Explore relationships among LiteBites papers and datasets.
+description: Explore relationships among LiteBites articles, papers, and datasets.
 permalink: /graph/
 ---
 
@@ -33,11 +33,12 @@ permalink: /graph/
         <span>Search</span>
         <input type="search" placeholder="Title or topic" autocomplete="off" data-graph-search />
       </label>
-      <div class="graph-filter-group" aria-label="Content type filters">
+      <div class="graph-filter-group" role="group" aria-label="Content type filters">
+        <button type="button" class="graph-filter is-active" aria-pressed="true" data-graph-type="article">Article Bites</button>
         <button type="button" class="graph-filter is-active" aria-pressed="true" data-graph-type="paper">Paper Bites</button>
         <button type="button" class="graph-filter is-active" aria-pressed="true" data-graph-type="dataset">Data Bites</button>
       </div>
-      <div class="graph-view-controls" aria-label="Graph view controls">
+      <div class="graph-view-controls" role="group" aria-label="Graph view controls">
         <button type="button" data-graph-zoom-out aria-label="Zoom out">−</button>
         <button type="button" data-graph-reset>Reset</button>
         <button type="button" data-graph-zoom-in aria-label="Zoom in">+</button>
@@ -46,15 +47,16 @@ permalink: /graph/
 
     <div class="graph-workspace">
       <div class="graph-stage-wrap">
-        <svg class="graph-stage" viewBox="0 0 1000 700" role="img" aria-labelledby="graph-svg-title graph-svg-description" data-graph-svg>
+        <svg class="graph-stage" viewBox="0 0 1000 700" role="group" aria-labelledby="graph-svg-title graph-svg-description" data-graph-svg>
           <title id="graph-svg-title">LiteBites knowledge graph</title>
-          <desc id="graph-svg-description">An interactive network of Paper Bites and Data Bites connected by shared research topics.</desc>
+          <desc id="graph-svg-description">An interactive network of Article Bites, Paper Bites, and Data Bites connected by shared research topics.</desc>
           <g data-graph-viewport>
             <g class="graph-edges" data-graph-edges></g>
             <g class="graph-nodes" data-graph-nodes></g>
           </g>
         </svg>
         <div class="graph-legend" aria-label="Graph legend">
+          <span><i class="legend-shape legend-article" aria-hidden="true"></i>Article Bite</span>
           <span><i class="legend-shape legend-paper" aria-hidden="true"></i>Paper Bite</span>
           <span><i class="legend-shape legend-dataset" aria-hidden="true"></i>Data Bite</span>
           <span><i class="legend-line" aria-hidden="true"></i>Shared topic</span>
@@ -66,7 +68,7 @@ permalink: /graph/
         <p class="kicker">Selected Bite</p>
         <div class="graph-inspector-empty" data-graph-empty>
           <h2 id="graph-inspector-title">Choose a node.</h2>
-          <p>Select any Paper Bite or Data Bite to see its topics and immediate relationships.</p>
+          <p>Select any Article Bite, Paper Bite, or Data Bite to see its topics and immediate relationships.</p>
         </div>
         <div class="graph-inspector-content" data-graph-detail hidden>
           <p class="note-meta" data-graph-detail-meta></p>
@@ -83,7 +85,7 @@ permalink: /graph/
     </div>
 
     <noscript>
-      <p class="graph-noscript">The interactive graph requires JavaScript. Browse the same content through <a href="{{ '/papers/' | relative_url }}">Paper Bites</a> or <a href="{{ '/data/' | relative_url }}">Data Bites</a>.</p>
+      <p class="graph-noscript">The interactive graph requires JavaScript. Browse the same content through <a href="{{ '/articles/' | relative_url }}">Article Bites</a>, <a href="{{ '/papers/' | relative_url }}">Paper Bites</a>, or <a href="{{ '/data/' | relative_url }}">Data Bites</a>.</p>
     </noscript>
   </section>
 

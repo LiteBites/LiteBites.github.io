@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatorVersion": 2,
+  "generatorVersion": 3,
   "nodes": [
     {
       "id": "dataset:kolektor-sdd2",
@@ -701,6 +701,7 @@
   "stats": {
     "nodes": 16,
     "edges": 32,
+    "articles": 0,
     "papers": 13,
     "datasets": 3
   }

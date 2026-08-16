@@ -18,6 +18,9 @@ permalink: /posts/:title/
 collections:
   posts:
     output: true
+  articles:
+    output: true
+    permalink: /articles/:name/
   datasets:
     output: true
     permalink: /data/:name/
@@ -29,6 +32,12 @@ defaults:
     values:
       layout: post
       type: Paper brief
+  - scope:
+      path: ""
+      type: "articles"
+    values:
+      layout: article
+      type: Article Bite
   - scope:
       path: ""
       type: "datasets"
@@ -48,4 +57,5 @@ exclude:
   - Gemfile.lock
   - README.md
   - POLICY_POST.md
+  - POLICY_ARTICLE.md
   - scripts

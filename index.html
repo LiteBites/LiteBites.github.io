@@ -22,6 +22,35 @@ description: LiteBites is a research blog for focused AI and computer science pa
     </div>
   </section>
 
+  {% assign latest_articles = site.articles | sort: "date" | reverse %}
+  <section class="article-home" aria-labelledby="latest-articles-title">
+    <div class="grid-section-head">
+      <h2 id="latest-articles-title" class="section-label">Latest Article Bites</h2>
+      <a class="section-count section-link" href="{{ '/articles/' | relative_url }}">Newest first →</a>
+    </div>
+    {% if latest_articles.size > 0 %}
+      <div class="article-home-list">
+        {% for article in latest_articles limit:2 %}
+          <a class="article-home-row" href="{{ article.url | relative_url }}">
+            <span class="article-home-index">ARTICLE—0{{ forloop.index }}</span>
+            <div>
+              <p class="note-meta">{{ article.date | date: '%Y.%m.%d' }} / {{ article.source_name }} / {{ article.read_time }}</p>
+              <h3>{{ article.short_title | default: article.title }}</h3>
+              <p>{{ article.summary }}</p>
+            </div>
+            <span class="archive-arrow" aria-hidden="true">→</span>
+          </a>
+        {% endfor %}
+      </div>
+    {% else %}
+      <a class="article-home-empty" href="{{ '/articles/' | relative_url }}">
+        <span class="article-home-index">ARTICLE—00</span>
+        <span>The first Article Bite is being prepared.</span>
+        <span aria-hidden="true">→</span>
+      </a>
+    {% endif %}
+  </section>
+
   <section aria-labelledby="latest-title">
     <div class="grid-section-head">
       <h2 id="latest-title" class="section-label">Latest Paper Bites</h2>

@@ -23,7 +23,8 @@
   var nodeCount = root.querySelector('[data-graph-node-count]');
   var edgeCount = root.querySelector('[data-graph-edge-count]');
   var typeButtons = Array.prototype.slice.call(root.querySelectorAll('[data-graph-type]'));
-  var activeTypes = new Set(['paper', 'dataset']);
+  var activeTypes = new Set(['article', 'paper', 'dataset']);
+  var TYPE_RANK = { article: 0, paper: 1, dataset: 2 };
   var graph = null;
   var byId = new Map();
   var adjacency = new Map();
@@ -52,6 +53,12 @@
 
   function isVisible(node) {
     return activeTypes.has(node.type);
+  }
+
+  function typeLabel(type) {
+    if (type === 'article') return 'Article Bite';
+    if (type === 'paper') return 'Paper Bite';
+    return 'Data Bite';
   }
 
   function shortLabel(value) {
@@ -83,7 +90,7 @@
     nodes.forEach(function (node, index) {
       var angle = index * 2.399963229728653;
       var radius = 70 + Math.sqrt(index + 1) * 68;
-      var typeOffset = node.type === 'dataset' ? 65 : -10;
+      var typeOffset = node.type === 'article' ? -65 : (node.type === 'dataset' ? 65 : -10);
       local.set(node.id, {
         x: width / 2 + Math.cos(angle) * radius + typeOffset,
         y: height / 2 + Math.sin(angle) * radius
@@ -189,7 +196,7 @@
     selectedId = id;
     emptyDetail.hidden = true;
     detail.hidden = false;
-    detailMeta.textContent = (node.type === 'paper' ? 'Paper Bite' : 'Data Bite') + (node.meta ? ' / ' + node.meta : '');
+    detailMeta.textContent = typeLabel(node.type) + (node.meta ? ' / ' + node.meta : '');
     detailTitle.textContent = node.title;
     detailSummary.textContent = node.summary;
     detailLink.href = node.url;
@@ -250,12 +257,14 @@
         'data-type': node.type,
         role: 'button',
         tabindex: '0',
-        'aria-label': 'Select ' + node.title + ', ' + (node.type === 'paper' ? 'Paper Bite' : 'Data Bite')
+        'aria-label': 'Select ' + node.title + ', ' + typeLabel(node.type)
       });
       group.setAttribute('transform', 'translate(' + point.x.toFixed(2) + ' ' + point.y.toFixed(2) + ')');
 
       var shape;
-      if (node.type === 'dataset') {
+      if (node.type === 'article') {
+        shape = svgElement('polygon', { points: '0,-15 14,11 -14,11', 'class': 'graph-node-shape' });
+      } else if (node.type === 'dataset') {
         shape = svgElement('rect', { x: -12, y: -12, width: 24, height: 24, transform: 'rotate(45)', 'class': 'graph-node-shape' });
       } else {
         shape = svgElement('circle', { r: 13, 'class': 'graph-node-shape' });
@@ -263,7 +272,7 @@
       var label = svgElement('text', { x: 20, y: 2, 'class': 'graph-node-label' });
       label.textContent = shortLabel(node.shortTitle);
       var type = svgElement('text', { x: 20, y: 15, 'class': 'graph-node-type' });
-      type.textContent = node.type === 'paper' ? 'Paper' : 'Data';
+      type.textContent = typeLabel(node.type).replace(' Bite', '');
       var title = svgElement('title');
       title.textContent = node.title;
       group.appendChild(shape);
@@ -284,7 +293,7 @@
   function renderDirectory() {
     directory.replaceChildren();
     graph.nodes.slice().sort(function (left, right) {
-      return left.type.localeCompare(right.type) || left.title.localeCompare(right.title);
+      return TYPE_RANK[left.type] - TYPE_RANK[right.type] || left.title.localeCompare(right.title);
     }).forEach(function (node) {
       var link = document.createElement('a');
       link.className = 'graph-directory-item';
@@ -293,7 +302,7 @@
       var meta = document.createElement('div');
       meta.className = 'graph-directory-meta';
       var type = document.createElement('span');
-      type.textContent = node.type === 'paper' ? 'Paper Bite' : 'Data Bite';
+      type.textContent = typeLabel(node.type);
       var detail = document.createElement('span');
       detail.textContent = node.meta || '';
       meta.appendChild(type);
@@ -377,7 +386,7 @@
   }
 
   function resetAll() {
-    activeTypes = new Set(['paper', 'dataset']);
+    activeTypes = new Set(['article', 'paper', 'dataset']);
     typeButtons.forEach(function (button) {
       button.classList.add('is-active');
       button.setAttribute('aria-pressed', 'true');
@@ -479,7 +488,7 @@
       summary.textContent = 'Graph unavailable';
       var message = document.createElement('p');
       message.className = 'graph-error';
-      message.textContent = 'The knowledge graph could not be loaded. Browse Paper Bites or Data Bites instead.';
+      message.textContent = 'The knowledge graph could not be loaded. Browse Article Bites, Paper Bites, or Data Bites instead.';
       nodeLayer.parentNode.appendChild(message);
       console.error(error);
     });
