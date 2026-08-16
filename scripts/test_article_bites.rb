@@ -83,7 +83,13 @@ class ArticleBitesSiteTest < Minitest::Test
       FileUtils.mkdir_p(File.join(dir, "_data"))
       FileUtils.cp(File.join(ROOT, "_data", "knowledge-graph-relations.yml"), File.join(dir, "_data"))
       FileUtils.mkdir_p(File.join(dir, "_articles"))
-      File.write(File.join(dir, "_articles", "test-bite.md"), article_fixture(Array.new(410, "evidence").join(" ")))
+      article_content = article_fixture(Array.new(410, "evidence").join(" "))
+        .sub("  - Testing", "  - Agentic AI")
+        .sub(
+          'summary: "A complete test summary that explains why the source matters."',
+          'summary: "A benchmark release with an intentionally narrow metadata topic."'
+        )
+      File.write(File.join(dir, "_articles", "test-bite.md"), article_content)
 
       stdout, stderr, status = Open3.capture3(RbConfig.ruby, File.join(dir, "scripts", "generate_knowledge_graph.rb"))
       assert status.success?, "graph generator failed: #{stdout}#{stderr}"
@@ -91,6 +97,7 @@ class ArticleBitesSiteTest < Minitest::Test
       article = graph.fetch("nodes").find { |node| node["id"] == "article:test-bite" }
       refute_nil article, "graph did not emit article:test-bite"
       assert_equal "/articles/test-bite/", article.fetch("url")
+      assert_equal ["Agentic AI"], article.fetch("topics"), "Article topics must come from reviewed tags only"
       assert_equal 1, graph.fetch("stats").fetch("articles")
     end
   end

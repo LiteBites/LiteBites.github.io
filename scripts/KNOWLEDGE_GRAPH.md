@@ -43,8 +43,11 @@ Node IDs use `article:slug`, `paper:slug`, or `dataset:slug`. The generator
 stops with an error if a curated relationship references a missing node.
 
 Metadata-derived relationships use `shared-topic` and retain the shared topic
-names as provenance. Future LLM suggestions should be reviewed before they are
-added to the curated relationship file.
+names as provenance. Article Bite topics come only from reviewed front-matter
+`tags`; the generator does not infer extra Article topics from prose or summary
+keywords. This prevents incidental terms such as “benchmark” from creating
+misleading Data Bite relationships. Future LLM suggestions should be reviewed
+before they are added to the curated relationship file.
 
 ## Disable or remove
 

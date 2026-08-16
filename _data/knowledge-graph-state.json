@@ -1,7 +1,32 @@
 {
   "schemaVersion": 1,
-  "generatorVersion": 3,
+  "generatorVersion": 4,
   "nodes": [
+    {
+      "id": "article:qwen3-8-max",
+      "slug": "qwen3-8-max",
+      "type": "article",
+      "title": "Qwen3.8-Max Extends Qwen's Agent Push to a 2.4-Trillion-Parameter Model",
+      "shortTitle": "Qwen3.8-Max and Long-Horizon Agents",
+      "url": "/articles/qwen3-8-max/",
+      "summary": "Qwen3.8-Max combines sparse model scale with an agent-focused release, but its strongest autonomy and benchmark claims still need independent testing.",
+      "date": "2026-08-16",
+      "meta": "Qwen Team / 3 min read",
+      "topics": [
+        "Agentic AI",
+        "Language Models",
+        "Multimodal AI",
+        "Open Models"
+      ],
+      "topicWeights": {
+        "Agentic AI": 3,
+        "Language Models": 3,
+        "Multimodal AI": 3,
+        "Open Models": 3
+      },
+      "sourceHash": "a83dabdc8a047b0eb4ca502ec9c0679934a790ff9bb643ca05d787ebfd15f874",
+      "sourcePath": "_articles/qwen3-8-max.md"
+    },
     {
       "id": "dataset:kolektor-sdd2",
       "slug": "kolektor-sdd2",
@@ -435,6 +460,94 @@
   ],
   "edges": [
     {
+      "id": "article:qwen3-8-max|paper:chain-of-zoom",
+      "source": "article:qwen3-8-max",
+      "target": "paper:chain-of-zoom",
+      "relation": "shared-topic",
+      "label": "Language Models · Multimodal AI",
+      "topics": [
+        "Language Models",
+        "Multimodal AI"
+      ],
+      "weight": 3,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:qwen3-8-max|paper:lance-unified-multimodal",
+      "source": "article:qwen3-8-max",
+      "target": "paper:lance-unified-multimodal",
+      "relation": "shared-topic",
+      "label": "Multimodal AI",
+      "topics": [
+        "Multimodal AI"
+      ],
+      "weight": 2,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:qwen3-8-max|paper:lora",
+      "source": "article:qwen3-8-max",
+      "target": "paper:lora",
+      "relation": "shared-topic",
+      "label": "Language Models",
+      "topics": [
+        "Language Models"
+      ],
+      "weight": 2,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:qwen3-8-max|paper:mmr-ad",
+      "source": "article:qwen3-8-max",
+      "target": "paper:mmr-ad",
+      "relation": "shared-topic",
+      "label": "Language Models · Multimodal AI",
+      "topics": [
+        "Language Models",
+        "Multimodal AI"
+      ],
+      "weight": 3,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:qwen3-8-max|paper:pagedattention",
+      "source": "article:qwen3-8-max",
+      "target": "paper:pagedattention",
+      "relation": "shared-topic",
+      "label": "Language Models",
+      "topics": [
+        "Language Models"
+      ],
+      "weight": 2,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:qwen3-8-max|paper:slm-agents",
+      "source": "article:qwen3-8-max",
+      "target": "paper:slm-agents",
+      "relation": "shared-topic",
+      "label": "Agentic AI · Language Models",
+      "topics": [
+        "Agentic AI",
+        "Language Models"
+      ],
+      "weight": 5,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:qwen3-8-max|paper:thinksound",
+      "source": "article:qwen3-8-max",
+      "target": "paper:thinksound",
+      "relation": "shared-topic",
+      "label": "Language Models · Multimodal AI",
+      "topics": [
+        "Language Models",
+        "Multimodal AI"
+      ],
+      "weight": 3,
+      "provenance": "metadata"
+    },
+    {
       "id": "dataset:kolektor-sdd2|dataset:mvtec-ad",
       "source": "dataset:kolektor-sdd2",
       "target": "dataset:mvtec-ad",
@@ -527,18 +640,6 @@
       "id": "dataset:medmnist|paper:dreambooth",
       "source": "dataset:medmnist",
       "target": "paper:dreambooth",
-      "relation": "shared-topic",
-      "label": "Computer Vision",
-      "topics": [
-        "Computer Vision"
-      ],
-      "weight": 2,
-      "provenance": "metadata"
-    },
-    {
-      "id": "dataset:medmnist|paper:lance-unified-multimodal",
-      "source": "dataset:medmnist",
-      "target": "paper:lance-unified-multimodal",
       "relation": "shared-topic",
       "label": "Computer Vision",
       "topics": [
@@ -842,9 +943,9 @@
     }
   ],
   "stats": {
-    "nodes": 16,
-    "edges": 32,
-    "articles": 0,
+    "nodes": 17,
+    "edges": 38,
+    "articles": 1,
     "papers": 13,
     "datasets": 3
   }

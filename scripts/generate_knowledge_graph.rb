@@ -13,7 +13,7 @@ OUTPUT = File.join(ROOT, "assets", "data", "knowledge-graph.json")
 STATE = File.join(ROOT, "_data", "knowledge-graph-state.json")
 CURATED = File.join(ROOT, "_data", "knowledge-graph-relations.yml")
 SCHEMA_VERSION = 1
-GENERATOR_VERSION = 3
+GENERATOR_VERSION = 4
 MAX_INFERRED_NEIGHBORS = 4
 
 CONCEPT_RULES = {
@@ -65,9 +65,13 @@ def node_from(path, type)
     data["title"], data["short_title"], data["summary"], data["source_name"], data["domain"], data["task"],
     data["use_for"], direct_topics.join(" ")
   ].compact.join(" ")
-  concepts = CONCEPT_RULES.filter_map do |topic, patterns|
-    topic if patterns.any? { |pattern| searchable.match?(pattern) }
-  end
+  concepts = if type == "article"
+               []
+             else
+               CONCEPT_RULES.filter_map do |topic, patterns|
+                 topic if patterns.any? { |pattern| searchable.match?(pattern) }
+               end
+             end
 
   topics = (direct_topics + concepts).uniq.sort
   topic_weights = topics.to_h do |topic|
