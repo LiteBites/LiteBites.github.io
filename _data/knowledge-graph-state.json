@@ -3,6 +3,29 @@
   "generatorVersion": 4,
   "nodes": [
     {
+      "id": "article:nvidia-avo-arc-agi-3",
+      "slug": "nvidia-avo-arc-agi-3",
+      "type": "article",
+      "title": "NVIDIA AVO's Perfect ARC-AGI-3 Public-Set Score Tests the Agent, Not Just the Model",
+      "shortTitle": "NVIDIA AVO on ARC-AGI-3",
+      "url": "/articles/nvidia-avo-arc-agi-3/",
+      "summary": "NVIDIA reports a perfect ARC-AGI-3 public-set score for AVO, but the result measures a complete agent harness and leaves private-set generalization, compute cost, and component-level attribution unresolved.",
+      "date": "2026-08-23",
+      "meta": "NVIDIA Technical Blog / 3 min read",
+      "topics": [
+        "Agentic AI",
+        "Language Models",
+        "Reasoning Systems"
+      ],
+      "topicWeights": {
+        "Agentic AI": 3,
+        "Language Models": 3,
+        "Reasoning Systems": 3
+      },
+      "sourceHash": "d264e5edd6920dbdceaddb858c497cbda9179c482b8f5c2449aee70d77598b54",
+      "sourcePath": "_articles/nvidia-avo-arc-agi-3.md"
+    },
+    {
       "id": "article:qwen3-8-max",
       "slug": "qwen3-8-max",
       "type": "article",
@@ -460,6 +483,80 @@
   ],
   "edges": [
     {
+      "id": "article:nvidia-avo-arc-agi-3|article:qwen3-8-max",
+      "source": "article:nvidia-avo-arc-agi-3",
+      "target": "article:qwen3-8-max",
+      "relation": "shared-topic",
+      "label": "Agentic AI · Language Models",
+      "topics": [
+        "Agentic AI",
+        "Language Models"
+      ],
+      "weight": 6,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:nvidia-avo-arc-agi-3|paper:chain-of-zoom",
+      "source": "article:nvidia-avo-arc-agi-3",
+      "target": "paper:chain-of-zoom",
+      "relation": "shared-topic",
+      "label": "Language Models",
+      "topics": [
+        "Language Models"
+      ],
+      "weight": 2,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:nvidia-avo-arc-agi-3|paper:lora",
+      "source": "article:nvidia-avo-arc-agi-3",
+      "target": "paper:lora",
+      "relation": "shared-topic",
+      "label": "Language Models",
+      "topics": [
+        "Language Models"
+      ],
+      "weight": 2,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:nvidia-avo-arc-agi-3|paper:pagedattention",
+      "source": "article:nvidia-avo-arc-agi-3",
+      "target": "paper:pagedattention",
+      "relation": "shared-topic",
+      "label": "Language Models",
+      "topics": [
+        "Language Models"
+      ],
+      "weight": 2,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:nvidia-avo-arc-agi-3|paper:slm-agents",
+      "source": "article:nvidia-avo-arc-agi-3",
+      "target": "paper:slm-agents",
+      "relation": "shared-topic",
+      "label": "Agentic AI · Language Models",
+      "topics": [
+        "Agentic AI",
+        "Language Models"
+      ],
+      "weight": 5,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:nvidia-avo-arc-agi-3|paper:thinksound",
+      "source": "article:nvidia-avo-arc-agi-3",
+      "target": "paper:thinksound",
+      "relation": "shared-topic",
+      "label": "Language Models",
+      "topics": [
+        "Language Models"
+      ],
+      "weight": 2,
+      "provenance": "metadata"
+    },
+    {
       "id": "article:qwen3-8-max|paper:chain-of-zoom",
       "source": "article:qwen3-8-max",
       "target": "paper:chain-of-zoom",
@@ -723,18 +820,6 @@
       "provenance": "metadata"
     },
     {
-      "id": "paper:chain-of-zoom|paper:lance-unified-multimodal",
-      "source": "paper:chain-of-zoom",
-      "target": "paper:lance-unified-multimodal",
-      "relation": "shared-topic",
-      "label": "Multimodal AI",
-      "topics": [
-        "Multimodal AI"
-      ],
-      "weight": 1,
-      "provenance": "metadata"
-    },
-    {
       "id": "paper:chain-of-zoom|paper:mmr-ad",
       "source": "paper:chain-of-zoom",
       "target": "paper:mmr-ad",
@@ -811,18 +896,6 @@
         "Image Generation"
       ],
       "weight": 5,
-      "provenance": "metadata"
-    },
-    {
-      "id": "paper:dreambooth|paper:lora",
-      "source": "paper:dreambooth",
-      "target": "paper:lora",
-      "relation": "shared-topic",
-      "label": "Transfer & Adaptation",
-      "topics": [
-        "Transfer & Adaptation"
-      ],
-      "weight": 1,
       "provenance": "metadata"
     },
     {
@@ -943,9 +1016,9 @@
     }
   ],
   "stats": {
-    "nodes": 17,
-    "edges": 38,
-    "articles": 1,
+    "nodes": 18,
+    "edges": 42,
+    "articles": 2,
     "papers": 13,
     "datasets": 3
   }
