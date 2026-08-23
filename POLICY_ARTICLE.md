@@ -54,7 +54,9 @@ tags:
 summary: "One accurate sentence explaining the development and its significance."
 ```
 
-Optional fields include `additional_sources`, `card_image`, and `card_image_alt`. If `card_image` exists, `card_image_alt` is required. Store local images under `assets/images/articles/<slug>/`; do not hotlink external images.
+Optional fields include `additional_sources`, `card_image`, and `card_image_alt`. If `card_image` exists, `card_image_alt` is required. Card images and repository-managed media must live under `assets/images/articles/<slug>/`.
+
+Remote inline images are exceptional. They may be embedded only when the site owner explicitly requests the publisher-hosted original for a specific Article Bite. The asset must use HTTPS, come from the canonical publisher's media infrastructure, include descriptive alt text and a source-linked caption, use intrinsic dimensions plus lazy loading to limit layout shift, and remain nonessential to understanding the prose if the publisher URL later fails. Never use a remote image as `card_image`.
 
 ## Standard six-section structure
 
@@ -97,7 +99,7 @@ Count body words while excluding YAML front matter and raw HTML where practical.
 
 ## Images and external media
 
-Images are optional. Include a local image only when it explains the technical development, interface, architecture, or evidence. Preserve provenance, use descriptive alt text, and avoid decorative screenshots or promotional artwork that adds no understanding.
+Images are optional. Include an image only when it explains the technical development, interface, architecture, or evidence. Prefer local, repository-managed assets. Preserve provenance, use descriptive alt text, and avoid decorative screenshots or promotional artwork that adds no understanding. A publisher-hosted inline image must satisfy the explicit-owner-request exception above.
 
 ## Corrections and temporal claims
 
