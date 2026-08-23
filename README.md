@@ -2,40 +2,42 @@
 
 LiteBites is a minimal English research blog for bite-sized AI and computer science paper notes.
 
+See [USAGE.md](USAGE.md) for agent-assisted Bite authoring, knowledge-graph updates, and the local preview workflow.
+
 ## Stack
 
 - GitHub Pages
 - Jekyll
-- Markdown posts in `_posts/`
+- Markdown collections for Article, Paper, and Data Bites
 - IBM Plex Sans
 
 ## Site structure
 
 - `index.html` — Home
+- `articles.html` — Article Bites index at `/articles/`
 - `papers.html` — Paper Bites index at `/papers/`
 - `data.html` — Data Bites index at `/data/`
+- `graph.html` — Knowledge graph at `/graph/`
+- `_articles/<slug>.md` — Individual Article Bites
 - `_posts/YYYY-MM-DD-slug.md` — Individual paper posts
+- `_datasets/<slug>.md` — Individual Data Bites
 - `assets/css/styles.css` — Site styles
 
 ## Local development
 
-Install dependencies:
+Start the local preview:
 
 ```bash
-bundle install
-```
-
-Run the local server:
-
-```bash
-bundle exec jekyll serve --livereload
+./scripts/preview.sh
 ```
 
 Open:
 
 ```text
-http://localhost:4000
+http://127.0.0.1:4179/
 ```
+
+Press `Ctrl+C` in the same terminal to stop the server. See [USAGE.md](USAGE.md) for custom ports, graph generation, agent-assisted authoring, validation, and project-local skills.
 
 ## Writing posts
 

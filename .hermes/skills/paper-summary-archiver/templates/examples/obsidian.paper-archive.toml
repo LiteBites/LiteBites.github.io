@@ -1,0 +1,47 @@
+schema_version = 1
+adapter = "obsidian"
+archive_name = "Obsidian Paper Vault"
+default_language = "en"
+
+[paths]
+content_dir = "Papers"
+assets_dir = "Attachments/Papers/{citekey}"
+filename_template = "{citekey}.md"
+path_base = "archive-root"
+collision_policy = "stop"
+
+[metadata]
+format = "yaml-frontmatter"
+required = ["title", "year", "summary", "source_url"]
+optional = ["aliases", "authors", "venue", "tags", "doi", "arxiv_id", "project_url", "code_url"]
+tags_field = "tags"
+authors_field = "authors"
+
+[body]
+sections = ["Why it matters", "Core idea", "How it works", "Evidence", "Limitations", "Practical takeaways", "Sources"]
+min_words = 400
+max_words = 1600
+
+[figures]
+mode = "optional"
+preferred_count = 2
+link_style = "wikilink"
+require_alt_text = true
+require_provenance = true
+hotlink_external_images = false
+
+[hooks]
+after_write = []
+
+[validation]
+commands = []
+build_destination = ""
+check_relative_links = true
+check_local_images = true
+check_external_sources = true
+inspect_generated_entry = true
+
+[publishing]
+mode = "review-only"
+allow_commit_after_explicit_approval = true
+allow_remote_publish_after_explicit_approval = false
