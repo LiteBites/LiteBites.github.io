@@ -236,6 +236,24 @@
       ]
     },
     {
+      "id": "paper:retrieval-augmented-generation",
+      "slug": "retrieval-augmented-generation",
+      "type": "paper",
+      "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+      "shortTitle": "Retrieval-Augmented Generation",
+      "url": "/posts/retrieval-augmented-generation/",
+      "summary": "The original RAG paper couples a trainable DPR query encoder with a fixed Wikipedia passage index and a BART generator, then marginalizes generation probabilities over retrieved latent documents.",
+      "date": "2026-08-23",
+      "meta": "NeurIPS 2020 / 7 min read",
+      "topics": [
+        "Dense Retrieval",
+        "Generative AI",
+        "Language Models",
+        "Open-Domain Question Answering",
+        "Retrieval-Augmented Generation"
+      ]
+    },
+    {
       "id": "paper:ditto-video-editing",
       "slug": "ditto-video-editing",
       "type": "paper",
@@ -374,6 +392,18 @@
       "provenance": "metadata"
     },
     {
+      "id": "article:nvidia-avo-arc-agi-3|paper:retrieval-augmented-generation",
+      "source": "article:nvidia-avo-arc-agi-3",
+      "target": "paper:retrieval-augmented-generation",
+      "relation": "shared-topic",
+      "label": "Language Models",
+      "topics": [
+        "Language Models"
+      ],
+      "weight": 4,
+      "provenance": "metadata"
+    },
+    {
       "id": "article:nvidia-avo-arc-agi-3|paper:slm-agents",
       "source": "article:nvidia-avo-arc-agi-3",
       "target": "paper:slm-agents",
@@ -436,19 +466,6 @@
       "provenance": "metadata"
     },
     {
-      "id": "article:qwen3-8-max|paper:mmr-ad",
-      "source": "article:qwen3-8-max",
-      "target": "paper:mmr-ad",
-      "relation": "shared-topic",
-      "label": "Language Models · Multimodal AI",
-      "topics": [
-        "Language Models",
-        "Multimodal AI"
-      ],
-      "weight": 3,
-      "provenance": "metadata"
-    },
-    {
       "id": "article:qwen3-8-max|paper:pagedattention",
       "source": "article:qwen3-8-max",
       "target": "paper:pagedattention",
@@ -458,6 +475,18 @@
         "Language Models"
       ],
       "weight": 2,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:qwen3-8-max|paper:retrieval-augmented-generation",
+      "source": "article:qwen3-8-max",
+      "target": "paper:retrieval-augmented-generation",
+      "relation": "shared-topic",
+      "label": "Language Models",
+      "topics": [
+        "Language Models"
+      ],
+      "weight": 4,
       "provenance": "metadata"
     },
     {
@@ -855,13 +884,26 @@
       ],
       "weight": 2,
       "provenance": "metadata"
+    },
+    {
+      "id": "paper:retrieval-augmented-generation|paper:thinksound",
+      "source": "paper:retrieval-augmented-generation",
+      "target": "paper:thinksound",
+      "relation": "shared-topic",
+      "label": "Generative AI · Language Models",
+      "topics": [
+        "Generative AI",
+        "Language Models"
+      ],
+      "weight": 2,
+      "provenance": "metadata"
     }
   ],
   "stats": {
-    "nodes": 18,
-    "edges": 42,
+    "nodes": 19,
+    "edges": 44,
     "articles": 2,
-    "papers": 13,
+    "papers": 14,
     "datasets": 3
   }
 }
