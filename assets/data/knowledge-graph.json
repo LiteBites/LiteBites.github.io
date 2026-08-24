@@ -162,6 +162,26 @@
       ]
     },
     {
+      "id": "paper:genrec",
+      "slug": "genrec",
+      "type": "paper",
+      "title": "GenRec: An LLM-Backed Recommendation Ranker at Netflix",
+      "shortTitle": "GenRec",
+      "url": "/posts/genrec/",
+      "summary": "GenRec verbalizes Netflix interaction histories for an adapted language model, then uses a catalog-aware scoring head and prefill-only inference to rank in-catalog items under production cost constraints.",
+      "date": "2026-08-24",
+      "meta": "arXiv preprint / 6 min read",
+      "topics": [
+        "Context Engineering",
+        "Efficient AI",
+        "LLM Serving",
+        "Language Models",
+        "Large Language Models",
+        "Learning to Rank",
+        "Recommender Systems"
+      ]
+    },
+    {
       "id": "paper:lance-unified-multimodal",
       "slug": "lance-unified-multimodal",
       "type": "paper",
@@ -368,6 +388,18 @@
       "provenance": "metadata"
     },
     {
+      "id": "article:nvidia-avo-arc-agi-3|paper:genrec",
+      "source": "article:nvidia-avo-arc-agi-3",
+      "target": "paper:genrec",
+      "relation": "shared-topic",
+      "label": "Language Models",
+      "topics": [
+        "Language Models"
+      ],
+      "weight": 2,
+      "provenance": "metadata"
+    },
+    {
       "id": "article:nvidia-avo-arc-agi-3|paper:lora",
       "source": "article:nvidia-avo-arc-agi-3",
       "target": "paper:lora",
@@ -439,6 +471,18 @@
         "Multimodal AI"
       ],
       "weight": 3,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:qwen3-8-max|paper:genrec",
+      "source": "article:qwen3-8-max",
+      "target": "paper:genrec",
+      "relation": "shared-topic",
+      "label": "Language Models",
+      "topics": [
+        "Language Models"
+      ],
+      "weight": 2,
       "provenance": "metadata"
     },
     {
@@ -782,6 +826,47 @@
       "provenance": "metadata"
     },
     {
+      "id": "paper:genrec|paper:lora",
+      "source": "paper:genrec",
+      "target": "paper:lora",
+      "relation": "shared-topic",
+      "label": "Efficient AI · Language Models · Large Language Models",
+      "topics": [
+        "Efficient AI",
+        "Language Models",
+        "Large Language Models"
+      ],
+      "weight": 5,
+      "provenance": "metadata"
+    },
+    {
+      "id": "paper:genrec|paper:pagedattention",
+      "source": "paper:genrec",
+      "target": "paper:pagedattention",
+      "relation": "shared-topic",
+      "label": "Efficient AI · LLM Serving · Language Models",
+      "topics": [
+        "Efficient AI",
+        "LLM Serving",
+        "Language Models"
+      ],
+      "weight": 5,
+      "provenance": "metadata"
+    },
+    {
+      "id": "paper:genrec|paper:slm-agents",
+      "source": "paper:genrec",
+      "target": "paper:slm-agents",
+      "relation": "shared-topic",
+      "label": "Efficient AI · Language Models",
+      "topics": [
+        "Efficient AI",
+        "Language Models"
+      ],
+      "weight": 2,
+      "provenance": "metadata"
+    },
+    {
       "id": "paper:lance-unified-multimodal|paper:mmr-ad",
       "source": "paper:lance-unified-multimodal",
       "target": "paper:mmr-ad",
@@ -873,19 +958,6 @@
       "provenance": "metadata"
     },
     {
-      "id": "paper:pagedattention|paper:slm-agents",
-      "source": "paper:pagedattention",
-      "target": "paper:slm-agents",
-      "relation": "shared-topic",
-      "label": "Efficient AI · Language Models",
-      "topics": [
-        "Efficient AI",
-        "Language Models"
-      ],
-      "weight": 2,
-      "provenance": "metadata"
-    },
-    {
       "id": "paper:retrieval-augmented-generation|paper:thinksound",
       "source": "paper:retrieval-augmented-generation",
       "target": "paper:thinksound",
@@ -900,10 +972,10 @@
     }
   ],
   "stats": {
-    "nodes": 19,
-    "edges": 44,
+    "nodes": 20,
+    "edges": 48,
     "articles": 2,
-    "papers": 14,
+    "papers": 15,
     "datasets": 3
   }
 }
