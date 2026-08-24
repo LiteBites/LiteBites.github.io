@@ -182,6 +182,35 @@
       "sourcePath": "_posts/2025-05-28-chain-of-zoom.md"
     },
     {
+      "id": "paper:colbert",
+      "slug": "colbert",
+      "type": "paper",
+      "title": "ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction over BERT",
+      "shortTitle": "ColBERT",
+      "url": "/posts/colbert/",
+      "summary": "ColBERT precomputes contextual token embeddings for documents, then scores each query through a cheap MaxSim late-interaction step that preserves fine-grained matching without running BERT on every query-document pair.",
+      "date": "2026-08-24",
+      "meta": "SIGIR 2020 / 6 min read",
+      "topics": [
+        "BERT",
+        "Dense Retrieval",
+        "Efficient AI",
+        "Information Retrieval",
+        "Late Interaction",
+        "Neural Search"
+      ],
+      "topicWeights": {
+        "BERT": 3,
+        "Dense Retrieval": 3,
+        "Efficient AI": 1,
+        "Information Retrieval": 3,
+        "Late Interaction": 3,
+        "Neural Search": 3
+      },
+      "sourceHash": "b5e0f273e2bd3ec246dab1ce18604cb6ffabab906f97453b5509f2c5ed0b750b",
+      "sourcePath": "_posts/2026-08-24-colbert.md"
+    },
+    {
       "id": "paper:dreambooth",
       "slug": "dreambooth",
       "type": "paper",
@@ -939,6 +968,54 @@
       "provenance": "metadata"
     },
     {
+      "id": "paper:colbert|paper:genrec",
+      "source": "paper:colbert",
+      "target": "paper:genrec",
+      "relation": "shared-topic",
+      "label": "Efficient AI",
+      "topics": [
+        "Efficient AI"
+      ],
+      "weight": 1,
+      "provenance": "metadata"
+    },
+    {
+      "id": "paper:colbert|paper:lora",
+      "source": "paper:colbert",
+      "target": "paper:lora",
+      "relation": "shared-topic",
+      "label": "Efficient AI",
+      "topics": [
+        "Efficient AI"
+      ],
+      "weight": 1,
+      "provenance": "metadata"
+    },
+    {
+      "id": "paper:colbert|paper:pagedattention",
+      "source": "paper:colbert",
+      "target": "paper:pagedattention",
+      "relation": "shared-topic",
+      "label": "Efficient AI",
+      "topics": [
+        "Efficient AI"
+      ],
+      "weight": 1,
+      "provenance": "metadata"
+    },
+    {
+      "id": "paper:colbert|paper:retrieval-augmented-generation",
+      "source": "paper:colbert",
+      "target": "paper:retrieval-augmented-generation",
+      "relation": "shared-topic",
+      "label": "Dense Retrieval",
+      "topics": [
+        "Dense Retrieval"
+      ],
+      "weight": 3,
+      "provenance": "metadata"
+    },
+    {
       "id": "paper:controlnet|paper:ditto-video-editing",
       "source": "paper:controlnet",
       "target": "paper:ditto-video-editing",
@@ -1150,10 +1227,10 @@
     }
   ],
   "stats": {
-    "nodes": 20,
-    "edges": 48,
+    "nodes": 21,
+    "edges": 52,
     "articles": 2,
-    "papers": 15,
+    "papers": 16,
     "datasets": 3
   }
 }
