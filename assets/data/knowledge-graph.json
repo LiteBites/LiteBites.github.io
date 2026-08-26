@@ -3,6 +3,23 @@
   "generatorVersion": 4,
   "nodes": [
     {
+      "id": "article:qwenwork-workplace-agent-platform",
+      "slug": "qwenwork-workplace-agent-platform",
+      "type": "article",
+      "title": "Alibaba's QwenWork Combines Desktop, Cloud, and Collaboration Agents in One Workplace Platform",
+      "shortTitle": "QwenWork Workplace Agent Platform",
+      "url": "/articles/qwenwork-workplace-agent-platform/",
+      "summary": "Alibaba's QwenWork combines web, desktop, collaboration, skills, and multimodal creation in one agent platform, but its public evidence currently documents product scope rather than independently measured reliability.",
+      "date": "2026-08-26",
+      "meta": "Alibaba Group / 3 min read",
+      "topics": [
+        "Agentic AI",
+        "Enterprise AI",
+        "Multimodal AI",
+        "Workplace Automation"
+      ]
+    },
+    {
       "id": "article:nvidia-avo-arc-agi-3",
       "slug": "nvidia-avo-arc-agi-3",
       "type": "article",
@@ -395,6 +412,18 @@
       "provenance": "metadata"
     },
     {
+      "id": "article:nvidia-avo-arc-agi-3|article:qwenwork-workplace-agent-platform",
+      "source": "article:nvidia-avo-arc-agi-3",
+      "target": "article:qwenwork-workplace-agent-platform",
+      "relation": "shared-topic",
+      "label": "Agentic AI",
+      "topics": [
+        "Agentic AI"
+      ],
+      "weight": 3,
+      "provenance": "metadata"
+    },
+    {
       "id": "article:nvidia-avo-arc-agi-3|paper:chain-of-zoom",
       "source": "article:nvidia-avo-arc-agi-3",
       "target": "paper:chain-of-zoom",
@@ -477,6 +506,19 @@
         "Language Models"
       ],
       "weight": 2,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:qwen3-8-max|article:qwenwork-workplace-agent-platform",
+      "source": "article:qwen3-8-max",
+      "target": "article:qwenwork-workplace-agent-platform",
+      "relation": "shared-topic",
+      "label": "Agentic AI · Multimodal AI",
+      "topics": [
+        "Agentic AI",
+        "Multimodal AI"
+      ],
+      "weight": 6,
       "provenance": "metadata"
     },
     {
@@ -576,6 +618,30 @@
         "Multimodal AI"
       ],
       "weight": 3,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:qwenwork-workplace-agent-platform|paper:chain-of-zoom",
+      "source": "article:qwenwork-workplace-agent-platform",
+      "target": "paper:chain-of-zoom",
+      "relation": "shared-topic",
+      "label": "Multimodal AI",
+      "topics": [
+        "Multimodal AI"
+      ],
+      "weight": 2,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:qwenwork-workplace-agent-platform|paper:slm-agents",
+      "source": "article:qwenwork-workplace-agent-platform",
+      "target": "paper:slm-agents",
+      "relation": "shared-topic",
+      "label": "Agentic AI",
+      "topics": [
+        "Agentic AI"
+      ],
+      "weight": 4,
       "provenance": "metadata"
     },
     {
@@ -757,19 +823,6 @@
       "id": "paper:chain-of-zoom|paper:mmr-ad",
       "source": "paper:chain-of-zoom",
       "target": "paper:mmr-ad",
-      "relation": "shared-topic",
-      "label": "Language Models · Multimodal AI",
-      "topics": [
-        "Language Models",
-        "Multimodal AI"
-      ],
-      "weight": 2,
-      "provenance": "metadata"
-    },
-    {
-      "id": "paper:chain-of-zoom|paper:thinksound",
-      "source": "paper:chain-of-zoom",
-      "target": "paper:thinksound",
       "relation": "shared-topic",
       "label": "Language Models · Multimodal AI",
       "topics": [
@@ -986,19 +1039,6 @@
       "provenance": "metadata"
     },
     {
-      "id": "paper:lora|paper:slm-agents",
-      "source": "paper:lora",
-      "target": "paper:slm-agents",
-      "relation": "shared-topic",
-      "label": "Efficient AI · Language Models",
-      "topics": [
-        "Efficient AI",
-        "Language Models"
-      ],
-      "weight": 2,
-      "provenance": "metadata"
-    },
-    {
       "id": "paper:mmr-ad|paper:moeclip",
       "source": "paper:mmr-ad",
       "target": "paper:moeclip",
@@ -1039,9 +1079,9 @@
     }
   ],
   "stats": {
-    "nodes": 21,
-    "edges": 52,
-    "articles": 2,
+    "nodes": 22,
+    "edges": 54,
+    "articles": 3,
     "papers": 16,
     "datasets": 3
   }
