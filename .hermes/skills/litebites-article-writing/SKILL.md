@@ -1,7 +1,7 @@
 ---
 name: litebites-article-writing
 description: "Use when researching, drafting, revising, or publishing a LiteBites Article Bite from recent technical news, release notes, standards, repositories, or engineering posts. Verify primary and corroborating sources, separate facts from interpretation, enforce the 400–800-word Article Bite contract, refresh the knowledge graph, build locally, and stop for review unless publication is explicitly authorized."
-version: 1.0.9
+version: 1.2.0
 author: Hermes Agent
 license: MIT
 platforms: [macos, linux, windows]
@@ -48,7 +48,7 @@ scripts/validate_article_bites.rb
 scripts/generate_knowledge_graph.rb
 ```
 
-Never hardcode a user home directory. Before editing, run:
+Never hardcode a user home directory. Shell examples in this skill use POSIX syntax; on Windows, run them in Git Bash or WSL, or translate environment assignments and paths to PowerShell before execution. Before editing, run:
 
 ```bash
 git status --short --branch
@@ -64,6 +64,8 @@ Article Bite files live at:
 ```text
 _articles/<stable-slug>.md
 ```
+
+Use only lowercase ASCII letters, digits, and hyphens in `<stable-slug>` (`^[a-z0-9]+(?:-[a-z0-9]+)*$`). Translate punctuation inside product and model names into hyphens—for example, `GLM-5.3-Flash` becomes `glm-5-3-flash.md`. Do not leave extra periods before `.md`: Jekyll may normalize them in the rendered permalink while a metadata generator preserves the raw basename, creating a broken graph URL.
 
 Dates belong in front matter, not filenames. Generated URLs are:
 
@@ -101,7 +103,7 @@ additional_sources:
     url: "https://example.com/corroboration"
 ```
 
-If `card_image` exists, `card_image_alt` is mandatory. Keep all card images and repository-managed article assets under `assets/images/articles/<slug>/`. Prefer local media. A publisher-hosted inline image is allowed only when `POLICY_ARTICLE.md` permits it and the site owner explicitly requests that exception for a specific Article Bite; it must remain remote rather than becoming a card image.
+If `card_image` exists, `card_image_alt` is mandatory. Keep all card images and repository-managed article assets under `assets/images/articles/<slug>/`. For informative inline Article visuals, prefer the original canonical publisher-hosted HTTPS asset rather than downloading a repository copy. Remote images are optional and must follow `POLICY_ARTICLE.md` plus `references/remote-publisher-images.md`; they must never become card images or discovery-surface dependencies.
 
 Required headings, exactly once and in order:
 
@@ -128,11 +130,35 @@ Start from the canonical source rather than a search result or secondary summary
 
 Corroborate consequential claims with an independent source when available. Search snippets and generated summaries may discover sources but never count as evidence. Social posts may support attributed statements but cannot alone establish a consequential technical fact.
 
-Use `references/source-review.md` to create the evidence ledger. For vendor-reported benchmark records, perfect scores, or “frontier” claims, also apply `references/vendor-benchmark-claims.md`: classify the evidence level, pin the result to its exact public/private evaluation scope, distinguish model from harness, identify metric blind spots, and inventory scorecards, traces, configuration, and reproduction materials. Resolve material contradictions before drafting. Completion criterion: every consequential claim is classified as reported fact, attributable claim, independent evidence, LiteBites interpretation, or uncertainty and has a source.
+Use `references/source-review.md` to create the evidence ledger. For vendor-reported benchmark records, perfect scores, or “frontier” claims, also apply `references/vendor-benchmark-claims.md`: classify the evidence level, pin the result to its exact public/private evaluation scope, distinguish model from harness, identify metric blind spots, and inventory scorecards, traces, configuration, and reproduction materials. For workplace agents, coding agents, computer-use agents, and other products that combine models with tools and connectors, apply `references/agent-product-announcements.md`: separate model, orchestration, action, extension, connector, artifact, governance, and economics layers; distinguish launch availability from current documentation and future roadmap; and audit permission and data-flow boundaries. For desktops, workstations, accelerators, chips, servers, and edge systems discussed through an AI-workload lens, apply `references/hardware-system-ai-releases.md`: build a tier-by-tier configuration matrix, keep base price separate from maximum capability, analyze memory/compute/runtime/system constraints, and preserve pre-shipping, privacy, ecosystem, and clustering limits. Resolve material contradictions before drafting. Completion criterion: every consequential claim is classified as reported fact, attributable claim, independent evidence, LiteBites interpretation, or uncertainty and has a source.
 
-### 3. Draft from the ledger
+### 3. Design a source-adaptive editorial spine
 
-Write the six required sections. Target 400–800 body words and approximately 2–4 minutes. Use exact dates instead of relative phrases that will become ambiguous. Prefer direct verbs and concrete nouns over promotional language.
+Keep the six required level-two headings as the stable publication contract, but do **not** treat their paragraph prompts as a rigid article template. Before drafting, classify the source by its dominant evidence shape and identify the characteristic that should organize the story:
+
+```text
+Model release       → release delta → architecture/serving mechanism → access → evidence limits
+Agent product       → action surface → orchestration/connectors → permissions/economics → reliability limits
+Benchmark claim     → protocol → headline result → comparability/reproduction → metric blind spots
+API or standard     → normative change → compatibility/migration → implementation status → residual risk
+Security event      → timeline → root cause → blast radius → mitigation → remaining exposure
+Hardware/system     → architecture → measurement protocol → cost/deployment → availability
+Tool/repository     → changed behavior → integration path → maintenance/security → ecosystem fit
+```
+
+Use the closest shape or combine two when the source genuinely spans categories. Allocate words according to the evidence rather than evenly across sections. A model release may spend most of `## Technical context` on the mechanism that changes serving economics; a benchmark story may expand protocol and uncertainty; an agent launch may emphasize permissions and failure boundaries. Optional source-specific `###` subheadings are allowed when they improve navigation, but they must not replace, rename, reorder, or add to the six required `##` headings.
+
+Write a one-line editorial spine before prose:
+
+```text
+Because <verified mechanism or change>, <practical consequence>; however, <main evidence limit>.
+```
+
+Reject generic spines that could describe any release. Use `references/source-adaptive-structure.md` for archetype-specific questions, word-budget guidance, subsection rules, and anti-template checks.
+
+### 4. Draft from the ledger and spine
+
+Write the six required sections around the chosen spine. Target 400–800 body words and approximately 2–4 minutes. Use exact dates instead of relative phrases that will become ambiguous. Prefer direct verbs and concrete nouns over promotional language.
 
 Keep these voices distinct:
 
@@ -144,7 +170,9 @@ LiteBites interpretation: “A useful way to read this is…”
 Uncertainty: “It is not yet clear whether…”
 ```
 
-Do not turn an announcement into measured evidence, add tags to manufacture graph connections, or hide uncertainty to make the narrative cleaner. Completion criterion: prose follows the ledger, all six sections exist, and every source in the final list materially supports the article.
+Vary internal flow deliberately: lead each section with the fact or tension most important for this source, use transitions that carry the same editorial spine forward, and omit background that does not change the reader’s judgment. Do not force every release through identical paragraph counts, repeated stock phrases, or a feature-list chronology.
+
+Do not turn an announcement into measured evidence, add tags to manufacture graph connections, or hide uncertainty to make the narrative cleaner. Completion criterion: prose follows the ledger and editorial spine, all six sections exist, the internal structure fits the source’s characteristics, and every source in the final list materially supports the article.
 
 ### Performance graphs and figure requests
 
@@ -152,9 +180,9 @@ The word “graph” is ambiguous on LiteBites: it may mean the site-wide knowle
 
 For benchmark visuals, prefer a focused, readable figure covering only results discussed in the Article. Dense vendor collages should be evaluated at real article and mobile widths rather than embedded automatically. Prototype a source-faithful crop and an original LiteBites replot side by side when the user wants to compare both. Every value and model label must be checked against the source pixels; vendor-reported results and protocol differences must remain visually explicit. See `references/performance-comparison-figures.md` for the complete crop-versus-replot, provenance, responsive-layout, and approval workflow.
 
-When the user requests a figure without storing it in the repository, reconcile that request with `POLICY_ARTICLE.md`; do not silently weaken policy. Prefer a verified descriptive link to the original figure. If the site owner explicitly requests an embedded publisher-hosted original and repository policy allows that narrow exception, verify that the asset uses HTTPS and the canonical publisher's media infrastructure, then include descriptive alt text, a source-linked caption, intrinsic width and height, lazy loading, asynchronous decoding, a privacy-preserving referrer policy, and a full-resolution link. The article must remain understandable if the remote asset later fails, and the remote image must never become `card_image`. Explain this dependency at the local checkpoint. Use `references/remote-publisher-images.md` for the markup pattern, privacy and durability disclosure, responsive/failure testing, and deployment verification.
+During source review, identify whether a canonical publisher image would materially improve the explanation. If so, propose it as an optional inline figure and render it from the verified original HTTPS asset URL rather than downloading a copy. Confirm that the canonical page itself uses the exact asset and that the publisher controls the media infrastructure. Use the required `remote-publisher-image` figure markup with `data-source-url`, descriptive alt text, decoded intrinsic dimensions, lazy loading, asynchronous decoding, `no-referrer`, a source-linked caption, and a visible full-resolution link. Add the canonical page to `## Sources`; never use remote Markdown image syntax, `srcset`, or a remote `card_image`. The prose must remain understandable if the asset fails. Explain the unavoidable third-party request and publisher-controlled durability at the local checkpoint. Use `references/remote-publisher-images.md` for the complete admission, markup, privacy, responsive/failure testing, and deployment workflow.
 
-### 4. Validate mechanically
+### 5. Validate mechanically
 
 Run:
 
@@ -162,13 +190,13 @@ Run:
 ruby scripts/validate_article_bites.rb _articles/<slug>.md
 ```
 
-Fix metadata, headings, URL, image, placeholder, and word-count failures. Re-run until it reports `PASS` and a count between 400 and 800 words. Dates must use exact `YYYY-MM-DD` values; required text and tags must be non-empty strings; the six required `##` headings must be the complete level-two heading sequence with no extras; the canonical `source_url` must appear inside `## Sources`, not merely elsewhere in the body; and normalized card-image paths must remain under `/assets/images/articles/`.
+Fix metadata, headings, URL, image, placeholder, and word-count failures. Re-run until it reports `PASS` and a count between 400 and 800 words. Dates must use exact `YYYY-MM-DD` values; required text and tags must be non-empty strings; the six required `##` headings must be the complete level-two heading sequence with no extras; the canonical `source_url` must appear inside `## Sources`, not merely elsewhere in the body; and normalized card-image paths must remain under `/assets/images/articles/`. Remote images must pass the fail-closed figure contract: rendered HTML rather than Markdown image syntax, exactly one `<img>` per `remote-publisher-image` figure, HTTPS image URL, canonical `data-source-url`, intrinsic dimensions, alt text, lazy loading, asynchronous decoding, image-request `no-referrer`, no `<picture>`, `<source>`, or `srcset`, caption links to source and full resolution, and the source URL present as an exact link destination under `## Sources`.
 
 When the validator or schema changes, use the adversarial cases in `references/article-validation-hardening.md`; a single valid fixture is not sufficient.
 
 Then inspect the diff for copied promotional language, unsupported causality, stale relative dates, missing attribution, and source links that do not support the adjacent claim. Mechanical success is necessary but not sufficient.
 
-### 5. Refresh and review the graph
+### 6. Refresh and review the graph
 
 After the article, metadata, slug, and tags are editorially final, run:
 
@@ -188,9 +216,9 @@ The second run must report `0 changed sources`. Validate:
 - directional relations such as `validates`, `contradicts`, `announces`, or `builds-on` appear only when reviewed and curated;
 - public JSON omits internal source paths, hashes, and topic weights.
 
-An isolated truthful node is better than a misleading connection. Use `references/knowledge-graph-topic-hygiene.md` for the adversarial regression pattern, generator-version rule, and before/after edge audit.
+An isolated truthful node is better than a misleading connection. Use `references/knowledge-graph-topic-hygiene.md` for the adversarial regression pattern, generator-version rule, and before/after edge audit. When a subject name contains punctuation or version dots, use `references/slug-url-consistency.md` to verify that the filename, rendered permalink, graph id/URL, and inspector link all resolve to one canonical slug.
 
-### 6. Build and inspect together
+### 7. Build and inspect together
 
 Activate a Ruby version compatible with the repository's GitHub Pages dependencies. Keep Bundler and Jekyll output outside the repository:
 
@@ -212,13 +240,13 @@ Inspect:
 /data/
 ```
 
-Verify the preferred Bite order is Article, Paper, Data wherever content categories are presented, including navigation, graph filters, legends, accessible directories, and no-JavaScript fallback content. Use an explicit type rank rather than alphabetical sorting. Confirm the Article index is newest-first, source metadata wraps, the homepage lists the article, Article graph filtering and Open Bite links work, and Paper Bite pagination remains paper-only.
+Verify the preferred Bite order is Article, Paper, Data wherever content categories are presented, including navigation, graph filters, legends, accessible directories, and no-JavaScript fallback content. Use an explicit type rank rather than alphabetical sorting. Confirm the Article index is newest-first, source metadata wraps, the homepage lists the article, and Paper Bite pagination remains paper-only. Resolve the rendered archive href and graph node URL independently; require both to equal `/articles/<slug>/`, return HTTP 200 in the built site, and match the graph inspector’s Open Bite href.
 
 For automated graph interaction checks, target the visible SVG node shape (for example, `[data-node-id="article:<slug>"] .graph-node-shape`) rather than the enclosing `<g>` bounding box: label text may use `pointer-events: none`, causing center-point automation clicks to land on the SVG stage. After clicking, assert the node’s selected class, inspector title, and exact `/articles/<slug>/` link; do not treat mere node presence as an interaction pass.
 
 At 320px, 375/390px, and desktop, check horizontal overflow, long titles, navigation, 44px targets, visible focus, light/dark themes, and no-JavaScript graph fallback. Completion criterion: build and browser checks pass with no console errors or missing local assets.
 
-### 7. Prepare the local review checkpoint
+### 8. Prepare the local review checkpoint
 
 Run:
 
@@ -230,6 +258,8 @@ git diff
 ```
 
 Exclude `_site`, `Gemfile.lock`, `.bundle`, `vendor`, caches, temporary screenshots, and planning artifacts from publication scope. Before presenting the checkpoint, obtain an independent review of the current production diff and explicitly named untracked implementation files. Treat asynchronous review results as snapshots: if any reviewed file changes afterward, re-run verification and dispatch a fresh review. Use `references/article-validation-hardening.md` for review freshness and adversarial checks.
+
+For a claim-level source-fidelity review, keep the reviewer read-only and require a structured verdict with `passed`, `blocking_issues`, `nonblocking_notes`, `claim_checks`, and `files_modified_by_reviewer`. Each blocking issue must cite exact article line numbers, explain the evidence mismatch or policy failure, and give replacement-ready wording or a concrete fix. Check semantic scope, not just matching numbers: distinguish products from product families, model weights from CUDA-dependent runtimes or workflows, peak-compute ratios from measured workload speedups, and maximum configurations from base-price configurations. Verify linked source availability live, but treat HTTP success as availability evidence only—not support for a claim. When an internal link targets another untracked Bite, either include that companion in the named publication scope and verify both built URLs, or flag the dependency. Audit prose policy mechanically as well as editorially, including the required three-to-five Practical Takeaways even if the validator currently accepts more.
 
 Report:
 
@@ -243,7 +273,7 @@ Report:
 
 Stop here unless the user explicitly authorizes commit and push.
 
-### 8. Publish only with explicit approval
+### 9. Publish only with explicit approval
 
 Fetch and reconcile remote state before staging. Stage explicit approved paths, inspect the full cached diff, and keep unrelated changes out. Use a focused content commit such as:
 
@@ -261,12 +291,15 @@ When a consequential source claim changes, add a visible update or correction no
 
 1. **Secondary-source drift:** Drafting from a news summary changes claims and dates. Return to the canonical source.
 2. **Announcement as evidence:** “The company says” is attribution, not independent validation.
-3. **Premature certainty:** Preserve missing benchmarks, compatibility limits, deployment constraints, and unknowns.
-4. **Paper contamination:** Never save Article Bites in `_posts/`; it would mix pagination and policy.
-5. **Graph gaming:** Never alter tags or prose solely to create edges.
-6. **Remote-image exceptions:** Prefer local assets and never introduce a remote image silently. Use a publisher-hosted inline image only when the site owner explicitly requests it and repository policy permits the narrow exception; verify HTTPS origin, accessibility, provenance, intrinsic sizing, lazy loading, full-resolution access, responsive behavior, and graceful degradation.
-7. **Build artifacts:** Keep dependency and generated site output outside the repository.
-8. **Approval collapse:** A successful local build is not permission to commit or publish.
+3. **Timeline collapse:** A source read today may have been published earlier, and current documentation may postdate the launch. Keep Article date, review date, source publication date, launch capability, current capability, and roadmap separate; never back-project current docs into the announcement.
+4. **Product/model collapse:** A model benchmark does not establish the reliability of an agent product, and a product feature list does not establish model capability. Audit the complete orchestration, tool, connector, extension, permission, artifact, governance, and cost stack.
+5. **Premature certainty:** Preserve missing benchmarks, compatibility limits, deployment constraints, and unknowns.
+6. **Paper contamination:** Never save Article Bites in `_posts/`; it would mix pagination and policy.
+7. **Graph gaming:** Never alter tags or prose solely to create edges.
+8. **Remote-image drift:** Do not embed arbitrary web images, hotlink decorative marketing art, or use remote Markdown image syntax. Use only an informative original that the canonical publisher page references, then enforce HTTPS, provenance, intrinsic sizing, alt text, lazy loading, `no-referrer`, source/full-resolution caption links, responsive behavior, graceful failure, and the privacy/durability checkpoint.
+9. **Build artifacts:** Keep dependency and generated site output outside the repository.
+10. **Slug normalization split:** Punctuation in a source name can produce different Jekyll and graph slugs. Normalize the filename to lowercase letters, digits, and hyphens before generation, then compare the rendered archive href, built path, graph URL, and Open Bite href.
+11. **Approval collapse:** A successful local build is not permission to commit or publish.
 
 ## Verification checklist
 
@@ -275,12 +308,16 @@ When a consequential source claim changes, add a visible update or correction no
 - [ ] Consequential claims corroborated where possible
 - [ ] Evidence ledger complete
 - [ ] Required metadata present and accurate
+- [ ] Article date, last-reviewed date, source publication date, launch capability, current documented capability, and roadmap are not conflated
+- [ ] For agent products, model, orchestration, actions, extensions, connectors, artifacts, governance, and economics were reviewed as separate layers
 - [ ] Six sections appear exactly once and in order
 - [ ] Body contains 400–800 words
 - [ ] Source facts, interpretation, and uncertainty are distinct
+- [ ] Every remote image is informative, publisher-origin verified, validator-compliant, responsive/theme checked, failure-tested, and disclosed for privacy and durability
 - [ ] Validator reports PASS
 - [ ] Graph generator run twice; second run reports zero changed sources
 - [ ] Article node, URL, topics, and relationships reviewed
+- [ ] Stable slug uses only lowercase letters, digits, and hyphens; archive href, built path, graph URL, and Open Bite href match and return HTTP 200
 - [ ] Article page, index, homepage, graph, Paper Bites, and Data Bites built
 - [ ] Mobile, desktop, themes, keyboard, and no-JavaScript fallback checked
 - [ ] Adversarial validator cases checked when schema or validation changes

@@ -1,8 +1,17 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-require "date"
 require "pathname"
+
+ROOT = Pathname.new(File.expand_path("..", __dir__))
+ENV["BUNDLE_GEMFILE"] = ROOT.join("Gemfile").to_s
+
+require "bundler/setup"
+require "cgi"
+require "date"
+require "kramdown"
+require "kramdown-parser-gfm"
+require "nokogiri"
 require "uri"
 require "yaml"
 
@@ -26,7 +35,6 @@ REQUIRED_HEADINGS = [
 
 MIN_WORDS = 400
 MAX_WORDS = 800
-ROOT = Pathname.new(File.expand_path("..", __dir__))
 
 class ArticleValidationError < StandardError; end
 
@@ -127,6 +135,125 @@ def validate_additional_sources(metadata)
   end
 end
 
+def rendered_fragment(markdown)
+  html = Kramdown::Document.new(markdown, input: "GFM").to_html
+  Nokogiri::HTML5.fragment(html)
+rescue StandardError => e
+  raise ArticleValidationError, "body could not be rendered for validation: #{e.message}"
+end
+
+def remote_url?(value)
+  text = value.to_s.strip
+  return true if text.start_with?("//")
+
+  uri = URI.parse(text)
+  %w[http https].include?(uri.scheme.to_s.downcase)
+rescue URI::InvalidURIError
+  false
+end
+
+def source_link_destinations(sources_section)
+  rendered_fragment(sources_section).css("a[href]").map { |link| link["href"].to_s }.uniq
+end
+
+def remote_srcset?(value)
+  value.to_s.split(",").any? do |candidate|
+    remote_url?(candidate.strip.split(/\s+/, 2).first)
+  end
+end
+
+def raw_remote_image_count(body)
+  review_body = body
+    .gsub(/```.*?```/m, " ")
+    .gsub(/`[^`]*`/, " ")
+    .gsub(/<!--.*?-->/m, " ")
+  decoded = CGI.unescapeHTML(review_body)
+  decoded.scan(/<img\b[^>]*\bsrc\s*=\s*(?:(["'])(.*?)\1|([^\s>]+))/im).count do |_quote, quoted, unquoted|
+    remote_url?(quoted || unquoted)
+  end
+end
+
+def validate_remote_inline_images(body, source_links)
+  document = rendered_fragment(body)
+
+  document.css("img[srcset], source[srcset]").each do |element|
+    next unless remote_srcset?(element["srcset"])
+
+    raise ArticleValidationError, "remote publisher images must not use img/source srcset variants"
+  end
+
+  document.css("source[src]").each do |element|
+    next unless remote_url?(element["src"])
+
+    raise ArticleValidationError, "remote publisher images must not use source elements"
+  end
+
+  remote_images = document.css("img[src]").select { |image| remote_url?(image["src"]) }
+  if raw_remote_image_count(body) > remote_images.length
+    raise ArticleValidationError, "remote image markup must render as an inspectable image element"
+  end
+  return if remote_images.empty?
+
+  remote_images.each do |image|
+    figure = image.ancestors("figure").find { |ancestor| ancestor["class"].to_s.split.include?("remote-publisher-image") }
+    unless figure
+      raise ArticleValidationError, "every remote publisher image must be inside a complete remote-publisher-image figure"
+    end
+
+    unless figure.css("img").length == 1
+      raise ArticleValidationError, "each remote-publisher-image figure must contain exactly one image"
+    end
+    if figure.at_css("picture, source")
+      raise ArticleValidationError, "remote-publisher-image figures must not contain picture or source elements"
+    end
+    if image.key?("srcset")
+      raise ArticleValidationError, "remote publisher image must not use srcset"
+    end
+
+    source_url = figure["data-source-url"]
+    unless non_blank_string?(source_url)
+      raise ArticleValidationError, "remote publisher figure requires data-source-url"
+    end
+    validate_https_url(source_url, "remote publisher data-source-url")
+
+    image_url = image["src"]
+    validate_https_url(image_url, "remote publisher image src")
+    unless non_blank_string?(image["alt"])
+      raise ArticleValidationError, "remote publisher image requires descriptive alt text"
+    end
+    %w[width height].each do |dimension|
+      value = image[dimension]
+      unless value.to_s.match?(/\A[1-9]\d*\z/)
+        raise ArticleValidationError, "remote publisher image requires a positive integer #{dimension}"
+      end
+    end
+    unless image["loading"] == "lazy"
+      raise ArticleValidationError, "remote publisher image requires loading=\"lazy\""
+    end
+    unless image["decoding"] == "async"
+      raise ArticleValidationError, "remote publisher image requires decoding=\"async\""
+    end
+    unless image["referrerpolicy"] == "no-referrer"
+      raise ArticleValidationError, "remote publisher image requires referrerpolicy=\"no-referrer\""
+    end
+
+    captions = figure.css("figcaption")
+    unless captions.length == 1
+      raise ArticleValidationError, "remote publisher image requires exactly one figcaption"
+    end
+    caption_links = captions.first.css("a[href]").map { |link| link["href"].to_s }
+    unless caption_links.include?(source_url)
+      raise ArticleValidationError, "remote publisher image caption must link data-source-url"
+    end
+    unless caption_links.include?(image_url)
+      raise ArticleValidationError, "remote publisher image caption must link the full-resolution image"
+    end
+    unless source_links.include?(source_url)
+      raise ArticleValidationError, "remote publisher data-source-url must be an exact link destination in Sources section"
+    end
+  end
+end
+
 def validate_article(path)
   metadata, body = split_front_matter(path.read(encoding: "UTF-8"))
 
@@ -152,9 +279,11 @@ def validate_article(path)
     raise ArticleValidationError, "body contains an unresolved TODO or TBD"
   end
   sources_section = body.split(/^## Sources\s*$/, 2)[1].to_s
-  unless sources_section.include?(metadata["source_url"].to_s)
-    raise ArticleValidationError, "Sources section must include source_url"
+  source_links = source_link_destinations(sources_section)
+  unless source_links.include?(metadata["source_url"].to_s)
+    raise ArticleValidationError, "Sources section must include source_url as an exact link destination"
   end
+  validate_remote_inline_images(body, source_links)
 
   words = body_word_count(body)
   unless words.between?(MIN_WORDS, MAX_WORDS)

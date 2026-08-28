@@ -1,19 +1,21 @@
 # Publisher-Hosted Inline Images
 
-Use this reference only when the site owner explicitly requests embedding a publisher-hosted original without storing a repository copy, and `POLICY_ARTICLE.md` permits the exception.
+Use this reference whenever an Article Bite would benefit from an informative image that can remain at its canonical publisher-hosted URL. The site owner's standing preference is to render the verified original rather than download a repository copy. Images remain optional: propose the exact asset during local review, and omit it when it is decorative, unstable, untraceable, or adds no explanatory value.
 
 ## Admission checklist
 
 - The figure materially explains architecture, evidence, an interface, or a result discussed in the Article.
 - The URL is HTTPS and belongs to the canonical publisher's media infrastructure.
-- The canonical source page uses the same asset; record that provenance.
+- The canonical source page uses the exact same asset URL; record that provenance and list the page under `## Sources`.
+- The publisher's terms, robots/access behavior, or explicit media guidance do not prohibit direct embedding; if permission is unclear or the endpoint blocks third-party delivery, use a descriptive source link instead.
 - The prose remains understandable if the publisher removes or replaces the image.
 - The image is not used as `card_image` or another discovery-surface dependency.
+- The local checkpoint names the exact image, source page, intrinsic dimensions, and third-party privacy/durability trade-off.
 
 ## Recommended markup
 
 ```html
-<figure>
+<figure class="remote-publisher-image" data-source-url="https://publisher.example/canonical-article">
   <a href="https://publisher.example/media/figure.webp">
     <img
       src="https://publisher.example/media/figure.webp"
@@ -33,21 +35,22 @@ Use this reference only when the site owner explicitly requests embedding a publ
 </figure>
 ```
 
-Use the asset's decoded intrinsic dimensions, not dimensions guessed from a rendered thumbnail. Preserve aspect ratio through responsive CSS.
+Use the asset's decoded intrinsic dimensions, not dimensions guessed from a rendered thumbnail. Preserve aspect ratio through responsive CSS. Use exactly one `<img>` per figure, including local or fallback images. Do not use Markdown image syntax, `<picture>`, `<source>`, or `srcset`; those forms bypass the validator's provenance and request-boundary checks. The `data-source-url` value must be HTTPS, match a link in the caption, and appear as an exact link destination under `## Sources`. The caption must also contain a visible link whose `href` exactly matches the image `src`.
 
 ## Verification
 
-1. Confirm the endpoint returns HTTP 200 and an expected image content type.
-2. In a real browser, scroll the lazy image into view and assert `complete`, nonzero `naturalWidth` and `naturalHeight`, and the expected `currentSrc`.
-3. Check 320px, 375/390px, and desktop widths in light and dark themes.
-4. Assert no horizontal overflow, failed requests, or console errors.
-5. Verify alt text, source-linked caption, and a visible full-resolution link. Dense technical diagrams may be too small on mobile; the full-resolution link is the fallback.
-6. Simulate image failure. The preceding prose, alt text, caption, source link, and full-resolution link must retain the explanation and provenance.
-7. Confirm no copy of the asset was added under repository image paths.
+1. Run `ruby scripts/validate_article_bites.rb _articles/<slug>.md` and require `PASS`; do not bypass a remote-image validation failure.
+2. Confirm the endpoint returns HTTP 200 and an expected image content type.
+3. In a real browser, scroll the lazy image into view and assert `complete`, nonzero `naturalWidth` and `naturalHeight`, and the expected `currentSrc`.
+4. Check 320px, 375/390px, and desktop widths in light and dark themes.
+5. Assert no horizontal overflow, failed requests, or console errors.
+6. Verify alt text, source-linked caption, and a visible full-resolution link. Dense technical diagrams may be too small on mobile; the full-resolution link is the fallback.
+7. Simulate image failure. The preceding prose, alt text, caption, source link, and full-resolution link must retain the explanation and provenance.
+8. Confirm no copy of the asset was added under repository image paths.
 
 ## Privacy and durability disclosure
 
-`referrerpolicy="no-referrer"` prevents disclosure of the Article URL, but the remote request still exposes the visitor's IP address and ordinary request metadata to the publisher. The publisher can also replace or remove the asset. Disclose both trade-offs at the review checkpoint; do not claim that `no-referrer` eliminates the third-party request.
+The image element's `referrerpolicy="no-referrer"` prevents the automatic image request from disclosing the Article URL, but that request still exposes the visitor's IP address, user agent, timing, and ordinary connection metadata to the publisher or CDN. The surrounding image link and caption links are separate navigations and may send a referrer unless they carry their own navigation policy; never imply that the image attribute governs those clicks. The publisher can also replace or remove the asset. Disclose the automatic-request, click-through, and durability trade-offs at the review checkpoint; do not call the embed privacy-neutral.
 
 ## Publication verification
 

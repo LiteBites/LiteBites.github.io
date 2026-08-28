@@ -1,7 +1,7 @@
 ---
 name: litebites-site-maintenance
 description: Maintain and evolve the LiteBites GitHub Pages/Jekyll site outside paper authoring. Use for shared layouts, navigation, CSS, responsive behavior, accessibility, local Jekyll validation, preview/review checkpoints, and explicitly authorized publication.
-version: 1.6.2
+version: 1.7.0
 author: Hermes Agent
 license: MIT
 metadata:
@@ -77,9 +77,9 @@ When the user asks for a feature to remain independent or easily removable, trea
 
 For static interactive graphs specifically, including incremental topic-index generation, reviewed-edge provenance, dependency-free SVG interaction, the SVG `hidden` attribute pitfall, and no-JavaScript validation, see `references/static-knowledge-graph.md`.
 
-### Exceptional remote-image review
+### Publisher-hosted remote-image review
 
-When an explicitly authorized Article Bite embeds a publisher-hosted original, independently verify the exact asset against the canonical publisher page, decoded dimensions, rendered HTML attributes, responsive/theme behavior, keyboard access, third-party privacy tradeoffs, and graceful failure. Test lazy loading only after scrolling the image into view; use same-origin narrow iframes when browser tooling lacks viewport controls. Validate source-hash state and graph idempotence in an isolated temporary checkout so the review does not mutate the working tree. Use the fail-closed procedure and verdict schema in `references/remote-image-embedding-review.md`.
+When an Article Bite embeds an optional publisher-hosted original under `POLICY_ARTICLE.md`, independently verify the exact asset against the canonical publisher page, validator-enforced figure markup, decoded dimensions, rendered HTML attributes, responsive/theme behavior, keyboard access, third-party privacy tradeoffs, and graceful failure. Test lazy loading only after scrolling the image into view; use same-origin narrow iframes when browser tooling lacks viewport controls. Validate source-hash state and graph idempotence in an isolated temporary checkout so the review does not mutate the working tree. Use the fail-closed procedure and verdict schema in `references/remote-image-embedding-review.md`.
 
 ### Reusable local preview launchers
 

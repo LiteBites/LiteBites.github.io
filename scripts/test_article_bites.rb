@@ -172,6 +172,29 @@ class ArticleBitesSiteTest < Minitest::Test
     end
   end
 
+  def test_article_validator_requires_exact_source_link_destination
+    validator = File.join(ROOT, "scripts", "validate_article_bites.rb")
+    replacements = {
+      "visible text only" => "[https://example.com/source](https://example.org/other)",
+      "query wrapper" => "[Wrapped source](https://example.org/redirect?target=https://example.com/source)",
+      "URL suffix" => "[Near match](https://example.com/source-extra)"
+    }
+
+    Dir.mktmpdir("article-bites-exact-source-test") do |dir|
+      replacements.each_with_index do |(label, replacement), index|
+        path = File.join(dir, "inexact-source-#{index}.md")
+        content = article_fixture(Array.new(410, "evidence").join(" ")).sub(
+          "[Primary Source](https://example.com/source)",
+          replacement
+        )
+        File.write(path, content)
+        stdout, stderr, status = Open3.capture3(RbConfig.ruby, validator, path)
+        refute status.success?, "#{label} unexpectedly passed exact source validation"
+        assert_includes "#{stdout}#{stderr}", "Sources section"
+      end
+    end
+  end
+
   def test_article_validator_rejects_whitespace_and_non_string_metadata
     validator = File.join(ROOT, "scripts", "validate_article_bites.rb")
     Dir.mktmpdir("article-bites-metadata-test") do |dir|
@@ -203,6 +226,87 @@ class ArticleBitesSiteTest < Minitest::Test
       stdout, stderr, status = Open3.capture3(RbConfig.ruby, validator, path)
       refute status.success?, "card-image path traversal unexpectedly passed"
       assert_includes "#{stdout}#{stderr}", "card_image"
+    end
+  end
+
+  def test_article_validator_accepts_complete_remote_publisher_figure
+    validator = File.join(ROOT, "scripts", "validate_article_bites.rb")
+    Dir.mktmpdir("article-bites-remote-image-valid") do |dir|
+      path = File.join(dir, "valid-remote-image.md")
+      figure = <<~HTML
+        <figure class="remote-publisher-image" data-source-url="https://example.com/source">
+          <a href="https://media.example.com/figure.webp">
+            <img
+              src="https://media.example.com/figure.webp"
+              width="1600"
+              height="900"
+              loading="lazy"
+              decoding="async"
+              referrerpolicy="no-referrer"
+              alt="Diagram showing the verified system components and data flow.">
+          </a>
+          <figcaption>
+            System architecture from the <a href="https://example.com/source">canonical source</a>.
+            <a href="https://media.example.com/figure.webp">Open full-resolution image ↗</a>
+          </figcaption>
+        </figure>
+      HTML
+      content = article_fixture(Array.new(410, "evidence").join(" ")).sub(
+        "## What remains uncertain",
+        "#{figure}\n## What remains uncertain"
+      )
+      File.write(path, content)
+      stdout, stderr, status = Open3.capture3(RbConfig.ruby, validator, path)
+      assert status.success?, "complete remote publisher figure failed: #{stdout}#{stderr}"
+    end
+  end
+
+  def test_article_validator_rejects_unsafe_or_incomplete_remote_images
+    validator = File.join(ROOT, "scripts", "validate_article_bites.rb")
+    complete = <<~HTML
+      <figure class="remote-publisher-image" data-source-url="https://example.com/source">
+        <a href="https://media.example.com/figure.webp">
+          <img src="https://media.example.com/figure.webp" width="1600" height="900" loading="lazy" decoding="async" referrerpolicy="no-referrer" alt="Descriptive architecture diagram.">
+        </a>
+        <figcaption>
+          Diagram from the <a href="https://example.com/source">canonical source</a>.
+          <a href="https://media.example.com/figure.webp">Open full-resolution image ↗</a>
+        </figcaption>
+      </figure>
+    HTML
+    cases = {
+      "remote Markdown image" => '![Remote diagram](https://media.example.com/figure.webp)',
+      "remote Markdown reference image" => "![Remote diagram][figure]\n\n[figure]: https://media.example.com/figure.webp",
+      "remote Markdown shortcut reference image" => "![Remote diagram]\n\n[Remote diagram]: https://media.example.com/figure.webp",
+      "protocol-relative Markdown image" => '![Remote diagram](//media.example.com/figure.webp)',
+      "remote image outside figure" => '<img src="https://media.example.com/figure.webp" width="1600" height="900" loading="lazy" decoding="async" referrerpolicy="no-referrer" alt="Diagram">',
+      "unquoted remote image" => complete.sub('src="https://media.example.com/figure.webp"', 'src=https://media.example.com/figure.webp'),
+      "entity-encoded remote image" => '<img src="https&#58;//media.example.com/figure.webp">',
+      "protocol-relative image" => complete.gsub('https://media.example.com/figure.webp', '//media.example.com/figure.webp'),
+      "missing lazy loading" => complete.sub(' loading="lazy"', ""),
+      "missing intrinsic width" => complete.sub(' width="1600"', ""),
+      "blank alt text" => complete.sub('alt="Descriptive architecture diagram."', 'alt=""'),
+      "wrong referrer policy" => complete.sub('referrerpolicy="no-referrer"', 'referrerpolicy="origin"'),
+      "missing source link" => complete.sub('<a href="https://example.com/source">canonical source</a>', 'canonical source'),
+      "missing full-resolution caption link" => complete.sub('<a href="https://media.example.com/figure.webp">Open full-resolution image ↗</a>', 'Open full-resolution image'),
+      "source absent from Sources" => complete.sub(/https:\/\/example\.com\/source/, "https://publisher.example/story"),
+      "srcset bypass" => complete.sub(' alt="Descriptive architecture diagram."', ' srcset="https://tracker.example/figure-2x.webp 2x" alt="Descriptive architecture diagram."'),
+      "local src with remote srcset" => '<img src="/assets/images/articles/local.png" srcset="https://tracker.example/figure-2x.webp 2x" alt="Local image with remote variant">',
+      "second local image in remote figure" => complete.sub('</a>', "</a>\n<img src=\"/assets/images/articles/local.png\" alt=\"Second image\">")
+    }
+
+    Dir.mktmpdir("article-bites-remote-image-invalid") do |dir|
+      cases.each_with_index do |(label, markup), index|
+        path = File.join(dir, "invalid-remote-image-#{index}.md")
+        content = article_fixture(Array.new(410, "evidence").join(" ")).sub(
+          "## What remains uncertain",
+          "#{markup}\n\n## What remains uncertain"
+        )
+        File.write(path, content)
+        stdout, stderr, status = Open3.capture3(RbConfig.ruby, validator, path)
+        refute status.success?, "#{label} unexpectedly passed"
+        assert_includes "#{stdout}#{stderr}", "remote"
+      end
     end
   end
 

@@ -45,14 +45,7 @@ AVO is also notable for moving between two unlike domains. Its earlier research 
 
 ARC-AGI-3 presents game-like environments without instructions, stated rules, or stated goals. An agent must infer how actions change the world and carry useful knowledge into later levels. The benchmark's RHAE metric combines completion with action efficiency relative to first-time-human baselines. Only actions that alter the environment count; internal reasoning, read-only tool calls, and retries are not part of the action total.
 
-For ARC-AGI-3, NVIDIA says AVO received each observation as an exact 64-by-64 text grid rather than an image. Persistent memory carries forward observations, hypotheses, and results, while a supervisor watches for stagnation and can redirect the search. NVIDIA's architecture diagram shows this main-agent loop, candidate lineage, memory, tools, and conditional supervisor intervention.
-
-<figure>
-  <a href="https://developer-blogs.nvidia.com/wp-content/uploads/2026/08/nvidia-avo-architecture-long-horizon-autonomous-agent-work.webp">
-    <img src="https://developer-blogs.nvidia.com/wp-content/uploads/2026/08/nvidia-avo-architecture-long-horizon-autonomous-agent-work.webp" width="1999" height="1126" loading="lazy" decoding="async" referrerpolicy="no-referrer" alt="Diagram of the AVO architecture showing inputs to the agent; an iterative loop for inspecting context, planning, implementing, and evaluating candidates; persistent memory and tools; candidate selection and lineage updates; and a supervisor monitoring progress.">
-  </a>
-  <figcaption>Figure 1. AVO architecture for long-horizon autonomous agent work. Image served from NVIDIA's original media URL; caption adapted from the <a href="https://developer.nvidia.com/blog/nvidia-avo-reaches-100-on-arc-agi-3-demonstrating-a-frontier-level-general-purpose-architecture-for-long-horizon-autonomous-agents/">NVIDIA Technical Blog</a>. <a href="https://developer-blogs.nvidia.com/wp-content/uploads/2026/08/nvidia-avo-architecture-long-horizon-autonomous-agent-work.webp">Open full-resolution image ↗</a></figcaption>
-</figure>
+For ARC-AGI-3, NVIDIA says AVO received each observation as an exact 64-by-64 text grid rather than an image. Persistent memory carries forward observations, hypotheses, and results, while a supervisor watches for stagnation and can redirect the search. NVIDIA's [architecture diagram](https://developer.nvidia.com/blog/nvidia-avo-reaches-100-on-arc-agi-3-demonstrating-a-frontier-level-general-purpose-architecture-for-long-horizon-autonomous-agents/) shows this main-agent loop, candidate lineage, memory, tools, and conditional supervisor intervention.
 
 ## What remains uncertain
 

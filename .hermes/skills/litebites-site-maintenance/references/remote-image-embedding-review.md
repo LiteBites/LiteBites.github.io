@@ -1,21 +1,37 @@
 # Remote image embedding review
 
-Use this checklist when a LiteBites revision exceptionally embeds a publisher-hosted image instead of storing a local asset. The goal is a fail-closed local publication verdict, not merely confirmation that the Markdown looks plausible.
+Use this checklist when a LiteBites Article renders an optional publisher-hosted original instead of storing a repository copy. The goal is a fail-closed local publication verdict, not merely confirmation that the Markdown looks plausible.
 
 ## Scope and policy
 
 1. Review the complete working-tree scope: staged, unstaged, and untracked files.
-2. Confirm the policy exception is narrow: explicit owner request, one named Bite, HTTPS, canonical publisher media infrastructure, inline use only, and never `card_image`.
+2. Confirm the feature stays narrow: an informative image, HTTPS, exact canonical-page provenance, publisher media infrastructure, inline use only, and never `card_image`. Require the validator-enforced `remote-publisher-image` and `data-source-url` contract; reject remote Markdown image syntax and `srcset`.
 3. Require the prose to explain the useful content without the image. A remote asset is mutable and may disappear.
 4. Treat the third-party request as an explicit privacy tradeoff. `referrerpolicy="no-referrer"` removes the page referrer but does not hide the visitor IP address, user agent, or request timing from the publisher/CDN.
 
-## Origin and asset verification
+## Origin, permission, and asset verification
 
 - Inspect the canonical publisher page itself. Confirm that its live DOM references the exact remote media URL; lazy-loading implementations may store it in `data-src` or `srcset` rather than `src`.
 - Compare the publisher's figure caption and alt text with the proposed embed. Adaptation is acceptable, but provenance and meaning must remain accurate.
+- Inspect the publisher's live terms, robots/access behavior, and any asset-specific media guidance. Record the exact controlling language or permission evidence. A technically accessible image is not automatically licensed for public embedding; if public display or reuse is prohibited or permission remains unclear, fail closed and use a descriptive source link unless written or asset-specific permission is available.
 - Fetch the asset directly and verify HTTP success, HTTPS, media content type, decoded file type, byte size, and actual pixel dimensions.
 - Confirm the declared HTML `width` and `height` match the decoded dimensions.
 - Do not infer publisher ownership from a plausible-looking hostname alone; the canonical page's exact asset reference is stronger evidence.
+
+## Validator bypass-resistance checks
+
+Do not infer fail-closed behavior from the happy-path fixture or from regex coverage alone. Before approving a remote-image validator, generate temporary adversarial Article fixtures and require rejection of:
+
+- unquoted remote attributes such as `<img src=https://tracker.example/pixel.webp>`;
+- entity-encoded schemes such as `src="https&#58;//tracker.example/pixel.webp"`;
+- every Markdown image form that the configured renderer turns into a remote `<img>`, including shortcut reference syntax (`![Label]` plus `[Label]: https://…`);
+- a compliant remote figure containing a second local `<img>`—the policy requires exactly one `<img>`, not merely one remote `<img>`;
+- `<picture>`, `<source>`, or any `srcset` descendant, regardless of whether one candidate is local;
+- a canonical source URL present only as visible text, a prefix/suffix, or a query-parameter substring of another destination.
+
+Prefer parsing the renderer's resulting HTML with an HTML5 parser and inspecting actual elements and attributes. If a regex pre-scan remains, treat it only as defense in depth: HTML quoting, entities, and Markdown reference resolution make regex-only remote-element discovery bypassable. Extract source-section link destinations and require exact normalized URL membership rather than substring checks. Add each demonstrated bypass to the permanent regression suite.
+
+When raw HTML contains visible caption text, report both the validator's count and a count with the complete figure removed. This proves that the Article remains within its editorial word range regardless of whether the counting policy includes rendered caption text.
 
 ## Rendered-output checks
 
@@ -56,7 +72,7 @@ Return a concise fail-closed report with:
 
 - `passed`;
 - `blocking_issues`;
-- `non_blocking_notes`;
+- `nonblocking_notes`;
 - concrete `verification_evidence`;
 - `files_modified_by_reviewer`.
 

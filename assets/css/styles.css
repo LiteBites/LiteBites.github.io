@@ -886,6 +886,10 @@ button { font: inherit; }
   color: var(--faint);
   font: 400 11px/1.55 "IBM Plex Mono", monospace;
 }
+.post-body .remote-publisher-image figcaption {
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
 .dataset-hero-image { margin: 42px 0 0; }
 
 .post-pagination {

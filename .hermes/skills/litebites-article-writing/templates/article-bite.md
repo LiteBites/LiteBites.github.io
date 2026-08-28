@@ -31,6 +31,28 @@ Explain the immediate technical or operational consequence. Separate present evi
 
 Supply only the architecture, protocol, benchmark, deployment, or standards context needed to understand the development.
 
+<!-- Optional publisher-hosted inline figure. Remove this entire comment when unused.
+<figure class="remote-publisher-image" data-source-url="https://publisher.example/canonical-article">
+  <a href="https://publisher.example/media/figure.webp">
+    <img
+      src="https://publisher.example/media/figure.webp"
+      width="1600"
+      height="900"
+      loading="lazy"
+      decoding="async"
+      referrerpolicy="no-referrer"
+      alt="Describe the image's components, evidence, and relevant relationships.">
+  </a>
+  <figcaption>
+    Explain what the figure shows. Image served from the publisher's original URL;
+    caption adapted from the
+    <a href="https://publisher.example/canonical-article">canonical source</a>.
+    <a href="https://publisher.example/media/figure.webp">Open full-resolution image ↗</a>
+  </figcaption>
+</figure>
+Add the canonical source URL to the Sources section below.
+-->
+
 ## What remains uncertain
 
 Identify missing evidence, unavailable benchmarks, compatibility limits, incentives, or claims that have not been independently verified.
