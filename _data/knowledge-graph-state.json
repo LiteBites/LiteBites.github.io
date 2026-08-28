@@ -489,6 +489,35 @@
       "sourcePath": "_posts/2026-07-05-moeclip.md"
     },
     {
+      "id": "paper:prime-agent",
+      "slug": "prime-agent",
+      "type": "paper",
+      "title": "Prime Agent: A Self-Improving RLM Harness",
+      "shortTitle": "Prime Agent",
+      "url": "/posts/prime-agent/",
+      "summary": "Prime Agent treats persistent computation, recursive subagents, and revisable harness state as part of the agent—not invisible plumbing—and evaluates how that substrate changes long-horizon work.",
+      "date": "2026-08-24",
+      "meta": "arXiv preprint / 7 min read",
+      "topics": [
+        "Agentic AI",
+        "Context Engineering",
+        "Language Models",
+        "Long-Horizon Agents",
+        "Multi-Agent Systems",
+        "Test-Time Compute"
+      ],
+      "topicWeights": {
+        "Agentic AI": 3,
+        "Context Engineering": 3,
+        "Language Models": 1,
+        "Long-Horizon Agents": 3,
+        "Multi-Agent Systems": 3,
+        "Test-Time Compute": 3
+      },
+      "sourceHash": "edc8c4b819339cb343880dc25e229e17f871d1245690fb65fe2008ce923ed774",
+      "sourcePath": "_posts/2026-08-24-prime-agent.md"
+    },
+    {
       "id": "paper:retrieval-augmented-generation",
       "slug": "retrieval-augmented-generation",
       "type": "paper",
@@ -707,18 +736,6 @@
       "provenance": "metadata"
     },
     {
-      "id": "article:apple-mac-desktops-local-ai|paper:slm-agents",
-      "source": "article:apple-mac-desktops-local-ai",
-      "target": "paper:slm-agents",
-      "relation": "shared-topic",
-      "label": "Efficient AI",
-      "topics": [
-        "Efficient AI"
-      ],
-      "weight": 2,
-      "provenance": "metadata"
-    },
-    {
       "id": "article:glm-5-3-flash|article:qwen3-8-max",
       "source": "article:glm-5-3-flash",
       "target": "article:qwen3-8-max",
@@ -759,18 +776,6 @@
       "id": "article:glm-5-3-flash|paper:colbert",
       "source": "article:glm-5-3-flash",
       "target": "paper:colbert",
-      "relation": "shared-topic",
-      "label": "Efficient AI",
-      "topics": [
-        "Efficient AI"
-      ],
-      "weight": 2,
-      "provenance": "metadata"
-    },
-    {
-      "id": "article:glm-5-3-flash|paper:genrec",
-      "source": "article:glm-5-3-flash",
-      "target": "paper:genrec",
       "relation": "shared-topic",
       "label": "Efficient AI",
       "topics": [
@@ -853,18 +858,6 @@
       "provenance": "metadata"
     },
     {
-      "id": "article:nvidia-avo-arc-agi-3|article:qwenwork-workplace-agent-platform",
-      "source": "article:nvidia-avo-arc-agi-3",
-      "target": "article:qwenwork-workplace-agent-platform",
-      "relation": "shared-topic",
-      "label": "Agentic AI",
-      "topics": [
-        "Agentic AI"
-      ],
-      "weight": 3,
-      "provenance": "metadata"
-    },
-    {
       "id": "article:nvidia-avo-arc-agi-3|paper:chain-of-zoom",
       "source": "article:nvidia-avo-arc-agi-3",
       "target": "paper:chain-of-zoom",
@@ -898,6 +891,19 @@
         "Language Models"
       ],
       "weight": 2,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:nvidia-avo-arc-agi-3|paper:prime-agent",
+      "source": "article:nvidia-avo-arc-agi-3",
+      "target": "paper:prime-agent",
+      "relation": "shared-topic",
+      "label": "Agentic AI · Language Models",
+      "topics": [
+        "Agentic AI",
+        "Language Models"
+      ],
+      "weight": 5,
       "provenance": "metadata"
     },
     {
@@ -952,6 +958,19 @@
       "provenance": "metadata"
     },
     {
+      "id": "article:qwen3-8-max|paper:prime-agent",
+      "source": "article:qwen3-8-max",
+      "target": "paper:prime-agent",
+      "relation": "shared-topic",
+      "label": "Agentic AI · Language Models",
+      "topics": [
+        "Agentic AI",
+        "Language Models"
+      ],
+      "weight": 5,
+      "provenance": "metadata"
+    },
+    {
       "id": "article:qwen3-8-max|paper:retrieval-augmented-generation",
       "source": "article:qwen3-8-max",
       "target": "paper:retrieval-augmented-generation",
@@ -999,6 +1018,18 @@
         "Multimodal AI"
       ],
       "weight": 2,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:qwenwork-workplace-agent-platform|paper:prime-agent",
+      "source": "article:qwenwork-workplace-agent-platform",
+      "target": "paper:prime-agent",
+      "relation": "shared-topic",
+      "label": "Agentic AI",
+      "topics": [
+        "Agentic AI"
+      ],
+      "weight": 4,
       "provenance": "metadata"
     },
     {
@@ -1306,6 +1337,19 @@
       "provenance": "metadata"
     },
     {
+      "id": "paper:genrec|paper:prime-agent",
+      "source": "paper:genrec",
+      "target": "paper:prime-agent",
+      "relation": "shared-topic",
+      "label": "Context Engineering · Language Models",
+      "topics": [
+        "Context Engineering",
+        "Language Models"
+      ],
+      "weight": 4,
+      "provenance": "metadata"
+    },
+    {
       "id": "paper:lance-unified-multimodal|paper:mmr-ad",
       "source": "paper:lance-unified-multimodal",
       "target": "paper:mmr-ad",
@@ -1371,6 +1415,19 @@
       "provenance": "metadata"
     },
     {
+      "id": "paper:prime-agent|paper:slm-agents",
+      "source": "paper:prime-agent",
+      "target": "paper:slm-agents",
+      "relation": "shared-topic",
+      "label": "Agentic AI · Language Models",
+      "topics": [
+        "Agentic AI",
+        "Language Models"
+      ],
+      "weight": 4,
+      "provenance": "metadata"
+    },
+    {
       "id": "paper:retrieval-augmented-generation|paper:thinksound",
       "source": "paper:retrieval-augmented-generation",
       "target": "paper:thinksound",
@@ -1385,10 +1442,10 @@
     }
   ],
   "stats": {
-    "nodes": 24,
-    "edges": 59,
+    "nodes": 25,
+    "edges": 61,
     "articles": 5,
-    "papers": 16,
+    "papers": 17,
     "datasets": 3
   }
 }
