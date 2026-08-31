@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">AVO agent loop for ARC-AGI-3</title>
+  <desc id="desc">A LiteBites synthesis showing text-grid observations entering an inspect, plan, act, and evaluate loop supported by persistent memory, read-only tools, and a supervisor that can redirect stalled search.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f8fafc"/><stop offset="1" stop-color="#eef2ff"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#0f172a" flood-opacity=".12"/></filter>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0 0L12 6 0 12Z" fill="#475569"/></marker>
+    <style>.h{font:700 46px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#0f172a}.sub{font:500 23px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#475569}.label{font:700 28px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#0f172a}.small{font:500 20px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#475569}.tiny{font:500 18px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#64748b}.box{fill:#fff;stroke-width:3;filter:url(#shadow)}.line{fill:none;stroke:#475569;stroke-width:4;marker-end:url(#arrow)}</style>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <text x="80" y="92" class="h">AVO turns search into a persistent agent loop</text>
+  <text x="80" y="136" class="sub">ARC-AGI-3 observations enter as exact 64 × 64 text grids; internal work is broader than counted environment actions.</text>
+
+  <rect x="70" y="270" width="250" height="190" rx="24" class="box" stroke="#0ea5e9"/>
+  <text x="195" y="330" text-anchor="middle" class="label">Observation</text>
+  <text x="195" y="376" text-anchor="middle" class="small">64 × 64 text grid</text>
+  <text x="195" y="410" text-anchor="middle" class="small">No stated rules</text>
+  <path d="M320 365H430" class="line"/>
+
+  <rect x="430" y="230" width="700" height="285" rx="32" fill="#fff" stroke="#6366f1" stroke-width="4" filter="url(#shadow)"/>
+  <text x="780" y="285" text-anchor="middle" class="label">Main agent iteration</text>
+  <rect x="475" y="335" width="135" height="95" rx="18" fill="#e0f2fe" stroke="#0284c7" stroke-width="3"/>
+  <rect x="635" y="335" width="135" height="95" rx="18" fill="#ede9fe" stroke="#7c3aed" stroke-width="3"/>
+  <rect x="795" y="335" width="135" height="95" rx="18" fill="#dcfce7" stroke="#16a34a" stroke-width="3"/>
+  <rect x="955" y="335" width="135" height="95" rx="18" fill="#ffedd5" stroke="#ea580c" stroke-width="3"/>
+  <text x="542" y="392" text-anchor="middle" class="label">Inspect</text>
+  <text x="702" y="392" text-anchor="middle" class="label">Plan</text>
+  <text x="862" y="392" text-anchor="middle" class="label">Act</text>
+  <text x="1022" y="392" text-anchor="middle" class="label">Evaluate</text>
+  <path d="M610 382H630M770 382H790M930 382H950" class="line"/>
+  <path d="M1022 432C1022 485 542 485 542 435" class="line"/>
+
+  <rect x="1190" y="270" width="330" height="190" rx="24" class="box" stroke="#10b981"/>
+  <text x="1355" y="330" text-anchor="middle" class="label">Environment action</text>
+  <text x="1355" y="375" text-anchor="middle" class="small">Only state-changing moves</text>
+  <text x="1355" y="408" text-anchor="middle" class="small">enter the action total</text>
+  <path d="M1130 365H1185" class="line"/>
+
+  <rect x="250" y="625" width="300" height="150" rx="24" class="box" stroke="#0ea5e9"/>
+  <text x="400" y="682" text-anchor="middle" class="label">Persistent memory</text>
+  <text x="400" y="722" text-anchor="middle" class="small">observations · hypotheses · results</text>
+  <rect x="650" y="625" width="300" height="150" rx="24" class="box" stroke="#8b5cf6"/>
+  <text x="800" y="682" text-anchor="middle" class="label">Read-only tools</text>
+  <text x="800" y="722" text-anchor="middle" class="small">inspect state · retrieve context</text>
+  <rect x="1050" y="625" width="300" height="150" rx="24" class="box" stroke="#f97316"/>
+  <text x="1200" y="682" text-anchor="middle" class="label">Supervisor</text>
+  <text x="1200" y="722" text-anchor="middle" class="small">detect stagnation · redirect search</text>
+  <path d="M400 625V520" class="line"/>
+  <path d="M800 625V520" class="line"/>
+  <path d="M1200 625C1200 555 1060 555 1060 515" class="line"/>
+  <text x="80" y="852" class="tiny">Original LiteBites synthesis from NVIDIA's ARC-AGI-3 Technical Blog; not a reproduction of NVIDIA's figure.</text>
+</svg>

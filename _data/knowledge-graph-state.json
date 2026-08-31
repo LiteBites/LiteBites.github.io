@@ -24,7 +24,7 @@
         "Multimodal AI": 3,
         "Workplace Automation": 3
       },
-      "sourceHash": "a89ae3b26a186067ada0f7b7bcd0ed46bff4a6045f311de7f0956760570000dd",
+      "sourceHash": "14f456fd885aa3f5e3c26a97246ebcf4aecbc677283f10d9a7a682f22e2578eb",
       "sourcePath": "_articles/qwenwork-workplace-agent-platform.md"
     },
     {
@@ -36,7 +36,7 @@
       "url": "/articles/apple-mac-desktops-local-ai/",
       "summary": "Apple's new Mac mini and Mac Studio span four sharply different local-AI tiers, where unified-memory capacity and software support matter as much as neural acceleration.",
       "date": "2026-08-27",
-      "meta": "Apple Newsroom / 3 min read",
+      "meta": "Apple Newsroom / 4 min read",
       "topics": [
         "AI Hardware",
         "Apple Silicon",
@@ -51,7 +51,7 @@
         "Local AI": 3,
         "Unified Memory": 3
       },
-      "sourceHash": "46bcdfdcc245fdc7c2285460b54ccd33b0fe01783a953c3fd4f2f70b0eba5a98",
+      "sourceHash": "893f1edfe8ca8caf5484015fd7ebead3ba070d645a09d8d6f973126316e15bd0",
       "sourcePath": "_articles/apple-mac-desktops-local-ai.md"
     },
     {
@@ -76,7 +76,7 @@
         "Multimodal AI": 3,
         "Open Models": 3
       },
-      "sourceHash": "163ee61407a7b67871155edfe73532403ba4a1a97bf2b672478add881b19ecfa",
+      "sourceHash": "d100a8163d27ddcacef71118207c8eb1e38571bc9041d2e97113e41893ddf4cf",
       "sourcePath": "_articles/glm-5-3-flash.md"
     },
     {
@@ -99,7 +99,7 @@
         "Language Models": 3,
         "Reasoning Systems": 3
       },
-      "sourceHash": "d41cfaf24d71abc6b9bc613dd595eefce5475a14b5855d44a21bfafb4b74757a",
+      "sourceHash": "9f3328291aafad14d3db65d73ebee6aa7ada5299487ef7b525731db2692c15b5",
       "sourcePath": "_articles/nvidia-avo-arc-agi-3.md"
     },
     {
@@ -124,7 +124,7 @@
         "Multimodal AI": 3,
         "Open Models": 3
       },
-      "sourceHash": "a83dabdc8a047b0eb4ca502ec9c0679934a790ff9bb643ca05d787ebfd15f874",
+      "sourceHash": "2980261341214106c6ecfbeca1266483629fca7525af122ddaab91ee0e20ae94",
       "sourcePath": "_articles/qwen3-8-max.md"
     },
     {

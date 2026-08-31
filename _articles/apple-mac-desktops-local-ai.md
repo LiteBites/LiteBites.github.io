@@ -4,11 +4,11 @@ title: "Apple's New Mac mini and Mac Studio Make Unified Memory the Local-AI Spe
 short_title: "Mac Desktops for Local AI"
 date: 2026-08-27
 type: "Article Bite"
-read_time: "3 min read"
+read_time: "4 min read"
 source_name: "Apple Newsroom"
 source_url: "https://www.apple.com/newsroom/2026/08/apple-introduces-m6-and-m5-ultra-for-a-big-leap-in-performance-and-ai-compute/"
 source_published: 2026-08-25
-last_reviewed: 2026-08-27
+last_reviewed: 2026-08-31
 tags:
   - AI Hardware
   - Apple Silicon
@@ -31,6 +31,8 @@ additional_sources:
     url: "https://www.pcworld.com/article/3220348/apples-new-mac-minis-are-primed-for-local-ai-i-specced-one-for-2899.html"
   - name: "Apple MLX repository"
     url: "https://github.com/ml-explore/mlx"
+  - name: "MLX distributed communication documentation"
+    url: "https://ml-explore.github.io/mlx/build/html/usage/distributed.html"
   - name: "GLM-5.3-Flash model repository"
     url: "https://huggingface.co/zai-org/GLM-5.3-Flash"
 ---
@@ -61,6 +63,25 @@ M6 combines GPU Neural Accelerators with a Dual 16-core Neural Engine; the M5 Pr
 
 Apple also says built-in Thunderbolt 5 and RDMA support can cluster multiple Mac Studio systems, with a four-Studio cluster reaching up to 3× the AI-inference performance of one system. That is an Apple-tested result, not transparent scaling guaranteed for every runtime.
 
+<figure class="remote-publisher-image remote-publisher-image--portrait" data-source-url="https://ml-explore.github.io/mlx/build/html/usage/distributed.html">
+  <a href="https://ml-explore.github.io/mlx/build/html/_static/distributed/m3-ultra-mesh.png">
+    <img
+      src="https://ml-explore.github.io/mlx/build/html/_static/distributed/m3-ultra-mesh.png"
+      width="306"
+      height="413"
+      loading="lazy"
+      decoding="async"
+      referrerpolicy="no-referrer"
+      alt="Four M3 Ultra Macs connected in a full Thunderbolt mesh, with every node linked directly to the other three through labeled en3, en4, and en5 interfaces.">
+  </a>
+  <figcaption>
+    MLX's JACCL example shows a fully connected four-node Thunderbolt topology. It depicts M3 Ultra—not M5 Ultra—and shows why clustering Mac Studio-class machines is a networking and software project rather than automatic pooled memory. From the
+    <a href="https://ml-explore.github.io/mlx/build/html/usage/distributed.html">MLX distributed communication documentation</a>, © Apple Inc., under the
+    <a href="https://github.com/ml-explore/mlx/blob/main/LICENSE">MIT License</a>;
+    <a href="https://ml-explore.github.io/mlx/build/html/_static/distributed/m3-ultra-mesh.png">open the full-resolution image ↗</a>.
+  </figcaption>
+</figure>
+
 ## What remains uncertain
 
 Apple says its cited launch-performance results come from July 2026 tests using selected systems, applications, model settings, and baselines. Independent reviewers cannot test shipping hardware yet, so claims such as 4× faster local AI or 4.3× peak AI compute should not be treated as general workload speedups.
@@ -85,4 +106,6 @@ Model fit also depends on quantization, architecture, context length, runtime ov
 - [The Verge — Apple’s new Mac Mini has fresh M6 and M5 Pro chip offerings](https://www.theverge.com/tech/984190/apple-mac-mini-m6-m5-pro-price-specs)
 - [PCWorld — Apple’s new Mac minis are primed for local AI](https://www.pcworld.com/article/3220348/apples-new-mac-minis-are-primed-for-local-ai-i-specced-one-for-2899.html)
 - [GitHub — MLX](https://github.com/ml-explore/mlx)
+- [MLX — Distributed communication](https://ml-explore.github.io/mlx/build/html/usage/distributed.html)
+- [MLX — MIT License](https://github.com/ml-explore/mlx/blob/main/LICENSE)
 - [Hugging Face — GLM-5.3-Flash](https://huggingface.co/zai-org/GLM-5.3-Flash)

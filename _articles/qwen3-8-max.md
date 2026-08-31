@@ -8,7 +8,7 @@ read_time: "3 min read"
 source_name: "Qwen Team"
 source_url: "https://qwen.ai/blog?id=qwen3.8"
 source_published: 2026-08-03
-last_reviewed: 2026-08-16
+last_reviewed: 2026-08-31
 tags:
   - Agentic AI
   - Language Models
@@ -37,6 +37,13 @@ The announcement said open weights would follow the next week. They did: Qwen pu
 The release matters for reasons beyond parameter count. Qwen is packaging sparse scale, multimodal input, adjustable reasoning effort, tool-compatible APIs, and training for multi-step execution as one agent platform. The service supports OpenAI-compatible chat and responses interfaces plus an Anthropic-compatible interface. Existing coding and agent harnesses can therefore connect with less custom integration work.
 
 Researchers and infrastructure teams now have a checkpoint they can inspect and deploy outside QwenCloud. That helps with controlled evaluation, customization, and data-governance requirements. Still, a multi-trillion-parameter checkpoint demands unusually substantial storage and inference infrastructure.
+
+<figure class="article-figure">
+  <a href="{{ '/assets/images/articles/qwen3-8-max/sparse-scale.svg' | relative_url }}">
+    <img src="{{ '/assets/images/articles/qwen3-8-max/sparse-scale.svg' | relative_url }}" width="1600" height="900" loading="lazy" decoding="async" alt="Architecture summary showing Qwen3.8 with 2.4 trillion total parameters, 95 billion active per token, 512 experts with 10 routed and one shared expert active, 92 layers arranged as 23 repeated blocks, and a 262,144-token native context extensible to about 1,010,000 tokens.">
+  </a>
+  <figcaption>LiteBites synthesis from the official <a href="https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B">Qwen3.8-2.4T-A95B model card</a>. Active parameters describe per-token routing, not checkpoint storage or memory footprint, and the managed Max service adds capabilities beyond this downloadable artifact. <a href="{{ '/assets/images/articles/qwen3-8-max/sparse-scale.svg' | relative_url }}">Open full resolution ↗</a></figcaption>
+</figure>
 
 ## Technical context
 

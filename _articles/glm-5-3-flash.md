@@ -8,7 +8,7 @@ read_time: "3 min read"
 source_name: "Z.ai"
 source_url: "https://z.ai/blog/glm-5.3-flash"
 source_published: 2026-08-26
-last_reviewed: 2026-08-27
+last_reviewed: 2026-08-28
 tags:
   - Efficient AI
   - Mixture of Experts
@@ -55,6 +55,24 @@ The model includes a vision encoder rather than delegating images to a separate 
 ## What remains uncertain
 
 Most coding, agentic, vision, and base-model comparisons in the launch post are Z.ai-run. Their footnotes disclose different harnesses, judges, context limits, timeouts, and sampling settings, so the table is not one uniform evaluation. Artificial Analysis independently supports its own index result, not the complete vendor benchmark suite.
+
+<figure class="remote-publisher-image" data-source-url="https://huggingface.co/zai-org/GLM-5.3-Flash">
+  <a href="https://raw.githubusercontent.com/zai-org/GLM-5/refs/heads/main/resources/bench_53.png">
+    <img
+      src="https://raw.githubusercontent.com/zai-org/GLM-5/refs/heads/main/resources/bench_53.png"
+      width="4239"
+      height="2643"
+      loading="lazy"
+      decoding="async"
+      referrerpolicy="no-referrer"
+      alt="Six bar-chart groups compare GLM-5.3-Flash, GLM-5.2, DeepSeek-V4-Vision-Exp, Claude Opus 4.8, GPT-5.6 Terra, and Gemini 3.7 Flash on Terminal Bench 2.1, DeepSWE v1.1, Agents' Last Exam, AutomationBench, HLE with tools, and GDPVal-AA v2; the blue GLM-5.3-Flash bar leads only the GDPVal-AA v2 group.">
+  </a>
+  <figcaption>
+    Z.ai's official model card places six vendor-reported evaluations side by side; the differing protocols described above prevent reading them as one controlled ranking. Image served from the official GLM-5 repository under Apache 2.0; see the
+    <a href="https://huggingface.co/zai-org/GLM-5.3-Flash">canonical model card</a> and
+    <a href="https://raw.githubusercontent.com/zai-org/GLM-5/refs/heads/main/resources/bench_53.png">open the full-resolution image ↗</a>.
+  </figcaption>
+</figure>
 
 The linked February 2026 GLM-5 technical report predates GLM-5.3-Flash and does not document this release-specific hybrid architecture or claimed 30-trillion-token multimodal corpus. Z.ai also reports serving the model on a large cluster of Chinese AI chips with a 3× improvement over its initial baseline, but does not name the accelerators or publish telemetry sufficient to compare that system independently with NVIDIA deployments. API price therefore should not be treated as proof of self-hosted cost or reliability.
 

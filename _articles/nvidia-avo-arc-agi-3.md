@@ -8,7 +8,7 @@ read_time: "3 min read"
 source_name: "NVIDIA Technical Blog"
 source_url: "https://developer.nvidia.com/blog/nvidia-avo-reaches-100-on-arc-agi-3-demonstrating-a-frontier-level-general-purpose-architecture-for-long-horizon-autonomous-agents/"
 source_published: 2026-08-21
-last_reviewed: 2026-08-23
+last_reviewed: 2026-08-31
 tags:
   - Agentic AI
   - Language Models
@@ -45,7 +45,14 @@ AVO is also notable for moving between two unlike domains. Its earlier research 
 
 ARC-AGI-3 presents game-like environments without instructions, stated rules, or stated goals. An agent must infer how actions change the world and carry useful knowledge into later levels. The benchmark's RHAE metric combines completion with action efficiency relative to first-time-human baselines. Only actions that alter the environment count; internal reasoning, read-only tool calls, and retries are not part of the action total.
 
-For ARC-AGI-3, NVIDIA says AVO received each observation as an exact 64-by-64 text grid rather than an image. Persistent memory carries forward observations, hypotheses, and results, while a supervisor watches for stagnation and can redirect the search. NVIDIA's [architecture diagram](https://developer.nvidia.com/blog/nvidia-avo-reaches-100-on-arc-agi-3-demonstrating-a-frontier-level-general-purpose-architecture-for-long-horizon-autonomous-agents/) shows this main-agent loop, candidate lineage, memory, tools, and conditional supervisor intervention.
+For ARC-AGI-3, NVIDIA says AVO received each observation as an exact 64-by-64 text grid rather than an image. Persistent memory carries forward observations, hypotheses, and results, while a supervisor watches for stagnation and can redirect the search. NVIDIA's [architecture diagram](https://developer.nvidia.com/blog/nvidia-avo-reaches-100-on-arc-agi-3-demonstrating-a-frontier-level-general-purpose-architecture-for-long-horizon-autonomous-agents/) shows this main-agent loop, memory, tools, and conditional supervisor intervention.
+
+<figure class="article-figure">
+  <a href="{{ '/assets/images/articles/nvidia-avo-arc-agi-3/avo-loop.svg' | relative_url }}">
+    <img src="{{ '/assets/images/articles/nvidia-avo-arc-agi-3/avo-loop.svg' | relative_url }}" width="1600" height="900" loading="lazy" decoding="async" alt="Diagram showing 64-by-64 text-grid observations entering an AVO loop of inspect, plan, act, and evaluate, supported by persistent memory, read-only tools, and a supervisor that redirects stalled search before state-changing environment actions are counted.">
+  </a>
+  <figcaption>LiteBites synthesis of AVO's ARC-AGI-3 execution loop from the <a href="https://developer.nvidia.com/blog/nvidia-avo-reaches-100-on-arc-agi-3-demonstrating-a-frontier-level-general-purpose-architecture-for-long-horizon-autonomous-agents/">NVIDIA Technical Blog</a>; it is an original explanatory diagram, not NVIDIA's figure. <a href="{{ '/assets/images/articles/nvidia-avo-arc-agi-3/avo-loop.svg' | relative_url }}">Open full resolution ↗</a></figcaption>
+</figure>
 
 ## What remains uncertain
 

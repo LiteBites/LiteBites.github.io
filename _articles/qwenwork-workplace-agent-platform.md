@@ -8,7 +8,7 @@ read_time: "3 min read"
 source_name: "Alibaba Group"
 source_url: "https://www.alibabagroup.com/en-US/document-2021039099929952256"
 source_published: 2026-08-03
-last_reviewed: 2026-08-26
+last_reviewed: 2026-08-31
 tags:
   - Agentic AI
   - Enterprise AI
@@ -45,6 +45,13 @@ That makes QwenWork better understood as an orchestration product than as anothe
 QwenWork's current documentation organizes work around persistent tasks containing conversation, attachments, execution history, and generated artifacts. Users can switch models during a task without discarding its existing context. However, the workflow guide explains only Basic and Advanced choices; it does not reconcile those options with all four tier names in the launch announcement. The product site describes six broad capability areas: enterprise messaging, Office-file delivery, multimodal understanding and generation, full-stack web publishing, data aggregation, and a skill marketplace.
 
 On desktop, a skill is documented as a folder containing a natural-language `SKILL.md` file under `~/.qwenworkcn/skills/`. Skills can be installed from a marketplace or repository, uploaded manually, shared, and triggered automatically. Separate IM documentation lists seven channels—DingTalk, Feishu, Lark, WeChat, WeCom, Slack, and WhatsApp—with each chat mapped to an isolated QwenWork session and the desktop client acting as a control center.
+
+<figure class="article-figure">
+  <a href="{{ '/assets/images/articles/qwenwork-workplace-agent-platform/task-boundary.svg' | relative_url }}">
+    <img src="{{ '/assets/images/articles/qwenwork-workplace-agent-platform/task-boundary.svg' | relative_url }}" width="1600" height="900" loading="lazy" decoding="async" alt="Workflow diagram showing instructions, attachments, workplace messages, and prior context entering a persistent QwenWork task that combines model choice, skills, execution history, and connectors to produce editable office, web, data, and media artifacts, surrounded by LiteBites-recommended implementation review checks.">
+  </a>
+  <figcaption>LiteBites synthesis from Alibaba's <a href="https://www.alibabagroup.com/en-US/document-2021039099929952256">launch announcement</a> and QwenWork's workflow, privacy, skills, and IM-channel documentation. The lower band contains LiteBites-recommended implementation checks; QwenWork does not document one uniform policy across every desktop, connector, and skill path. <a href="{{ '/assets/images/articles/qwenwork-workplace-agent-platform/task-boundary.svg' | relative_url }}">Open full resolution ↗</a></figcaption>
+</figure>
 
 ## What remains uncertain
 

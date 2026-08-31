@@ -890,6 +890,11 @@ button { font: inherit; }
   color: var(--muted);
   overflow-wrap: anywhere;
 }
+.post-body .remote-publisher-image--portrait {
+  max-width: 420px;
+  margin-right: auto;
+  margin-left: auto;
+}
 .dataset-hero-image { margin: 42px 0 0; }
 
 .post-pagination {
