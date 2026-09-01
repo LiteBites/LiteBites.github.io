@@ -21,13 +21,13 @@ Source announcements often publish large multi-panel benchmark collages that bec
 4. Test text and legend readability at desktop, 390px, 375px, and 320px.
 5. Preserve access to the complete source chart through a clearly labeled source link.
 
-## Replot versus source crop
+## Original source versus an explicitly requested replot
 
-Prototype both when fidelity and legibility trade off materially.
+Do not prototype a local crop or replot automatically. Under the normal Article Bite image workflow, use the admissible canonical publisher-hosted original or omit the figure. Prototype crop/replot variants only when the user explicitly requests an original performance visualization as a separate editorial deliverable and the fidelity/legibility tradeoff matters.
 
 ### Original LiteBites replot
 
-Prefer this when the source figure is dense, logo-dependent, or illegible on mobile.
+Use this only after that explicit separate request, particularly when the source figure is dense, logo-dependent, or illegible on mobile.
 
 - Transcribe only visible, verified values.
 - Obtain a second review of model labels, benchmark labels, bar ordering, and values before plotting.
@@ -45,7 +45,7 @@ Use only when provenance/reuse is acceptable and the crop remains interpretable.
 - Never crop away footnotes or context required to identify models and protocols.
 - Disclose cropping, annotation, or recomposition in the caption.
 - Link to the complete source image.
-- If reuse rights are unclear, stop at prototype/review or fall back to an original replot of factual values.
+- If reuse rights are unclear, omit the figure from the Article and retain a normal link to the complete official chart. Do not fall back to a crop or local replot unless the user separately requests an original visualization.
 
 ## Protocol caveats
 
@@ -64,9 +64,9 @@ Do not call a figure an independent leaderboard when its values come from the an
 ## Responsive delivery
 
 - Use a horizontal multi-panel version only when labels remain readable at article width.
-- If mobile labels become too small, provide a stacked mobile composition through `<picture>` rather than causing page-level horizontal overflow.
-- Use SVG when it improves text clarity and responsiveness; provide descriptive alt text and a factual caption because SVG text inside an `<img>` is not an accessibility substitute.
-- Keep chart assets local under `assets/images/articles/<slug>/`; do not hotlink production figures.
+- If a canonical publisher-hosted original becomes unreadable on mobile, keep a visible full-resolution source link or omit the inline figure; do not add `<picture>`, `srcset`, or a local mobile copy.
+- Use SVG only for a user-explicit original LiteBites visualization; provide descriptive alt text and a factual caption because SVG text inside an `<img>` is not an accessibility substitute.
+- Store chart assets under `assets/images/articles/<slug>/` only for that user-explicit original-visualization deliverable. The default Article workflow must not download or recreate a local production figure.
 - Link the displayed figure to the full-resolution source or local full-size asset when useful.
 
 ## Prototype and approval boundary
@@ -82,6 +82,8 @@ When the user asks for a plan or says not to add the graph directly:
 ## Verification checklist
 
 - [ ] “Graph” meaning explicitly confirmed
+- [ ] Any crop/replot/local asset is backed by an explicit user request for an original visualization as a separate editorial deliverable
+- [ ] If no admissible original-source image exists, the Article omits the figure
 - [ ] Plotted benchmarks match Article scope
 - [ ] Every value and model label checked against source pixels
 - [ ] Vendor-reporting label visible

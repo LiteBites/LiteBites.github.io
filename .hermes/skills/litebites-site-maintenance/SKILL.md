@@ -1,7 +1,7 @@
 ---
 name: litebites-site-maintenance
 description: Maintain and evolve the LiteBites GitHub Pages/Jekyll site outside paper authoring. Use for shared layouts, navigation, CSS, responsive behavior, accessibility, local Jekyll validation, preview/review checkpoints, and explicitly authorized publication.
-version: 1.7.0
+version: 1.7.3
 author: Hermes Agent
 license: MIT
 metadata:
@@ -81,6 +81,8 @@ For static interactive graphs specifically, including incremental topic-index ge
 
 When an Article Bite embeds an optional publisher-hosted original under `POLICY_ARTICLE.md`, independently verify the exact asset against the canonical publisher page, validator-enforced figure markup, decoded dimensions, rendered HTML attributes, responsive/theme behavior, keyboard access, third-party privacy tradeoffs, and graceful failure. Test lazy loading only after scrolling the image into view; use same-origin narrow iframes when browser tooling lacks viewport controls. Validate source-hash state and graph idempotence in an isolated temporary checkout so the review does not mutate the working tree. Use the fail-closed procedure and verdict schema in `references/remote-image-embedding-review.md`.
 
+If no admissible original-source URL exists, the correct site-maintenance outcome is an Article with no inline image. Do not compensate by capturing a screenshot, downloading publisher media into the repository, or creating a local presentation substitute unless the user separately and explicitly requests an original visualization.
+
 ### Reusable local preview launchers
 
 When the user wants to run the site without the agent, package the verified multi-command setup as a foreground shell launcher rather than asking them to maintain a fragile pasted command block. Resolve the repository root relative to the script, keep Bundler and Jekyll destinations under `${TMPDIR:-/tmp}`, bind to loopback, reject extra arguments and malformed ports before dependency setup, and print the URL and `Ctrl+C` shutdown instruction.
@@ -126,7 +128,11 @@ bundle check || bundle install
 bundle exec jekyll build --destination "$LITEBITES_TMP/site-preview"
 ```
 
-Using a temporary `BUNDLE_GEMFILE` keeps both dependency metadata and generated output outside the repository, so validation never needs to create or clean up the repository lockfile. If the host does not provide a POSIX-style temporary directory, select an equivalent writable OS-specific path rather than changing repository dependencies to fit the global Ruby.
+Using a temporary `BUNDLE_GEMFILE` keeps both dependency metadata and generated output outside the repository, so validation never needs to create or clean up the repository lockfile. Apply those exports to **every** Bundler-backed review command—not only `jekyll build`, but also validators, regression tests, HTML parsers, and one-off `bundle exec ruby` probes. Running even one preliminary command against the repository `Gemfile` can create an untracked `Gemfile.lock` before the isolated build begins.
+
+Record whether `Gemfile.lock` existed before validation. If the reviewer accidentally creates it and it was initially absent, remove it, then perform a focused ad-hoc hygiene check: confirm the path is absent, confirm it is absent from `git status --porcelain=v1 -uall`, and run `git diff --check`. Label this as ad-hoc cleanup verification rather than claiming the full suite is green. When an execution environment requires a temporary verification script, create it with an OS-safe tempfile API and the required prefix, execute it, and remove it in a `finally`/trap cleanup path.
+
+If the host does not provide a POSIX-style temporary directory, select an equivalent writable OS-specific path rather than changing repository dependencies to fit the global Ruby.
 
 Then verify:
 

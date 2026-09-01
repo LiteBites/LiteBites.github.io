@@ -1,6 +1,6 @@
 # Publisher-Hosted Inline Images
 
-Use this reference whenever an Article Bite would benefit from an informative image that can remain at its canonical publisher-hosted URL. The site owner's standing preference is to render the verified original rather than download a repository copy. Images remain optional: propose the exact asset during local review, and omit it when it is decorative, unstable, untraceable, or adds no explanatory value.
+Use this reference whenever an Article Bite would benefit from an informative image that can remain at its canonical publisher-hosted URL. The site owner's standing preference is to render the verified original rather than download a repository copy. Images remain optional: propose the exact asset during local review, and omit it when it is decorative, unstable, untraceable, lacks compatible display permission, or adds no explanatory value. If no candidate is admissible, stop at prose plus a normal source link—do not capture a screenshot, download publisher media, or create a local presentation replacement.
 
 ## Admission checklist
 
@@ -35,18 +35,25 @@ Use this reference whenever an Article Bite would benefit from an informative im
 </figure>
 ```
 
-Use the asset's decoded intrinsic dimensions, not dimensions guessed from a rendered thumbnail. Preserve aspect ratio through responsive CSS. Use exactly one `<img>` per figure, including local or fallback images. Do not use Markdown image syntax, `<picture>`, `<source>`, or `srcset`; those forms bypass the validator's provenance and request-boundary checks. The `data-source-url` value must be HTTPS, match a link in the caption, and appear as an exact link destination under `## Sources`. The caption must also contain a visible link whose `href` exactly matches the image `src`.
+Use the asset's decoded intrinsic dimensions, not dimensions guessed from a rendered thumbnail. Preserve aspect ratio through responsive CSS. Use exactly one `<img>` per remote figure. Do not use Markdown image syntax, `<picture>`, `<source>`, or `srcset`; those forms bypass the validator's provenance and request-boundary checks. The `data-source-url` value must be HTTPS, match a link in the caption, and appear as an exact link destination under `## Sources`. The caption must also contain a visible link whose `href` exactly matches the image `src`.
 
 ## Verification
 
 1. Run `ruby scripts/validate_article_bites.rb _articles/<slug>.md` and require `PASS`; do not bypass a remote-image validation failure.
-2. Confirm the endpoint returns HTTP 200 and an expected image content type.
-3. In a real browser, scroll the lazy image into view and assert `complete`, nonzero `naturalWidth` and `naturalHeight`, and the expected `currentSrc`.
-4. Check 320px, 375/390px, and desktop widths in light and dark themes.
-5. Assert no horizontal overflow, failed requests, or console errors.
-6. Verify alt text, source-linked caption, and a visible full-resolution link. Dense technical diagrams may be too small on mobile; the full-resolution link is the fallback.
-7. Simulate image failure. The preceding prose, alt text, caption, source link, and full-resolution link must retain the explanation and provenance.
-8. Confirm no copy of the asset was added under repository image paths.
+2. Confirm the endpoint returns HTTP 200 and an expected image content type. Do not trust the filename suffix or response header alone: decode or identify the downloaded payload and record its actual format and intrinsic dimensions. A `.png` URL may serve JPEG bytes.
+3. Inspect the canonical page's live DOM and record the exact `src`/`currentSrc`, not a visually similar URL inferred from a filename or CDN path. If several candidate URLs appear, hash the fetched payloads to detect aliases or duplicate images before treating them as distinct figures.
+4. In a real browser, scroll the lazy image into view and assert `complete`, nonzero `naturalWidth` and `naturalHeight`, and the expected `currentSrc`.
+5. Check 320px, 375/390px, and desktop widths in light and dark themes.
+6. Assert no horizontal overflow, failed requests, or console errors.
+7. Verify alt text, source-linked caption, and a visible full-resolution link. Dense technical diagrams may be too small on mobile; the full-resolution link is the fallback.
+8. Simulate image failure. The preceding prose, alt text, caption, source link, and full-resolution link must retain the explanation and provenance.
+9. Confirm no copy of the asset was added under repository image paths.
+
+When no candidate passes permission review, still return a compact reject ledger for the strongest explanatory candidates: canonical page, exact asset URL, actual payload format and dimensions, provenance evidence, permission gap, editorial value, proposed placement/alt/caption if permission is later obtained, privacy host, and mutability risk. This distinguishes “useful but unlicensed” from decorative or technically unsuitable assets without weakening the fail-closed decision.
+
+## Existing-post policy migrations
+
+When applying this policy to several published Articles, migrate one Article at a time. For each Article: record its current figure and asset, decide between a fully admissible original-source embed and no figure, remove stale markup and repository assets, search for lingering references, and run the single-Article validator before continuing. After the sequence is complete, run the full Article tests, regenerate the graph twice, build to a temporary destination, and assert the expected figure and image count for every affected route. Keep publisher-hosted figures only when their provenance and permission evidence remain current.
 
 ## Privacy and durability disclosure
 

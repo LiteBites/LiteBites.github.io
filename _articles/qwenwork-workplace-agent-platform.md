@@ -46,13 +46,6 @@ QwenWork's current documentation organizes work around persistent tasks containi
 
 On desktop, a skill is documented as a folder containing a natural-language `SKILL.md` file under `~/.qwenworkcn/skills/`. Skills can be installed from a marketplace or repository, uploaded manually, shared, and triggered automatically. Separate IM documentation lists seven channels—DingTalk, Feishu, Lark, WeChat, WeCom, Slack, and WhatsApp—with each chat mapped to an isolated QwenWork session and the desktop client acting as a control center.
 
-<figure class="article-figure">
-  <a href="{{ '/assets/images/articles/qwenwork-workplace-agent-platform/task-boundary.svg' | relative_url }}">
-    <img src="{{ '/assets/images/articles/qwenwork-workplace-agent-platform/task-boundary.svg' | relative_url }}" width="1600" height="900" loading="lazy" decoding="async" alt="Workflow diagram showing instructions, attachments, workplace messages, and prior context entering a persistent QwenWork task that combines model choice, skills, execution history, and connectors to produce editable office, web, data, and media artifacts, surrounded by LiteBites-recommended implementation review checks.">
-  </a>
-  <figcaption>LiteBites synthesis from Alibaba's <a href="https://www.alibabagroup.com/en-US/document-2021039099929952256">launch announcement</a> and QwenWork's workflow, privacy, skills, and IM-channel documentation. The lower band contains LiteBites-recommended implementation checks; QwenWork does not document one uniform policy across every desktop, connector, and skill path. <a href="{{ '/assets/images/articles/qwenwork-workplace-agent-platform/task-boundary.svg' | relative_url }}">Open full resolution ↗</a></figcaption>
-</figure>
-
 ## What remains uncertain
 
 The reviewed evidence is provider-authored. Alibaba's announcement and documentation do not publish systematic success rates, task-level cost and latency, model routing for each tier, failure-recovery measurements, or independent comparisons with other workplace agents. They also do not expose enough architecture detail to determine how much behavior comes from Qwen models versus the surrounding tools and orchestration.

@@ -56,7 +56,7 @@ summary: "One accurate sentence explaining the development and its significance.
 
 Optional fields include `additional_sources`, `card_image`, and `card_image_alt`. If `card_image` exists, `card_image_alt` is required. Card images and repository-managed media must live under `assets/images/articles/<slug>/`.
 
-Publisher-hosted inline images are an optional Article Bite feature. Consider one when a diagram, result, interface, or other source image materially improves the explanation; do not add decorative promotional artwork merely to fill space. Render the image directly from its original HTTPS publisher URL rather than downloading a repository copy. The exact asset must appear on the canonical publisher page and use that publisher's media infrastructure. Direct embedding also requires terms, license language, or asset-specific permission compatible with public display; when permission is restrictive or unclear, use a descriptive source link instead.
+Publisher-hosted inline images are an optional Article Bite feature. Consider one when a diagram, result, interface, or other source image materially improves the explanation; do not add decorative promotional artwork merely to fill space. Render the image directly from its original HTTPS publisher URL rather than downloading a repository copy. The exact asset must appear on the canonical publisher page and use that publisher's media infrastructure. Direct embedding also requires terms, license language, or asset-specific permission compatible with public display. When no admissible original-source image exists—or permission is restrictive or unclear—omit the figure and use descriptive prose plus a normal canonical source link. Do not fill the gap by capturing a screenshot, downloading third-party media into the repository, or creating a local replacement figure merely for presentation.
 
 Every remote image must use the reviewed `<figure class="remote-publisher-image" data-source-url="…">` contract: exactly one `<img>` with descriptive alt text, decoded intrinsic `width` and `height`, `loading="lazy"`, `decoding="async"`, and `referrerpolicy="no-referrer"`; plus exactly one `<figcaption>` linking both the canonical source page and the full-resolution image. `data-source-url` must appear as an exact link destination in `## Sources`. Remote Markdown image syntax, `<picture>`, `<source>`, and `srcset` are not allowed because they bypass the required provenance, privacy, and layout safeguards. The prose must remain understandable if the publisher removes or replaces the asset, and remote images must never be used as `card_image` or another discovery-surface dependency.
 
@@ -103,7 +103,7 @@ Count body words while excluding YAML front matter and raw HTML where practical.
 
 ## Images and external media
 
-Images are optional. Include one only when it explains the technical development, interface, architecture, or evidence. For Article Bites, prefer a canonical publisher-hosted original when it avoids an unnecessary downloaded copy and satisfies the remote-image contract above. Preserve provenance, use descriptive alt text, and avoid decorative screenshots or promotional artwork that adds no understanding.
+Images are optional. Include one only when it explains the technical development, interface, architecture, or evidence. For Article Bites, use a canonical publisher-hosted original only when it satisfies the remote-image contract above. Preserve provenance, use descriptive alt text, and avoid decorative screenshots or promotional artwork that adds no understanding. If no compliant original-source URL is available, publish the Article without an image; do not force visual coverage through screenshots, downloaded copies, or locally created presentation substitutes.
 
 ## Corrections and temporal claims
 
@@ -121,6 +121,7 @@ Before review, verify:
 - The body contains 400–800 words and all six headings in order.
 - Metadata, links, local assets, alt text, and reading time are valid.
 - Every remote image satisfies the publisher-hosted figure contract and has verified origin, dimensions, responsive rendering, failure behavior, and privacy/durability disclosure.
+- An Article without an admissible original-source image contains no forced screenshot, downloaded copy, or locally created presentation substitute.
 - Tags are precise and were not selected merely to force graph relationships.
 - The knowledge graph was generated twice; the second run reports zero changed sources.
 - The Article page, newest-first index, homepage, and graph were built and inspected.

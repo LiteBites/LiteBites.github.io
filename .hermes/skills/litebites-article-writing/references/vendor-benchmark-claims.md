@@ -51,7 +51,7 @@ Environment-action efficiency is not total efficiency when internal reasoning, r
 
 ## Figures without repository copies
 
-If the user requests a source figure but repository policy forbids hotlinking, do not use Markdown image syntax or a remote `<img>`. Add a descriptive HTTPS link to the publisher-hosted original asset or the canonical article, verify that it resolves to the intended figure, and explain at the review checkpoint that the figure is linked rather than embedded. Direct CDN asset URLs can be less durable than canonical article URLs, so retain the canonical article in `## Sources` and recheck the figure link immediately before publication. Only embed a local copy when reuse rights and repository policy allow it.
+If the user requests a source figure but no admissible original-source embed exists, do not use Markdown image syntax, a remote `<img>`, or a repository copy. Add a descriptive HTTPS link to the publisher-hosted original asset or canonical article, verify that it resolves to the intended figure, and explain at the review checkpoint that the figure is linked rather than embedded. Direct CDN asset URLs can be less durable than canonical article URLs, so retain the canonical article in `## Sources` and recheck the figure link immediately before publication. Never download or embed a local copy as an Article presentation fallback. If the user separately requests an original visualization, create a source-grounded original under `first-party-explanatory-figures.md`; do not copy the publisher artwork.
 
 ## Verification
 

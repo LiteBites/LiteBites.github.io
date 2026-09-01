@@ -47,13 +47,6 @@ ARC-AGI-3 presents game-like environments without instructions, stated rules, or
 
 For ARC-AGI-3, NVIDIA says AVO received each observation as an exact 64-by-64 text grid rather than an image. Persistent memory carries forward observations, hypotheses, and results, while a supervisor watches for stagnation and can redirect the search. NVIDIA's [architecture diagram](https://developer.nvidia.com/blog/nvidia-avo-reaches-100-on-arc-agi-3-demonstrating-a-frontier-level-general-purpose-architecture-for-long-horizon-autonomous-agents/) shows this main-agent loop, memory, tools, and conditional supervisor intervention.
 
-<figure class="article-figure">
-  <a href="{{ '/assets/images/articles/nvidia-avo-arc-agi-3/avo-loop.svg' | relative_url }}">
-    <img src="{{ '/assets/images/articles/nvidia-avo-arc-agi-3/avo-loop.svg' | relative_url }}" width="1600" height="900" loading="lazy" decoding="async" alt="Diagram showing 64-by-64 text-grid observations entering an AVO loop of inspect, plan, act, and evaluate, supported by persistent memory, read-only tools, and a supervisor that redirects stalled search before state-changing environment actions are counted.">
-  </a>
-  <figcaption>LiteBites synthesis of AVO's ARC-AGI-3 execution loop from the <a href="https://developer.nvidia.com/blog/nvidia-avo-reaches-100-on-arc-agi-3-demonstrating-a-frontier-level-general-purpose-architecture-for-long-horizon-autonomous-agents/">NVIDIA Technical Blog</a>; it is an original explanatory diagram, not NVIDIA's figure. <a href="{{ '/assets/images/articles/nvidia-avo-arc-agi-3/avo-loop.svg' | relative_url }}">Open full resolution ↗</a></figcaption>
-</figure>
-
 ## What remains uncertain
 
 The 100.00 result is currently an NVIDIA-reported system evaluation. ARC Prize documentation says scorecards are not public, and NVIDIA's post does not link a public AVO scorecard or complete replay set. The available AVO paper documents the earlier GPU-kernel work, not the ARC-AGI-3 experiment.

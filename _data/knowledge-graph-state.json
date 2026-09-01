@@ -24,7 +24,7 @@
         "Multimodal AI": 3,
         "Workplace Automation": 3
       },
-      "sourceHash": "14f456fd885aa3f5e3c26a97246ebcf4aecbc677283f10d9a7a682f22e2578eb",
+      "sourceHash": "0b577179a9b7e027f952af350b86a9fccaf8ff30c8f90c7d8673b813d8b0be45",
       "sourcePath": "_articles/qwenwork-workplace-agent-platform.md"
     },
     {
@@ -99,7 +99,7 @@
         "Language Models": 3,
         "Reasoning Systems": 3
       },
-      "sourceHash": "9f3328291aafad14d3db65d73ebee6aa7ada5299487ef7b525731db2692c15b5",
+      "sourceHash": "ed0debd2c16786c37781e991c7f3adfca3614a85fba845fe68b657257109e0ce",
       "sourcePath": "_articles/nvidia-avo-arc-agi-3.md"
     },
     {
@@ -124,7 +124,7 @@
         "Multimodal AI": 3,
         "Open Models": 3
       },
-      "sourceHash": "2980261341214106c6ecfbeca1266483629fca7525af122ddaab91ee0e20ae94",
+      "sourceHash": "7584717de693993ebfa7982bc93d724b16d5caea6182554e8f3a7a1915dc1114",
       "sourcePath": "_articles/qwen3-8-max.md"
     },
     {

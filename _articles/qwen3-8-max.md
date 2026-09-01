@@ -38,13 +38,6 @@ The release matters for reasons beyond parameter count. Qwen is packaging sparse
 
 Researchers and infrastructure teams now have a checkpoint they can inspect and deploy outside QwenCloud. That helps with controlled evaluation, customization, and data-governance requirements. Still, a multi-trillion-parameter checkpoint demands unusually substantial storage and inference infrastructure.
 
-<figure class="article-figure">
-  <a href="{{ '/assets/images/articles/qwen3-8-max/sparse-scale.svg' | relative_url }}">
-    <img src="{{ '/assets/images/articles/qwen3-8-max/sparse-scale.svg' | relative_url }}" width="1600" height="900" loading="lazy" decoding="async" alt="Architecture summary showing Qwen3.8 with 2.4 trillion total parameters, 95 billion active per token, 512 experts with 10 routed and one shared expert active, 92 layers arranged as 23 repeated blocks, and a 262,144-token native context extensible to about 1,010,000 tokens.">
-  </a>
-  <figcaption>LiteBites synthesis from the official <a href="https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B">Qwen3.8-2.4T-A95B model card</a>. Active parameters describe per-token routing, not checkpoint storage or memory footprint, and the managed Max service adds capabilities beyond this downloadable artifact. <a href="{{ '/assets/images/articles/qwen3-8-max/sparse-scale.svg' | relative_url }}">Open full resolution ↗</a></figcaption>
-</figure>
-
 ## Technical context
 
 Qwen says Qwen3.8-Max improves on Qwen3.7-Max across coding and general-agent evaluations. Its table reports 86.6 on Terminal-Bench 2.1, 67.7 on SWE-bench Pro, and 93.0 on PaperBench. Read those as vendor results, not a universal ranking. The post mixes public and in-house benchmarks, uses different harnesses and run counts, and supplies extensive protocol footnotes. Artificial Analysis, for example, evaluates Terminal-Bench v2.1 independently with the Terminus 2 harness and pass@1 over three repeats, while Qwen reports its model with Claude Code and an avg@10 setup.

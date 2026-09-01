@@ -1,7 +1,7 @@
 ---
 name: litebites-article-writing
 description: "Use when researching, drafting, revising, or publishing a LiteBites Article Bite from recent technical news, release notes, standards, repositories, or engineering posts. Verify primary and corroborating sources, separate facts from interpretation, enforce the 400–800-word Article Bite contract, refresh the knowledge graph, build locally, and stop for review unless publication is explicitly authorized."
-version: 1.2.0
+version: 1.4.2
 author: Hermes Agent
 license: MIT
 platforms: [macos, linux, windows]
@@ -178,9 +178,13 @@ Do not turn an announcement into measured evidence, add tags to manufacture grap
 
 The word “graph” is ambiguous on LiteBites: it may mean the site-wide knowledge graph or a performance-comparison chart inside an Article. When a request mentions figures, benchmarks, model comparisons, or “the latest post,” confirm the intended meaning before proposing graph architecture work.
 
-For benchmark visuals, prefer a focused, readable figure covering only results discussed in the Article. Dense vendor collages should be evaluated at real article and mobile widths rather than embedded automatically. Prototype a source-faithful crop and an original LiteBites replot side by side when the user wants to compare both. Every value and model label must be checked against the source pixels; vendor-reported results and protocol differences must remain visually explicit. See `references/performance-comparison-figures.md` for the complete crop-versus-replot, provenance, responsive-layout, and approval workflow.
+For benchmark visuals, prefer a focused, readable figure covering only results discussed in the Article. Dense vendor collages should be evaluated at real article and mobile widths rather than embedded automatically. Prototype a source-faithful crop or original LiteBites replot only when the user separately and explicitly requests an original performance visualization as an editorial deliverable; a general request to add Article figures is not sufficient. Every value and model label must be checked against the source pixels; vendor-reported results and protocol differences must remain visually explicit. See `references/performance-comparison-figures.md` for the complete source-versus-replot, provenance, responsive-layout, and approval workflow.
 
-During source review, identify whether a canonical publisher image would materially improve the explanation. If so, propose it as an optional inline figure and render it from the verified original HTTPS asset URL rather than downloading a copy. Confirm that the canonical page itself uses the exact asset and that the publisher controls the media infrastructure. Use the required `remote-publisher-image` figure markup with `data-source-url`, descriptive alt text, decoded intrinsic dimensions, lazy loading, asynchronous decoding, `no-referrer`, a source-linked caption, and a visible full-resolution link. Add the canonical page to `## Sources`; never use remote Markdown image syntax, `srcset`, or a remote `card_image`. The prose must remain understandable if the asset fails. Explain the unavoidable third-party request and publisher-controlled durability at the local checkpoint. Use `references/remote-publisher-images.md` for the complete admission, markup, privacy, responsive/failure testing, and deployment workflow.
+During source review, identify whether a canonical publisher image would materially improve the explanation. If so, propose it as an optional inline figure and render it from the verified original HTTPS asset URL rather than downloading a copy. Confirm that the canonical page itself uses the exact asset and that the publisher controls the media infrastructure. Use the required `remote-publisher-image` figure markup with `data-source-url`, descriptive alt text, decoded intrinsic dimensions, lazy loading, asynchronous decoding, `no-referrer`, a source-linked caption, and a visible full-resolution link. Add the canonical page to `## Sources`; never use remote Markdown image syntax, `srcset`, or a remote `card_image`. The prose must remain understandable if the asset fails. Explain the unavoidable third-party request and publisher-controlled durability at the local checkpoint. Use `references/remote-publisher-images.md` for the complete admission, markup, privacy, responsive/failure testing, and deployment workflow. When the exact asset is served from an official publisher repository, also apply `references/repository-backed-publisher-assets.md`: verify organization identity, exact-use evidence, the license of the repository that actually contains the image, per-file exceptions, mutable-branch risk, and mobile readability for dense charts. Link the exact governing license in the caption or Sources and preserve any required copyright attribution; do not assume a project/model license covers documentation artwork without checking the asset-containing repository. A visible download link or press gallery is not permission by itself. When auditing several existing Articles, keep a temporary admit/reject ledger and accept that only one—or none—may qualify. If a small portrait asset is admitted, test its rendered size rather than inheriting the site's full-width image rule blindly; cap and center it with a reusable class when full-width rendering causes excessive upscaling.
+
+If a post has no admissible canonical publisher-hosted image, skip the inline figure. Do not force presentation coverage by capturing screenshots, downloading third-party images into the repository, or creating a replacement local figure. A first-party LiteBites chart or diagram is outside the default Article Bite image workflow and should be produced only when the user explicitly requests an original visualization as a separate editorial deliverable; in that exceptional case, apply `references/first-party-explanatory-figures.md`.
+
+When migrating several published Articles to this rule, process them sequentially: inventory the current figure and asset for one Article, choose admissible original-source embed or no figure, remove stale markup and repository assets, and run that Article's validator before moving to the next. After every Article is handled, run the batch tests, regenerate the knowledge graph twice, build the site, and assert the expected per-Article figure counts. This prevents a bulk edit from hiding stale references or accidental replacements.
 
 ### 5. Validate mechanically
 
@@ -220,14 +224,19 @@ An isolated truthful node is better than a misleading connection. Use `reference
 
 ### 7. Build and inspect together
 
-Activate a Ruby version compatible with the repository's GitHub Pages dependencies. Keep Bundler and Jekyll output outside the repository:
+Activate a Ruby version compatible with the repository's GitHub Pages dependencies. Keep Bundler metadata, installed gems, and Jekyll output outside the repository:
 
 ```bash
 export LITEBITES_TMP="${TMPDIR:-/tmp}/litebites-article-validation"
+mkdir -p "$LITEBITES_TMP"
+cp Gemfile "$LITEBITES_TMP/Gemfile"
+export BUNDLE_GEMFILE="$LITEBITES_TMP/Gemfile"
 export BUNDLE_PATH="$LITEBITES_TMP/ruby-bundle"
 bundle check || bundle install
 bundle exec jekyll build --destination "$LITEBITES_TMP/site"
 ```
+
+A temporary Jekyll destination alone does not prevent Bundler from creating `Gemfile.lock` beside the active Gemfile. Record the initial untracked-file set before building and require the final set to match it; remove an accidentally created lockfile only when it was absent initially.
 
 Inspect:
 
@@ -313,7 +322,9 @@ When a consequential source claim changes, add a visible update or correction no
 - [ ] Six sections appear exactly once and in order
 - [ ] Body contains 400–800 words
 - [ ] Source facts, interpretation, and uncertainty are distinct
-- [ ] Every remote image is informative, publisher-origin verified, validator-compliant, responsive/theme checked, failure-tested, and disclosed for privacy and durability
+- [ ] Every remote image is informative, publisher-origin verified, covered by an exact asset-level permission basis, linked to the governing license/required notice, validator-compliant, responsive/theme checked, failure-tested, and disclosed for privacy and durability
+- [ ] If no admissible canonical publisher-hosted image exists, the Article omits the figure; no screenshot, downloaded third-party copy, or locally created presentation fallback was added
+- [ ] Any first-party visualization exists only because the user explicitly requested an original visualization as a separate editorial deliverable, and it passed source-grounding, originality, responsive/theme, and failure review
 - [ ] Validator reports PASS
 - [ ] Graph generator run twice; second run reports zero changed sources
 - [ ] Article node, URL, topics, and relationships reviewed
