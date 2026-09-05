@@ -37,23 +37,6 @@ slides-grab also makes review state explicit. Before export through the public `
 
 The local runtime requires Node.js 20 or newer and Playwright Chromium. Its validator opens the HTML slides in a browser and checks conditions including overflow, sibling overlaps, clipped text, empty canvases, and missing or unsupported assets. Local files and data URLs satisfy the intended asset contract; remote image and video references, unsupported paths or schemes, and missing local assets are reported and block the normal CLI export paths. The editor’s HTML save route does not enforce that contract when writing a slide.
 
-<figure class="article-figure">
-  <div class="article-figure-scroll" tabindex="0" role="region" aria-label="Scrollable slides-grab workflow diagram">
-    <a href="{{ '/assets/images/articles/slides-grab/gated-html-workflow.svg' | relative_url }}">
-      <img
-        src="{{ '/assets/images/articles/slides-grab/gated-html-workflow.svg' | relative_url }}"
-        width="1600"
-        height="900"
-        loading="lazy"
-        decoding="async"
-        alt="Four-stage slides-grab workflow: plan a deck, generate editable HTML, validate and fingerprint the current files, then export; changes return the deck to verification.">
-    </a>
-  </div>
-  <figcaption>
-    LiteBites synthesis from the <a href="https://github.com/NomaDamas/slides-grab">repository</a> and <a href="https://github.com/NomaDamas/slides-grab/blob/b4434f12ca96097b24faded6c6003f216cd93885/src/design-gate-state.js">design-gate implementation</a>. The receipt gates documented CLI export paths, not direct lower-level script invocation. On narrow screens, swipe horizontally or <a href="{{ '/assets/images/articles/slides-grab/gated-html-workflow.svg' | relative_url }}">open full resolution ↗</a>
-  </figcaption>
-</figure>
-
 Export quality involves deliberate compromises. PDF capture mode and the default PPTX raster engine favor visual fidelity, but rasterization reduces searchability and editability. PDF print mode preserves browser text; the experimental PPTX text engine attempts best-effort DOM extraction. The project labels its PPTX and Figma paths experimental and warns users to expect layout shifts and manual cleanup. Hosted ChatGPT can use the packaged planning and design skills, but validation, editing, image generation, and export still need the local runtime and filesystem.
 
 ## What remains uncertain

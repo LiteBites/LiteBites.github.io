@@ -42,23 +42,6 @@ OpenAI reports 100% on ExploitBench and 42.4% on ExploitGym, both tested without
 
 The deployment therefore combines model training with system controls: cyber refusals, account-level risk boundaries, automated review, and monitoring of tool-using trajectories. OpenAI says default production Astra refuses advanced cyber requests such as creating proof-of-concept exploits. Daybreak begins with a limited set of organizations under full production cyber safeguards; OpenAI says it plans to broaden access iteratively to more advanced, authorized defensive work through less restrictive or more precise safeguards. Monitoring may slow, pause, or stop legitimate work: ChatGPT or Codex may ask the user to review an action, while an intervention on API surfaces stops the task.
 
-<figure class="article-figure">
-  <div class="article-figure-scroll" tabindex="0" role="region" aria-label="Scrollable GPT-6 Astra capability and deployment diagram">
-    <a href="{{ '/assets/images/articles/gpt-6-astra/capability-deployment-boundaries.svg' | relative_url }}">
-      <img
-        src="{{ '/assets/images/articles/gpt-6-astra/capability-deployment-boundaries.svg' | relative_url }}"
-        width="1600"
-        height="900"
-        loading="lazy"
-        decoding="async"
-        alt="Three evidence layers for GPT-6 Astra: its model-and-tool surface, OpenAI-reported computer-use and cyber evaluations, and the safeguards governing production and Daybreak access.">
-    </a>
-  </div>
-  <figcaption>
-    LiteBites synthesis from OpenAI’s <a href="https://openai.com/index/gpt-6-astra/">launch materials</a>, <a href="https://developers.openai.com/api/docs/models/gpt-6-astra">model documentation</a>, and <a href="https://deploymentsafety.openai.com/gpt-6-astra">System Card</a>. Values are vendor-reported system results; evaluation and deployed configurations differ. On narrow screens, swipe horizontally or <a href="{{ '/assets/images/articles/gpt-6-astra/capability-deployment-boundaries.svg' | relative_url }}">open full resolution ↗</a>
-  </figcaption>
-</figure>
-
 ## What remains uncertain
 
 OpenAI says its published evaluation scores are the maximum observed at any reasoning effort and that research/API environments can differ from production ChatGPT through prompts and tools. The announcement does not disclose enough traces, costs, retries, or configuration detail to reproduce most headline comparisons. A 1.05-million-token window also has an economic boundary: above 272,000 input tokens, OpenAI documents 2× input and cache rates and 1.5× output rates for the full request.
