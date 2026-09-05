@@ -254,6 +254,24 @@ kill <PID>
 
 Do not use broad commands such as `killall ruby` or `pkill -f jekyll`, because they can stop unrelated work.
 
+## Local-first Article source pipeline
+
+Before asking an LLM or subagent to research or draft a new Article Bite, collect the source with the dependency-free local pipeline:
+
+```bash
+python3 scripts/litebites_pipeline.py collect \
+  https://example.com/technical-announcement
+```
+
+The command caches exact source bytes outside the repository, writes a deterministic `evidence.json`, extracts candidate publisher image URLs, and creates a compact `review-input.md`. Repeat runs reuse the cache; use `--refresh` only when the source should be fetched again. Validate the bundle before handing it to a reviewer:
+
+```bash
+python3 scripts/litebites_pipeline.py validate \
+  ~/.cache/litebites/<entry>/evidence.json
+```
+
+This tool performs collection and deterministic extraction only. It does not draft prose, approve Tier A images, alter `_articles/`, regenerate the graph, or create repository build artifacts. Review consequential claims against the canonical source and complete the Tier A admission ledger before embedding an image. See `scripts/LITEBITES_PIPELINE.md` for the cache format and workflow boundary.
+
 ## Validation before publication
 
 Before committing content or site changes, run the checks relevant to the change:
