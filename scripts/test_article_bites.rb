@@ -310,7 +310,213 @@ class ArticleBitesSiteTest < Minitest::Test
     end
   end
 
+  def test_article_validator_rejects_first_party_figure_without_alt_text
+    validator = File.join(ROOT, "scripts", "validate_article_bites.rb")
+    Dir.mktmpdir("article-bites-first-party-image-invalid") do |dir|
+      path = File.join(dir, "test-bite.md")
+      figure = first_party_figure.sub(' alt="Source-grounded workflow diagram."', "")
+      content = article_fixture(Array.new(410, "evidence").join(" ")).sub(
+        "## What remains uncertain",
+        "#{figure}\n## What remains uncertain"
+      )
+      File.write(path, content)
+      stdout, stderr, status = Open3.capture3(RbConfig.ruby, validator, path)
+      refute status.success?, "first-party figure without alt text unexpectedly passed"
+      assert_includes "#{stdout}#{stderr}", "first-party"
+    end
+  end
+
+  def test_article_validator_rejects_first_party_figure_with_active_content
+    validator = File.join(ROOT, "scripts", "validate_article_bites.rb")
+    Dir.mktmpdir("article-bites-first-party-active-content") do |dir|
+      path = File.join(dir, "test-bite.md")
+      figure = first_party_figure.sub("</figure>", "<script>alert('unsafe')</script>\n</figure>")
+      content = article_fixture(Array.new(410, "evidence").join(" ")).sub(
+        "## What remains uncertain",
+        "#{figure}\n## What remains uncertain"
+      )
+      File.write(path, content)
+      stdout, stderr, status = Open3.capture3(RbConfig.ruby, validator, path)
+      refute status.success?, "first-party figure with active content unexpectedly passed"
+      assert_includes "#{stdout}#{stderr}", "first-party"
+    end
+  end
+
+  def test_article_validator_rejects_first_party_figure_outside_article_asset_directory
+    validator = File.join(ROOT, "scripts", "validate_article_bites.rb")
+    Dir.mktmpdir("article-bites-first-party-wrong-directory") do |dir|
+      path = File.join(dir, "test-bite.md")
+      figure = first_party_figure.gsub(
+        "/assets/images/articles/test-bite/figure.svg",
+        "/assets/images/articles/other-bite/figure.svg"
+      )
+      content = article_fixture(Array.new(410, "evidence").join(" ")).sub(
+        "## What remains uncertain",
+        "#{figure}\n## What remains uncertain"
+      )
+      File.write(path, content)
+      stdout, stderr, status = Open3.capture3(RbConfig.ruby, validator, path)
+      refute status.success?, "first-party figure outside the Article asset directory unexpectedly passed"
+      assert_includes "#{stdout}#{stderr}", "first-party"
+    end
+  end
+
+  def test_article_validator_requires_scroll_region_for_first_party_figure
+    validator = File.join(ROOT, "scripts", "validate_article_bites.rb")
+    Dir.mktmpdir("article-bites-first-party-scroll-region") do |dir|
+      path = File.join(dir, "test-bite.md")
+      figure = first_party_figure
+        .sub(' class="article-figure-scroll"', "")
+        .sub(' tabindex="0" role="region" aria-label="Scrollable source-grounded diagram"', "")
+      content = article_fixture(Array.new(410, "evidence").join(" ")).sub(
+        "## What remains uncertain",
+        "#{figure}\n## What remains uncertain"
+      )
+      File.write(path, content)
+      stdout, stderr, status = Open3.capture3(RbConfig.ruby, validator, path)
+      refute status.success?, "first-party figure without a scroll region unexpectedly passed"
+      assert_includes "#{stdout}#{stderr}", "first-party"
+    end
+  end
+
+  def test_article_validator_requires_first_party_caption_provenance
+    figure = first_party_figure.sub(
+      '<a href="https://example.com/source">canonical source</a>',
+      "an uncited source"
+    )
+    with_isolated_first_party_svg(valid_svg, figure: figure) do |isolated_validator, article_path|
+      stdout, stderr, status = Open3.capture3(RbConfig.ruby, isolated_validator, article_path)
+      refute status.success?, "first-party figure without caption provenance unexpectedly passed"
+      assert_includes "#{stdout}#{stderr}", "caption must cite"
+    end
+  end
+
+  def test_article_validator_rejects_incomplete_first_party_image_metadata
+    validator = File.join(ROOT, "scripts", "validate_article_bites.rb")
+    cases = {
+      "width" => ' width="1600"',
+      "height" => ' height="900"',
+      "lazy loading" => ' loading="lazy"',
+      "async decoding" => ' decoding="async"'
+    }
+    Dir.mktmpdir("article-bites-first-party-metadata") do |dir|
+      cases.each do |label, fragment|
+        path = File.join(dir, "test-bite.md")
+        figure = first_party_figure.sub(fragment, "")
+        content = article_fixture(Array.new(410, "evidence").join(" ")).sub(
+          "## What remains uncertain",
+          "#{figure}\n## What remains uncertain"
+        )
+        File.write(path, content)
+        stdout, stderr, status = Open3.capture3(RbConfig.ruby, validator, path)
+        refute status.success?, "first-party figure without #{label} unexpectedly passed"
+        assert_includes "#{stdout}#{stderr}", "first-party"
+      end
+    end
+  end
+
+  def test_article_validator_rejects_external_fetches_in_first_party_svg
+    cases = {
+      "external href" => '<svg xmlns="http://www.w3.org/2000/svg"><image href="https://tracker.example/pixel.png"/></svg>',
+      "relative CSS url" => '<svg xmlns="http://www.w3.org/2000/svg"><style>.tracked{fill:url(/tracker.svg)}</style><rect class="tracked"/></svg>'
+    }
+    cases.each do |label, svg|
+      with_isolated_first_party_svg(svg) do |validator, article_path|
+        stdout, stderr, status = Open3.capture3(RbConfig.ruby, validator, article_path)
+        refute status.success?, "first-party SVG with #{label} unexpectedly passed"
+        assert_includes "#{stdout}#{stderr}", "first-party"
+      end
+    end
+  end
+
+  def test_article_validator_rejects_unwrapped_local_article_image
+    validator = File.join(ROOT, "scripts", "validate_article_bites.rb")
+    Dir.mktmpdir("article-bites-first-party-unwrapped") do |dir|
+      path = File.join(dir, "test-bite.md")
+      content = article_fixture(Array.new(410, "evidence").join(" ")).sub(
+        "## What remains uncertain",
+        "![Unwrapped local diagram](/assets/images/articles/test-bite/figure.svg)\n\n## What remains uncertain"
+      )
+      File.write(path, content)
+      stdout, stderr, status = Open3.capture3(RbConfig.ruby, validator, path)
+      refute status.success?, "unwrapped local Article image unexpectedly passed"
+      assert_includes "#{stdout}#{stderr}", "first-party"
+    end
+  end
+
+  def test_article_validator_rejects_active_first_party_svg
+    svg = '<svg xmlns="http://www.w3.org/2000/svg" onload="alert(1)"><animate attributeName="opacity"/></svg>'
+    with_isolated_first_party_svg(svg) do |validator, article_path|
+      stdout, stderr, status = Open3.capture3(RbConfig.ruby, validator, article_path)
+      refute status.success?, "active first-party SVG unexpectedly passed"
+      assert_includes "#{stdout}#{stderr}", "first-party"
+    end
+  end
+
+  def test_article_validator_rejects_first_party_srcset
+    figure = first_party_figure.sub(
+      ' src="/assets/images/articles/test-bite/figure.svg"',
+      ' src="/assets/images/articles/test-bite/figure.svg" srcset="/assets/images/articles/test-bite/figure.svg 1x"'
+    )
+    with_isolated_first_party_svg(valid_svg, figure: figure) do |validator, article_path|
+      stdout, stderr, status = Open3.capture3(RbConfig.ruby, validator, article_path)
+      refute status.success?, "first-party figure with srcset unexpectedly passed"
+      assert_includes "#{stdout}#{stderr}", "first-party"
+    end
+  end
+
+  def test_checked_in_first_party_figures_pass_article_validator
+    validator = File.join(ROOT, "scripts", "validate_article_bites.rb")
+    paths = %w[
+      _articles/gpt-6-astra.md
+      _articles/slides-grab.md
+    ].map { |relative| File.join(ROOT, relative) }
+    stdout, stderr, status = Open3.capture3(RbConfig.ruby, validator, *paths)
+    assert status.success?, "checked-in first-party figures failed validation:\n#{stdout}\n#{stderr}"
+    assert_includes stdout, "PASS #{paths[0]}"
+    assert_includes stdout, "PASS #{paths[1]}"
+  end
+
   private
+
+  def valid_svg
+    '<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900"><rect width="1600" height="900"/></svg>'
+  end
+
+  def with_isolated_first_party_svg(svg_source, figure: first_party_figure)
+    Dir.mktmpdir("article-bites-first-party-svg") do |dir|
+      FileUtils.mkdir_p(File.join(dir, "scripts"))
+      FileUtils.mkdir_p(File.join(dir, "_articles"))
+      FileUtils.mkdir_p(File.join(dir, "assets", "images", "articles", "test-bite"))
+      FileUtils.cp(File.join(ROOT, "scripts", "validate_article_bites.rb"), File.join(dir, "scripts"))
+      FileUtils.cp(File.join(ROOT, "Gemfile"), dir)
+      File.write(File.join(dir, "assets", "images", "articles", "test-bite", "figure.svg"), svg_source)
+
+      article_path = File.join(dir, "_articles", "test-bite.md")
+      content = article_fixture(Array.new(410, "evidence").join(" ")).sub(
+        "## What remains uncertain",
+        "#{figure}\n## What remains uncertain"
+      )
+      File.write(article_path, content)
+      yield File.join(dir, "scripts", "validate_article_bites.rb"), article_path
+    end
+  end
+
+  def first_party_figure
+    <<~HTML
+      <figure class="article-figure">
+        <div class="article-figure-scroll" tabindex="0" role="region" aria-label="Scrollable source-grounded diagram">
+          <a href="/assets/images/articles/test-bite/figure.svg">
+            <img src="/assets/images/articles/test-bite/figure.svg" width="1600" height="900" loading="lazy" decoding="async" alt="Source-grounded workflow diagram.">
+          </a>
+        </div>
+        <figcaption>
+          LiteBites synthesis from the <a href="https://example.com/source">canonical source</a>.
+          On narrow screens, swipe horizontally or <a href="/assets/images/articles/test-bite/figure.svg">open full resolution ↗</a>
+        </figcaption>
+      </figure>
+    HTML
+  end
 
   def article_fixture(opening_text)
     <<~MARKDOWN

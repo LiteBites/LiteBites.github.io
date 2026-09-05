@@ -80,6 +80,31 @@
       "sourcePath": "_articles/glm-5-3-flash.md"
     },
     {
+      "id": "article:gpt-6-astra",
+      "slug": "gpt-6-astra",
+      "type": "article",
+      "title": "GPT-6 Astra Pairs Computer-Use Gains With Critical Cyber Capability",
+      "shortTitle": "GPT-6 Astra",
+      "url": "/articles/gpt-6-astra/",
+      "summary": "OpenAI's GPT-6 Astra expands computer-using and long-context agent capabilities while becoming the company's first model classified at its Critical cybersecurity threshold.",
+      "date": "2026-09-04",
+      "meta": "OpenAI / 4 min read",
+      "topics": [
+        "Agentic AI",
+        "Computer Use",
+        "Cybersecurity",
+        "Language Models"
+      ],
+      "topicWeights": {
+        "Agentic AI": 3,
+        "Computer Use": 3,
+        "Cybersecurity": 3,
+        "Language Models": 3
+      },
+      "sourceHash": "0f1b64525a2e77842a5fb65ab76e0dec16854867f594cc16d33bed024c348679",
+      "sourcePath": "_articles/gpt-6-astra.md"
+    },
+    {
       "id": "article:nvidia-avo-arc-agi-3",
       "slug": "nvidia-avo-arc-agi-3",
       "type": "article",
@@ -126,6 +151,29 @@
       },
       "sourceHash": "7584717de693993ebfa7982bc93d724b16d5caea6182554e8f3a7a1915dc1114",
       "sourcePath": "_articles/qwen3-8-max.md"
+    },
+    {
+      "id": "article:slides-grab",
+      "slug": "slides-grab",
+      "type": "article",
+      "title": "slides-grab Treats AI Slide Generation as a Gated HTML Workflow",
+      "shortTitle": "slides-grab",
+      "url": "/articles/slides-grab/",
+      "summary": "NomaDamas' open-source slides-grab coordinates coding agents around editable HTML, browser validation, visual feedback, and a fingerprinted export gate, while leaving important network, model-provider, and format trade-offs to users.",
+      "date": "2026-09-04",
+      "meta": "NomaDamas / 4 min read",
+      "topics": [
+        "Agentic AI",
+        "Developer Tools",
+        "Presentation Tools"
+      ],
+      "topicWeights": {
+        "Agentic AI": 3,
+        "Developer Tools": 3,
+        "Presentation Tools": 3
+      },
+      "sourceHash": "2d27b747ac3d7745500ec09382fadd26c460e4032075990f44fab6c5b60bc17c",
+      "sourcePath": "_articles/slides-grab.md"
     },
     {
       "id": "dataset:kolektor-sdd2",
@@ -845,6 +893,118 @@
       "provenance": "metadata"
     },
     {
+      "id": "article:gpt-6-astra|article:nvidia-avo-arc-agi-3",
+      "source": "article:gpt-6-astra",
+      "target": "article:nvidia-avo-arc-agi-3",
+      "relation": "shared-topic",
+      "label": "Agentic AI · Language Models",
+      "topics": [
+        "Agentic AI",
+        "Language Models"
+      ],
+      "weight": 6,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:gpt-6-astra|article:qwen3-8-max",
+      "source": "article:gpt-6-astra",
+      "target": "article:qwen3-8-max",
+      "relation": "shared-topic",
+      "label": "Agentic AI · Language Models",
+      "topics": [
+        "Agentic AI",
+        "Language Models"
+      ],
+      "weight": 6,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:gpt-6-astra|article:slides-grab",
+      "source": "article:gpt-6-astra",
+      "target": "article:slides-grab",
+      "relation": "shared-topic",
+      "label": "Agentic AI",
+      "topics": [
+        "Agentic AI"
+      ],
+      "weight": 3,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:gpt-6-astra|paper:chain-of-zoom",
+      "source": "article:gpt-6-astra",
+      "target": "paper:chain-of-zoom",
+      "relation": "shared-topic",
+      "label": "Language Models",
+      "topics": [
+        "Language Models"
+      ],
+      "weight": 2,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:gpt-6-astra|paper:lora",
+      "source": "article:gpt-6-astra",
+      "target": "paper:lora",
+      "relation": "shared-topic",
+      "label": "Language Models",
+      "topics": [
+        "Language Models"
+      ],
+      "weight": 2,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:gpt-6-astra|paper:pagedattention",
+      "source": "article:gpt-6-astra",
+      "target": "paper:pagedattention",
+      "relation": "shared-topic",
+      "label": "Language Models",
+      "topics": [
+        "Language Models"
+      ],
+      "weight": 2,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:gpt-6-astra|paper:prime-agent",
+      "source": "article:gpt-6-astra",
+      "target": "paper:prime-agent",
+      "relation": "shared-topic",
+      "label": "Agentic AI · Language Models",
+      "topics": [
+        "Agentic AI",
+        "Language Models"
+      ],
+      "weight": 5,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:gpt-6-astra|paper:retrieval-augmented-generation",
+      "source": "article:gpt-6-astra",
+      "target": "paper:retrieval-augmented-generation",
+      "relation": "shared-topic",
+      "label": "Language Models",
+      "topics": [
+        "Language Models"
+      ],
+      "weight": 4,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:gpt-6-astra|paper:slm-agents",
+      "source": "article:gpt-6-astra",
+      "target": "paper:slm-agents",
+      "relation": "shared-topic",
+      "label": "Agentic AI · Language Models",
+      "topics": [
+        "Agentic AI",
+        "Language Models"
+      ],
+      "weight": 5,
+      "provenance": "metadata"
+    },
+    {
       "id": "article:nvidia-avo-arc-agi-3|article:qwen3-8-max",
       "source": "article:nvidia-avo-arc-agi-3",
       "target": "article:qwen3-8-max",
@@ -858,33 +1018,21 @@
       "provenance": "metadata"
     },
     {
+      "id": "article:nvidia-avo-arc-agi-3|article:slides-grab",
+      "source": "article:nvidia-avo-arc-agi-3",
+      "target": "article:slides-grab",
+      "relation": "shared-topic",
+      "label": "Agentic AI",
+      "topics": [
+        "Agentic AI"
+      ],
+      "weight": 3,
+      "provenance": "metadata"
+    },
+    {
       "id": "article:nvidia-avo-arc-agi-3|paper:chain-of-zoom",
       "source": "article:nvidia-avo-arc-agi-3",
       "target": "paper:chain-of-zoom",
-      "relation": "shared-topic",
-      "label": "Language Models",
-      "topics": [
-        "Language Models"
-      ],
-      "weight": 2,
-      "provenance": "metadata"
-    },
-    {
-      "id": "article:nvidia-avo-arc-agi-3|paper:lora",
-      "source": "article:nvidia-avo-arc-agi-3",
-      "target": "paper:lora",
-      "relation": "shared-topic",
-      "label": "Language Models",
-      "topics": [
-        "Language Models"
-      ],
-      "weight": 2,
-      "provenance": "metadata"
-    },
-    {
-      "id": "article:nvidia-avo-arc-agi-3|paper:pagedattention",
-      "source": "article:nvidia-avo-arc-agi-3",
-      "target": "paper:pagedattention",
       "relation": "shared-topic",
       "label": "Language Models",
       "topics": [
@@ -1009,18 +1157,6 @@
       "provenance": "metadata"
     },
     {
-      "id": "article:qwenwork-workplace-agent-platform|paper:chain-of-zoom",
-      "source": "article:qwenwork-workplace-agent-platform",
-      "target": "paper:chain-of-zoom",
-      "relation": "shared-topic",
-      "label": "Multimodal AI",
-      "topics": [
-        "Multimodal AI"
-      ],
-      "weight": 2,
-      "provenance": "metadata"
-    },
-    {
       "id": "article:qwenwork-workplace-agent-platform|paper:prime-agent",
       "source": "article:qwenwork-workplace-agent-platform",
       "target": "paper:prime-agent",
@@ -1035,6 +1171,30 @@
     {
       "id": "article:qwenwork-workplace-agent-platform|paper:slm-agents",
       "source": "article:qwenwork-workplace-agent-platform",
+      "target": "paper:slm-agents",
+      "relation": "shared-topic",
+      "label": "Agentic AI",
+      "topics": [
+        "Agentic AI"
+      ],
+      "weight": 4,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:slides-grab|paper:prime-agent",
+      "source": "article:slides-grab",
+      "target": "paper:prime-agent",
+      "relation": "shared-topic",
+      "label": "Agentic AI",
+      "topics": [
+        "Agentic AI"
+      ],
+      "weight": 4,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:slides-grab|paper:slm-agents",
+      "source": "article:slides-grab",
       "target": "paper:slm-agents",
       "relation": "shared-topic",
       "label": "Agentic AI",
@@ -1413,38 +1573,12 @@
       ],
       "weight": 5,
       "provenance": "metadata"
-    },
-    {
-      "id": "paper:prime-agent|paper:slm-agents",
-      "source": "paper:prime-agent",
-      "target": "paper:slm-agents",
-      "relation": "shared-topic",
-      "label": "Agentic AI · Language Models",
-      "topics": [
-        "Agentic AI",
-        "Language Models"
-      ],
-      "weight": 4,
-      "provenance": "metadata"
-    },
-    {
-      "id": "paper:retrieval-augmented-generation|paper:thinksound",
-      "source": "paper:retrieval-augmented-generation",
-      "target": "paper:thinksound",
-      "relation": "shared-topic",
-      "label": "Generative AI · Language Models",
-      "topics": [
-        "Generative AI",
-        "Language Models"
-      ],
-      "weight": 2,
-      "provenance": "metadata"
     }
   ],
   "stats": {
-    "nodes": 25,
-    "edges": 61,
-    "articles": 5,
+    "nodes": 27,
+    "edges": 68,
+    "articles": 7,
     "papers": 17,
     "datasets": 3
   }

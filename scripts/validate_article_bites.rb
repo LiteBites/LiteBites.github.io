@@ -254,6 +254,110 @@ def validate_remote_inline_images(body, source_links)
   end
 end
 
+def first_party_asset_path(value)
+  text = value.to_s.strip
+  return text if text.start_with?("/assets/images/articles/")
+
+  match = text.match(%r{\A\{\{\s*['"](?<path>/assets/images/articles/[^'"]+)['"]\s*\|\s*relative_url\s*\}\}\z})
+  match && match[:path]
+end
+
+def validate_first_party_asset(asset_path)
+  article_assets = ROOT.join("assets", "images", "articles").expand_path
+  repository_asset = ROOT.join(asset_path.delete_prefix("/")).expand_path
+  unless repository_asset.to_s.start_with?("#{article_assets}#{File::SEPARATOR}") && repository_asset.file?
+    raise ArticleValidationError, "first-party figure asset does not exist under assets/images/articles"
+  end
+  return unless repository_asset.extname.downcase == ".svg"
+
+  source = repository_asset.read(encoding: "UTF-8")
+  document = Nokogiri::XML(source) { |config| config.strict.nonet }
+  active_elements = %w[script foreignobject animate animatemotion animatetransform set]
+  has_active_element = document.xpath("//*").any? { |node| active_elements.include?(node.name.downcase) }
+  attributes = document.xpath("//@*")
+  has_event_handler = attributes.any? { |attribute| attribute.name.downcase.start_with?("on") }
+  has_javascript_url = attributes.any? { |attribute| attribute.value.to_s.strip.downcase.start_with?("javascript:") }
+  if document.internal_subset || has_active_element || has_event_handler || has_javascript_url
+    raise ArticleValidationError, "first-party SVG must not contain active content"
+  end
+  external_reference = attributes.any? do |attribute|
+    next false unless %w[href src].include?(attribute.name.downcase)
+
+    value = attribute.value.to_s.strip
+    !value.empty? && !value.start_with?("#")
+  end
+  css_references = source.scan(%r{url\s*\(\s*(['"]?)(.*?)\1\s*\)}im).map { |match| match[1].to_s.strip }
+  external_style = source.match?(/@import/i) || css_references.any? { |value| !value.empty? && !value.start_with?("#") }
+  if external_reference || external_style
+    raise ArticleValidationError, "first-party SVG must not fetch external resources"
+  end
+rescue Nokogiri::XML::SyntaxError => e
+  raise ArticleValidationError, "first-party SVG is invalid XML: #{e.message}"
+end
+
+def validate_first_party_inline_figures(body, path, source_links)
+  document = rendered_fragment(body)
+  document.css("img").each do |image|
+    next unless first_party_asset_path(image["src"])
+    next if image.ancestors.any? { |ancestor| ancestor.name == "figure" && ancestor["class"].to_s.split.include?("article-figure") }
+
+    raise ArticleValidationError, "first-party Article image must be wrapped in figure.article-figure"
+  end
+
+  document.css("figure.article-figure").each do |figure|
+    if figure.at_css("script, iframe, object, embed, foreignobject")
+      raise ArticleValidationError, "first-party figure must not contain active or embedded content"
+    end
+
+    images = figure.css("img")
+    unless images.length == 1
+      raise ArticleValidationError, "first-party figure must contain exactly one image"
+    end
+    if figure.at_css("picture, source") || images.any? { |candidate| non_blank_string?(candidate["srcset"]) }
+      raise ArticleValidationError, "first-party figure must not use picture, source, or srcset"
+    end
+    image = images.first
+    unless image && non_blank_string?(image["alt"])
+      raise ArticleValidationError, "first-party figure requires descriptive alt text"
+    end
+    %w[width height].each do |dimension|
+      unless image[dimension].to_s.match?(/\A[1-9]\d*\z/)
+        raise ArticleValidationError, "first-party figure requires a positive integer #{dimension}"
+      end
+    end
+    unless image["loading"] == "lazy" && image["decoding"] == "async"
+      raise ArticleValidationError, "first-party figure requires loading=\"lazy\" and decoding=\"async\""
+    end
+
+    scroll_region = figure.at_css(".article-figure-scroll")
+    unless scroll_region && image.ancestors.include?(scroll_region) &&
+           scroll_region["tabindex"] == "0" && scroll_region["role"] == "region" &&
+           non_blank_string?(scroll_region["aria-label"])
+      raise ArticleValidationError, "first-party figure requires a labeled keyboard-focusable article-figure-scroll region"
+    end
+
+    asset_path = first_party_asset_path(image["src"])
+    slug = path.basename(".md").to_s
+    unless asset_path&.start_with?("/assets/images/articles/#{slug}/") && !asset_path.split("/").include?("..")
+      raise ArticleValidationError, "first-party figure image must live under /assets/images/articles/#{slug}/"
+    end
+    validate_first_party_asset(asset_path)
+
+    captions = figure.css("figcaption")
+    unless captions.length == 1 && captions.first.text.include?("LiteBites synthesis")
+      raise ArticleValidationError, "first-party figure requires one caption labeled LiteBites synthesis"
+    end
+    caption_links = captions.first.css("a[href]")
+    unless caption_links.any? { |link| first_party_asset_path(link["href"]) == asset_path }
+      raise ArticleValidationError, "first-party figure caption must link the full-resolution asset"
+    end
+    cited_links = caption_links.map { |link| link["href"].to_s }.select { |href| remote_url?(href) }
+    unless cited_links.any? { |href| source_links.include?(href) }
+      raise ArticleValidationError, "first-party figure caption must cite an exact link destination from Sources"
+    end
+  end
+end
+
 def validate_article(path)
   metadata, body = split_front_matter(path.read(encoding: "UTF-8"))
 
@@ -284,6 +388,7 @@ def validate_article(path)
     raise ArticleValidationError, "Sources section must include source_url as an exact link destination"
   end
   validate_remote_inline_images(body, source_links)
+  validate_first_party_inline_figures(body, path, source_links)
 
   words = body_word_count(body)
   unless words.between?(MIN_WORDS, MAX_WORDS)

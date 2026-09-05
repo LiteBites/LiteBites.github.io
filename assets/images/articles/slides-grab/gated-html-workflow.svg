@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">slides-grab gated HTML presentation workflow</title>
+  <desc id="desc">A four-stage workflow moves from planning to editable HTML generation, browser validation and design-gate review, then export. Slide changes invalidate the gate receipt and return the deck to verification.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#d7ff3f"/>
+    </marker>
+    <marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#8f918b"/>
+    </marker>
+    <style>
+      .sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; }
+      .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+      .label { font-size: 18px; font-weight: 700; letter-spacing: 2px; }
+      .stage { font-size: 30px; font-weight: 800; }
+      .body { font-size: 22px; fill: #d8d8d2; }
+      .small { font-size: 18px; fill: #a9aaa4; }
+    </style>
+  </defs>
+
+  <rect width="1600" height="900" fill="#10110f"/>
+  <path d="M0 0H1600V900H0Z" fill="none" stroke="#30322e" stroke-width="2"/>
+
+  <g class="sans">
+    <rect x="60" y="48" width="260" height="38" rx="19" fill="#d7ff3f"/>
+    <text x="190" y="74" text-anchor="middle" class="mono label" fill="#10110f">LITEBITES SYNTHESIS</text>
+    <text x="60" y="145" font-size="56" font-weight="850" fill="#f7f6f0">A gated HTML slide workflow</text>
+    <text x="60" y="188" font-size="23" fill="#a9aaa4">Editable source stays central; validation and a fingerprinted review receipt gate the public export commands.</text>
+
+    <!-- connectors -->
+    <path d="M390 416H438" stroke="#d7ff3f" stroke-width="5" marker-end="url(#arrow)"/>
+    <path d="M780 416H828" stroke="#d7ff3f" stroke-width="5" marker-end="url(#arrow)"/>
+    <path d="M1170 416H1218" stroke="#d7ff3f" stroke-width="5" marker-end="url(#arrow)"/>
+
+    <!-- stage 1 -->
+    <g>
+      <rect x="60" y="235" width="330" height="365" rx="18" fill="#171a18" stroke="#65d8ff" stroke-width="3"/>
+      <text x="88" y="278" class="mono label" fill="#65d8ff">01 / PLAN</text>
+      <text x="88" y="332" class="sans stage" fill="#f7f6f0">Define the deck</text>
+      <line x1="88" y1="355" x2="362" y2="355" stroke="#3d4542"/>
+      <text x="88" y="400" class="sans body">
+        <tspan x="88" dy="0">• slide outline</tspan>
+        <tspan x="88" dy="42">• design profile or</tspan>
+        <tspan x="108" dy="31">template pack</tspan>
+        <tspan x="88" dy="42">• deck-local assets</tspan>
+      </text>
+      <text x="88" y="566" class="mono small">INPUTS REMAIN FILES</text>
+    </g>
+
+    <!-- stage 2 -->
+    <g>
+      <rect x="450" y="235" width="330" height="365" rx="18" fill="#171a18" stroke="#a78bfa" stroke-width="3"/>
+      <text x="478" y="278" class="mono label" fill="#a78bfa">02 / BUILD</text>
+      <text x="478" y="332" class="sans stage" fill="#f7f6f0">Generate and edit</text>
+      <line x1="478" y1="355" x2="752" y2="355" stroke="#453f54"/>
+      <text x="478" y="400" class="sans body">
+        <tspan x="478" dy="0">• one HTML file</tspan>
+        <tspan x="498" dy="31">per slide</tspan>
+        <tspan x="478" dy="42">• Claude Code or Codex</tspan>
+        <tspan x="478" dy="42">• browser selection and</tspan>
+        <tspan x="498" dy="31">direct text editing</tspan>
+      </text>
+      <text x="478" y="580" class="mono small">SOURCE IS DIFFABLE</text>
+    </g>
+
+    <!-- stage 3 -->
+    <g>
+      <rect x="840" y="235" width="330" height="365" rx="18" fill="#171a18" stroke="#fbbf24" stroke-width="3"/>
+      <text x="868" y="278" class="mono label" fill="#fbbf24">03 / VERIFY</text>
+      <text x="868" y="332" class="sans stage" fill="#f7f6f0">Render and review</text>
+      <line x1="868" y1="355" x2="1142" y2="355" stroke="#51462a"/>
+      <text x="868" y="397" class="sans body">
+        <tspan x="868" dy="0">• overflow and overlap</tspan>
+        <tspan x="868" dy="39">• clipped text and</tspan>
+        <tspan x="888" dy="31">missing assets</tspan>
+        <tspan x="868" dy="39">• two review reports</tspan>
+        <tspan x="868" dy="39">• current-deck fingerprint</tspan>
+      </text>
+      <text x="868" y="580" class="mono small">FRESH “PROCEED” RECEIPT</text>
+    </g>
+
+    <!-- stage 4 -->
+    <g>
+      <rect x="1230" y="235" width="310" height="365" rx="18" fill="#171a18" stroke="#d7ff3f" stroke-width="3"/>
+      <text x="1258" y="278" class="mono label" fill="#d7ff3f">04 / EXPORT</text>
+      <text x="1258" y="332" class="sans stage" fill="#f7f6f0">Choose trade-offs</text>
+      <line x1="1258" y1="355" x2="1512" y2="355" stroke="#465124"/>
+      <text x="1258" y="400" class="sans body">
+        <tspan x="1258" dy="0">• PDF capture or print</tspan>
+        <tspan x="1258" dy="42">• PNG output</tspan>
+        <tspan x="1258" dy="42">• experimental PPTX</tspan>
+        <tspan x="1278" dy="31">and Figma paths</tspan>
+      </text>
+      <text x="1258" y="566" class="mono small">GATED CLI PATHS</text>
+    </g>
+
+    <!-- invalidation loop -->
+    <path d="M1385 620V690H1005V625" fill="none" stroke="#8f918b" stroke-width="4" stroke-dasharray="10 9" marker-end="url(#arrow-muted)"/>
+    <rect x="740" y="680" width="520" height="56" rx="28" fill="#22231f" stroke="#50514b"/>
+    <text x="1000" y="715" text-anchor="middle" class="mono label" fill="#d8d8d2">ANY INPUT CHANGE INVALIDATES THE RECEIPT</text>
+
+    <line x1="60" y1="790" x2="1540" y2="790" stroke="#343631"/>
+    <text x="60" y="833" class="mono small">CONTROL BOUNDARY</text>
+    <text x="260" y="833" class="sans small">The receipt gates the documented CLI export commands—not direct invocation of lower-level scripts.</text>
+  </g>
+</svg>

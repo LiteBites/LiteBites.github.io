@@ -890,6 +890,21 @@ button { font: inherit; }
   color: var(--muted);
   overflow-wrap: anywhere;
 }
+.article-figure-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scrollbar-gutter: stable;
+  -webkit-overflow-scrolling: touch;
+}
+.article-figure-scroll:focus-visible {
+  outline: 2px solid var(--signal);
+  outline-offset: 3px;
+}
+.post-body .article-figure-scroll img {
+  max-width: none;
+  min-width: 56rem;
+}
 .post-body .remote-publisher-image--portrait {
   max-width: 420px;
   margin-right: auto;
