@@ -92,40 +92,31 @@ privacy_and_durability: <third-party request and mutability notes>
 
 If any field is unknown or unfavorable, choose `omit`. The ledger may remain temporary and local; it is a decision record, not a reason to add new public metadata.
 
-## Standard six-section structure
+## Adaptive section structure
 
-Use these headings exactly once and in this order:
+Article Bites should not reuse the same six subtitles by default. Choose source-specific `##` headings that make the article's argument visible to the reader. A release may use `## The useful change`, `## What changed under the hood`, and `## What to watch next`; a security story may use `## The timeline`, `## Blast radius`, and `## Mitigations`; a benchmark story may use `## The protocol`, `## Where the comparison breaks`, and `## What to test yourself`.
 
-1. `## What happened`
-2. `## Why it matters`
-3. `## Technical context`
-4. `## What remains uncertain`
-5. `## Practical takeaways`
-6. `## Sources`
+Keep these structural invariants:
 
-### What happened
+- Use at least three narrative `##` sections before Sources.
+- End with exactly one `## Sources` section.
+- Give the reader a clearly identifiable practical ending with three to five concise, reusable observations or checks. The heading may be source-specific (`## What to watch next`, `## If you use this tool`, or `## Practical takeaways`) rather than a fixed subtitle.
+- Use optional `###` subheadings only when they are source-specific and genuinely improve navigation at 400–800 words.
+- Do not add headings merely to make the graph denser or to imitate another Article.
 
-State the development, responsible organization or author, publication date, and concrete scope. Lead with verified information rather than commentary.
+### Source-specific section jobs
 
-### Why it matters
+Across the chosen headings, the Article must still establish the development and source/date, explain why it matters, provide only the technical context needed to understand it, identify uncertainty or missing evidence, and end with practical checks. These are editorial jobs, not mandatory literal subtitles. Let the source decide their order, emphasis, and names.
 
-Explain the technical or operational consequence. Separate immediate impact from possible longer-term implications.
+Examples of useful source shapes:
 
-### Technical context
-
-Provide only the background needed to understand the change: architecture, protocol, benchmark, deployment model, standards process, or relationship to prior work.
-
-### What remains uncertain
-
-Identify missing evidence, deployment limits, unavailable benchmarks, unresolved compatibility questions, incentives, or claims that have not been independently verified.
-
-### Practical takeaways
-
-End with three to five concise observations or checks that a practitioner can reuse. Avoid generic praise and predictions presented as facts.
+- A model release may move from `## The release delta` to `## How it serves` to `## What the benchmarks do not tell us`.
+- A repository story may use `## The workflow change`, `## Trust boundaries`, and `## Before adopting it`.
+- A business or acquisition story may use `## The deal`, `## The platform bet`, and `## What to watch next`.
 
 ### Sources
 
-List the canonical source first. Add corroborating or contextual sources only when they materially support the analysis. Use descriptive link labels rather than bare URLs.
+Keep `## Sources` last. List the canonical source first, then add corroborating or contextual sources only when they materially support the analysis. Use descriptive link labels rather than bare URLs.
 
 ## Word count and reading time
 
@@ -149,10 +140,10 @@ Before review, verify:
 - Consequential technical claims are attributed and corroborated where possible.
 - Facts, source claims, interpretation, and uncertainty are distinguishable.
 - The voice is approachable and conversational without hype, slang, fake certainty, or lost technical precision.
-- The internal structure follows the source rather than a repeated paragraph-count template.
-- The final Sources section must list the canonical source and any additional source that materially supports the analysis.
-- The body contains 400–800 words and all six headings in order.
-- The `Practical takeaways` section contains three to five concise, reusable observations or checks.
+- The internal structure follows the source rather than a repeated subtitle or paragraph-count template.
+- The final `## Sources` section lists the canonical source and any additional source that materially supports the analysis.
+- The body contains 400–800 words, at least three narrative `##` sections, and exactly one final `## Sources` section; literal section names are source-adaptive.
+- A clearly identified practical ending contains three to five concise, reusable observations or checks, even when its heading is source-specific.
 - Metadata, links, local assets, alt text, and reading time are valid.
 - Every remote image satisfies the publisher-hosted figure contract and has verified origin, dimensions, responsive rendering, failure behavior, and privacy/durability disclosure.
 - An Article without an admissible publisher original or explicitly requested, source-grounded LiteBites synthesis contains no forced screenshot, downloaded copy, or locally created presentation substitute.

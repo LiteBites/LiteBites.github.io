@@ -24,14 +24,8 @@ STRING_FIELDS = %w[
   layout title short_title type read_time source_name source_url summary
 ].freeze
 
-REQUIRED_HEADINGS = [
-  "What happened",
-  "Why it matters",
-  "Technical context",
-  "What remains uncertain",
-  "Practical takeaways",
-  "Sources"
-].freeze
+MIN_NARRATIVE_HEADINGS = 3
+SOURCES_HEADING = "Sources"
 
 MIN_WORDS = 400
 MAX_WORDS = 800
@@ -93,10 +87,20 @@ end
 
 def validate_headings(body)
   headings = body.scan(/^##\s+(.+?)\s*$/).flatten
-  return if headings == REQUIRED_HEADINGS
+  narrative_headings = headings.reject { |heading| heading == SOURCES_HEADING }
 
-  expected = REQUIRED_HEADINGS.map { |heading| "## #{heading}" }.join(" -> ")
-  raise ArticleValidationError, "level-two headings must be exactly: #{expected}"
+  if headings.count(SOURCES_HEADING) != 1
+    raise ArticleValidationError, "article must contain exactly one level-two Sources section"
+  end
+  unless headings.last == SOURCES_HEADING
+    raise ArticleValidationError, "level-two Sources section must be last"
+  end
+  if narrative_headings.length < MIN_NARRATIVE_HEADINGS
+    raise ArticleValidationError, "article must contain at least #{MIN_NARRATIVE_HEADINGS} narrative level-two sections before Sources"
+  end
+  if headings.uniq.length != headings.length
+    raise ArticleValidationError, "level-two section headings must be unique"
+  end
 end
 
 def validate_local_image(metadata, path)

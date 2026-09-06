@@ -38,10 +38,11 @@ class ArticleBitesSiteTest < Minitest::Test
     assert File.file?(File.join(ROOT, "POLICY_ARTICLE.md")), "Article Bite policy is missing"
 
     policy = read("POLICY_ARTICLE.md")
-    %w[What\ happened Why\ it\ matters Technical\ context What\ remains\ uncertain Practical\ takeaways Sources].each do |heading|
+    %w[Adaptive\ section\ structure source-specific Sources].each do |heading|
       assert_includes policy, heading
     end
     assert_includes policy, "400–800"
+    assert_includes policy, "three to five"
 
     index = read("articles.html")
     assert_includes index, 'site.articles | sort: "date" | reverse'
@@ -146,15 +147,36 @@ class ArticleBitesSiteTest < Minitest::Test
     end
   end
 
-  def test_article_validator_rejects_extra_level_two_sections
+  def test_article_validator_accepts_source_specific_level_two_sections
     validator = File.join(ROOT, "scripts", "validate_article_bites.rb")
     Dir.mktmpdir("article-bites-section-test") do |dir|
-      path = File.join(dir, "extra-section.md")
-      content = article_fixture(Array.new(410, "evidence").join(" ")).sub("## Sources", "## Extra analysis\n\nNot part of the contract.\n\n## Sources")
+      path = File.join(dir, "adaptive-sections.md")
+      content = article_fixture(Array.new(410, "evidence").join(" "))
+        .sub("## What happened", "## The release")
+        .sub("## Why it matters", "## Why teams may care")
+        .sub("## Technical context", "## Under the hood")
+        .sub("## What remains uncertain", "## What to watch")
+        .sub("## Practical takeaways", "## Before adopting it")
       File.write(path, content)
       stdout, stderr, status = Open3.capture3(RbConfig.ruby, validator, path)
-      refute status.success?, "extra level-two section unexpectedly passed"
-      assert_includes "#{stdout}#{stderr}", "exactly"
+      assert status.success?, "source-specific level-two sections failed: #{stdout}#{stderr}"
+    end
+  end
+
+  def test_article_validator_rejects_duplicate_or_nonfinal_sources_section
+    validator = File.join(ROOT, "scripts", "validate_article_bites.rb")
+    Dir.mktmpdir("article-bites-section-test") do |dir|
+      cases = {
+        "duplicate Sources" => article_fixture(Array.new(410, "evidence").join(" ")).sub("## Sources", "## Sources\n\n## Sources"),
+        "nonfinal Sources" => article_fixture(Array.new(410, "evidence").join(" ")).sub("## Sources", "## Sources\n\n## Afterword\n\nMore context.")
+      }
+      cases.each do |label, content|
+        path = File.join(dir, "#{label.gsub(/\\s+/, '-').downcase}.md")
+        File.write(path, content)
+        stdout, stderr, status = Open3.capture3(RbConfig.ruby, validator, path)
+        refute status.success?, "#{label} unexpectedly passed"
+        assert_includes "#{stdout}#{stderr}", "Sources"
+      end
     end
   end
 
