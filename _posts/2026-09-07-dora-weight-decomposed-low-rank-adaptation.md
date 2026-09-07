@@ -33,6 +33,12 @@ This split is useful because LoRA normally asks its low-rank update to account f
 
 There is also an optimization argument. The normalization step projects the directional gradient away from the current weight and rescales it by the learned magnitude. The authors connect that behavior to more stable optimization, and their weight-update analysis reports a negative correlation between magnitude and directional changes for full fine-tuning (-0.62) and DoRA (-0.31), compared with a positive correlation for LoRA (0.83) in their VL-BART case study. Those correlations are evidence for the paper's explanation, not a universal law about every adapter or model.
 
+<figure>
+  <img src="{{ '/assets/images/papers/dora-weight-decomposed-low-rank-adaptation/magnitude-direction-differences.png' | relative_url }}" alt="Two-panel source figure comparing magnitude and direction differences for LoRA and DoRA against pretrained query matrices across model layers." />
+  <figcaption>Figure 3 from <cite>DoRA: Weight-Decomposed Low-Rank Adaptation</cite> by Shih-Yang Liu, Chien-Yi Wang, Hongxu Yin, Pavlo Molchanov, Yu-Chiang Frank Wang, Kwang-Ting Cheng, and Min-Hung Chen: magnitude and direction differences between LoRA/DoRA fine-tuned query matrices and the pretrained weights across layers. The figure helps make the paper's central decomposition concrete. Source: <a href="https://arxiv.org/pdf/2402.09353v6">DoRA, Figure 3</a>, used under the paper's <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> terms.</figcaption>
+  <p><a href="{{ '/assets/images/papers/dora-weight-decomposed-low-rank-adaptation/magnitude-direction-differences.png' | relative_url }}">Open the full-resolution Figure 3</a> for readable labels.</p>
+</figure>
+
 A practical implementation detail matters here. The exact normalization creates extra backpropagation memory, so the authors detach the normalization factor from the gradient graph while still updating its value during training. In their ablation, that modification reduces training memory by about 24.4% for LLaMA and 12.4% for VL-BART, with no accuracy change for VL-BART and a reported 0.2-point difference for LLaMA. DoRA can still be merged into the pretrained weights before inference, so the paper claims no additional inference latency over LoRA.
 
 ## What the results actually show
@@ -48,8 +54,6 @@ A useful way to read these numbers is that the decomposition appears to help acr
 The paper is strongest as a controlled method comparison within its chosen fine-tuning setups. It is weaker as a guide to deployment cost. The claim of no added inference latency depends on merging the learned update before serving; it does not mean training is free, and it does not remove the memory needed to load the base model. QDoRA extends the idea to quantized fine-tuning, but that is a related configuration rather than proof that every quantized runtime will behave identically.
 
 The official code repository is useful for studying and reproducing parts of the work, but its current README also documents Hugging Face PEFT and diffusion-model support. The repository identifies its code as NVIDIA Source Code License-NC, while the arXiv paper page identifies the manuscript as CC BY-NC-SA 4.0. Those licenses are separate: a permissive-looking software workflow does not automatically grant the same reuse terms for paper figures or text.
-
-I’m leaving figures out of this Paper Bite. The method can be explained from the paper’s equations and tables without a visual, and the paper page identifies the manuscript as CC BY-NC-SA 4.0; I did not establish a separate figure-use basis appropriate for this site. The omission is deliberate rather than a missing asset.
 
 There is a broader lesson in the paper's design. Parameter efficiency is not only about reducing the number of trainable parameters. It is also about choosing which degrees of freedom the adapter gets to control. DoRA adds a very small explicit magnitude path so the low-rank direction update does not have to do every job.
 
