@@ -48,6 +48,7 @@ Include:
   - Use `short_title` for compact display names such as `ControlNet`, `LoRA`, or `Chain-of-Zoom`.
 - One-paragraph summary
 - Metadata such as reading time, topic tags, venue, and source links
+- For a Paper Bite with a captured figure, `card_image` must point to the local figure used for the homepage thumbnail, and `card_image_alt` must describe that visual for the card.
 
 ### 2. Why this paper matters
 

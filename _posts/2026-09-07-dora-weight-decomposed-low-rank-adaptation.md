@@ -12,6 +12,8 @@ tags:
   - Large Language Models
   - Vision-Language Models
 summary: "DoRA keeps LoRA's low-inference-cost design but separates magnitude from direction, giving the adapter more room to change how a pretrained weight is scaled without updating the whole matrix."
+card_image: "/assets/images/papers/dora-weight-decomposed-low-rank-adaptation/magnitude-direction-differences.png"
+card_image_alt: "DoRA Figure 3 comparing magnitude and direction differences for LoRA and DoRA against pretrained query matrices across layers"
 paper_url: "https://arxiv.org/abs/2402.09353v6"
 project_url: "https://nbasyl.github.io/DoRA-project-page/"
 code_url: "https://github.com/NVlabs/DoRA"
