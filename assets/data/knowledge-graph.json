@@ -88,6 +88,22 @@
       ]
     },
     {
+      "id": "article:nvidia-hugging-face-acquisition",
+      "slug": "nvidia-hugging-face-acquisition",
+      "type": "article",
+      "title": "NVIDIA Says Hugging Face Will Stay Open in a Proposed $12.93B Acquisition",
+      "shortTitle": "NVIDIA × Hugging Face",
+      "url": "/articles/nvidia-hugging-face-acquisition/",
+      "summary": "NVIDIA says it will acquire Hugging Face for $12.93 billion while keeping the platform multi-cloud, multi-accelerator, and open to models from across the ecosystem; the hard part is turning that promise into durable governance and technical neutrality.",
+      "date": "2026-09-06",
+      "meta": "NVIDIA / Jensen Huang / 3 min read",
+      "topics": [
+        "AI Infrastructure",
+        "Developer Platforms",
+        "Open Models"
+      ]
+    },
+    {
       "id": "article:qwen3-8-max",
       "slug": "qwen3-8-max",
       "type": "article",
@@ -225,6 +241,27 @@
         "Information Retrieval",
         "Late Interaction",
         "Neural Search"
+      ]
+    },
+    {
+      "id": "paper:dora-weight-decomposed-low-rank-adaptation",
+      "slug": "dora-weight-decomposed-low-rank-adaptation",
+      "type": "paper",
+      "title": "DoRA: Weight-Decomposed Low-Rank Adaptation",
+      "shortTitle": "DoRA",
+      "url": "/posts/dora-weight-decomposed-low-rank-adaptation/",
+      "summary": "DoRA keeps LoRA's low-inference-cost design but separates magnitude from direction, giving the adapter more room to change how a pretrained weight is scaled without updating the whole matrix.",
+      "date": "2026-09-07",
+      "meta": "ICML 2024 (Oral) / 6 min read",
+      "topics": [
+        "Efficient AI",
+        "Language Models",
+        "Large Language Models",
+        "LoRA",
+        "Multimodal AI",
+        "Parameter-Efficient Fine-Tuning",
+        "Transfer & Adaptation",
+        "Vision-Language Models"
       ]
     },
     {
@@ -510,6 +547,18 @@
       "provenance": "metadata"
     },
     {
+      "id": "article:apple-mac-desktops-local-ai|paper:dora-weight-decomposed-low-rank-adaptation",
+      "source": "article:apple-mac-desktops-local-ai",
+      "target": "paper:dora-weight-decomposed-low-rank-adaptation",
+      "relation": "shared-topic",
+      "label": "Efficient AI",
+      "topics": [
+        "Efficient AI"
+      ],
+      "weight": 2,
+      "provenance": "metadata"
+    },
+    {
       "id": "article:apple-mac-desktops-local-ai|paper:genrec",
       "source": "article:apple-mac-desktops-local-ai",
       "target": "paper:genrec",
@@ -543,6 +592,18 @@
         "Efficient AI"
       ],
       "weight": 2,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:glm-5-3-flash|article:nvidia-hugging-face-acquisition",
+      "source": "article:glm-5-3-flash",
+      "target": "article:nvidia-hugging-face-acquisition",
+      "relation": "shared-topic",
+      "label": "Open Models",
+      "topics": [
+        "Open Models"
+      ],
+      "weight": 3,
       "provenance": "metadata"
     },
     {
@@ -592,6 +653,19 @@
         "Efficient AI"
       ],
       "weight": 2,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:glm-5-3-flash|paper:dora-weight-decomposed-low-rank-adaptation",
+      "source": "article:glm-5-3-flash",
+      "target": "paper:dora-weight-decomposed-low-rank-adaptation",
+      "relation": "shared-topic",
+      "label": "Efficient AI · Multimodal AI",
+      "topics": [
+        "Efficient AI",
+        "Multimodal AI"
+      ],
+      "weight": 3,
       "provenance": "metadata"
     },
     {
@@ -705,18 +779,6 @@
       "provenance": "metadata"
     },
     {
-      "id": "article:gpt-6-astra|paper:lora",
-      "source": "article:gpt-6-astra",
-      "target": "paper:lora",
-      "relation": "shared-topic",
-      "label": "Language Models",
-      "topics": [
-        "Language Models"
-      ],
-      "weight": 2,
-      "provenance": "metadata"
-    },
-    {
       "id": "article:gpt-6-astra|paper:pagedattention",
       "source": "article:gpt-6-astra",
       "target": "paper:pagedattention",
@@ -792,18 +854,6 @@
       "provenance": "metadata"
     },
     {
-      "id": "article:nvidia-avo-arc-agi-3|paper:chain-of-zoom",
-      "source": "article:nvidia-avo-arc-agi-3",
-      "target": "paper:chain-of-zoom",
-      "relation": "shared-topic",
-      "label": "Language Models",
-      "topics": [
-        "Language Models"
-      ],
-      "weight": 2,
-      "provenance": "metadata"
-    },
-    {
       "id": "article:nvidia-avo-arc-agi-3|paper:prime-agent",
       "source": "article:nvidia-avo-arc-agi-3",
       "target": "paper:prime-agent",
@@ -839,6 +889,18 @@
         "Language Models"
       ],
       "weight": 5,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:nvidia-hugging-face-acquisition|article:qwen3-8-max",
+      "source": "article:nvidia-hugging-face-acquisition",
+      "target": "article:qwen3-8-max",
+      "relation": "shared-topic",
+      "label": "Open Models",
+      "topics": [
+        "Open Models"
+      ],
+      "weight": 3,
       "provenance": "metadata"
     },
     {
@@ -1142,9 +1204,23 @@
       "provenance": "metadata"
     },
     {
-      "id": "paper:colbert|paper:genrec",
+      "id": "paper:chain-of-zoom|paper:dora-weight-decomposed-low-rank-adaptation",
+      "source": "paper:chain-of-zoom",
+      "target": "paper:dora-weight-decomposed-low-rank-adaptation",
+      "relation": "shared-topic",
+      "label": "Language Models · Multimodal AI · Vision-Language Models",
+      "topics": [
+        "Language Models",
+        "Multimodal AI",
+        "Vision-Language Models"
+      ],
+      "weight": 5,
+      "provenance": "metadata"
+    },
+    {
+      "id": "paper:colbert|paper:dora-weight-decomposed-low-rank-adaptation",
       "source": "paper:colbert",
-      "target": "paper:genrec",
+      "target": "paper:dora-weight-decomposed-low-rank-adaptation",
       "relation": "shared-topic",
       "label": "Efficient AI",
       "topics": [
@@ -1202,6 +1278,47 @@
         "Datasets"
       ],
       "weight": 3,
+      "provenance": "metadata"
+    },
+    {
+      "id": "paper:dora-weight-decomposed-low-rank-adaptation|paper:genrec",
+      "source": "paper:dora-weight-decomposed-low-rank-adaptation",
+      "target": "paper:genrec",
+      "relation": "shared-topic",
+      "label": "Efficient AI · Language Models · Large Language Models",
+      "topics": [
+        "Efficient AI",
+        "Language Models",
+        "Large Language Models"
+      ],
+      "weight": 5,
+      "provenance": "metadata"
+    },
+    {
+      "id": "paper:dora-weight-decomposed-low-rank-adaptation|paper:lora",
+      "source": "paper:dora-weight-decomposed-low-rank-adaptation",
+      "target": "paper:lora",
+      "relation": "shared-topic",
+      "label": "Efficient AI · Language Models · Large Language Models · Transfer & Adaptation",
+      "topics": [
+        "Efficient AI",
+        "Language Models",
+        "Large Language Models",
+        "Transfer & Adaptation"
+      ],
+      "weight": 6,
+      "provenance": "metadata"
+    },
+    {
+      "id": "paper:dora-weight-decomposed-low-rank-adaptation|paper:seal-generalization",
+      "source": "paper:dora-weight-decomposed-low-rank-adaptation",
+      "target": "paper:seal-generalization",
+      "relation": "shared-topic",
+      "label": "Transfer & Adaptation",
+      "topics": [
+        "Transfer & Adaptation"
+      ],
+      "weight": 1,
       "provenance": "metadata"
     },
     {
@@ -1338,10 +1455,10 @@
     }
   ],
   "stats": {
-    "nodes": 27,
-    "edges": 68,
-    "articles": 7,
-    "papers": 17,
+    "nodes": 29,
+    "edges": 74,
+    "articles": 8,
+    "papers": 18,
     "datasets": 3
   }
 }
