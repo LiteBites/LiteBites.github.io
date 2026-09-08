@@ -151,6 +151,31 @@
       "sourcePath": "_articles/nvidia-hugging-face-acquisition.md"
     },
     {
+      "id": "article:ponytail-caveman-agent-efficiency",
+      "slug": "ponytail-caveman-agent-efficiency",
+      "type": "article",
+      "title": "Ponytail and Caveman Take Different Swings at the Cost of AI Coding Agents",
+      "shortTitle": "Ponytail × Caveman",
+      "url": "/articles/ponytail-caveman-agent-efficiency/",
+      "summary": "Ponytail tries to stop coding agents from building unnecessary things, while Caveman compresses what agents say and read; together they expose two different bills hiding inside an AI coding session.",
+      "date": "2026-09-08",
+      "meta": "Dietrich Gebert and Julius Brussee / 4 min read",
+      "topics": [
+        "AI Coding Agents",
+        "Developer Tools",
+        "Open Source",
+        "Token Efficiency"
+      ],
+      "topicWeights": {
+        "AI Coding Agents": 3,
+        "Developer Tools": 3,
+        "Open Source": 3,
+        "Token Efficiency": 3
+      },
+      "sourceHash": "e13442228fa6bac9b54ad85af165f5656c219c7cc2f5f885d90c0a209d488394",
+      "sourcePath": "_articles/ponytail-caveman-agent-efficiency.md"
+    },
+    {
       "id": "article:qwen3-8-max",
       "slug": "qwen3-8-max",
       "type": "article",
@@ -1161,6 +1186,18 @@
       "provenance": "metadata"
     },
     {
+      "id": "article:ponytail-caveman-agent-efficiency|article:slides-grab",
+      "source": "article:ponytail-caveman-agent-efficiency",
+      "target": "article:slides-grab",
+      "relation": "shared-topic",
+      "label": "Developer Tools",
+      "topics": [
+        "Developer Tools"
+      ],
+      "weight": 3,
+      "provenance": "metadata"
+    },
+    {
       "id": "article:qwen3-8-max|article:qwenwork-workplace-agent-platform",
       "source": "article:qwen3-8-max",
       "target": "article:qwenwork-workplace-agent-platform",
@@ -1712,9 +1749,9 @@
     }
   ],
   "stats": {
-    "nodes": 29,
-    "edges": 74,
-    "articles": 8,
+    "nodes": 30,
+    "edges": 75,
+    "articles": 9,
     "papers": 18,
     "datasets": 3
   }
