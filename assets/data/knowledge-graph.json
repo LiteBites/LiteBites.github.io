@@ -72,6 +72,23 @@
       ]
     },
     {
+      "id": "article:kiro-students-offer",
+      "slug": "kiro-students-offer",
+      "type": "article",
+      "title": "Kiro’s Student Offer Is Generous, but the Credit Ceiling Is the Real Catch",
+      "shortTitle": "Kiro for Students",
+      "url": "/articles/kiro-students-offer/",
+      "summary": "Kiro’s student tier gives eligible university students 1,000 credits per month for a year, but eligibility, non-rollover credits, and the post-offer downgrade matter as much as the zero-dollar price.",
+      "date": "2026-09-15",
+      "meta": "Kiro / 3 min read",
+      "topics": [
+        "AI Coding Agents",
+        "Developer Tools",
+        "Kiro",
+        "Student Offers"
+      ]
+    },
+    {
       "id": "article:nvidia-avo-arc-agi-3",
       "slug": "nvidia-avo-arc-agi-3",
       "type": "article",
@@ -863,6 +880,43 @@
       "provenance": "metadata"
     },
     {
+      "id": "article:kiro-students-offer|article:ponytail-caveman-agent-efficiency",
+      "source": "article:kiro-students-offer",
+      "target": "article:ponytail-caveman-agent-efficiency",
+      "relation": "shared-topic",
+      "label": "AI Coding Agents · Developer Tools",
+      "topics": [
+        "AI Coding Agents",
+        "Developer Tools"
+      ],
+      "weight": 6,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:kiro-students-offer|article:slides-grab",
+      "source": "article:kiro-students-offer",
+      "target": "article:slides-grab",
+      "relation": "shared-topic",
+      "label": "Developer Tools",
+      "topics": [
+        "Developer Tools"
+      ],
+      "weight": 3,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:kiro-students-offer|article:tibo-gpt-astra-rumor",
+      "source": "article:kiro-students-offer",
+      "target": "article:tibo-gpt-astra-rumor",
+      "relation": "shared-topic",
+      "label": "AI Coding Agents",
+      "topics": [
+        "AI Coding Agents"
+      ],
+      "weight": 3,
+      "provenance": "metadata"
+    },
+    {
       "id": "article:nvidia-avo-arc-agi-3|article:qwen3-8-max",
       "source": "article:nvidia-avo-arc-agi-3",
       "target": "article:qwen3-8-max",
@@ -873,18 +927,6 @@
         "Language Models"
       ],
       "weight": 6,
-      "provenance": "metadata"
-    },
-    {
-      "id": "article:nvidia-avo-arc-agi-3|article:slides-grab",
-      "source": "article:nvidia-avo-arc-agi-3",
-      "target": "article:slides-grab",
-      "relation": "shared-topic",
-      "label": "Agentic AI",
-      "topics": [
-        "Agentic AI"
-      ],
-      "weight": 3,
       "provenance": "metadata"
     },
     {
@@ -1513,9 +1555,9 @@
     }
   ],
   "stats": {
-    "nodes": 31,
-    "edges": 76,
-    "articles": 10,
+    "nodes": 32,
+    "edges": 78,
+    "articles": 11,
     "papers": 18,
     "datasets": 3
   }
