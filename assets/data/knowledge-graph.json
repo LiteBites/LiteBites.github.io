@@ -154,6 +154,23 @@
       ]
     },
     {
+      "id": "article:tibo-gpt-astra-rumor",
+      "slug": "tibo-gpt-astra-rumor",
+      "type": "article",
+      "title": "Why Tibo Keeps Appearing in the GPT-6 Astra Conversation",
+      "shortTitle": "Tibo × GPT-6 Astra",
+      "url": "/articles/tibo-gpt-astra-rumor/",
+      "summary": "Tibo is widely watched for Codex reset and quota signals, but that public association is not evidence that he worked on GPT-6 Astra.",
+      "date": "2026-09-09",
+      "meta": "OpenAI / 4 min read",
+      "topics": [
+        "AI Coding Agents",
+        "AI Model Releases",
+        "Online Rumors",
+        "OpenAI"
+      ]
+    },
+    {
       "id": "dataset:kolektor-sdd2",
       "slug": "kolektor-sdd2",
       "type": "dataset",
@@ -933,6 +950,18 @@
       "provenance": "metadata"
     },
     {
+      "id": "article:ponytail-caveman-agent-efficiency|article:tibo-gpt-astra-rumor",
+      "source": "article:ponytail-caveman-agent-efficiency",
+      "target": "article:tibo-gpt-astra-rumor",
+      "relation": "shared-topic",
+      "label": "AI Coding Agents",
+      "topics": [
+        "AI Coding Agents"
+      ],
+      "weight": 3,
+      "provenance": "metadata"
+    },
+    {
       "id": "article:qwen3-8-max|article:qwenwork-workplace-agent-platform",
       "source": "article:qwen3-8-max",
       "target": "article:qwenwork-workplace-agent-platform",
@@ -1484,9 +1513,9 @@
     }
   ],
   "stats": {
-    "nodes": 30,
-    "edges": 75,
-    "articles": 9,
+    "nodes": 31,
+    "edges": 76,
+    "articles": 10,
     "papers": 18,
     "datasets": 3
   }
