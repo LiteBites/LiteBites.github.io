@@ -55,6 +55,31 @@
       "sourcePath": "_articles/apple-mac-desktops-local-ai.md"
     },
     {
+      "id": "article:apple-os-27-family",
+      "slug": "apple-os-27-family",
+      "type": "article",
+      "title": "Apple’s OS 27 Family Makes Siri the Center of the Upgrade Story",
+      "shortTitle": "Apple OS 27",
+      "url": "/articles/apple-os-27-family/",
+      "summary": "iOS 27, iPadOS 27, and macOS 27 Golden Gate share a Siri AI strategy, but each platform gets a different reason to upgrade—and a different set of limits.",
+      "date": "2026-09-15",
+      "meta": "Apple / 4 min read",
+      "topics": [
+        "Apple",
+        "Apple Intelligence",
+        "Operating Systems",
+        "Siri"
+      ],
+      "topicWeights": {
+        "Apple": 3,
+        "Apple Intelligence": 3,
+        "Operating Systems": 3,
+        "Siri": 3
+      },
+      "sourceHash": "241d4d9ee4aea953a1f9ce4ec0ee37e66ddc20c4ad71c1c0de571e79cf600e5c",
+      "sourcePath": "_articles/apple-os-27-family.md"
+    },
+    {
       "id": "article:glm-5-3-flash",
       "slug": "glm-5-3-flash",
       "type": "article",
@@ -1836,9 +1861,9 @@
     }
   ],
   "stats": {
-    "nodes": 32,
+    "nodes": 33,
     "edges": 78,
-    "articles": 11,
+    "articles": 12,
     "papers": 18,
     "datasets": 3
   }
