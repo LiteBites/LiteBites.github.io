@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Two inference contracts: generative LLM and Jev</title>
+  <desc id="desc">An original LiteBites synthesis comparing sequential token generation by a generative language model with Jev's parallel typed decisions. Both receive application state, but their outputs differ before reaching agent workflow code.</desc>
+  <rect width="1600" height="900" fill="#f7f5ef"/>
+  <rect x="48" y="42" width="1504" height="816" rx="18" fill="#fffdf8" stroke="#252525" stroke-width="2"/>
+
+  <g font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" fill="#252525">
+    <text x="96" y="106" font-size="42" font-weight="700" letter-spacing="-1">Two inference contracts</text>
+    <text x="96" y="145" font-size="21" fill="#5e5a52">The same application state can reach software through very different model outputs.</text>
+
+    <!-- connectors first -->
+    <g fill="none" stroke="#77736a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M800 244 V286 H430 V330"/>
+      <path d="M800 244 V286 H1170 V330"/>
+      <path d="M430 616 V675 H800 V716"/>
+      <path d="M1170 616 V675 H800 V716"/>
+    </g>
+    <g fill="#77736a">
+      <path d="M430 330 l-9 -15 h18z"/>
+      <path d="M1170 330 l-9 -15 h18z"/>
+      <path d="M800 716 l-9 -15 h18z"/>
+    </g>
+
+    <!-- shared input -->
+    <rect x="500" y="178" width="600" height="66" rx="12" fill="#ebe7dd" stroke="#77736a" stroke-width="2"/>
+    <text x="800" y="207" text-anchor="middle" font-size="17" font-weight="700" letter-spacing="1.4" fill="#6b665d">SHARED INPUT</text>
+    <text x="800" y="231" text-anchor="middle" font-size="25" font-weight="650">Application state + context</text>
+
+    <!-- column headers -->
+    <rect x="150" y="300" width="560" height="54" rx="10" fill="#e8eef2" stroke="#456779" stroke-width="2"/>
+    <text x="430" y="335" text-anchor="middle" font-size="25" font-weight="700" fill="#284a5b">Generative LLM</text>
+    <rect x="890" y="300" width="560" height="54" rx="10" fill="#f5e9d9" stroke="#9a6a32" stroke-width="2"/>
+    <text x="1170" y="335" text-anchor="middle" font-size="25" font-weight="700" fill="#704817">Jev / System One</text>
+
+    <!-- left pipeline -->
+    <rect x="150" y="382" width="560" height="110" rx="12" fill="#f3f7f9" stroke="#7893a0" stroke-width="2"/>
+    <text x="180" y="416" font-size="17" font-weight="700" fill="#456779" letter-spacing="1">INFERENCE</text>
+    <text x="180" y="450" font-size="25" font-weight="650">One token at a time</text>
+    <text x="180" y="478" font-size="19" fill="#4f5960">Each token conditions the next.</text>
+
+    <rect x="150" y="506" width="560" height="110" rx="12" fill="#f3f7f9" stroke="#7893a0" stroke-width="2"/>
+    <text x="180" y="540" font-size="17" font-weight="700" fill="#456779" letter-spacing="1">OUTPUT CONTRACT</text>
+    <text x="180" y="574" font-size="25" font-weight="650">String sequence</text>
+    <text x="180" y="602" font-size="19" fill="#4f5960">Text, code, or a tool call to parse.</text>
+
+    <!-- right pipeline -->
+    <rect x="890" y="382" width="560" height="110" rx="12" fill="#fff8ee" stroke="#c09258" stroke-width="2"/>
+    <text x="920" y="416" font-size="17" font-weight="700" fill="#9a6a32" letter-spacing="1">INFERENCE</text>
+    <text x="920" y="450" font-size="25" font-weight="650">Questions evaluated in parallel</text>
+    <text x="920" y="478" font-size="19" fill="#665643">No generated text stream.</text>
+
+    <rect x="890" y="506" width="560" height="110" rx="12" fill="#fff8ee" stroke="#c09258" stroke-width="2"/>
+    <text x="920" y="540" font-size="17" font-weight="700" fill="#9a6a32" letter-spacing="1">OUTPUT CONTRACT</text>
+    <text x="920" y="574" font-size="25" font-weight="650">Typed decisions</text>
+    <text x="920" y="602" font-size="19" fill="#665643">Choice probabilities, scores, confidence.</text>
+
+    <!-- workflow -->
+    <rect x="440" y="716" width="720" height="92" rx="14" fill="#252525" stroke="#252525" stroke-width="2"/>
+    <text x="800" y="751" text-anchor="middle" font-size="17" font-weight="700" letter-spacing="1.4" fill="#d7c49d">APPLICATION WORKFLOW</text>
+    <text x="800" y="783" text-anchor="middle" font-size="25" font-weight="650" fill="#fffdf8">route · score · guard · branch</text>
+
+    <!-- callouts -->
+    <text x="800" y="656" text-anchor="middle" font-size="18" fill="#5e5a52">Both can inform the same agent loop</text>
+    <text x="800" y="835" text-anchor="middle" font-size="16" fill="#77736a">Schematic comparison; it does not represent measured scale or latency.</text>
+  </g>
+</svg>

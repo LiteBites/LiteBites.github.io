@@ -188,6 +188,23 @@
       ]
     },
     {
+      "id": "article:jev-system-one-model",
+      "slug": "jev-system-one-model",
+      "type": "article",
+      "title": "Why Jev Is Suddenly Everywhere: The AI Model That Makes Decisions Instead of Text",
+      "shortTitle": "Why Jev Is Hot",
+      "url": "/articles/jev-system-one-model/",
+      "summary": "Jev is attracting attention because it turns model inference into fast, typed probabilistic decisions for agent routing, guardrails, and automation instead of generating another paragraph of text.",
+      "date": "2026-09-16",
+      "meta": "TypeSafe AI / 4 min read",
+      "topics": [
+        "AI Coding Agents",
+        "AI Models",
+        "Agent Infrastructure",
+        "TypeSafe AI"
+      ]
+    },
+    {
       "id": "article:tibo-gpt-astra-rumor",
       "slug": "tibo-gpt-astra-rumor",
       "type": "article",
@@ -897,6 +914,42 @@
       "provenance": "metadata"
     },
     {
+      "id": "article:jev-system-one-model|article:kiro-students-offer",
+      "source": "article:jev-system-one-model",
+      "target": "article:kiro-students-offer",
+      "relation": "shared-topic",
+      "label": "AI Coding Agents",
+      "topics": [
+        "AI Coding Agents"
+      ],
+      "weight": 3,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:jev-system-one-model|article:ponytail-caveman-agent-efficiency",
+      "source": "article:jev-system-one-model",
+      "target": "article:ponytail-caveman-agent-efficiency",
+      "relation": "shared-topic",
+      "label": "AI Coding Agents",
+      "topics": [
+        "AI Coding Agents"
+      ],
+      "weight": 3,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:jev-system-one-model|article:tibo-gpt-astra-rumor",
+      "source": "article:jev-system-one-model",
+      "target": "article:tibo-gpt-astra-rumor",
+      "relation": "shared-topic",
+      "label": "AI Coding Agents",
+      "topics": [
+        "AI Coding Agents"
+      ],
+      "weight": 3,
+      "provenance": "metadata"
+    },
+    {
       "id": "article:kiro-students-offer|article:ponytail-caveman-agent-efficiency",
       "source": "article:kiro-students-offer",
       "target": "article:ponytail-caveman-agent-efficiency",
@@ -1572,9 +1625,9 @@
     }
   ],
   "stats": {
-    "nodes": 33,
-    "edges": 78,
-    "articles": 12,
+    "nodes": 34,
+    "edges": 81,
+    "articles": 13,
     "papers": 18,
     "datasets": 3
   }
