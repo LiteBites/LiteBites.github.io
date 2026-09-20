@@ -8,7 +8,7 @@ read_time: "4 min read"
 source_name: "TypeSafe AI"
 source_url: "https://typesafe.ai/blog/introducing-system-one-models-and-jev"
 source_published: 2026-09-15
-last_reviewed: 2026-09-16
+last_reviewed: 2026-09-20
 tags:
   - AI Models
   - AI Coding Agents
@@ -26,6 +26,8 @@ additional_sources:
     url: "https://www.langchain.com/blog/building-a-harness-with-jev"
   - name: "Jev AI community (unofficial)"
     url: "https://www.jevai.org/"
+  - name: "Jevable community showcase (unofficial)"
+    url: "https://jevable.com/"
 ---
 
 ## The model does not answer the user
@@ -70,7 +72,7 @@ Jev is promising when a workflow needs many fast, bounded judgments with uncerta
 
 Before treating the headlines as a general LLM breakthrough, test five things: whether your decisions can be expressed as typed questions, whether its probabilities are calibrated on your data, whether false positives and missed risks are acceptable, whether the latency and cost claims hold in your region and workload, and where a larger model still needs to take over. The interesting shift is not that Jev replaces generative AI. It is that an agent may not need a generative model for every decision it makes.
 
-The official TypeSafe announcement is dated September 15, 2026. The JevAI Community site is explicitly unofficial, so its playbooks and claims should be treated as community material rather than TypeSafe product documentation.
+The official TypeSafe announcement is dated September 15, 2026. The JevAI Community site and Jevable are unofficial community resources, so their playbooks, project descriptions, and claims should be treated as community material rather than TypeSafe product documentation.
 
 ## Sources
 
@@ -79,3 +81,4 @@ The official TypeSafe announcement is dated September 15, 2026. The JevAI Commun
 - [TypeSafe state documentation](https://docs.typesafe.ai/concepts/state)
 - [Building a Harness with Jev — LangChain](https://www.langchain.com/blog/building-a-harness-with-jev)
 - [Jev AI Community — unofficial community site](https://www.jevai.org/)
+- [Jevable — unofficial community showcase](https://jevable.com/)
