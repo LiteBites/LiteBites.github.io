@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">A linear agent queue compared with a dependency graph</title>
+  <desc id="desc">The upper half shows four agent jobs forced into a linear queue. The lower half shows one job branching into two independent jobs that merge before a final job.</desc>
+  <rect width="1600" height="900" fill="#f7f5ef"/>
+  <rect x="48" y="42" width="1504" height="816" rx="18" fill="#fffdf8" stroke="#252525" stroke-width="2"/>
+  <g font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" fill="#252525">
+    <text x="96" y="108" font-size="42" font-weight="700" letter-spacing="-1">A queue is often a graph in disguise</text>
+    <text x="96" y="146" font-size="21" fill="#5e5a52">Only real data dependencies should force an agent to wait.</text>
+
+    <text x="120" y="224" font-size="18" font-weight="700" fill="#6b665d" letter-spacing="1.4">LINEAR SCRIPT</text>
+    <text x="120" y="258" font-size="23" font-weight="650">Every step waits for the previous step.</text>
+    <g fill="none" stroke="#77736a" stroke-width="4" stroke-linecap="round">
+      <path d="M410 340 H505"/><path d="M750 340 H845"/><path d="M1090 340 H1185"/>
+    </g>
+    <g fill="#77736a">
+      <path d="M505 340 l-16 -10 v20z"/><path d="M845 340 l-16 -10 v20z"/><path d="M1185 340 l-16 -10 v20z"/>
+    </g>
+    <g>
+      <rect x="120" y="292" width="290" height="96" rx="12" fill="#e8eef2" stroke="#456779" stroke-width="2"/>
+      <rect x="460" y="292" width="290" height="96" rx="12" fill="#e8eef2" stroke="#456779" stroke-width="2"/>
+      <rect x="800" y="292" width="290" height="96" rx="12" fill="#e8eef2" stroke="#456779" stroke-width="2"/>
+      <rect x="1140" y="292" width="290" height="96" rx="12" fill="#e8eef2" stroke="#456779" stroke-width="2"/>
+      <text x="265" y="335" text-anchor="middle" font-size="23" font-weight="650">Inspect</text><text x="265" y="365" text-anchor="middle" font-size="18" fill="#4f5960">job A</text>
+      <text x="605" y="335" text-anchor="middle" font-size="23" font-weight="650">Search</text><text x="605" y="365" text-anchor="middle" font-size="18" fill="#4f5960">job B</text>
+      <text x="945" y="335" text-anchor="middle" font-size="23" font-weight="650">Score</text><text x="945" y="365" text-anchor="middle" font-size="18" fill="#4f5960">job C</text>
+      <text x="1285" y="335" text-anchor="middle" font-size="23" font-weight="650">Synthesize</text><text x="1285" y="365" text-anchor="middle" font-size="18" fill="#4f5960">job D</text>
+    </g>
+    <path d="M120 420 H1430" stroke="#b8b7b0" stroke-width="2"/>
+
+    <text x="120" y="500" font-size="18" font-weight="700" fill="#9a6a32" letter-spacing="1.4">DEPENDENCY GRAPH</text>
+    <text x="120" y="534" font-size="23" font-weight="650">Independent jobs can fan out, then merge.</text>
+    <g fill="none" stroke="#9a6a32" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M410 650 H540 V590 H675"/><path d="M540 650 V720 H675"/><path d="M975 590 H1080 V650 H1190"/><path d="M975 720 H1080 V650"/>
+    </g>
+    <g fill="#9a6a32"><path d="M675 590 l-16 -10 v20z"/><path d="M675 720 l-16 -10 v20z"/><path d="M1190 650 l-16 -10 v20z"/></g>
+    <rect x="120" y="602" width="290" height="96" rx="12" fill="#f5e9d9" stroke="#c09258" stroke-width="2"/>
+    <rect x="675" y="542" width="300" height="96" rx="12" fill="#f5e9d9" stroke="#c09258" stroke-width="2"/>
+    <rect x="675" y="672" width="300" height="96" rx="12" fill="#f5e9d9" stroke="#c09258" stroke-width="2"/>
+    <rect x="1190" y="602" width="290" height="96" rx="12" fill="#252525" stroke="#252525" stroke-width="2"/>
+    <text x="265" y="645" text-anchor="middle" font-size="23" font-weight="650">Start</text><text x="265" y="675" text-anchor="middle" font-size="18" fill="#665643">shared context</text>
+    <text x="825" y="585" text-anchor="middle" font-size="23" font-weight="650">Inspect</text><text x="825" y="615" text-anchor="middle" font-size="18" fill="#665643">branch A</text>
+    <text x="825" y="715" text-anchor="middle" font-size="23" font-weight="650">Search</text><text x="825" y="745" text-anchor="middle" font-size="18" fill="#665643">branch B</text>
+    <text x="1335" y="645" text-anchor="middle" font-size="23" font-weight="650" fill="#fffdf8">Synthesize</text><text x="1335" y="675" text-anchor="middle" font-size="18" fill="#d7c49d">merge point</text>
+    <text x="800" y="825" text-anchor="middle" font-size="16" fill="#77736a">Schematic topology; no speed or cost scale is implied.</text>
+  </g>
+</svg>

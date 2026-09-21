@@ -89,6 +89,22 @@
       ]
     },
     {
+      "id": "article:graph-engineering",
+      "slug": "graph-engineering",
+      "type": "article",
+      "title": "Graph Engineering: Why Agent Workflows Should Stop Being Queues",
+      "shortTitle": "Graph Engineering for Agents",
+      "url": "/articles/graph-engineering/",
+      "summary": "A graph-engineering playbook argues that agent workflows should expose real dependencies, run independent work in parallel, and verify results at the edges instead of forcing every task through a queue.",
+      "date": "2026-09-21",
+      "meta": "seeco / 4 min read",
+      "topics": [
+        "AI Agents",
+        "Agent Infrastructure",
+        "Developer Tools"
+      ]
+    },
+    {
       "id": "article:kiro-students-offer",
       "slug": "kiro-students-offer",
       "type": "article",
@@ -914,6 +930,54 @@
       "provenance": "metadata"
     },
     {
+      "id": "article:graph-engineering|article:jev-system-one-model",
+      "source": "article:graph-engineering",
+      "target": "article:jev-system-one-model",
+      "relation": "shared-topic",
+      "label": "Agent Infrastructure",
+      "topics": [
+        "Agent Infrastructure"
+      ],
+      "weight": 3,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:graph-engineering|article:kiro-students-offer",
+      "source": "article:graph-engineering",
+      "target": "article:kiro-students-offer",
+      "relation": "shared-topic",
+      "label": "Developer Tools",
+      "topics": [
+        "Developer Tools"
+      ],
+      "weight": 3,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:graph-engineering|article:ponytail-caveman-agent-efficiency",
+      "source": "article:graph-engineering",
+      "target": "article:ponytail-caveman-agent-efficiency",
+      "relation": "shared-topic",
+      "label": "Developer Tools",
+      "topics": [
+        "Developer Tools"
+      ],
+      "weight": 3,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:graph-engineering|article:slides-grab",
+      "source": "article:graph-engineering",
+      "target": "article:slides-grab",
+      "relation": "shared-topic",
+      "label": "Developer Tools",
+      "topics": [
+        "Developer Tools"
+      ],
+      "weight": 3,
+      "provenance": "metadata"
+    },
+    {
       "id": "article:jev-system-one-model|article:kiro-students-offer",
       "source": "article:jev-system-one-model",
       "target": "article:kiro-students-offer",
@@ -1625,9 +1689,9 @@
     }
   ],
   "stats": {
-    "nodes": 34,
-    "edges": 81,
-    "articles": 13,
+    "nodes": 35,
+    "edges": 85,
+    "articles": 14,
     "papers": 18,
     "datasets": 3
   }
