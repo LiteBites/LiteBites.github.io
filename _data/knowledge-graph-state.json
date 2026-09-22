@@ -105,6 +105,29 @@
       "sourcePath": "_articles/glm-5-3-flash.md"
     },
     {
+      "id": "article:googlebook-gemini-laptop",
+      "slug": "googlebook-gemini-laptop",
+      "type": "article",
+      "title": "Googlebook Is Google's Laptop Bet on Gemini Intelligence",
+      "shortTitle": "Googlebook and Gemini",
+      "url": "/articles/googlebook-gemini-laptop/",
+      "summary": "Googlebook turns Google’s Gemini strategy into a laptop category, combining Android phone continuity, on-device hardware, and agent-oriented desktop features in devices starting at $899.",
+      "date": "2026-09-21",
+      "meta": "Google / 4 min read",
+      "topics": [
+        "AI Hardware",
+        "Consumer Technology",
+        "Gemini"
+      ],
+      "topicWeights": {
+        "AI Hardware": 3,
+        "Consumer Technology": 3,
+        "Gemini": 3
+      },
+      "sourceHash": "fe41caf37ef5adf7afa67e87dbd71e9bc0b6476805169ff5873a2615c5ab5a98",
+      "sourcePath": "_articles/googlebook-gemini-laptop.md"
+    },
+    {
       "id": "article:gpt-6-astra",
       "slug": "gpt-6-astra",
       "type": "article",
@@ -940,6 +963,18 @@
       "provenance": "metadata"
     },
     {
+      "id": "article:apple-mac-desktops-local-ai|article:googlebook-gemini-laptop",
+      "source": "article:apple-mac-desktops-local-ai",
+      "target": "article:googlebook-gemini-laptop",
+      "relation": "shared-topic",
+      "label": "AI Hardware",
+      "topics": [
+        "AI Hardware"
+      ],
+      "weight": 3,
+      "provenance": "metadata"
+    },
+    {
       "id": "article:apple-mac-desktops-local-ai|paper:colbert",
       "source": "article:apple-mac-desktops-local-ai",
       "target": "paper:colbert",
@@ -955,18 +990,6 @@
       "id": "article:apple-mac-desktops-local-ai|paper:dora-weight-decomposed-low-rank-adaptation",
       "source": "article:apple-mac-desktops-local-ai",
       "target": "paper:dora-weight-decomposed-low-rank-adaptation",
-      "relation": "shared-topic",
-      "label": "Efficient AI",
-      "topics": [
-        "Efficient AI"
-      ],
-      "weight": 2,
-      "provenance": "metadata"
-    },
-    {
-      "id": "article:apple-mac-desktops-local-ai|paper:genrec",
-      "source": "article:apple-mac-desktops-local-ai",
-      "target": "paper:genrec",
       "relation": "shared-topic",
       "label": "Efficient AI",
       "topics": [
@@ -1993,9 +2016,9 @@
     }
   ],
   "stats": {
-    "nodes": 35,
+    "nodes": 36,
     "edges": 85,
-    "articles": 14,
+    "articles": 15,
     "papers": 18,
     "datasets": 3
   }
