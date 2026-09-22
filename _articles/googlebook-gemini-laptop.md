@@ -27,17 +27,6 @@ Googlebook is not just a new Chromebook name. In its September 21 announcement, 
 
 That framing matters because Google is selling a change in the computer’s center of gravity. The operating system is no longer the headline layer. Gemini is supposed to become the interface that helps users organize information, move between devices, and create small pieces of software without opening a conventional development workflow.
 
-<figure class="remote-publisher-image" data-source-url="https://blog.google/products-and-platforms/platforms/android/meet-googlebook/">
-  <a href="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Thumbnail_for_video.width-1000.format-webp.webp">
-    <img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Thumbnail_for_video.width-1000.format-webp.webp" width="1000" height="562" loading="lazy" decoding="async" referrerpolicy="no-referrer" alt="Googlebook laptop shown in Google’s launch video">
-  </a>
-  <figcaption>
-    Google’s publisher-hosted Googlebook launch image. The image is served from the original Google media URL and illustrates the hardware category described in the announcement; it is not an independent product review.
-    <a href="https://blog.google/products-and-platforms/platforms/android/meet-googlebook/">Canonical source page</a> ·
-    <a href="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Thumbnail_for_video.width-1000.format-webp.webp">Open full-resolution image ↗</a>
-  </figcaption>
-</figure>
-
 ## The laptop becomes a bridge to the phone
 
 Google’s practical pitch is continuity. Googlebook can carry Android phone settings, saved passwords, Wi-Fi networks, messages, files, and app activity into the laptop experience. Features such as Continue On, Files, and Cast My Apps are designed to reduce the small interruptions that normally happen when work moves from a phone to a computer.
