@@ -26,67 +26,19 @@ OpenAI’s GPT-6 API lineup puts two names on the menu: **Sol** for complex codi
 
 The model cards also list different knowledge-cutoff dates—April 20, 2026 for Sol and May 18, 2026 for Luna. That is a detail worth checking for research-heavy tasks; it is not a benchmark of either model’s accuracy.
 
-<figure class="article-ascii-figure">
-  <div class="article-ascii-scroll" tabindex="0" role="region" aria-label="Scrollable ASCII illustration comparing GPT-6 Sol and Luna; scroll in both directions to view the full artwork">
-<pre role="img" aria-label="Original LiteBites ASCII-style illustration with a shaded sun and star field above large GPT-6 block lettering, the Sol and Luna names, and a shaded moon. Sol is labeled for complex coding and agentic workflows; Luna for focused, high-volume tasks.">                             .        *       .
-       .         .        .        .        .
-
-             ..::::---===++***++===---::::..
-         .:-=+*##%%%%%%%%%%%%%%%%%%%%%%##*+=-:.
-       :=*#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#*=:       .
-      -*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*-   .
-     =#%%%%%%%%%%%%%%#####***####%%%%%%%%%%%%%%%%#=
-    :#%%%%%%%%%%%##*+=-:..     ..:-=+*##%%%%%%%%%%#:
-    +%%%%%%%%%%#*=-.                 .-=*#%%%%%%%%+
-    #%%%%%%%%#*=.                       .=*#%%%%%%%#
-    #%%%%%%%#*:       *       .             :*#%%%%%#
-    #%%%%%%#*.    .       .        *         .*#%%%%#
-    +%%%%%#*:          .       .               :*#%%+
-    :#%%%#*:      .          .          .       :*#:
-     =##*-.                                      .-*=
-      .                 .          *                .
-            .      .         .            .
-
-           ██████   ████████  ████████          ███████
-           ██    ██  ██     ██    ██            ██     ██
-           ██        ██     ██    ██            ██
-           ██   ████ ████████     ██    ███████ ████████
-           ██    ██  ██           ██            ██     ██
-           ██    ██  ██           ██            ██     ██
-            ██████   ██           ██             ███████
-
-                  S O L     +     L U N A
-
-    .       *         .             .       *             .
-          .       .           *             .       .
-   *            .      .                .         *
-        .              .       .              .
-                           .
-                                     .-======-.
-                                .:=+*##%%%%%%%##*+=:.
-                              :=*#%%%%%%%%%%%%%%%%%%#*:
-                             -*#%%%%%%%%%%%%%%%%%%%%%%#*-
-                            =#%%%%%%%%%%%%%%%%%%%%%%%%%%#=
-                           :#%%%%%%%%%%%%%%%%%%%%%%%%%%%%#:
-                           +%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%+
-                           #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#
-                           #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#
-                           +%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%+
-                           :#%%%%%%%%%%%%%%%%%%%%%%%%%%%%#:
-                            =#%%%%%%%%%%%%%%%%%%%%%%%%%%#=
-                             -*#%%%%%%%%%%%%%%%%%%%%%%#*-
-                              :=*#%%%%%%%%%%%%%%%%%%#*:
-                                .:=+*##%%%%%%%%##*+=:.
-                                     .-======-.
-                                           .
-
-        SOL  /  complex coding & agentic workflows
-        LUNA /  focused, high-volume tasks
-
-       Original ASCII-style interpretation, not OpenAI artwork.</pre>
-  </div>
+<figure class="remote-publisher-image" data-source-url="https://openai.com/index/introducing-gpt-6-sol-and-luna/">
+  <a href="https://images.ctfassets.net/kftzwdyauwt9/7fvmMcBIvMTXxVJh7NEMt1/48a75e624699bb1e218366c1d3522048/gpt-6-sol-luna-seo.png?w=1600&amp;h=900&amp;fit=fill" rel="noreferrer">
+    <img
+      src="https://images.ctfassets.net/kftzwdyauwt9/7fvmMcBIvMTXxVJh7NEMt1/48a75e624699bb1e218366c1d3522048/gpt-6-sol-luna-seo.png?w=1600&amp;h=900&amp;fit=fill"
+      width="1600"
+      height="900"
+      loading="lazy"
+      decoding="async"
+      referrerpolicy="no-referrer"
+      alt="GPT-6 Sol and Luna, white title text against a dark star-filled sky with a glowing sun in the upper-left corner and a crescent moon in the lower-right corner.">
+  </a>
   <figcaption>
-    Original LiteBites text-art synthesis from OpenAI’s <a href="https://developers.openai.com/api/docs/models/gpt-6-sol">Sol</a> and <a href="https://developers.openai.com/api/docs/models/gpt-6-luna">Luna</a> model descriptions. Scroll horizontally and vertically on narrow screens.
+    OpenAI’s official GPT-6 Sol and Luna announcement key art, also used in the announcement’s Open Graph and social-preview metadata. It illustrates the model names and sun/moon pairing, not a performance comparison. <a href="https://openai.com/index/introducing-gpt-6-sol-and-luna/" rel="noreferrer">OpenAI announcement</a> · <a href="https://images.ctfassets.net/kftzwdyauwt9/7fvmMcBIvMTXxVJh7NEMt1/48a75e624699bb1e218366c1d3522048/gpt-6-sol-luna-seo.png?w=1600&amp;h=900&amp;fit=fill" rel="noreferrer">Open full-resolution image ↗</a>
   </figcaption>
 </figure>
 
