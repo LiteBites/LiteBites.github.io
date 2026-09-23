@@ -55,6 +55,22 @@
       ]
     },
     {
+      "id": "article:claude-opus-5-5",
+      "slug": "claude-opus-5-5",
+      "type": "article",
+      "title": "Claude Opus 5.5: Lower Token Costs, Higher Agentic Ambition",
+      "shortTitle": "Claude Opus 5.5",
+      "url": "/articles/claude-opus-5-5/",
+      "summary": "Anthropic’s Claude Opus 5.5 targets long-running coding and knowledge work with lower token prices, a 1M-token context window, and benchmark gains that still need careful protocol reading.",
+      "date": "2026-09-23",
+      "meta": "Anthropic / 4 min read",
+      "topics": [
+        "AI Agents",
+        "AI Models",
+        "Developer Tools"
+      ]
+    },
+    {
       "id": "article:glm-5-3-flash",
       "slug": "glm-5-3-flash",
       "type": "article",
@@ -712,6 +728,67 @@
       "provenance": "metadata"
     },
     {
+      "id": "article:claude-opus-5-5|article:graph-engineering",
+      "source": "article:claude-opus-5-5",
+      "target": "article:graph-engineering",
+      "relation": "shared-topic",
+      "label": "AI Agents · Developer Tools",
+      "topics": [
+        "AI Agents",
+        "Developer Tools"
+      ],
+      "weight": 6,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:claude-opus-5-5|article:jev-system-one-model",
+      "source": "article:claude-opus-5-5",
+      "target": "article:jev-system-one-model",
+      "relation": "shared-topic",
+      "label": "AI Models",
+      "topics": [
+        "AI Models"
+      ],
+      "weight": 3,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:claude-opus-5-5|article:kiro-students-offer",
+      "source": "article:claude-opus-5-5",
+      "target": "article:kiro-students-offer",
+      "relation": "shared-topic",
+      "label": "Developer Tools",
+      "topics": [
+        "Developer Tools"
+      ],
+      "weight": 3,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:claude-opus-5-5|article:ponytail-caveman-agent-efficiency",
+      "source": "article:claude-opus-5-5",
+      "target": "article:ponytail-caveman-agent-efficiency",
+      "relation": "shared-topic",
+      "label": "Developer Tools",
+      "topics": [
+        "Developer Tools"
+      ],
+      "weight": 3,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:claude-opus-5-5|article:slides-grab",
+      "source": "article:claude-opus-5-5",
+      "target": "article:slides-grab",
+      "relation": "shared-topic",
+      "label": "Developer Tools",
+      "topics": [
+        "Developer Tools"
+      ],
+      "weight": 3,
+      "provenance": "metadata"
+    },
+    {
       "id": "article:glm-5-3-flash|article:nvidia-hugging-face-acquisition",
       "source": "article:glm-5-3-flash",
       "target": "article:nvidia-hugging-face-acquisition",
@@ -982,18 +1059,6 @@
       "provenance": "metadata"
     },
     {
-      "id": "article:graph-engineering|article:slides-grab",
-      "source": "article:graph-engineering",
-      "target": "article:slides-grab",
-      "relation": "shared-topic",
-      "label": "Developer Tools",
-      "topics": [
-        "Developer Tools"
-      ],
-      "weight": 3,
-      "provenance": "metadata"
-    },
-    {
       "id": "article:jev-system-one-model|article:kiro-students-offer",
       "source": "article:jev-system-one-model",
       "target": "article:kiro-students-offer",
@@ -1040,18 +1105,6 @@
         "Developer Tools"
       ],
       "weight": 6,
-      "provenance": "metadata"
-    },
-    {
-      "id": "article:kiro-students-offer|article:slides-grab",
-      "source": "article:kiro-students-offer",
-      "target": "article:slides-grab",
-      "relation": "shared-topic",
-      "label": "Developer Tools",
-      "topics": [
-        "Developer Tools"
-      ],
-      "weight": 3,
       "provenance": "metadata"
     },
     {
@@ -1125,18 +1178,6 @@
       "label": "Open Models",
       "topics": [
         "Open Models"
-      ],
-      "weight": 3,
-      "provenance": "metadata"
-    },
-    {
-      "id": "article:ponytail-caveman-agent-efficiency|article:slides-grab",
-      "source": "article:ponytail-caveman-agent-efficiency",
-      "target": "article:slides-grab",
-      "relation": "shared-topic",
-      "label": "Developer Tools",
-      "topics": [
-        "Developer Tools"
       ],
       "weight": 3,
       "provenance": "metadata"
@@ -1705,9 +1746,9 @@
     }
   ],
   "stats": {
-    "nodes": 36,
-    "edges": 85,
-    "articles": 15,
+    "nodes": 37,
+    "edges": 87,
+    "articles": 16,
     "papers": 18,
     "datasets": 3
   }

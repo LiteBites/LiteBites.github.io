@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">How to read the Claude Opus 5.5 benchmark table</title>
+  <desc id="desc">A LiteBites synthesis groups four Anthropic-reported benchmark results with their task type and evaluation conditions, then lists the protocol questions a reader should check before comparing scores.</desc>
+  <rect width="1600" height="900" fill="#f7f5ef"/>
+  <rect x="48" y="42" width="1504" height="816" rx="18" fill="#fffdf8" stroke="#252525" stroke-width="2"/>
+  <g font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" fill="#252525">
+    <text x="96" y="106" font-size="40" font-weight="700" letter-spacing="-1">A benchmark number is a bundle of conditions</text>
+    <text x="96" y="144" font-size="21" fill="#5e5a52">Anthropic’s Opus 5.5 table is useful—if the footnotes travel with the scores.</text>
+
+    <rect x="96" y="194" width="912" height="566" rx="14" fill="#fffdf8" stroke="#b8b7b0" stroke-width="2"/>
+    <text x="128" y="240" font-size="18" font-weight="700" fill="#456779" letter-spacing="1.3">SELECTED REPORTED RESULTS</text>
+    <text x="128" y="275" font-size="17" fill="#77736a">Exact values from Anthropic’s comparison table; metrics are not interchangeable.</text>
+    <g font-size="16" font-weight="700" fill="#77736a">
+      <text x="128" y="326">BENCHMARK</text><text x="450" y="326">TASK</text><text x="690" y="326">OPUS 5.5</text><text x="850" y="326">CONDITION</text>
+    </g>
+    <g stroke="#d3d0c8" stroke-width="2"><path d="M128 344 H976"/><path d="M128 438 H976"/><path d="M128 532 H976"/><path d="M128 626 H976"/></g>
+    <g font-size="20">
+      <text x="128" y="382" font-weight="650">Terminal-Bench 4.0</text><text x="450" y="382" fill="#5e5a52">agentic coding</text><text x="690" y="382" font-size="27" font-weight="700" fill="#9a6a32">66.4%</text><text x="850" y="382" fill="#5e5a52">xhigh effort</text>
+      <text x="128" y="476" font-weight="650">FrontierCode v1.1</text><text x="450" y="476" fill="#5e5a52">agentic coding</text><text x="690" y="476" font-size="27" font-weight="700" fill="#9a6a32">54.4%</text><text x="850" y="476" fill="#5e5a52">max effort</text>
+      <text x="128" y="570" font-weight="650">GDPval-AA v2.1</text><text x="450" y="570" fill="#5e5a52">knowledge work</text><text x="690" y="570" font-size="27" font-weight="700" fill="#9a6a32">1846</text><text x="850" y="570" fill="#5e5a52">score scale</text>
+      <text x="128" y="664" font-weight="650">OSWorld 2.0</text><text x="450" y="664" fill="#5e5a52">computer use</text><text x="690" y="664" font-size="27" font-weight="700" fill="#9a6a32">81.8%</text><text x="850" y="664" fill="#5e5a52">partial</text>
+    </g>
+    <text x="552" y="724" text-anchor="middle" font-size="15" fill="#77736a">Anthropic-reported values; no cross-benchmark ranking is implied.</text>
+
+    <rect x="1050" y="194" width="438" height="566" rx="14" fill="#f5e9d9" stroke="#c09258" stroke-width="2"/>
+    <text x="1084" y="240" font-size="18" font-weight="700" fill="#9a6a32" letter-spacing="1.3">BEFORE YOU COMPARE</text>
+    <g font-size="20">
+      <circle cx="1094" cy="303" r="8" fill="#9a6a32"/><text x="1120" y="310">Same harness?</text>
+      <circle cx="1094" cy="378" r="8" fill="#9a6a32"/><text x="1120" y="385">Same effort level?</text>
+      <circle cx="1094" cy="453" r="8" fill="#9a6a32"/><text x="1120" y="460">Same tools and limits?</text>
+      <circle cx="1094" cy="528" r="8" fill="#9a6a32"/><text x="1120" y="535">Vendor or independent run?</text>
+      <circle cx="1094" cy="603" r="8" fill="#9a6a32"/><text x="1120" y="610">Were safeguards counted?</text>
+      <circle cx="1094" cy="678" r="8" fill="#9a6a32"/><text x="1120" y="685">What is the uncertainty?</text>
+    </g>
+    <text x="1270" y="724" text-anchor="middle" font-size="15" fill="#665643">A table is evidence, not a deployment forecast.</text>
+    <text x="800" y="818" text-anchor="middle" font-size="17" fill="#77736a">LiteBites synthesis from Anthropic’s Opus 5.5 announcement and cited footnotes; exact labels carry the meaning.</text>
+  </g>
+</svg>

@@ -132,9 +132,15 @@ Use figures selectively rather than filling the post with screenshots.
 - Avoid overly tight crops that remove labels, legends, arrows, or comparison context.
 - Use the original paper figure when possible instead of recreating a low-quality approximation.
 
+### Remote publisher-hosted figures
+
+Remote publisher-hosted inline figures are allowed for Paper Bites and other LiteBites posts under [`POLICY_REMOTE_IMAGES.md`](POLICY_REMOTE_IMAGES.md). Use the exact original HTTPS asset from the canonical source page only when provenance, permission, payload decoding, browser rendering, accessibility, privacy, and durability checks pass. Use the required `remote-publisher-image` figure contract with intrinsic dimensions, lazy loading, asynchronous decoding, `referrerpolicy="no-referrer"`, source-linked captions, and a full-resolution link. Remote images are supplementary to prose and must not be used as `card_image` or another discovery-surface dependency. If the asset fails any admission check, omit it rather than using a screenshot or downloaded copy.
+
 ### Figure markup
 
-Use local figure blocks with HTML so captions and layout stay consistent.
+Use local or remote figure blocks with HTML so captions and layout stay consistent.
+
+Local example:
 
 ```html
 <figure>
@@ -143,9 +149,12 @@ Use local figure blocks with HTML so captions and layout stay consistent.
 </figure>
 ```
 
+Remote figures must follow `POLICY_REMOTE_IMAGES.md`; do not use Markdown image syntax, `srcset`, `<picture>`, or `<source>`.
+
 Rules:
 
-- Use local asset paths, not external hotlinks.
+- Use local assets when they are the clearest and permission-safe choice.
+- Use exact canonical publisher-hosted assets when the remote admission checks pass.
 - Write meaningful `alt` text that describes the visual content.
 - Use `figcaption` to explain why the figure matters in the post.
 - Leave blank lines around raw HTML blocks so Markdown parsers do not merge them into surrounding text incorrectly.
