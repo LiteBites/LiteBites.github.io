@@ -28,7 +28,7 @@ The model cards also list different knowledge-cutoff dates—April 20, 2026 for 
 
 <figure class="article-ascii-figure">
   <div class="article-ascii-scroll" tabindex="0" role="region" aria-label="Scrollable ASCII illustration comparing GPT-6 Sol and Luna; scroll in both directions to view the full artwork">
-<pre role="img" aria-label="Original LiteBites ASCII-style illustration with a shaded sun, star field, GPT-6 Sol and Luna lettering, and a shaded moon. Sol is labeled for complex coding and agentic workflows; Luna for focused, high-volume tasks.">                             .        *       .
+<pre role="img" aria-label="Original LiteBites ASCII-style illustration with a shaded sun and star field above large GPT-6 block lettering, the Sol and Luna names, and a shaded moon. Sol is labeled for complex coding and agentic workflows; Luna for focused, high-volume tasks.">                             .        *       .
        .         .        .        .        .
 
              ..::::---===++***++===---::::..
@@ -47,14 +47,13 @@ The model cards also list different knowledge-cutoff dates—April 20, 2026 for 
       .                 .          *                .
             .      .         .            .
 
-                         G P T - 6
-
-            ███████╗ ██████╗ ██╗      ███████╗
-            ██╔════╝██╔═══██╗██║      ██╔════╝
-            ███████╗██║   ██║██║      ███████╗
-            ╚════██║██║   ██║██║      ╚════██║
-            ███████║╚██████╔╝███████╗███████║
-            ╚══════╝ ╚═════╝ ╚══════╝╚══════╝
+           ██████   ████████  ████████          ███████
+           ██    ██  ██     ██    ██            ██     ██
+           ██        ██     ██    ██            ██
+           ██   ████ ████████     ██    ███████ ████████
+           ██    ██  ██           ██            ██     ██
+           ██    ██  ██           ██            ██     ██
+            ██████   ██           ██             ███████
 
                   S O L     +     L U N A
 
