@@ -245,6 +245,27 @@
       "sourcePath": "_articles/kiro-students-offer.md"
     },
     {
+      "id": "article:hancom-nomadian-ai-workforce",
+      "slug": "hancom-nomadian-ai-workforce",
+      "type": "article",
+      "title": "Nomadian’s Memory and Logs Are the Real Product Test",
+      "shortTitle": "Hancom Nomadian",
+      "url": "/articles/hancom-nomadian-ai-workforce/",
+      "summary": "Nomadian promises role-based AI teammates that remember work preferences and keep run histories; the beta will need to show how those features, permissions, and cost controls actually work.",
+      "date": "2026-09-25",
+      "meta": "MTN / 3 min read",
+      "topics": [
+        "AI Agents",
+        "Business Tools"
+      ],
+      "topicWeights": {
+        "AI Agents": 3,
+        "Business Tools": 3
+      },
+      "sourceHash": "fd1416000b1255701c89bbe8b4b80346831e3272192812564ebcda8b4e56a155",
+      "sourcePath": "_articles/hancom-nomadian-ai-workforce.md"
+    },
+    {
       "id": "article:nvidia-avo-arc-agi-3",
       "slug": "nvidia-avo-arc-agi-3",
       "type": "article",
@@ -1093,6 +1114,18 @@
       "provenance": "metadata"
     },
     {
+      "id": "article:claude-opus-5-5|article:hancom-nomadian-ai-workforce",
+      "source": "article:claude-opus-5-5",
+      "target": "article:hancom-nomadian-ai-workforce",
+      "relation": "shared-topic",
+      "label": "AI Agents",
+      "topics": [
+        "AI Agents"
+      ],
+      "weight": 3,
+      "provenance": "metadata"
+    },
+    {
       "id": "article:claude-opus-5-5|article:jev-system-one-model",
       "source": "article:claude-opus-5-5",
       "target": "article:jev-system-one-model",
@@ -1418,6 +1451,18 @@
       "label": "Developer Tools",
       "topics": [
         "Developer Tools"
+      ],
+      "weight": 3,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:graph-engineering|article:hancom-nomadian-ai-workforce",
+      "source": "article:graph-engineering",
+      "target": "article:hancom-nomadian-ai-workforce",
+      "relation": "shared-topic",
+      "label": "AI Agents",
+      "topics": [
+        "AI Agents"
       ],
       "weight": 3,
       "provenance": "metadata"
@@ -2134,9 +2179,9 @@
     }
   ],
   "stats": {
-    "nodes": 38,
-    "edges": 91,
-    "articles": 17,
+    "nodes": 39,
+    "edges": 93,
+    "articles": 18,
     "papers": 18,
     "datasets": 3
   }
