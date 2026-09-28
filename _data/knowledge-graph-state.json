@@ -245,6 +245,27 @@
       "sourcePath": "_articles/kiro-students-offer.md"
     },
     {
+      "id": "article:meta-muse-agent-trust",
+      "slug": "meta-muse-agent-trust",
+      "type": "article",
+      "title": "Meta Muse Is Expanding. Its Trust Questions Are Now Public",
+      "shortTitle": "Muse’s Trust Boundary",
+      "url": "/articles/meta-muse-agent-trust/",
+      "summary": "Meta plans to bring Muse to its glasses, a pocket-sized voice device, and more connectors; early reports raise permission questions, but neither establishes a product-wide failure or confirmed data breach.",
+      "date": "2026-09-28",
+      "meta": "Meta / 3 min read",
+      "topics": [
+        "AI Agents",
+        "Cybersecurity"
+      ],
+      "topicWeights": {
+        "AI Agents": 3,
+        "Cybersecurity": 3
+      },
+      "sourceHash": "1681c34f6ac8940e7d1e9eefc148b48eb2793c18f8dc53d8409d43e0f96ea5c2",
+      "sourcePath": "_articles/meta-muse-agent-trust.md"
+    },
+    {
       "id": "article:hancom-nomadian-ai-workforce",
       "slug": "hancom-nomadian-ai-workforce",
       "type": "article",
@@ -1150,6 +1171,18 @@
       "provenance": "metadata"
     },
     {
+      "id": "article:claude-opus-5-5|article:meta-muse-agent-trust",
+      "source": "article:claude-opus-5-5",
+      "target": "article:meta-muse-agent-trust",
+      "relation": "shared-topic",
+      "label": "AI Agents",
+      "topics": [
+        "AI Agents"
+      ],
+      "weight": 3,
+      "provenance": "metadata"
+    },
+    {
       "id": "article:claude-opus-5-5|article:ponytail-caveman-agent-efficiency",
       "source": "article:claude-opus-5-5",
       "target": "article:ponytail-caveman-agent-efficiency",
@@ -1305,6 +1338,18 @@
         "Multimodal AI"
       ],
       "weight": 2,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:gpt-6-astra|article:meta-muse-agent-trust",
+      "source": "article:gpt-6-astra",
+      "target": "article:meta-muse-agent-trust",
+      "relation": "shared-topic",
+      "label": "Cybersecurity",
+      "topics": [
+        "Cybersecurity"
+      ],
+      "weight": 3,
       "provenance": "metadata"
     },
     {
@@ -1492,6 +1537,18 @@
       "provenance": "metadata"
     },
     {
+      "id": "article:graph-engineering|article:meta-muse-agent-trust",
+      "source": "article:graph-engineering",
+      "target": "article:meta-muse-agent-trust",
+      "relation": "shared-topic",
+      "label": "AI Agents",
+      "topics": [
+        "AI Agents"
+      ],
+      "weight": 3,
+      "provenance": "metadata"
+    },
+    {
       "id": "article:graph-engineering|article:ponytail-caveman-agent-efficiency",
       "source": "article:graph-engineering",
       "target": "article:ponytail-caveman-agent-efficiency",
@@ -1499,6 +1556,18 @@
       "label": "Developer Tools",
       "topics": [
         "Developer Tools"
+      ],
+      "weight": 3,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:hancom-nomadian-ai-workforce|article:meta-muse-agent-trust",
+      "source": "article:hancom-nomadian-ai-workforce",
+      "target": "article:meta-muse-agent-trust",
+      "relation": "shared-topic",
+      "label": "AI Agents",
+      "topics": [
+        "AI Agents"
       ],
       "weight": 3,
       "provenance": "metadata"
@@ -2179,9 +2248,9 @@
     }
   ],
   "stats": {
-    "nodes": 39,
-    "edges": 93,
-    "articles": 18,
+    "nodes": 40,
+    "edges": 97,
+    "articles": 19,
     "papers": 18,
     "datasets": 3
   }

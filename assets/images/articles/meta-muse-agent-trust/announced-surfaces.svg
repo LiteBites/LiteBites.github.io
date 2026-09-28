@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1000" viewBox="0 0 1400 1000" role="img" aria-labelledby="svg-title svg-desc">
+  <title id="svg-title">Selected Muse surfaces, unanswered controls, and two distinct reports</title>
+  <desc id="svg-desc">A LiteBites synthesis separates selected Meta-announced glasses context, shopping and work connectors, and a Muse email address from control questions not specified in the Connect recap. A lower panel distinguishes Robb's reported Marketplace account from a separate reported virtual-machine vulnerability, without treating either as a confirmed product-wide failure or breach.</desc>
+  <rect width="1400" height="1000" fill="#f5f4ee"/>
+  <rect x="18" y="18" width="1364" height="964" fill="none" stroke="#b9c1b8" stroke-width="2"/>
+
+  <g font-family="Arial, Helvetica, sans-serif" fill="#171c18">
+    <text x="60" y="62" font-size="16" font-weight="700" letter-spacing="2.2" fill="#405143">LITEBITES SYNTHESIS / SEPTEMBER 2026</text>
+    <text x="60" y="118" font-size="43" font-weight="700" letter-spacing="-1.2">What Muse can reach — and what stays open</text>
+    <text x="60" y="156" font-size="20" fill="#4e5a51">Meta's roadmap names new surfaces; it does not specify every control around them.</text>
+    <line x1="60" y1="185" x2="1340" y2="185" stroke="#8d998e" stroke-width="2"/>
+
+    <text x="60" y="226" font-size="16" font-weight="700" letter-spacing="1.6">SELECTED TRUST-RELEVANT SURFACES IN META'S CONNECT RECAP [1]</text>
+    <text x="930" y="226" font-size="16" font-weight="700" letter-spacing="1.4">CONTROLS NOT SPECIFIED IN THE RECAP</text>
+
+    <g>
+      <rect x="60" y="250" width="260" height="300" fill="#ffffff" stroke="#b9c1b8" stroke-width="2"/>
+      <rect x="60" y="250" width="260" height="8" fill="#b7e34b"/>
+      <text x="82" y="294" font-size="16" font-weight="700" letter-spacing="1.4">GLASSES CONTEXT</text>
+      <rect x="82" y="314" width="152" height="32" fill="#e9f2d3"/>
+      <text x="96" y="336" font-size="14" font-weight="700" letter-spacing="1">COMING MONTHS</text>
+      <text x="82" y="390" font-size="21" font-weight="700">Meta says Muse can</text>
+      <text x="82" y="420" font-size="21" font-weight="700">use what the wearer</text>
+      <text x="82" y="450" font-size="21" font-weight="700">sees as context.</text>
+      <text x="82" y="510" font-size="16" fill="#4e5a51">A roadmap item, not a live test.</text>
+    </g>
+
+    <g>
+      <rect x="340" y="250" width="340" height="300" fill="#ffffff" stroke="#b9c1b8" stroke-width="2"/>
+      <rect x="340" y="250" width="340" height="8" fill="#b7e34b"/>
+      <text x="362" y="294" font-size="16" font-weight="700" letter-spacing="1.4">SHOPPING + WORK</text>
+      <rect x="362" y="314" width="122" height="32" fill="#e9f2d3"/>
+      <text x="376" y="336" font-size="14" font-weight="700" letter-spacing="1">ANNOUNCED</text>
+      <text x="362" y="390" font-size="20" font-weight="700">Walmart · PayPal · Notion</text>
+      <text x="362" y="422" font-size="20" font-weight="700">GitHub · Box</text>
+      <line x1="362" y1="448" x2="654" y2="448" stroke="#d5dbd2" stroke-width="2"/>
+      <text x="362" y="487" font-size="18" fill="#4e5a51">Expedia: coming soon.</text>
+      <text x="362" y="520" font-size="16" fill="#4e5a51">Connector details remain unspecified.</text>
+    </g>
+
+    <g>
+      <rect x="700" y="250" width="200" height="300" fill="#ffffff" stroke="#b9c1b8" stroke-width="2"/>
+      <rect x="700" y="250" width="200" height="8" fill="#b7e34b"/>
+      <text x="722" y="294" font-size="16" font-weight="700" letter-spacing="1.2">MUSE EMAIL</text>
+      <rect x="722" y="314" width="122" height="32" fill="#e9f2d3"/>
+      <text x="736" y="336" font-size="14" font-weight="700" letter-spacing="1">ANNOUNCED</text>
+      <text x="722" y="390" font-size="20" font-weight="700">Muse gets its</text>
+      <text x="722" y="422" font-size="20" font-weight="700">own email</text>
+      <text x="722" y="454" font-size="20" font-weight="700">address.</text>
+      <text x="722" y="510" font-size="16" fill="#4e5a51">Meta's wording.</text>
+    </g>
+
+    <g>
+      <rect x="930" y="250" width="410" height="320" fill="#e9ece5" stroke="#b9c1b8" stroke-width="2"/>
+      <rect x="930" y="250" width="8" height="320" fill="#425346"/>
+      <text x="958" y="292" font-size="15" font-weight="700" letter-spacing="1.2" fill="#405143">OPEN QUESTIONS — NOT PRODUCT FACTS</text>
+      <line x1="958" y1="312" x2="1312" y2="312" stroke="#c3cbc1" stroke-width="2"/>
+      <text x="958" y="350" font-size="14" font-weight="700" letter-spacing="1.1" fill="#526257">PERMISSIONS</text>
+      <text x="958" y="378" font-size="18" font-weight="700">What can each connector</text>
+      <text x="958" y="404" font-size="18" font-weight="700">read or change?</text>
+      <line x1="958" y1="420" x2="1312" y2="420" stroke="#c3cbc1" stroke-width="2"/>
+      <text x="958" y="454" font-size="14" font-weight="700" letter-spacing="1.1" fill="#526257">APPROVAL</text>
+      <text x="958" y="482" font-size="18" font-weight="700">Which actions need a clear yes?</text>
+      <line x1="958" y1="498" x2="1312" y2="498" stroke="#c3cbc1" stroke-width="2"/>
+      <text x="958" y="530" font-size="14" font-weight="700" letter-spacing="1.1" fill="#526257">AUDIT / REVOKE / UNDO?</text>
+      <text x="958" y="555" font-size="18" font-weight="700">Can users inspect or reverse actions?</text>
+    </g>
+
+    <text x="60" y="598" font-size="16" font-weight="700" letter-spacing="1.6">TWO DISTINCT REPORTS — KEEP THEIR EVIDENCE SEPARATE</text>
+    <text x="60" y="628" font-size="17" fill="#4e5a51">These accounts raise different questions; neither is presented here as a product-wide finding.</text>
+
+    <g>
+      <rect x="60" y="654" width="620" height="260" fill="#ffffff" stroke="#b9c1b8" stroke-width="2"/>
+      <rect x="60" y="654" width="8" height="260" fill="#d6ad62"/>
+      <text x="88" y="696" font-size="16" font-weight="700" letter-spacing="1.4">MARKETPLACE ACCOUNT [2][3][4]</text>
+      <rect x="88" y="714" width="164" height="30" fill="#f4ead8"/>
+      <text x="101" y="735" font-size="13" font-weight="700" letter-spacing=".8">ONE USER'S ACCOUNT</text>
+      <text x="88" y="782" font-size="18" font-weight="700">Robb describes Muse agreeing to a low offer</text>
+      <text x="88" y="810" font-size="18" font-weight="700">and sharing his address; a Muse team member</text>
+      <text x="88" y="838" font-size="18" font-weight="700">offered to investigate. The cited reply does</text>
+      <text x="88" y="866" font-size="18" font-weight="700">not resolve the case.</text>
+    </g>
+
+    <g>
+      <rect x="700" y="654" width="640" height="260" fill="#ffffff" stroke="#b9c1b8" stroke-width="2"/>
+      <rect x="700" y="654" width="8" height="260" fill="#9da9a0"/>
+      <text x="728" y="696" font-size="16" font-weight="700" letter-spacing="1.4">VIRTUAL-MACHINE REPORT [5]</text>
+      <rect x="728" y="714" width="194" height="30" fill="#e7ebe7"/>
+      <text x="741" y="735" font-size="13" font-weight="700" letter-spacing=".8">SEPARATE REPORT</text>
+      <text x="728" y="782" font-size="18" font-weight="700">Reuters, citing The Information, reported</text>
+      <text x="728" y="810" font-size="18" font-weight="700">possible access to a Muse VM containing emails</text>
+      <text x="728" y="838" font-size="18" font-weight="700">and files. The cited report does not confirm</text>
+      <text x="728" y="866" font-size="18" font-weight="700">exploitation or data exposure.</text>
+    </g>
+
+    <line x1="60" y1="940" x2="1340" y2="940" stroke="#8d998e" stroke-width="2"/>
+    <text x="60" y="966" font-size="14" font-weight="700" letter-spacing=".7" fill="#405143">ANNOUNCED SURFACES ≠ DOCUMENTED CONTROLS · REPORTED VULNERABILITY ≠ CONFIRMED BREACH</text>
+  </g>
+</svg>
