@@ -931,6 +931,18 @@ button { font: inherit; }
   max-width: none;
   min-width: 56rem;
 }
+.post-body .article-figure--compact {
+  max-width: 480px;
+  margin-inline: auto;
+}
+.post-body .article-figure--compact .article-figure-scroll img {
+  min-width: 0;
+  max-width: 100%;
+}
+.post-body .article-figure--compact figcaption {
+  font-size: 13px;
+  line-height: 1.6;
+}
 .post-body .remote-publisher-image--portrait {
   max-width: 420px;
   margin-right: auto;

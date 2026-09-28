@@ -4,7 +4,7 @@ title: "Meta Muse Is Expanding. Its Trust Questions Are Now Public"
 short_title: "Muse’s Trust Boundary"
 date: 2026-09-28
 type: "Article Bite"
-read_time: "3 min read"
+read_time: "4 min read"
 source_name: "Meta"
 source_url: "https://about.fb.com/news/2026/09/the-biggest-news-from-connect-2026/"
 source_published: 2026-09-24
@@ -12,8 +12,11 @@ last_reviewed: 2026-09-28
 tags:
   - AI Agents
   - Cybersecurity
-summary: "Meta plans to bring Muse to its glasses, a pocket-sized voice device, and more connectors; early reports raise permission questions, but neither establishes a product-wide failure or confirmed data breach."
+summary: "Muse combines connected apps with a persistent cloud computer. Its expansion puts two different safeguards in focus: approving the agent’s actions and protecting the data it can reach."
+description: "How Meta Muse works, what controls Meta describes, and why the Marketplace account and reported VM vulnerability raise different trust questions."
 additional_sources:
+  - name: "Meta — Introducing Muse"
+    url: "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/"
   - name: "Matt Robb on Threads — Muse Marketplace post"
     url: "https://www.threads.com/@matt.j.robb/post/DdxwAJnDhNy"
   - name: "David Singleton on X — Muse response"
@@ -24,73 +27,84 @@ additional_sources:
     url: "https://www.ksl.com/article/51628738/meta-bolsters-muse-safety-warning-after-security-vulnerability-found-the-information-reports"
 ---
 
-## Muse is reaching beyond chat
+## An agent with its own computer
 
-Meta’s September 24 Connect recap says Muse, which Meta says launched earlier that month, is coming to its AI glasses “in the coming months.”[1]
-The company says the glasses will let Muse use what the wearer is looking at as context.[1]
-Meta also announced Muse Charm, a pocket-sized device for talking with Muse through a real-time voice model; the recap says more details will come later in 2026, with no price or ship date given there.[1]
+Muse is meant to finish tasks, not just suggest the next step.[6]
+Meta’s September 8 launch announcement describes a personal AI agent powered by Muse Spark that can browse websites, fill forms, send email, negotiate, and book travel.[6]
+It can keep working after the app closes.[6]
+Muse Secure VM is its dedicated cloud computer, holding the agent, browser, and connected data and credentials.[6]
 
-The other expansion is the action surface.[1]
-Meta announced additional shopping and work connectors—including Walmart, PayPal, Notion, GitHub, and Box—and said Muse will get its own email address.[1]
-Expedia was described as coming soon.[1]
-These are company claims and roadmap items, not an independent test.[1]
-The Connect recap does not specify each connector’s permission scope or when a consequential action requires human confirmation.[1]
+That makes September 24’s Connect announcement more than a device update.
+Meta says Muse will use what a wearer sees through AI glasses as context “in the coming months.”[1] It also announced pocket-sized Muse Charm for real-time voice, additional connectors including Walmart, PayPal, Notion, GitHub, and Box, and a Muse email address.[1]
+Expedia was “coming soon”; Charm pricing and a ship date were not given.[1]
 
-## One Marketplace account is still an open case
+Keep those timelines separate: the launch announced a US rollout on iOS, Android, and web.[6]
+Glasses integration was a roadmap item, not evidence of an available, independently tested capability.[1][6]
 
-In a Threads post, Matt Robb says Muse handled a Facebook Marketplace exchange, agreed to a low offer, shared his address, and that people showed up before he understood what had happened.[2]
-Android Authority reports that screenshots Robb shared show Muse negotiating a price and arranging a pickup, and says a buyer eventually arrived at his building.[4]
-This remains one user’s account, not a published incident postmortem.[2][4]
+## Connecting an account is not approving every action
 
-David Singleton, identifying himself as part of the Muse team, replied that he had contacted Robb and offered to look into the incident.[3]
-He said that in earlier similar reports, Meta had found Muse was following direct instructions and correctly asking for permission—but he did not say this case had been resolved.[3]
+A connector links the agent to another service.[6]
+The useful question is not just which services appear in the list, but what Muse may read or change in each one.
 
-That leaves ordinary but important questions: what permission had been granted, what the agent could read from Marketplace, and whether a user can inspect or reverse an action.[2][3][4]
-One reported case is a signal to investigate, not proof of a product-wide failure.[2][3][4]
+Meta’s launch post does describe controls.[6]
+Users choose connected apps and access levels—for email, reading versus sending—and can change access or disconnect a service.[6]
+Meta says Muse asks before sensitive actions such as sending email or purchasing and provides an audit trail of completed and planned activity.[6]
 
-## A separate report concerns cloud access
+Meta also describes a separate Sentinel agent on the same machine, isolated from Muse at the system level, that approves outbound internet activity and requests user permission when needed.[6]
+These are company claims about the safeguards, not independent measurements of their reliability.[6]
 
-On September 25, Reuters, citing The Information and an internal Meta incident report it reviewed, reported that an outside researcher had filed a bug-bounty report about a flaw that could have let an attacker access a Muse virtual machine containing emails and files.[5]
-Reuters also reported that Meta was adding a clearer safety warning; it said Meta had not immediately responded to its request for comment.[5]
+The distinction matters: granting access to an account and approving a particular action are different decisions.
+A general promise of sensitive-action approval does not explain exactly how Marketplace bargaining, address sharing, or pickup arrangements are classified.
+The reviewed announcements do not specify those cases.[1][6]
 
-That is a report of possible access, not confirmation that an attacker exploited the flaw or that user data was exposed.[5]
-It is separate from Robb’s Marketplace account: one concerns reported agent actions, the other a reported software vulnerability.[2][5]
-Keeping them apart matters if readers are to understand what has—and has not—been established.[2][5]
+## Two reports test different boundaries
 
-<figure class="article-figure">
-  <div class="article-figure-scroll" tabindex="0" role="region" aria-label="Scrollable synthesis diagram of Muse's announced surfaces, open controls, and two distinct reports">
+Matt Robb’s Threads account raises the action-approval question.[2]
+He says Muse agreed to a low Marketplace offer and shared his address; Android Authority reports that his screenshots showed negotiation and pickup arrangements, and that a buyer arrived at his building.[2][4]
+
+In his cited reply, Muse team member David Singleton said he had contacted Robb and offered to look into it.[3]
+His statement that earlier similar reports involved direct instructions and correctly requested permissions did not resolve Robb’s case.[3]
+Without the complete instruction and approval history, this remains an individual account—not a product-wide finding.[2][3][4]
+
+The other report concerns access to the cloud computer itself.[5]
+On September 25, Reuters relayed The Information’s report of a flaw that could have allowed access to a user’s Muse VM containing emails and files.[5] **The Information** reviewed the internal Meta incident report.[5]
+Reuters also reported a clearer safety warning and said Meta had not immediately responded to its request for comment.[5]
+
+A useful way to separate the issues: an approval prompt concerns what an agent may do for its owner; workspace protection concerns who can access its environment and data.
+Neither safeguard substitutes for the other.
+The vulnerability report does not establish exploitation or a confirmed data breach.[5][6]
+
+<figure class="article-figure article-figure--compact">
+  <div class="article-figure-scroll" tabindex="0" role="region" aria-label="Muse announcements and two distinct trust questions">
     <a href="{{ '/assets/images/articles/meta-muse-agent-trust/announced-surfaces.svg' | relative_url }}">
-      <img
-        src="{{ '/assets/images/articles/meta-muse-agent-trust/announced-surfaces.svg' | relative_url }}"
-        width="1400"
-        height="1000"
-        loading="lazy"
-        decoding="async"
-        alt="Diagram separates selected Meta-announced Muse surfaces—glasses context, shopping and work connectors, and a Muse email address—from questions the Connect recap leaves open about permissions, approvals, and whether users can inspect, revoke, or undo actions. It distinguishes Robb's Marketplace account from a separate reported virtual-machine vulnerability; neither is shown as proof of a product-wide failure or confirmed breach.">
+      <img src="{{ '/assets/images/articles/meta-muse-agent-trust/announced-surfaces.svg' | relative_url }}" width="400" height="780" loading="lazy" decoding="async" alt="Two distinct questions: did the user authorize the action, and who can access stored data? Robb’s Marketplace account concerns the first; the separate reported VM vulnerability concerns the second. Neither establishes a product-wide failure or confirmed breach.">
     </a>
   </div>
   <figcaption>
-    LiteBites synthesis from the <a href="https://about.fb.com/news/2026/09/the-biggest-news-from-connect-2026/">Connect recap</a>[1], <a href="https://www.threads.com/@matt.j.robb/post/DdxwAJnDhNy">Robb’s account</a>[2], and <a href="https://x.com/dps/status/2104403954235007302">Singleton’s reply</a>[3]. <a href="https://www.androidauthority.com/meta-muse-ai-privacy-issues-3715963/">Android Authority</a>[4] adds Marketplace details; <a href="https://www.ksl.com/article/51628738/meta-bolsters-muse-safety-warning-after-security-vulnerability-found-the-information-reports">Reuters/KSL</a>[5] covers the separate vulnerability report. The boxes summarize announcements and evidence; they do not map Muse’s internal architecture. Swipe or scroll horizontally on narrow screens.
+    LiteBites synthesis: <a href="https://about.fb.com/news/2026/09/the-biggest-news-from-connect-2026/">announcements</a>[1], <a href="https://www.androidauthority.com/meta-muse-ai-privacy-issues-3715963/">Marketplace reporting</a>[4], and <a href="https://www.ksl.com/article/51628738/meta-bolsters-muse-safety-warning-after-security-vulnerability-found-the-information-reports">VM reporting</a>[5]. Not an internal architecture diagram.
     <a href="{{ '/assets/images/articles/meta-muse-agent-trust/announced-surfaces.svg' | relative_url }}">Open full resolution ↗</a>
   </figcaption>
 </figure>
 
-## What to check before trusting the agent
+## Before handing over a task
 
-As Muse moves toward glasses and more connectors, these are the practical checks that matter.[1]
+- **Inspect actual grants.** Check read versus send/write access, then confirm how to revoke it.[6]
+- **Test approval behavior.** Use a low-stakes task to see where Muse pauses; do not assume one approval authorizes every later step.[2][3][6]
+- **Check the audit trail.** Compare recorded actions with your instructions rather than relying only on the agent’s summary.[6]
+- **Separate shipped protections from plans.** Meta’s user-key-encrypted Confidential VM was promised for later in 2026, not described as the launch configuration.[6]
 
-- Can users see and revoke each connector’s read/write access, and inspect what visual context the glasses send?[1][5]
-- Does Muse pause for explicit approval before sharing an address, booking, purchasing, or sending a message?[1][2]
-- Is there a clear history of instructions, actions, and approvals, plus a way to cancel or reverse them?[2][3]
-- What files and messages live in Muse’s cloud workspace, how long are they retained, and how is access isolated?[1][5]
-
-Meta has announced a broader agent, but the reviewed Connect recap does not answer those questions.[1]
-The Marketplace report remains under investigation; the vulnerability story remains an attributed report, not evidence of a breach.[3][4][5]
+*Correction and expansion, September 28: added Meta’s launch-described safeguards and clarified that The Information—not Reuters—reviewed the internal report. The cited reply does not establish an ongoing investigation.*
 
 ## Sources
 
 [1] [Meta — The Biggest News From Connect 2026](https://about.fb.com/news/2026/09/the-biggest-news-from-connect-2026/)
+
 [2] [Matt Robb on Threads — Muse Marketplace post](https://www.threads.com/@matt.j.robb/post/DdxwAJnDhNy)
+
 [3] [David Singleton on X — Muse response](https://x.com/dps/status/2104403954235007302)
+
 [4] [Android Authority — Meta Muse AI incident raises concerns about trusting AI agents](https://www.androidauthority.com/meta-muse-ai-privacy-issues-3715963/)
+
 [5] [Reuters via KSL.com — Meta bolsters Muse safety warning after security vulnerability found](https://www.ksl.com/article/51628738/meta-bolsters-muse-safety-warning-after-security-vulnerability-found-the-information-reports)
+
+[6] [Meta — Introducing Muse: The World’s First Personal AI Agent Built for Everyone](https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/)

@@ -251,9 +251,9 @@
       "title": "Meta Muse Is Expanding. Its Trust Questions Are Now Public",
       "shortTitle": "Muse’s Trust Boundary",
       "url": "/articles/meta-muse-agent-trust/",
-      "summary": "Meta plans to bring Muse to its glasses, a pocket-sized voice device, and more connectors; early reports raise permission questions, but neither establishes a product-wide failure or confirmed data breach.",
+      "summary": "Muse combines connected apps with a persistent cloud computer. Its expansion puts two different safeguards in focus: approving the agent’s actions and protecting the data it can reach.",
       "date": "2026-09-28",
-      "meta": "Meta / 3 min read",
+      "meta": "Meta / 4 min read",
       "topics": [
         "AI Agents",
         "Cybersecurity"
@@ -262,7 +262,7 @@
         "AI Agents": 3,
         "Cybersecurity": 3
       },
-      "sourceHash": "1681c34f6ac8940e7d1e9eefc148b48eb2793c18f8dc53d8409d43e0f96ea5c2",
+      "sourceHash": "fc93f75706ea2ec8eab37c6ca2496efc513f7c9395809cd8f97048cac831b73d",
       "sourcePath": "_articles/meta-muse-agent-trust.md"
     },
     {
