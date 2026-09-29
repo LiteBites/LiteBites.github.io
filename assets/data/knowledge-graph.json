@@ -700,6 +700,22 @@
       ]
     },
     {
+      "id": "paper:turboquant",
+      "slug": "turboquant",
+      "type": "paper",
+      "title": "TurboQuant: Online Vector Quantization with Near-optimal Distortion Rate",
+      "shortTitle": "TurboQuant",
+      "url": "/posts/turboquant/",
+      "summary": "TurboQuant rotates vectors before scalar quantization and adds a residual sketch when unbiased inner products matter; its theory and two application tests need different readings.",
+      "date": "2026-09-29",
+      "meta": "arXiv preprint (2025) / 6 min read",
+      "topics": [
+        "KV Cache",
+        "Nearest Neighbor Search",
+        "Vector Quantization"
+      ]
+    },
+    {
       "id": "paper:vit-comer",
       "slug": "vit-comer",
       "type": "paper",
@@ -1929,10 +1945,10 @@
     }
   ],
   "stats": {
-    "nodes": 41,
+    "nodes": 42,
     "edges": 97,
     "articles": 19,
-    "papers": 19,
+    "papers": 20,
     "datasets": 3
   }
 }
