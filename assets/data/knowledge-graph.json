@@ -665,6 +665,22 @@
       ]
     },
     {
+      "id": "paper:splade-v2",
+      "slug": "splade-v2",
+      "type": "paper",
+      "title": "SPLADE v2: Sparse Lexical and Expansion Model for Information Retrieval",
+      "shortTitle": "SPLADE v2",
+      "url": "/posts/splade-v2/",
+      "summary": "SPLADE v2 improves a learned sparse retriever through max pooling, a document-only option, and distillation—but its strongest scores and efficiency claims belong to different configurations.",
+      "date": "2026-09-29",
+      "meta": "arXiv preprint (2021) / 6 min read",
+      "topics": [
+        "Information Retrieval",
+        "Neural Search",
+        "Sparse Retrieval"
+      ]
+    },
+    {
       "id": "paper:thinksound",
       "slug": "thinksound",
       "type": "paper",
@@ -1675,18 +1691,6 @@
       "provenance": "metadata"
     },
     {
-      "id": "paper:colbert|paper:dora-weight-decomposed-low-rank-adaptation",
-      "source": "paper:colbert",
-      "target": "paper:dora-weight-decomposed-low-rank-adaptation",
-      "relation": "shared-topic",
-      "label": "Efficient AI",
-      "topics": [
-        "Efficient AI"
-      ],
-      "weight": 1,
-      "provenance": "metadata"
-    },
-    {
       "id": "paper:colbert|paper:retrieval-augmented-generation",
       "source": "paper:colbert",
       "target": "paper:retrieval-augmented-generation",
@@ -1696,6 +1700,19 @@
         "Dense Retrieval"
       ],
       "weight": 3,
+      "provenance": "metadata"
+    },
+    {
+      "id": "paper:colbert|paper:splade-v2",
+      "source": "paper:colbert",
+      "target": "paper:splade-v2",
+      "relation": "shared-topic",
+      "label": "Information Retrieval · Neural Search",
+      "topics": [
+        "Information Retrieval",
+        "Neural Search"
+      ],
+      "weight": 6,
       "provenance": "metadata"
     },
     {
@@ -1912,10 +1929,10 @@
     }
   ],
   "stats": {
-    "nodes": 40,
+    "nodes": 41,
     "edges": 97,
     "articles": 19,
-    "papers": 18,
+    "papers": 19,
     "datasets": 3
   }
 }
