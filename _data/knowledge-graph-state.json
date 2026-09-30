@@ -197,6 +197,29 @@
       "sourcePath": "_articles/gpt-6-sol-luna.md"
     },
     {
+      "id": "article:gpt-6-1-sol-vs-astra",
+      "slug": "gpt-6-1-sol-vs-astra",
+      "type": "article",
+      "title": "GPT-6.1 Sol vs Astra: Better Value Is Not the Same as Better Everywhere",
+      "shortTitle": "GPT-6.1 Sol vs Astra",
+      "url": "/articles/gpt-6-1-sol-vs-astra/",
+      "summary": "GPT-6.1 Sol approaches Astra on OpenAI's coding and computer-use evaluations at a fraction of the API price, but benchmark scope and early user reports complicate the idea of an outright win.",
+      "date": "2026-09-30",
+      "meta": "OpenAI / 3 min read",
+      "topics": [
+        "AI Models",
+        "Computer Use",
+        "Developer Tools"
+      ],
+      "topicWeights": {
+        "AI Models": 3,
+        "Computer Use": 3,
+        "Developer Tools": 3
+      },
+      "sourceHash": "40dbb0bbe8fbabe5e828f8f5812ef8d9282ed9c51c881270bd70f0c985afddc6",
+      "sourcePath": "_articles/gpt-6-1-sol-vs-astra.md"
+    },
+    {
       "id": "article:graph-engineering",
       "slug": "graph-engineering",
       "type": "article",
@@ -1155,6 +1178,19 @@
       "provenance": "metadata"
     },
     {
+      "id": "article:claude-opus-5-5|article:gpt-6-1-sol-vs-astra",
+      "source": "article:claude-opus-5-5",
+      "target": "article:gpt-6-1-sol-vs-astra",
+      "relation": "shared-topic",
+      "label": "AI Models · Developer Tools",
+      "topics": [
+        "AI Models",
+        "Developer Tools"
+      ],
+      "weight": 6,
+      "provenance": "metadata"
+    },
+    {
       "id": "article:claude-opus-5-5|article:gpt-6-sol-luna",
       "source": "article:claude-opus-5-5",
       "target": "article:gpt-6-sol-luna",
@@ -1387,6 +1423,91 @@
       "provenance": "metadata"
     },
     {
+      "id": "article:gpt-6-1-sol-vs-astra|article:gpt-6-astra",
+      "source": "article:gpt-6-1-sol-vs-astra",
+      "target": "article:gpt-6-astra",
+      "relation": "shared-topic",
+      "label": "Computer Use",
+      "topics": [
+        "Computer Use"
+      ],
+      "weight": 3,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:gpt-6-1-sol-vs-astra|article:gpt-6-sol-luna",
+      "source": "article:gpt-6-1-sol-vs-astra",
+      "target": "article:gpt-6-sol-luna",
+      "relation": "shared-topic",
+      "label": "AI Models · Developer Tools",
+      "topics": [
+        "AI Models",
+        "Developer Tools"
+      ],
+      "weight": 6,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:gpt-6-1-sol-vs-astra|article:graph-engineering",
+      "source": "article:gpt-6-1-sol-vs-astra",
+      "target": "article:graph-engineering",
+      "relation": "shared-topic",
+      "label": "Developer Tools",
+      "topics": [
+        "Developer Tools"
+      ],
+      "weight": 3,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:gpt-6-1-sol-vs-astra|article:jev-system-one-model",
+      "source": "article:gpt-6-1-sol-vs-astra",
+      "target": "article:jev-system-one-model",
+      "relation": "shared-topic",
+      "label": "AI Models",
+      "topics": [
+        "AI Models"
+      ],
+      "weight": 3,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:gpt-6-1-sol-vs-astra|article:kiro-students-offer",
+      "source": "article:gpt-6-1-sol-vs-astra",
+      "target": "article:kiro-students-offer",
+      "relation": "shared-topic",
+      "label": "Developer Tools",
+      "topics": [
+        "Developer Tools"
+      ],
+      "weight": 3,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:gpt-6-1-sol-vs-astra|article:ponytail-caveman-agent-efficiency",
+      "source": "article:gpt-6-1-sol-vs-astra",
+      "target": "article:ponytail-caveman-agent-efficiency",
+      "relation": "shared-topic",
+      "label": "Developer Tools",
+      "topics": [
+        "Developer Tools"
+      ],
+      "weight": 3,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:gpt-6-1-sol-vs-astra|article:slides-grab",
+      "source": "article:gpt-6-1-sol-vs-astra",
+      "target": "article:slides-grab",
+      "relation": "shared-topic",
+      "label": "Developer Tools",
+      "topics": [
+        "Developer Tools"
+      ],
+      "weight": 3,
+      "provenance": "metadata"
+    },
+    {
       "id": "article:gpt-6-astra|article:meta-muse-agent-trust",
       "source": "article:gpt-6-astra",
       "target": "article:meta-muse-agent-trust",
@@ -1422,18 +1543,6 @@
         "Language Models"
       ],
       "weight": 6,
-      "provenance": "metadata"
-    },
-    {
-      "id": "article:gpt-6-astra|article:slides-grab",
-      "source": "article:gpt-6-astra",
-      "target": "article:slides-grab",
-      "relation": "shared-topic",
-      "label": "Agentic AI",
-      "topics": [
-        "Agentic AI"
-      ],
-      "weight": 3,
       "provenance": "metadata"
     },
     {
@@ -1571,18 +1680,6 @@
       "provenance": "metadata"
     },
     {
-      "id": "article:graph-engineering|article:kiro-students-offer",
-      "source": "article:graph-engineering",
-      "target": "article:kiro-students-offer",
-      "relation": "shared-topic",
-      "label": "Developer Tools",
-      "topics": [
-        "Developer Tools"
-      ],
-      "weight": 3,
-      "provenance": "metadata"
-    },
-    {
       "id": "article:graph-engineering|article:meta-muse-agent-trust",
       "source": "article:graph-engineering",
       "target": "article:meta-muse-agent-trust",
@@ -1595,18 +1692,6 @@
       "provenance": "metadata"
     },
     {
-      "id": "article:graph-engineering|article:ponytail-caveman-agent-efficiency",
-      "source": "article:graph-engineering",
-      "target": "article:ponytail-caveman-agent-efficiency",
-      "relation": "shared-topic",
-      "label": "Developer Tools",
-      "topics": [
-        "Developer Tools"
-      ],
-      "weight": 3,
-      "provenance": "metadata"
-    },
-    {
       "id": "article:hancom-nomadian-ai-workforce|article:meta-muse-agent-trust",
       "source": "article:hancom-nomadian-ai-workforce",
       "target": "article:meta-muse-agent-trust",
@@ -1614,18 +1699,6 @@
       "label": "AI Agents",
       "topics": [
         "AI Agents"
-      ],
-      "weight": 3,
-      "provenance": "metadata"
-    },
-    {
-      "id": "article:jev-system-one-model|article:kiro-students-offer",
-      "source": "article:jev-system-one-model",
-      "target": "article:kiro-students-offer",
-      "relation": "shared-topic",
-      "label": "AI Coding Agents",
-      "topics": [
-        "AI Coding Agents"
       ],
       "weight": 3,
       "provenance": "metadata"
@@ -2295,9 +2368,9 @@
     }
   ],
   "stats": {
-    "nodes": 42,
-    "edges": 97,
-    "articles": 19,
+    "nodes": 43,
+    "edges": 101,
+    "articles": 20,
     "papers": 20,
     "datasets": 3
   }
