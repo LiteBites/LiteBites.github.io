@@ -71,6 +71,22 @@
       ]
     },
     {
+      "id": "article:gemini-4-argon",
+      "slug": "gemini-4-argon",
+      "type": "article",
+      "title": "Gemini 4 Argon: Strong Scores, Restricted Access",
+      "shortTitle": "Gemini 4 Argon",
+      "url": "/articles/gemini-4-argon/",
+      "summary": "Google's Gemini 4 Argon pairs strong benchmark results and an announced million-token output limit with a limited cyber-defender rollout and introductory API pricing.",
+      "date": "2026-10-01",
+      "meta": "Google / 3 min read",
+      "topics": [
+        "AI Models",
+        "Cybersecurity",
+        "Developer Tools"
+      ]
+    },
+    {
       "id": "article:glm-5-3-flash",
       "slug": "glm-5-3-flash",
       "type": "article",
@@ -821,6 +837,19 @@
       "provenance": "metadata"
     },
     {
+      "id": "article:claude-opus-5-5|article:gemini-4-argon",
+      "source": "article:claude-opus-5-5",
+      "target": "article:gemini-4-argon",
+      "relation": "shared-topic",
+      "label": "AI Models · Developer Tools",
+      "topics": [
+        "AI Models",
+        "Developer Tools"
+      ],
+      "weight": 6,
+      "provenance": "metadata"
+    },
+    {
       "id": "article:claude-opus-5-5|article:gpt-6-1-sol-vs-astra",
       "source": "article:claude-opus-5-5",
       "target": "article:gpt-6-1-sol-vs-astra",
@@ -922,6 +951,116 @@
     {
       "id": "article:claude-opus-5-5|article:slides-grab",
       "source": "article:claude-opus-5-5",
+      "target": "article:slides-grab",
+      "relation": "shared-topic",
+      "label": "Developer Tools",
+      "topics": [
+        "Developer Tools"
+      ],
+      "weight": 3,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:gemini-4-argon|article:gpt-6-1-sol-vs-astra",
+      "source": "article:gemini-4-argon",
+      "target": "article:gpt-6-1-sol-vs-astra",
+      "relation": "shared-topic",
+      "label": "AI Models · Developer Tools",
+      "topics": [
+        "AI Models",
+        "Developer Tools"
+      ],
+      "weight": 6,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:gemini-4-argon|article:gpt-6-astra",
+      "source": "article:gemini-4-argon",
+      "target": "article:gpt-6-astra",
+      "relation": "shared-topic",
+      "label": "Cybersecurity",
+      "topics": [
+        "Cybersecurity"
+      ],
+      "weight": 3,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:gemini-4-argon|article:gpt-6-sol-luna",
+      "source": "article:gemini-4-argon",
+      "target": "article:gpt-6-sol-luna",
+      "relation": "shared-topic",
+      "label": "AI Models · Developer Tools",
+      "topics": [
+        "AI Models",
+        "Developer Tools"
+      ],
+      "weight": 6,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:gemini-4-argon|article:graph-engineering",
+      "source": "article:gemini-4-argon",
+      "target": "article:graph-engineering",
+      "relation": "shared-topic",
+      "label": "Developer Tools",
+      "topics": [
+        "Developer Tools"
+      ],
+      "weight": 3,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:gemini-4-argon|article:jev-system-one-model",
+      "source": "article:gemini-4-argon",
+      "target": "article:jev-system-one-model",
+      "relation": "shared-topic",
+      "label": "AI Models",
+      "topics": [
+        "AI Models"
+      ],
+      "weight": 3,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:gemini-4-argon|article:kiro-students-offer",
+      "source": "article:gemini-4-argon",
+      "target": "article:kiro-students-offer",
+      "relation": "shared-topic",
+      "label": "Developer Tools",
+      "topics": [
+        "Developer Tools"
+      ],
+      "weight": 3,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:gemini-4-argon|article:meta-muse-agent-trust",
+      "source": "article:gemini-4-argon",
+      "target": "article:meta-muse-agent-trust",
+      "relation": "shared-topic",
+      "label": "Cybersecurity",
+      "topics": [
+        "Cybersecurity"
+      ],
+      "weight": 3,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:gemini-4-argon|article:ponytail-caveman-agent-efficiency",
+      "source": "article:gemini-4-argon",
+      "target": "article:ponytail-caveman-agent-efficiency",
+      "relation": "shared-topic",
+      "label": "Developer Tools",
+      "topics": [
+        "Developer Tools"
+      ],
+      "weight": 3,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:gemini-4-argon|article:slides-grab",
+      "source": "article:gemini-4-argon",
       "target": "article:slides-grab",
       "relation": "shared-topic",
       "label": "Developer Tools",
@@ -1139,18 +1278,6 @@
       "provenance": "metadata"
     },
     {
-      "id": "article:gpt-6-1-sol-vs-astra|article:slides-grab",
-      "source": "article:gpt-6-1-sol-vs-astra",
-      "target": "article:slides-grab",
-      "relation": "shared-topic",
-      "label": "Developer Tools",
-      "topics": [
-        "Developer Tools"
-      ],
-      "weight": 3,
-      "provenance": "metadata"
-    },
-    {
       "id": "article:gpt-6-astra|article:meta-muse-agent-trust",
       "source": "article:gpt-6-astra",
       "target": "article:meta-muse-agent-trust",
@@ -1275,30 +1402,6 @@
       "provenance": "metadata"
     },
     {
-      "id": "article:gpt-6-sol-luna|article:kiro-students-offer",
-      "source": "article:gpt-6-sol-luna",
-      "target": "article:kiro-students-offer",
-      "relation": "shared-topic",
-      "label": "Developer Tools",
-      "topics": [
-        "Developer Tools"
-      ],
-      "weight": 3,
-      "provenance": "metadata"
-    },
-    {
-      "id": "article:gpt-6-sol-luna|article:ponytail-caveman-agent-efficiency",
-      "source": "article:gpt-6-sol-luna",
-      "target": "article:ponytail-caveman-agent-efficiency",
-      "relation": "shared-topic",
-      "label": "Developer Tools",
-      "topics": [
-        "Developer Tools"
-      ],
-      "weight": 3,
-      "provenance": "metadata"
-    },
-    {
       "id": "article:graph-engineering|article:hancom-nomadian-ai-workforce",
       "source": "article:graph-engineering",
       "target": "article:hancom-nomadian-ai-workforce",
@@ -1306,18 +1409,6 @@
       "label": "AI Agents",
       "topics": [
         "AI Agents"
-      ],
-      "weight": 3,
-      "provenance": "metadata"
-    },
-    {
-      "id": "article:graph-engineering|article:jev-system-one-model",
-      "source": "article:graph-engineering",
-      "target": "article:jev-system-one-model",
-      "relation": "shared-topic",
-      "label": "Agent Infrastructure",
-      "topics": [
-        "Agent Infrastructure"
       ],
       "weight": 3,
       "provenance": "metadata"
@@ -2011,9 +2102,9 @@
     }
   ],
   "stats": {
-    "nodes": 43,
-    "edges": 101,
-    "articles": 20,
+    "nodes": 44,
+    "edges": 107,
+    "articles": 21,
     "papers": 20,
     "datasets": 3
   }
