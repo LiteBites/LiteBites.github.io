@@ -263,6 +263,22 @@
       ]
     },
     {
+      "id": "article:perplexity-decisions-vs-jev",
+      "slug": "perplexity-decisions-vs-jev",
+      "type": "article",
+      "title": "Perplexity's Decisions API Looks Like Jev—Where the Similarity Ends",
+      "shortTitle": "Perplexity Decisions vs Jev",
+      "url": "/articles/perplexity-decisions-vs-jev/",
+      "summary": "Perplexity's Decisions API shares Jev's typed-question pattern, but a similar request shape is not proof of equivalent judgments or a drop-in replacement for agent workflows.",
+      "date": "2026-10-03",
+      "meta": "TypeSafe AI / 3 min read",
+      "topics": [
+        "AI Models",
+        "Agent Infrastructure",
+        "Developer Tools"
+      ]
+    },
+    {
       "id": "article:ponytail-caveman-agent-efficiency",
       "slug": "ponytail-caveman-agent-efficiency",
       "type": "article",
@@ -937,6 +953,19 @@
       "provenance": "metadata"
     },
     {
+      "id": "article:claude-opus-5-5|article:perplexity-decisions-vs-jev",
+      "source": "article:claude-opus-5-5",
+      "target": "article:perplexity-decisions-vs-jev",
+      "relation": "shared-topic",
+      "label": "AI Models · Developer Tools",
+      "topics": [
+        "AI Models",
+        "Developer Tools"
+      ],
+      "weight": 6,
+      "provenance": "metadata"
+    },
+    {
       "id": "article:claude-opus-5-5|article:ponytail-caveman-agent-efficiency",
       "source": "article:claude-opus-5-5",
       "target": "article:ponytail-caveman-agent-efficiency",
@@ -971,18 +1000,6 @@
         "Developer Tools"
       ],
       "weight": 6,
-      "provenance": "metadata"
-    },
-    {
-      "id": "article:gemini-4-argon|article:gpt-6-astra",
-      "source": "article:gemini-4-argon",
-      "target": "article:gpt-6-astra",
-      "relation": "shared-topic",
-      "label": "Cybersecurity",
-      "topics": [
-        "Cybersecurity"
-      ],
-      "weight": 3,
       "provenance": "metadata"
     },
     {
@@ -1044,6 +1061,19 @@
         "Cybersecurity"
       ],
       "weight": 3,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:gemini-4-argon|article:perplexity-decisions-vs-jev",
+      "source": "article:gemini-4-argon",
+      "target": "article:perplexity-decisions-vs-jev",
+      "relation": "shared-topic",
+      "label": "AI Models · Developer Tools",
+      "topics": [
+        "AI Models",
+        "Developer Tools"
+      ],
+      "weight": 6,
       "provenance": "metadata"
     },
     {
@@ -1205,18 +1235,6 @@
       "provenance": "metadata"
     },
     {
-      "id": "article:gpt-6-1-sol-vs-astra|article:gpt-6-astra",
-      "source": "article:gpt-6-1-sol-vs-astra",
-      "target": "article:gpt-6-astra",
-      "relation": "shared-topic",
-      "label": "Computer Use",
-      "topics": [
-        "Computer Use"
-      ],
-      "weight": 3,
-      "provenance": "metadata"
-    },
-    {
       "id": "article:gpt-6-1-sol-vs-astra|article:gpt-6-sol-luna",
       "source": "article:gpt-6-1-sol-vs-astra",
       "target": "article:gpt-6-sol-luna",
@@ -1263,6 +1281,19 @@
         "Developer Tools"
       ],
       "weight": 3,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:gpt-6-1-sol-vs-astra|article:perplexity-decisions-vs-jev",
+      "source": "article:gpt-6-1-sol-vs-astra",
+      "target": "article:perplexity-decisions-vs-jev",
+      "relation": "shared-topic",
+      "label": "AI Models · Developer Tools",
+      "topics": [
+        "AI Models",
+        "Developer Tools"
+      ],
+      "weight": 6,
       "provenance": "metadata"
     },
     {
@@ -1378,27 +1409,16 @@
       "provenance": "metadata"
     },
     {
-      "id": "article:gpt-6-sol-luna|article:graph-engineering",
+      "id": "article:gpt-6-sol-luna|article:perplexity-decisions-vs-jev",
       "source": "article:gpt-6-sol-luna",
-      "target": "article:graph-engineering",
+      "target": "article:perplexity-decisions-vs-jev",
       "relation": "shared-topic",
-      "label": "Developer Tools",
+      "label": "AI Models · Developer Tools",
       "topics": [
+        "AI Models",
         "Developer Tools"
       ],
-      "weight": 3,
-      "provenance": "metadata"
-    },
-    {
-      "id": "article:gpt-6-sol-luna|article:jev-system-one-model",
-      "source": "article:gpt-6-sol-luna",
-      "target": "article:jev-system-one-model",
-      "relation": "shared-topic",
-      "label": "AI Models",
-      "topics": [
-        "AI Models"
-      ],
-      "weight": 3,
+      "weight": 6,
       "provenance": "metadata"
     },
     {
@@ -1426,6 +1446,19 @@
       "provenance": "metadata"
     },
     {
+      "id": "article:graph-engineering|article:perplexity-decisions-vs-jev",
+      "source": "article:graph-engineering",
+      "target": "article:perplexity-decisions-vs-jev",
+      "relation": "shared-topic",
+      "label": "Agent Infrastructure · Developer Tools",
+      "topics": [
+        "Agent Infrastructure",
+        "Developer Tools"
+      ],
+      "weight": 6,
+      "provenance": "metadata"
+    },
+    {
       "id": "article:hancom-nomadian-ai-workforce|article:meta-muse-agent-trust",
       "source": "article:hancom-nomadian-ai-workforce",
       "target": "article:meta-muse-agent-trust",
@@ -1435,6 +1468,19 @@
         "AI Agents"
       ],
       "weight": 3,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:jev-system-one-model|article:perplexity-decisions-vs-jev",
+      "source": "article:jev-system-one-model",
+      "target": "article:perplexity-decisions-vs-jev",
+      "relation": "shared-topic",
+      "label": "AI Models · Agent Infrastructure",
+      "topics": [
+        "AI Models",
+        "Agent Infrastructure"
+      ],
+      "weight": 6,
       "provenance": "metadata"
     },
     {
@@ -2102,9 +2148,9 @@
     }
   ],
   "stats": {
-    "nodes": 44,
-    "edges": 107,
-    "articles": 21,
+    "nodes": 45,
+    "edges": 109,
+    "articles": 22,
     "papers": 20,
     "datasets": 3
   }

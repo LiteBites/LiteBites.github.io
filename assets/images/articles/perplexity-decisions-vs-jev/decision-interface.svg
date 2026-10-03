@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">Two decision APIs, one application-owned decision rule</title>
+  <desc id="desc">A schematic LiteBites comparison. A support ticket and three named questions form the shared request idea. TypeSafe Jev and Perplexity Decisions use separate endpoints and model names. Either returns typed probabilities; the application chooses thresholds, review, or escalation.</desc>
+  <rect width="1200" height="800" fill="#f6f3ea"/>
+  <g font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+    <text x="70" y="83" fill="#182b30" font-size="39" font-weight="700">A decision is not a reply</text>
+    <text x="70" y="122" fill="#506168" font-size="23">Same three question types · separate services · your code owns the action</text>
+
+    <rect x="70" y="160" width="1060" height="153" rx="16" fill="#ffffff" stroke="#b7c4be" stroke-width="2"/>
+    <text x="101" y="203" fill="#12575c" font-size="19" font-weight="700" letter-spacing="1.2">REQUEST IDEA</text>
+    <text x="101" y="247" fill="#182b30" font-size="29" font-weight="650">state: one support ticket</text>
+    <text x="101" y="282" fill="#506168" font-size="23">questions: noul (yes/no)  ·  choice (route)  ·  score (severity)</text>
+
+    <text x="73" y="363" fill="#506168" font-size="20" font-weight="700" letter-spacing="1.1">CHOOSE ONE SERVICE</text>
+    <rect x="70" y="386" width="1060" height="118" rx="15" fill="#e7f2ef" stroke="#579087" stroke-width="2"/>
+    <text x="101" y="430" fill="#164c4b" font-size="29" font-weight="700">TypeSafe Jev</text>
+    <text x="101" y="470" fill="#28494d" font-size="24">POST /v1/systemone</text>
+    <text x="710" y="430" fill="#164c4b" font-size="21" font-weight="700">model: jev-latest</text>
+    <text x="710" y="470" fill="#28494d" font-size="21">text / structured text</text>
+
+    <rect x="70" y="520" width="1060" height="118" rx="15" fill="#f8edda" stroke="#bd9660" stroke-width="2"/>
+    <text x="101" y="564" fill="#684717" font-size="29" font-weight="700">Perplexity Decisions</text>
+    <text x="101" y="604" fill="#59492e" font-size="24">POST /v1/decisions</text>
+    <text x="710" y="564" fill="#684717" font-size="21" font-weight="700">model: pplx-decider-v1-27b</text>
+    <text x="710" y="604" fill="#59492e" font-size="21">text / JSON / images</text>
+
+    <rect x="70" y="666" width="1060" height="82" rx="14" fill="#182b30"/>
+    <text x="101" y="698" fill="#a9dbd1" font-size="18" font-weight="700" letter-spacing="1.1">APPLICATION-OWNED NEXT STEP</text>
+    <text x="101" y="728" fill="#ffffff" font-size="24">typed probabilities → thresholds → act, review, or escalate</text>
+    <text x="73" y="780" fill="#506168" font-size="17">LiteBites synthesis · schematic interfaces, not a speed or accuracy comparison</text>
+  </g>
+</svg>
