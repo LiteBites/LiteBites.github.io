@@ -8,6 +8,10 @@ Remote images are allowed when they materially improve the explanation of a tech
 
 Use the exact original HTTPS asset referenced by the canonical source page. Do not capture screenshots, download publisher media into the repository, hotlink a visually similar asset, or use a remote image solely as decoration.
 
+### Owner-requested pg-jev identity image (one-off)
+
+For `_articles/pg-jev-postgres-natural-language-where.md` only, the site owner explicitly requested the project's original logo/header as project identification. The exact `docs/assets/header.svg` embedded in the official `https://github.com/realZachi/pg-jev` README may appear as a remote inline figure despite the default technical-value and no-decoration rules above and below. Its `data-source-url` and Sources link must identify that README as the canonical *image* page; the Article may independently cite the dated v0.2.1 release as its canonical news source. Caption it as identity, not a technical diagram, with the author's copyright and governing license linked. Every other provenance, permission, safety, delivery, accessible-markup, privacy, durability, and failure requirement remains in force. Do not copy the asset into the repository or use it as a card/homepage image. This does not authorize any other decorative figure.
+
 ## Admission requirements
 
 Every remote image must pass all of these checks before publication:

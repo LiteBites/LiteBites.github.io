@@ -71,6 +71,8 @@ Optional fields include `additional_sources`, `card_image`, and `card_image_alt`
 
 Publisher-hosted inline images are allowed across LiteBites post types under [`POLICY_REMOTE_IMAGES.md`](POLICY_REMOTE_IMAGES.md). Use the exact original HTTPS asset from the canonical source page only when its provenance, permission basis, payload format, browser decoding, responsive rendering, accessibility, privacy, and durability checks pass. Remote images must remain supplementary to prose and must never be used as `card_image` or another discovery-surface dependency. If any admission field is unknown or unfavorable, omit the image rather than using a screenshot, downloaded copy, or local presentation substitute.
 
+**One-off project-identity exception:** At the site owner's explicit request, `_articles/pg-jev-postgres-natural-language-where.md` may embed the original `docs/assets/header.svg` from the project's official GitHub README as an attributed identity image, even though it does not explain the SQL/API mechanism. Label it as branding, not technical evidence. The README is the canonical *image* source and must appear in Sources; the dated v0.2.1 release remains the Article's separate canonical *news* source. Apply every other remote-image admission, rights, accessibility, privacy, and failure check in `POLICY_REMOTE_IMAGES.md`. This exception does not authorize other decorative images, local copies, or a card image.
+
 An original LiteBites explanatory figure is a separate, narrow exception—not a substitute for unavailable publisher artwork. Create one only when the user explicitly requests a first-party visual deliverable as a separate editorial task. The figure must add technical understanding, be derived only from cited evidence, be labeled `LiteBites synthesis`, avoid publisher branding and copied composition, contain no scripts or external resource fetches, and remain supplementary to prose that stands on its own. Store it under `assets/images/articles/<slug>/`; provide descriptive alt text, intrinsic dimensions, a source-linked caption, and a full-resolution link. Dense figures must remain readable on narrow screens through a contained keyboard/touch-scroll region with a visible caption instruction, without introducing page-level overflow.
 
 Every remote image must use the reviewed `<figure class="remote-publisher-image" data-source-url="…">` contract defined in `POLICY_REMOTE_IMAGES.md`.
@@ -125,6 +127,8 @@ Count body words while excluding YAML front matter and raw HTML where practical.
 ## Images and external media
 
 Images are optional. Include one only when it explains the technical development, interface, architecture, or evidence. The default image path is Tier A: a canonical publisher-hosted original admitted by the decision record above. An explicitly requested first-party explanatory figure may instead follow the source-grounded LiteBites-synthesis exception above. Preserve provenance, use descriptive alt text, and avoid decorative screenshots or promotional artwork that adds no understanding. If neither path is compliant, publish the Article without an image; do not force visual coverage through screenshots, downloaded copies, or locally created presentation substitutes.
+
+The named pg-jev project-identity exception above is the only exception to this explanatory-value rule; it is not a precedent for unrelated logos or hero art.
 
 ## Corrections and temporal claims
 

@@ -402,6 +402,29 @@
       "sourcePath": "_articles/perplexity-decisions-vs-jev.md"
     },
     {
+      "id": "article:pg-jev-postgres-natural-language-where",
+      "slug": "pg-jev-postgres-natural-language-where",
+      "type": "article",
+      "title": "pg-jev Puts Jev Inside PostgreSQL's WHERE Clause—With an API Call Behind It",
+      "shortTitle": "pg-jev: Jev in Postgres",
+      "url": "/articles/pg-jev-postgres-natural-language-where/",
+      "summary": "pg-jev makes Jev's probabilistic judgments callable from PostgreSQL, but its convenience comes with batched API requests containing row data, installation privileges, and data-sharing decisions.",
+      "date": "2026-10-04",
+      "meta": "pg-jev / 3 min read",
+      "topics": [
+        "AI Models",
+        "Databases",
+        "Developer Tools"
+      ],
+      "topicWeights": {
+        "AI Models": 3,
+        "Databases": 3,
+        "Developer Tools": 3
+      },
+      "sourceHash": "950b771042c0b146888821218cc73337f3493f0b18be87bb0f5d22f2e27ab0e5",
+      "sourcePath": "_articles/pg-jev-postgres-natural-language-where.md"
+    },
+    {
       "id": "article:ponytail-caveman-agent-efficiency",
       "slug": "ponytail-caveman-agent-efficiency",
       "type": "article",
@@ -1337,6 +1360,19 @@
       "provenance": "metadata"
     },
     {
+      "id": "article:claude-opus-5-5|article:pg-jev-postgres-natural-language-where",
+      "source": "article:claude-opus-5-5",
+      "target": "article:pg-jev-postgres-natural-language-where",
+      "relation": "shared-topic",
+      "label": "AI Models · Developer Tools",
+      "topics": [
+        "AI Models",
+        "Developer Tools"
+      ],
+      "weight": 6,
+      "provenance": "metadata"
+    },
+    {
       "id": "article:claude-opus-5-5|article:ponytail-caveman-agent-efficiency",
       "source": "article:claude-opus-5-5",
       "target": "article:ponytail-caveman-agent-efficiency",
@@ -1438,6 +1474,19 @@
       "id": "article:gemini-4-argon|article:perplexity-decisions-vs-jev",
       "source": "article:gemini-4-argon",
       "target": "article:perplexity-decisions-vs-jev",
+      "relation": "shared-topic",
+      "label": "AI Models · Developer Tools",
+      "topics": [
+        "AI Models",
+        "Developer Tools"
+      ],
+      "weight": 6,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:gemini-4-argon|article:pg-jev-postgres-natural-language-where",
+      "source": "article:gemini-4-argon",
+      "target": "article:pg-jev-postgres-natural-language-where",
       "relation": "shared-topic",
       "label": "AI Models · Developer Tools",
       "topics": [
@@ -1668,6 +1717,19 @@
       "provenance": "metadata"
     },
     {
+      "id": "article:gpt-6-1-sol-vs-astra|article:pg-jev-postgres-natural-language-where",
+      "source": "article:gpt-6-1-sol-vs-astra",
+      "target": "article:pg-jev-postgres-natural-language-where",
+      "relation": "shared-topic",
+      "label": "AI Models · Developer Tools",
+      "topics": [
+        "AI Models",
+        "Developer Tools"
+      ],
+      "weight": 6,
+      "provenance": "metadata"
+    },
+    {
       "id": "article:gpt-6-1-sol-vs-astra|article:ponytail-caveman-agent-efficiency",
       "source": "article:gpt-6-1-sol-vs-astra",
       "target": "article:ponytail-caveman-agent-efficiency",
@@ -1783,6 +1845,19 @@
       "id": "article:gpt-6-sol-luna|article:perplexity-decisions-vs-jev",
       "source": "article:gpt-6-sol-luna",
       "target": "article:perplexity-decisions-vs-jev",
+      "relation": "shared-topic",
+      "label": "AI Models · Developer Tools",
+      "topics": [
+        "AI Models",
+        "Developer Tools"
+      ],
+      "weight": 6,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:gpt-6-sol-luna|article:pg-jev-postgres-natural-language-where",
+      "source": "article:gpt-6-sol-luna",
+      "target": "article:pg-jev-postgres-natural-language-where",
       "relation": "shared-topic",
       "label": "AI Models · Developer Tools",
       "topics": [
@@ -2519,9 +2594,9 @@
     }
   ],
   "stats": {
-    "nodes": 45,
-    "edges": 109,
-    "articles": 22,
+    "nodes": 46,
+    "edges": 113,
+    "articles": 23,
     "papers": 20,
     "datasets": 3
   }
