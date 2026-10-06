@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatorVersion": 4,
+  "generatorVersion": 6,
   "nodes": [
     {
       "id": "article:qwenwork-workplace-agent-platform",
@@ -639,6 +639,25 @@
       ]
     },
     {
+      "id": "paper:novalad-document-extraction",
+      "slug": "novalad-document-extraction",
+      "type": "paper",
+      "title": "NovaLAD: A Fast, CPU-Optimized Document Extraction Pipeline for Generative AI and Data Intelligence",
+      "shortTitle": "NovaLAD",
+      "url": "/posts/novalad-document-extraction/",
+      "summary": "NovaLAD splits document parsing into parallel semantic and layout detection, then orders text and gates images before optional vision-model enrichment; its DP-Bench lead is author-reported against historical baseline rows.",
+      "date": "2026-10-06",
+      "meta": "arXiv preprint / 7 min read",
+      "topics": [
+        "Computer Vision",
+        "Document Parsing",
+        "Generative AI",
+        "Layout Analysis",
+        "Optical Character Recognition",
+        "Retrieval-Augmented Generation"
+      ]
+    },
+    {
       "id": "paper:prime-agent",
       "slug": "prime-agent",
       "type": "paper",
@@ -818,54 +837,6 @@
         "AI Hardware"
       ],
       "weight": 3,
-      "provenance": "metadata"
-    },
-    {
-      "id": "article:apple-mac-desktops-local-ai|paper:colbert",
-      "source": "article:apple-mac-desktops-local-ai",
-      "target": "paper:colbert",
-      "relation": "shared-topic",
-      "label": "Efficient AI",
-      "topics": [
-        "Efficient AI"
-      ],
-      "weight": 2,
-      "provenance": "metadata"
-    },
-    {
-      "id": "article:apple-mac-desktops-local-ai|paper:dora-weight-decomposed-low-rank-adaptation",
-      "source": "article:apple-mac-desktops-local-ai",
-      "target": "paper:dora-weight-decomposed-low-rank-adaptation",
-      "relation": "shared-topic",
-      "label": "Efficient AI",
-      "topics": [
-        "Efficient AI"
-      ],
-      "weight": 2,
-      "provenance": "metadata"
-    },
-    {
-      "id": "article:apple-mac-desktops-local-ai|paper:lora",
-      "source": "article:apple-mac-desktops-local-ai",
-      "target": "paper:lora",
-      "relation": "shared-topic",
-      "label": "Efficient AI",
-      "topics": [
-        "Efficient AI"
-      ],
-      "weight": 2,
-      "provenance": "metadata"
-    },
-    {
-      "id": "article:apple-mac-desktops-local-ai|paper:pagedattention",
-      "source": "article:apple-mac-desktops-local-ai",
-      "target": "paper:pagedattention",
-      "relation": "shared-topic",
-      "label": "Efficient AI",
-      "topics": [
-        "Efficient AI"
-      ],
-      "weight": 2,
       "provenance": "metadata"
     },
     {
@@ -1180,67 +1151,6 @@
       "provenance": "metadata"
     },
     {
-      "id": "article:glm-5-3-flash|paper:chain-of-zoom",
-      "source": "article:glm-5-3-flash",
-      "target": "paper:chain-of-zoom",
-      "relation": "shared-topic",
-      "label": "Multimodal AI",
-      "topics": [
-        "Multimodal AI"
-      ],
-      "weight": 2,
-      "provenance": "metadata"
-    },
-    {
-      "id": "article:glm-5-3-flash|paper:colbert",
-      "source": "article:glm-5-3-flash",
-      "target": "paper:colbert",
-      "relation": "shared-topic",
-      "label": "Efficient AI",
-      "topics": [
-        "Efficient AI"
-      ],
-      "weight": 2,
-      "provenance": "metadata"
-    },
-    {
-      "id": "article:glm-5-3-flash|paper:dora-weight-decomposed-low-rank-adaptation",
-      "source": "article:glm-5-3-flash",
-      "target": "paper:dora-weight-decomposed-low-rank-adaptation",
-      "relation": "shared-topic",
-      "label": "Efficient AI · Multimodal AI",
-      "topics": [
-        "Efficient AI",
-        "Multimodal AI"
-      ],
-      "weight": 3,
-      "provenance": "metadata"
-    },
-    {
-      "id": "article:glm-5-3-flash|paper:lance-unified-multimodal",
-      "source": "article:glm-5-3-flash",
-      "target": "paper:lance-unified-multimodal",
-      "relation": "shared-topic",
-      "label": "Multimodal AI",
-      "topics": [
-        "Multimodal AI"
-      ],
-      "weight": 2,
-      "provenance": "metadata"
-    },
-    {
-      "id": "article:glm-5-3-flash|paper:lora",
-      "source": "article:glm-5-3-flash",
-      "target": "paper:lora",
-      "relation": "shared-topic",
-      "label": "Efficient AI",
-      "topics": [
-        "Efficient AI"
-      ],
-      "weight": 2,
-      "provenance": "metadata"
-    },
-    {
       "id": "article:glm-5-3-flash|paper:moeclip",
       "source": "article:glm-5-3-flash",
       "target": "paper:moeclip",
@@ -1250,30 +1160,6 @@
         "Mixture of Experts"
       ],
       "weight": 4,
-      "provenance": "metadata"
-    },
-    {
-      "id": "article:glm-5-3-flash|paper:pagedattention",
-      "source": "article:glm-5-3-flash",
-      "target": "paper:pagedattention",
-      "relation": "shared-topic",
-      "label": "Efficient AI",
-      "topics": [
-        "Efficient AI"
-      ],
-      "weight": 2,
-      "provenance": "metadata"
-    },
-    {
-      "id": "article:glm-5-3-flash|paper:thinksound",
-      "source": "article:glm-5-3-flash",
-      "target": "paper:thinksound",
-      "relation": "shared-topic",
-      "label": "Multimodal AI",
-      "topics": [
-        "Multimodal AI"
-      ],
-      "weight": 2,
       "provenance": "metadata"
     },
     {
@@ -1399,30 +1285,6 @@
         "Language Models"
       ],
       "weight": 6,
-      "provenance": "metadata"
-    },
-    {
-      "id": "article:gpt-6-astra|paper:chain-of-zoom",
-      "source": "article:gpt-6-astra",
-      "target": "paper:chain-of-zoom",
-      "relation": "shared-topic",
-      "label": "Language Models",
-      "topics": [
-        "Language Models"
-      ],
-      "weight": 2,
-      "provenance": "metadata"
-    },
-    {
-      "id": "article:gpt-6-astra|paper:pagedattention",
-      "source": "article:gpt-6-astra",
-      "target": "paper:pagedattention",
-      "relation": "shared-topic",
-      "label": "Language Models",
-      "topics": [
-        "Language Models"
-      ],
-      "weight": 2,
       "provenance": "metadata"
     },
     {
@@ -1677,19 +1539,6 @@
       "provenance": "metadata"
     },
     {
-      "id": "article:qwen3-8-max|paper:chain-of-zoom",
-      "source": "article:qwen3-8-max",
-      "target": "paper:chain-of-zoom",
-      "relation": "shared-topic",
-      "label": "Language Models · Multimodal AI",
-      "topics": [
-        "Language Models",
-        "Multimodal AI"
-      ],
-      "weight": 3,
-      "provenance": "metadata"
-    },
-    {
       "id": "article:qwen3-8-max|paper:prime-agent",
       "source": "article:qwen3-8-max",
       "target": "paper:prime-agent",
@@ -1725,19 +1574,6 @@
         "Language Models"
       ],
       "weight": 5,
-      "provenance": "metadata"
-    },
-    {
-      "id": "article:qwen3-8-max|paper:thinksound",
-      "source": "article:qwen3-8-max",
-      "target": "paper:thinksound",
-      "relation": "shared-topic",
-      "label": "Language Models · Multimodal AI",
-      "topics": [
-        "Language Models",
-        "Multimodal AI"
-      ],
-      "weight": 3,
       "provenance": "metadata"
     },
     {
@@ -1803,18 +1639,6 @@
       "provenance": "metadata"
     },
     {
-      "id": "dataset:kolektor-sdd2|paper:ditto-video-editing",
-      "source": "dataset:kolektor-sdd2",
-      "target": "paper:ditto-video-editing",
-      "relation": "shared-topic",
-      "label": "Datasets",
-      "topics": [
-        "Datasets"
-      ],
-      "weight": 2,
-      "provenance": "metadata"
-    },
-    {
       "id": "dataset:kolektor-sdd2|paper:mmr-ad",
       "source": "dataset:kolektor-sdd2",
       "target": "paper:mmr-ad",
@@ -1841,91 +1665,6 @@
       "provenance": "metadata"
     },
     {
-      "id": "dataset:medmnist|dataset:mvtec-ad",
-      "source": "dataset:medmnist",
-      "target": "dataset:mvtec-ad",
-      "relation": "shared-topic",
-      "label": "Computer Vision · Datasets",
-      "topics": [
-        "Computer Vision",
-        "Datasets"
-      ],
-      "weight": 2,
-      "provenance": "metadata"
-    },
-    {
-      "id": "dataset:medmnist|paper:controlnet",
-      "source": "dataset:medmnist",
-      "target": "paper:controlnet",
-      "relation": "shared-topic",
-      "label": "Computer Vision",
-      "topics": [
-        "Computer Vision"
-      ],
-      "weight": 2,
-      "provenance": "metadata"
-    },
-    {
-      "id": "dataset:medmnist|paper:ditto-video-editing",
-      "source": "dataset:medmnist",
-      "target": "paper:ditto-video-editing",
-      "relation": "shared-topic",
-      "label": "Datasets",
-      "topics": [
-        "Datasets"
-      ],
-      "weight": 2,
-      "provenance": "metadata"
-    },
-    {
-      "id": "dataset:medmnist|paper:dreambooth",
-      "source": "dataset:medmnist",
-      "target": "paper:dreambooth",
-      "relation": "shared-topic",
-      "label": "Computer Vision",
-      "topics": [
-        "Computer Vision"
-      ],
-      "weight": 2,
-      "provenance": "metadata"
-    },
-    {
-      "id": "dataset:medmnist|paper:vit-comer",
-      "source": "dataset:medmnist",
-      "target": "paper:vit-comer",
-      "relation": "shared-topic",
-      "label": "Computer Vision",
-      "topics": [
-        "Computer Vision"
-      ],
-      "weight": 2,
-      "provenance": "metadata"
-    },
-    {
-      "id": "dataset:mvtec-ad|paper:controlnet",
-      "source": "dataset:mvtec-ad",
-      "target": "paper:controlnet",
-      "relation": "shared-topic",
-      "label": "Computer Vision",
-      "topics": [
-        "Computer Vision"
-      ],
-      "weight": 2,
-      "provenance": "metadata"
-    },
-    {
-      "id": "dataset:mvtec-ad|paper:dreambooth",
-      "source": "dataset:mvtec-ad",
-      "target": "paper:dreambooth",
-      "relation": "shared-topic",
-      "label": "Computer Vision",
-      "topics": [
-        "Computer Vision"
-      ],
-      "weight": 2,
-      "provenance": "metadata"
-    },
-    {
       "id": "dataset:mvtec-ad|paper:mmr-ad",
       "source": "dataset:mvtec-ad",
       "target": "paper:mmr-ad",
@@ -1947,18 +1686,6 @@
       "label": "Anomaly Detection",
       "topics": [
         "Anomaly Detection"
-      ],
-      "weight": 2,
-      "provenance": "metadata"
-    },
-    {
-      "id": "dataset:mvtec-ad|paper:vit-comer",
-      "source": "dataset:mvtec-ad",
-      "target": "paper:vit-comer",
-      "relation": "shared-topic",
-      "label": "Computer Vision",
-      "topics": [
-        "Computer Vision"
       ],
       "weight": 2,
       "provenance": "metadata"
@@ -2071,18 +1798,6 @@
       "provenance": "metadata"
     },
     {
-      "id": "paper:dora-weight-decomposed-low-rank-adaptation|paper:seal-generalization",
-      "source": "paper:dora-weight-decomposed-low-rank-adaptation",
-      "target": "paper:seal-generalization",
-      "relation": "shared-topic",
-      "label": "Transfer & Adaptation",
-      "topics": [
-        "Transfer & Adaptation"
-      ],
-      "weight": 1,
-      "provenance": "metadata"
-    },
-    {
       "id": "paper:dreambooth|paper:lance-unified-multimodal",
       "source": "paper:dreambooth",
       "target": "paper:lance-unified-multimodal",
@@ -2094,18 +1809,6 @@
         "Image Generation"
       ],
       "weight": 5,
-      "provenance": "metadata"
-    },
-    {
-      "id": "paper:dreambooth|paper:seal-generalization",
-      "source": "paper:dreambooth",
-      "target": "paper:seal-generalization",
-      "relation": "shared-topic",
-      "label": "Transfer & Adaptation",
-      "topics": [
-        "Transfer & Adaptation"
-      ],
-      "weight": 1,
       "provenance": "metadata"
     },
     {
@@ -2177,18 +1880,6 @@
       "provenance": "metadata"
     },
     {
-      "id": "paper:lora|paper:seal-generalization",
-      "source": "paper:lora",
-      "target": "paper:seal-generalization",
-      "relation": "shared-topic",
-      "label": "Transfer & Adaptation",
-      "topics": [
-        "Transfer & Adaptation"
-      ],
-      "weight": 1,
-      "provenance": "metadata"
-    },
-    {
       "id": "paper:mmr-ad|paper:moeclip",
       "source": "paper:mmr-ad",
       "target": "paper:moeclip",
@@ -2213,13 +1904,26 @@
       ],
       "weight": 5,
       "provenance": "metadata"
+    },
+    {
+      "id": "paper:novalad-document-extraction|paper:retrieval-augmented-generation",
+      "source": "paper:novalad-document-extraction",
+      "target": "paper:retrieval-augmented-generation",
+      "relation": "shared-topic",
+      "label": "Generative AI · Retrieval-Augmented Generation",
+      "topics": [
+        "Generative AI",
+        "Retrieval-Augmented Generation"
+      ],
+      "weight": 4,
+      "provenance": "metadata"
     }
   ],
   "stats": {
-    "nodes": 46,
-    "edges": 113,
+    "nodes": 47,
+    "edges": 87,
     "articles": 23,
-    "papers": 20,
+    "papers": 21,
     "datasets": 3
   }
 }

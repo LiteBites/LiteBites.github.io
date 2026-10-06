@@ -13,7 +13,7 @@ OUTPUT = File.join(ROOT, "assets", "data", "knowledge-graph.json")
 STATE = File.join(ROOT, "_data", "knowledge-graph-state.json")
 CURATED = File.join(ROOT, "_data", "knowledge-graph-relations.yml")
 SCHEMA_VERSION = 1
-GENERATOR_VERSION = 4
+GENERATOR_VERSION = 6
 MAX_INFERRED_NEIGHBORS = 4
 
 CONCEPT_RULES = {
@@ -29,7 +29,10 @@ CONCEPT_RULES = {
   "Transfer & Adaptation" => [/transfer learning/i, /fine.?tun/i, /adaptation/i, /personalization/i]
 }.freeze
 
-GENERIC_TOPICS = Set.new(["Computer Vision", "Generative AI", "Language Models", "Datasets"]).freeze
+GENERIC_TOPICS = Set.new([
+  "Computer Vision", "Generative AI", "Language Models", "Datasets",
+  "Multimodal AI", "Efficient AI", "Transfer & Adaptation"
+]).freeze
 
 
 def front_matter(path)
@@ -115,8 +118,11 @@ def inferred_edge(left, right)
     [left["topicWeights"].fetch(topic, 1), right["topicWeights"].fetch(topic, 1)].min
   end
   score += 1 if left["type"] != right["type"]
-  meaningful = shared.any? { |topic| !GENERIC_TOPICS.include?(topic) }
-  return nil if score < 2 && !meaningful
+  meaningful = shared.any? do |topic|
+    !GENERIC_TOPICS.include?(topic) ||
+      [left["topicWeights"].fetch(topic, 1), right["topicWeights"].fetch(topic, 1)].min >= 3
+  end
+  return nil unless meaningful
 
   source, target = [left["id"], right["id"]].sort
   {
