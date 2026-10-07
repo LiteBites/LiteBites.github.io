@@ -263,6 +263,22 @@
       ]
     },
     {
+      "id": "article:openai-dots-delegated-work",
+      "slug": "openai-dots-delegated-work",
+      "type": "article",
+      "title": "OpenAI Dots Give an Agent a Workspace—and a Longer Leash",
+      "shortTitle": "OpenAI Dots: Delegated Work",
+      "url": "/articles/openai-dots-delegated-work/",
+      "summary": "OpenAI's Dots pair persistent cloud workspaces with connected apps and action review; the useful boundary is between read-only background research and approved changes.",
+      "date": "2026-10-07",
+      "meta": "OpenAI / 4 min read",
+      "topics": [
+        "AI Agents",
+        "Agent Safety",
+        "Workplace AI"
+      ]
+    },
+    {
       "id": "article:perplexity-decisions-vs-jev",
       "slug": "perplexity-decisions-vs-jev",
       "type": "article",
@@ -940,6 +956,18 @@
       "provenance": "metadata"
     },
     {
+      "id": "article:claude-opus-5-5|article:openai-dots-delegated-work",
+      "source": "article:claude-opus-5-5",
+      "target": "article:openai-dots-delegated-work",
+      "relation": "shared-topic",
+      "label": "AI Agents",
+      "topics": [
+        "AI Agents"
+      ],
+      "weight": 3,
+      "provenance": "metadata"
+    },
+    {
       "id": "article:claude-opus-5-5|article:perplexity-decisions-vs-jev",
       "source": "article:claude-opus-5-5",
       "target": "article:perplexity-decisions-vs-jev",
@@ -1376,6 +1404,18 @@
       "provenance": "metadata"
     },
     {
+      "id": "article:graph-engineering|article:openai-dots-delegated-work",
+      "source": "article:graph-engineering",
+      "target": "article:openai-dots-delegated-work",
+      "relation": "shared-topic",
+      "label": "AI Agents",
+      "topics": [
+        "AI Agents"
+      ],
+      "weight": 3,
+      "provenance": "metadata"
+    },
+    {
       "id": "article:graph-engineering|article:perplexity-decisions-vs-jev",
       "source": "article:graph-engineering",
       "target": "article:perplexity-decisions-vs-jev",
@@ -1392,6 +1432,18 @@
       "id": "article:hancom-nomadian-ai-workforce|article:meta-muse-agent-trust",
       "source": "article:hancom-nomadian-ai-workforce",
       "target": "article:meta-muse-agent-trust",
+      "relation": "shared-topic",
+      "label": "AI Agents",
+      "topics": [
+        "AI Agents"
+      ],
+      "weight": 3,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:hancom-nomadian-ai-workforce|article:openai-dots-delegated-work",
+      "source": "article:hancom-nomadian-ai-workforce",
+      "target": "article:openai-dots-delegated-work",
       "relation": "shared-topic",
       "label": "AI Agents",
       "topics": [
@@ -1446,6 +1498,18 @@
       "label": "AI Coding Agents",
       "topics": [
         "AI Coding Agents"
+      ],
+      "weight": 3,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:meta-muse-agent-trust|article:openai-dots-delegated-work",
+      "source": "article:meta-muse-agent-trust",
+      "target": "article:openai-dots-delegated-work",
+      "relation": "shared-topic",
+      "label": "AI Agents",
+      "topics": [
+        "AI Agents"
       ],
       "weight": 3,
       "provenance": "metadata"
@@ -1920,9 +1984,9 @@
     }
   ],
   "stats": {
-    "nodes": 47,
-    "edges": 87,
-    "articles": 23,
+    "nodes": 48,
+    "edges": 91,
+    "articles": 24,
     "papers": 21,
     "datasets": 3
   }
