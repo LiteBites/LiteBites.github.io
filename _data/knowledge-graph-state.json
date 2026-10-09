@@ -291,6 +291,29 @@
       "sourcePath": "_articles/kiro-students-offer.md"
     },
     {
+      "id": "article:lightonocr-3-grounded-document-parsing",
+      "slug": "lightonocr-3-grounded-document-parsing",
+      "type": "article",
+      "title": "LightOnOCR-3 Adds Page Grounding to OCR—But the Pipeline Moved Upstream",
+      "shortTitle": "LightOnOCR-3: OCR + Grounding",
+      "url": "/articles/lightonocr-3-grounded-document-parsing/",
+      "summary": "LightOnOCR-3 puts transcription, layout boxes, image descriptions, and chart tables into one model, though benchmark formatting and upstream annotation still matter.",
+      "date": "2026-10-09",
+      "meta": "LightOn AI on Hugging Face / 4 min read",
+      "topics": [
+        "Document Parsing",
+        "Optical Character Recognition",
+        "Vision-Language Models"
+      ],
+      "topicWeights": {
+        "Document Parsing": 3,
+        "Optical Character Recognition": 3,
+        "Vision-Language Models": 3
+      },
+      "sourceHash": "f3acf4fe58e4f18d15adb3b9bdc4036745c236f305e87ee5a781d6c43681ef22",
+      "sourcePath": "_articles/lightonocr-3-grounded-document-parsing.md"
+    },
+    {
       "id": "article:meta-muse-agent-trust",
       "slug": "meta-muse-agent-trust",
       "type": "article",
@@ -1927,6 +1950,55 @@
       "provenance": "metadata"
     },
     {
+      "id": "article:lightonocr-3-grounded-document-parsing|paper:beta-kd-uncertainty-aware-distillation",
+      "source": "article:lightonocr-3-grounded-document-parsing",
+      "target": "paper:beta-kd-uncertainty-aware-distillation",
+      "relation": "shared-topic",
+      "label": "Vision-Language Models",
+      "topics": [
+        "Vision-Language Models"
+      ],
+      "weight": 4,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:lightonocr-3-grounded-document-parsing|paper:chain-of-zoom",
+      "source": "article:lightonocr-3-grounded-document-parsing",
+      "target": "paper:chain-of-zoom",
+      "relation": "shared-topic",
+      "label": "Vision-Language Models",
+      "topics": [
+        "Vision-Language Models"
+      ],
+      "weight": 4,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:lightonocr-3-grounded-document-parsing|paper:dora-weight-decomposed-low-rank-adaptation",
+      "source": "article:lightonocr-3-grounded-document-parsing",
+      "target": "paper:dora-weight-decomposed-low-rank-adaptation",
+      "relation": "shared-topic",
+      "label": "Vision-Language Models",
+      "topics": [
+        "Vision-Language Models"
+      ],
+      "weight": 4,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:lightonocr-3-grounded-document-parsing|paper:novalad-document-extraction",
+      "source": "article:lightonocr-3-grounded-document-parsing",
+      "target": "paper:novalad-document-extraction",
+      "relation": "shared-topic",
+      "label": "Document Parsing · Optical Character Recognition",
+      "topics": [
+        "Document Parsing",
+        "Optical Character Recognition"
+      ],
+      "weight": 7,
+      "provenance": "metadata"
+    },
+    {
       "id": "article:meta-muse-agent-trust|article:openai-dots-delegated-work",
       "source": "article:meta-muse-agent-trust",
       "target": "article:openai-dots-delegated-work",
@@ -2477,9 +2549,9 @@
     }
   ],
   "stats": {
-    "nodes": 49,
-    "edges": 96,
-    "articles": 24,
+    "nodes": 50,
+    "edges": 100,
+    "articles": 25,
     "papers": 22,
     "datasets": 3
   }
