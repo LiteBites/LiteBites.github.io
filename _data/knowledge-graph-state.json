@@ -1204,6 +1204,35 @@
       "sourcePath": "_posts/2026-09-29-turboquant.md"
     },
     {
+      "id": "paper:beta-kd-uncertainty-aware-distillation",
+      "slug": "beta-kd-uncertainty-aware-distillation",
+      "type": "paper",
+      "title": "Uncertainty-Aware Knowledge Distillation for Multimodal Large Language Models",
+      "shortTitle": "Beta-KD",
+      "url": "/posts/beta-kd-uncertainty-aware-distillation/",
+      "summary": "Beta-KD learns how strongly a multimodal student should follow its teacher, but its gains depend on the loss and comparison being examined.",
+      "date": "2026-10-09",
+      "meta": "CVPR 2026 / 7 min read",
+      "topics": [
+        "Bayesian Learning",
+        "Knowledge Distillation",
+        "Language Models",
+        "Multimodal AI",
+        "Multimodal Models",
+        "Vision-Language Models"
+      ],
+      "topicWeights": {
+        "Bayesian Learning": 3,
+        "Knowledge Distillation": 3,
+        "Language Models": 1,
+        "Multimodal AI": 1,
+        "Multimodal Models": 3,
+        "Vision-Language Models": 3
+      },
+      "sourceHash": "f90180f7fdf6534c8c73d073f67f32a6c1a5933a92c30130630a45198dab3c9b",
+      "sourcePath": "_posts/2026-10-09-beta-kd-uncertainty-aware-distillation.md"
+    },
+    {
       "id": "paper:vit-comer",
       "slug": "vit-comer",
       "type": "paper",
@@ -2150,6 +2179,75 @@
       "provenance": "metadata"
     },
     {
+      "id": "paper:beta-kd-uncertainty-aware-distillation|paper:chain-of-zoom",
+      "source": "paper:beta-kd-uncertainty-aware-distillation",
+      "target": "paper:chain-of-zoom",
+      "relation": "shared-topic",
+      "label": "Language Models · Multimodal AI · Vision-Language Models",
+      "topics": [
+        "Language Models",
+        "Multimodal AI",
+        "Vision-Language Models"
+      ],
+      "weight": 5,
+      "provenance": "metadata"
+    },
+    {
+      "id": "paper:beta-kd-uncertainty-aware-distillation|paper:dora-weight-decomposed-low-rank-adaptation",
+      "source": "paper:beta-kd-uncertainty-aware-distillation",
+      "target": "paper:dora-weight-decomposed-low-rank-adaptation",
+      "relation": "shared-topic",
+      "label": "Language Models · Multimodal AI · Vision-Language Models",
+      "topics": [
+        "Language Models",
+        "Multimodal AI",
+        "Vision-Language Models"
+      ],
+      "weight": 5,
+      "provenance": "metadata"
+    },
+    {
+      "id": "paper:beta-kd-uncertainty-aware-distillation|paper:lance-unified-multimodal",
+      "source": "paper:beta-kd-uncertainty-aware-distillation",
+      "target": "paper:lance-unified-multimodal",
+      "relation": "shared-topic",
+      "label": "Multimodal AI · Multimodal Models",
+      "topics": [
+        "Multimodal AI",
+        "Multimodal Models"
+      ],
+      "weight": 4,
+      "provenance": "metadata"
+    },
+    {
+      "id": "paper:beta-kd-uncertainty-aware-distillation|paper:mmr-ad",
+      "source": "paper:beta-kd-uncertainty-aware-distillation",
+      "target": "paper:mmr-ad",
+      "relation": "shared-topic",
+      "label": "Language Models · Multimodal AI · Multimodal Models",
+      "topics": [
+        "Language Models",
+        "Multimodal AI",
+        "Multimodal Models"
+      ],
+      "weight": 5,
+      "provenance": "metadata"
+    },
+    {
+      "id": "paper:beta-kd-uncertainty-aware-distillation|paper:thinksound",
+      "source": "paper:beta-kd-uncertainty-aware-distillation",
+      "target": "paper:thinksound",
+      "relation": "shared-topic",
+      "label": "Language Models · Multimodal AI · Multimodal Models",
+      "topics": [
+        "Language Models",
+        "Multimodal AI",
+        "Multimodal Models"
+      ],
+      "weight": 5,
+      "provenance": "metadata"
+    },
+    {
       "id": "paper:chain-of-zoom|paper:dora-weight-decomposed-low-rank-adaptation",
       "source": "paper:chain-of-zoom",
       "target": "paper:dora-weight-decomposed-low-rank-adaptation",
@@ -2379,10 +2477,10 @@
     }
   ],
   "stats": {
-    "nodes": 48,
-    "edges": 91,
+    "nodes": 49,
+    "edges": 96,
     "articles": 24,
-    "papers": 21,
+    "papers": 22,
     "datasets": 3
   }
 }
