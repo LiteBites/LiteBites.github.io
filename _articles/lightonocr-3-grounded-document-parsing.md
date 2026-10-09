@@ -38,7 +38,24 @@ That compact inline format matters when the output feeds search or chunking. It 
 
 ## The benchmark depends on its wrapper
 
-In the [release's olmOCR-Bench table](https://huggingface.co/blog/lightonai/lightonocr-3), LightOnOCR-3-4B scores **86.3 overall**: above Chandra 2's **85.8**, but below Infinity Parser Pro's **87.6**. On ParseBench's five-category average, the 4B-named model scores **75.1**, narrowly above Infinity's **74.3**. These are LightOn's reported evaluations, not an independent head-to-head run by LiteBites. The old LightOnOCR-2 row omits a category from its olmOCR overall score, so it is not a clean before-and-after comparison.
+LightOn reports these **overall scores** across three separate document benchmarks. This is a selection from its release tables, **not** a complete leaderboard or an independent LiteBites evaluation. The model-name links identify publisher-hosted checkpoints; the **numbers come from LightOn’s [release](https://huggingface.co/blog/lightonai/lightonocr-3)**, not those model cards.
+
+<div class="paper-results-scroll" role="region" aria-label="LightOnOCR-3 selected benchmark scores" tabindex="0">
+  <table class="paper-results-table">
+    <caption>LightOn-reported overall scores (higher is better <em>within</em> each column; different benchmarks have different tasks).</caption>
+    <thead>
+      <tr><th scope="col">Model ↗</th><th scope="col">olmOCR-Bench</th><th scope="col">ParseBench (5 cats)</th><th scope="col">fr-bench-pdf2md</th></tr>
+    </thead>
+    <tbody>
+      <tr><th scope="row"><a href="https://huggingface.co/lightonai/LightOnOCR-3-4B">LightOnOCR-3-4B ↗</a></th><td>86.3</td><td>75.1</td><td>74.1</td></tr>
+      <tr><th scope="row"><a href="https://huggingface.co/lightonai/LightOnOCR-3-0.8B">LightOnOCR-3-0.8B ↗</a></th><td>85.5</td><td>74.6</td><td>70.5</td></tr>
+      <tr><th scope="row"><a href="https://huggingface.co/lightonai/LightOnOCR-3-1B">LightOnOCR-3-1B ↗</a></th><td>84.5</td><td>71.4</td><td>69.6</td></tr>
+      <tr><th scope="row"><a href="https://huggingface.co/infly/Infinity-Parser2-Pro">Infinity Parser Pro ↗</a></th><td>87.6</td><td>74.3</td><td>63.2</td></tr>
+      <tr><th scope="row"><a href="https://huggingface.co/datalab-to/chandra-ocr-2">Chandra 2 ↗</a></th><td>85.8</td><td>70.1</td><td>69.0</td></tr>
+    </tbody>
+  </table>
+</div>
+<p class="paper-results-note">Selected rows in the <a href="https://huggingface.co/blog/lightonai/lightonocr-3">October 8 release tables</a>. The blog calls the linked Infinity-Parser2-Pro checkpoint “Infinity Parser Pro.” Scores and processing setups should not be treated as controlled model-only comparisons; scroll the table horizontally on small screens. The older LightOnOCR-2 row is excluded because its olmOCR overall omits one category.</p>
 
 The release itself warns that edit-distance scoring is sensitive to formatting and applies normalization before evaluation. There is also a visible snapshot difference: the author's [October 5 benchmark repository](https://github.com/lightonai/LightOnOCR/tree/36755d461be079737860a5f03ae0c803501269e9/benchmarks) lists **86.1** for the 4B model under a named postprocessing pipeline, rather than the blog's **86.3**. Its comparison rows differ too. The repository pins scripts and revisions, which helps reproduction, but these two sets of numbers should not be combined into one leaderboard without reconciling their pipelines.
 
