@@ -425,6 +425,29 @@
       "sourcePath": "_articles/openai-dots-delegated-work.md"
     },
     {
+      "id": "article:orca-worktree-first-agent-ide",
+      "slug": "orca-worktree-first-agent-ide",
+      "type": "article",
+      "title": "Orca Puts Coding Agents in Separate Git Worktrees",
+      "shortTitle": "Orca: One Task per Worktree",
+      "url": "/articles/orca-worktree-first-agent-ide/",
+      "summary": "Orca gives each coding-agent task a real Git worktree and a reviewable diff; this beginner walkthrough starts with just one agent.",
+      "date": "2026-10-10",
+      "meta": "Stably AI / Orca / 4 min read",
+      "topics": [
+        "AI Coding Agents",
+        "Agent Infrastructure",
+        "Developer Tools"
+      ],
+      "topicWeights": {
+        "AI Coding Agents": 3,
+        "Agent Infrastructure": 3,
+        "Developer Tools": 3
+      },
+      "sourceHash": "3024f701f227602b2b215b0fc0f726ebffc27ac4ed64891c4838e5d93f307d2e",
+      "sourcePath": "_articles/orca-worktree-first-agent-ide.md"
+    },
+    {
       "id": "article:perplexity-decisions-vs-jev",
       "slug": "perplexity-decisions-vs-jev",
       "type": "article",
@@ -1651,42 +1674,6 @@
       "provenance": "metadata"
     },
     {
-      "id": "article:gpt-6-1-sol-vs-astra|article:graph-engineering",
-      "source": "article:gpt-6-1-sol-vs-astra",
-      "target": "article:graph-engineering",
-      "relation": "shared-topic",
-      "label": "Developer Tools",
-      "topics": [
-        "Developer Tools"
-      ],
-      "weight": 3,
-      "provenance": "metadata"
-    },
-    {
-      "id": "article:gpt-6-1-sol-vs-astra|article:jev-system-one-model",
-      "source": "article:gpt-6-1-sol-vs-astra",
-      "target": "article:jev-system-one-model",
-      "relation": "shared-topic",
-      "label": "AI Models",
-      "topics": [
-        "AI Models"
-      ],
-      "weight": 3,
-      "provenance": "metadata"
-    },
-    {
-      "id": "article:gpt-6-1-sol-vs-astra|article:kiro-students-offer",
-      "source": "article:gpt-6-1-sol-vs-astra",
-      "target": "article:kiro-students-offer",
-      "relation": "shared-topic",
-      "label": "Developer Tools",
-      "topics": [
-        "Developer Tools"
-      ],
-      "weight": 3,
-      "provenance": "metadata"
-    },
-    {
       "id": "article:gpt-6-1-sol-vs-astra|article:perplexity-decisions-vs-jev",
       "source": "article:gpt-6-1-sol-vs-astra",
       "target": "article:perplexity-decisions-vs-jev",
@@ -1710,18 +1697,6 @@
         "Developer Tools"
       ],
       "weight": 6,
-      "provenance": "metadata"
-    },
-    {
-      "id": "article:gpt-6-1-sol-vs-astra|article:ponytail-caveman-agent-efficiency",
-      "source": "article:gpt-6-1-sol-vs-astra",
-      "target": "article:ponytail-caveman-agent-efficiency",
-      "relation": "shared-topic",
-      "label": "Developer Tools",
-      "topics": [
-        "Developer Tools"
-      ],
-      "weight": 3,
       "provenance": "metadata"
     },
     {
@@ -1863,6 +1838,19 @@
       "provenance": "metadata"
     },
     {
+      "id": "article:graph-engineering|article:orca-worktree-first-agent-ide",
+      "source": "article:graph-engineering",
+      "target": "article:orca-worktree-first-agent-ide",
+      "relation": "shared-topic",
+      "label": "Agent Infrastructure · Developer Tools",
+      "topics": [
+        "Agent Infrastructure",
+        "Developer Tools"
+      ],
+      "weight": 6,
+      "provenance": "metadata"
+    },
+    {
       "id": "article:graph-engineering|article:perplexity-decisions-vs-jev",
       "source": "article:graph-engineering",
       "target": "article:perplexity-decisions-vs-jev",
@@ -1900,6 +1888,19 @@
       "provenance": "metadata"
     },
     {
+      "id": "article:jev-system-one-model|article:orca-worktree-first-agent-ide",
+      "source": "article:jev-system-one-model",
+      "target": "article:orca-worktree-first-agent-ide",
+      "relation": "shared-topic",
+      "label": "AI Coding Agents · Agent Infrastructure",
+      "topics": [
+        "AI Coding Agents",
+        "Agent Infrastructure"
+      ],
+      "weight": 6,
+      "provenance": "metadata"
+    },
+    {
       "id": "article:jev-system-one-model|article:perplexity-decisions-vs-jev",
       "source": "article:jev-system-one-model",
       "target": "article:perplexity-decisions-vs-jev",
@@ -1922,6 +1923,19 @@
         "AI Coding Agents"
       ],
       "weight": 3,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:kiro-students-offer|article:orca-worktree-first-agent-ide",
+      "source": "article:kiro-students-offer",
+      "target": "article:orca-worktree-first-agent-ide",
+      "relation": "shared-topic",
+      "label": "AI Coding Agents · Developer Tools",
+      "topics": [
+        "AI Coding Agents",
+        "Developer Tools"
+      ],
+      "weight": 6,
       "provenance": "metadata"
     },
     {
@@ -2069,6 +2083,44 @@
       "label": "Open Models",
       "topics": [
         "Open Models"
+      ],
+      "weight": 3,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:orca-worktree-first-agent-ide|article:perplexity-decisions-vs-jev",
+      "source": "article:orca-worktree-first-agent-ide",
+      "target": "article:perplexity-decisions-vs-jev",
+      "relation": "shared-topic",
+      "label": "Agent Infrastructure · Developer Tools",
+      "topics": [
+        "Agent Infrastructure",
+        "Developer Tools"
+      ],
+      "weight": 6,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:orca-worktree-first-agent-ide|article:ponytail-caveman-agent-efficiency",
+      "source": "article:orca-worktree-first-agent-ide",
+      "target": "article:ponytail-caveman-agent-efficiency",
+      "relation": "shared-topic",
+      "label": "AI Coding Agents · Developer Tools",
+      "topics": [
+        "AI Coding Agents",
+        "Developer Tools"
+      ],
+      "weight": 6,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:orca-worktree-first-agent-ide|article:tibo-gpt-astra-rumor",
+      "source": "article:orca-worktree-first-agent-ide",
+      "target": "article:tibo-gpt-astra-rumor",
+      "relation": "shared-topic",
+      "label": "AI Coding Agents",
+      "topics": [
+        "AI Coding Agents"
       ],
       "weight": 3,
       "provenance": "metadata"
@@ -2549,9 +2601,9 @@
     }
   ],
   "stats": {
-    "nodes": 50,
-    "edges": 100,
-    "articles": 25,
+    "nodes": 51,
+    "edges": 102,
+    "articles": 26,
     "papers": 22,
     "datasets": 3
   }
