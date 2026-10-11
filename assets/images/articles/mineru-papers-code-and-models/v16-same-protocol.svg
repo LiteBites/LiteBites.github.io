@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="700" viewBox="0 0 1600 700" role="img" aria-labelledby="title desc">
+<title id="title">MinerU2.5 versus MinerU2.5-Pro: OmniDocBench v1.6 Full overall score</title>
+<desc id="desc">The measure is OmniDocBench v1.6 Full Overall, a composite: [(1 − Text Edit) × 100 + Table TEDS + Formula CDM] / 3. It is not a single NID, TEDS, or F1 score. Text Edit is a distance (lower is better); the other two components are scores (higher is better). Full-scale bars show author-reported MinerU2.5 baseline Overall 92.98 and MinerU2.5-Pro Overall 95.69, a 2.71-point difference. These are not scores from the older v1.5 paper.</desc>
+<rect width="1600" height="700" fill="#f6f6f1"/>
+<text x="72" y="90" fill="#172018" font-family="Arial,Helvetica,sans-serif" font-size="41" font-weight="700">A SAME-PROTOCOL COMPARISON</text>
+<text x="72" y="135" fill="#435047" font-family="Arial,Helvetica,sans-serif" font-size="25">OmniDocBench v1.6 Full · author-reported in the Pro paper</text>
+<text x="360" y="185" fill="#172018" font-family="Arial,Helvetica,sans-serif" font-size="22" font-weight="700">Measure: Overall = [(1 − Text Edit) × 100 + Table TEDS + Formula CDM] / 3</text>
+<line x1="360" y1="205" x2="360" y2="523" stroke="#a7b5ab" stroke-width="2"/><line x1="870" y1="205" x2="870" y2="523" stroke="#ced5cc" stroke-width="2"/><line x1="1380" y1="205" x2="1380" y2="523" stroke="#a7b5ab" stroke-width="2"/>
+<g fill="#445149" font-family="Arial,Helvetica,sans-serif" font-size="19"><text x="354" y="554">0</text><text x="854" y="554">50</text><text x="1348" y="554">100</text></g>
+<text x="72" y="293" fill="#172018" font-family="Arial,Helvetica,sans-serif" font-size="29" font-weight="700">MinerU2.5</text><text x="72" y="329" fill="#435047" font-family="Arial,Helvetica,sans-serif" font-size="20">baseline in Pro paper</text>
+<rect x="360" y="252" width="948.4" height="70" fill="#89978d"/><text x="1188.4" y="299" fill="#ffffff" font-family="Arial,Helvetica,sans-serif" font-size="30" font-weight="700">92.98</text>
+<text x="72" y="433" fill="#172018" font-family="Arial,Helvetica,sans-serif" font-size="29" font-weight="700">MinerU2.5-Pro</text><text x="72" y="469" fill="#435047" font-family="Arial,Helvetica,sans-serif" font-size="20">data + training revision</text>
+<rect x="360" y="392" width="976.0" height="70" fill="#2d793d"/><text x="1216.0" y="439" fill="#ffffff" font-family="Arial,Helvetica,sans-serif" font-size="30" font-weight="700">95.69</text>
+<line x1="72" y1="589" x2="1528" y2="589" stroke="#bac8bd" stroke-width="2"/>
+<text x="72" y="628" fill="#172018" font-family="Arial,Helvetica,sans-serif" font-size="25">+2.71 points in the Pro paper’s v1.6 Full evaluation — not a v1.5-to-v1.6 gain.</text>
+<text x="72" y="665" fill="#435047" font-family="Arial,Helvetica,sans-serif" font-size="19">Overall: 0–100, higher is better. Text Edit ↓; TEDS/CDM ↑. Authors’ results; not independently reproduced.</text>
+</svg>

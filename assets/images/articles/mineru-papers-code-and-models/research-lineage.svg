@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">Four MinerU research directions, not four interchangeable checkpoints</title>
+<desc id="desc">The original PDF extraction pipeline preceded the coarse-to-fine MinerU2.5 model. MinerU2.5-Pro retains that architecture but changes training data. MinerU-Diffusion is a separate decoder line that draws on the 2.5 dataset. Arrows mark research relationships, not drop-in compatibility.</desc>
+<rect width="1600" height="900" fill="#f6f6f1"/>
+<text x="72" y="94" fill="#172018" font-family="Arial,Helvetica,sans-serif" font-size="42" font-weight="700">FOUR PAPERS, THREE DIFFERENT MOVES</text>
+<text x="72" y="139" fill="#435047" font-family="Arial,Helvetica,sans-serif" font-size="25">LiteBites synthesis · schematic research lineage, not model compatibility</text>
+<line x1="462" y1="331" x2="584" y2="331" stroke="#46504a" stroke-width="4"/>
+<path d="M584 331 l-16 -9 v18 z" fill="#46504a"/>
+<text x="475" y="310" fill="#46504a" font-family="Arial,Helvetica,sans-serif" font-size="18">project evolution</text>
+<line x1="986" y1="331" x2="1108" y2="331" stroke="#46504a" stroke-width="4"/>
+<path d="M1108 331 l-16 -9 v18 z" fill="#46504a"/>
+<text x="999" y="310" fill="#46504a" font-family="Arial,Helvetica,sans-serif" font-size="18">same architecture</text>
+<line x1="791" y1="470" x2="791" y2="573" stroke="#607268" stroke-width="4" stroke-dasharray="12 9"/>
+<path d="M791 581 l-9 -16 h18 z" fill="#607268"/>
+<text x="815" y="531" fill="#46504a" font-family="Arial,Helvetica,sans-serif" font-size="20">shared training data; new decoder</text>
+<g fill="#ffffff" stroke="#bac8bd" stroke-width="2"><rect x="72" y="215" width="390" height="255" rx="6"/><rect x="596" y="215" width="390" height="255" rx="6"/><rect x="1120" y="215" width="390" height="255" rx="6"/><rect x="596" y="580" width="390" height="205" rx="6"/></g>
+<g font-family="Arial,Helvetica,sans-serif" fill="#162119">
+<text x="98" y="263" font-size="21" fill="#3b7041">2024 · PIPELINE</text><text x="98" y="313" font-size="34" font-weight="700">MinerU</text><text x="98" y="365" font-size="23">Component models</text><text x="98" y="398" font-size="23">+ layout-aware rules</text><text x="98" y="441" font-size="19" fill="#536158">PDF-Extract-Kit is not one model</text>
+<text x="622" y="263" font-size="21" fill="#3b7041">2025 · ARCHITECTURE</text><text x="622" y="313" font-size="34" font-weight="700">MinerU2.5</text><text x="622" y="365" font-size="23">Coarse page layout</text><text x="622" y="398" font-size="23">→ native-resolution crops</text><text x="622" y="441" font-size="19" fill="#536158">1.2B vision-language model</text>
+<text x="1146" y="263" font-size="21" fill="#3b7041">2026 · DATA + TRAINING</text><text x="1146" y="313" font-size="34" font-weight="700">MinerU2.5-Pro</text><text x="1146" y="365" font-size="23">Same 1.2B architecture</text><text x="1146" y="398" font-size="23">new data engine + stages</text><text x="1146" y="441" font-size="19" fill="#536158">v1.6 evaluation is separate</text>
+<text x="622" y="629" font-size="21" fill="#3b7041">2026 · PARALLEL DECODING</text><text x="622" y="679" font-size="34" font-weight="700">MinerU-Diffusion</text><text x="622" y="731" font-size="23">Block-wise token denoising</text><text x="622" y="764" font-size="19" fill="#536158">Separate 2.5B research model</text>
+</g>
+<line x1="72" y1="829" x2="1510" y2="829" stroke="#bac8bd" stroke-width="2"/>
+<text x="72" y="862" fill="#435047" font-family="Arial,Helvetica,sans-serif" font-size="19">Arrows summarize paper relationships; they do not promise interchangeable weights, APIs, or benchmarks.</text>
+</svg>

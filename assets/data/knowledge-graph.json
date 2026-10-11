@@ -3,6 +3,22 @@
   "generatorVersion": 6,
   "nodes": [
     {
+      "id": "article:mineru-papers-code-and-models",
+      "slug": "mineru-papers-code-and-models",
+      "type": "article",
+      "title": "A Field Guide to MinerU's Papers, Code, and Model Checkpoints",
+      "shortTitle": "MinerU: Papers to Checkpoints",
+      "url": "/articles/mineru-papers-code-and-models/",
+      "summary": "Four MinerU research papers trace a PDF extraction pipeline, a coarse-to-fine model, data-centric training, and diffusion OCR; here are the matching code and official model links.",
+      "date": "2026-10-11",
+      "meta": "OpenDataLab / MinerU / 4 min read",
+      "topics": [
+        "Document Parsing",
+        "Optical Character Recognition",
+        "Vision-Language Models"
+      ]
+    },
+    {
       "id": "article:qwenwork-workplace-agent-platform",
       "slug": "qwenwork-workplace-agent-platform",
       "type": "article",
@@ -1545,6 +1561,20 @@
       "provenance": "metadata"
     },
     {
+      "id": "article:lightonocr-3-grounded-document-parsing|article:mineru-papers-code-and-models",
+      "source": "article:lightonocr-3-grounded-document-parsing",
+      "target": "article:mineru-papers-code-and-models",
+      "relation": "shared-topic",
+      "label": "Document Parsing · Optical Character Recognition · Vision-Language Models",
+      "topics": [
+        "Document Parsing",
+        "Optical Character Recognition",
+        "Vision-Language Models"
+      ],
+      "weight": 9,
+      "provenance": "metadata"
+    },
+    {
       "id": "article:lightonocr-3-grounded-document-parsing|paper:beta-kd-uncertainty-aware-distillation",
       "source": "article:lightonocr-3-grounded-document-parsing",
       "target": "paper:beta-kd-uncertainty-aware-distillation",
@@ -1560,18 +1590,6 @@
       "id": "article:lightonocr-3-grounded-document-parsing|paper:chain-of-zoom",
       "source": "article:lightonocr-3-grounded-document-parsing",
       "target": "paper:chain-of-zoom",
-      "relation": "shared-topic",
-      "label": "Vision-Language Models",
-      "topics": [
-        "Vision-Language Models"
-      ],
-      "weight": 4,
-      "provenance": "metadata"
-    },
-    {
-      "id": "article:lightonocr-3-grounded-document-parsing|paper:dora-weight-decomposed-low-rank-adaptation",
-      "source": "article:lightonocr-3-grounded-document-parsing",
-      "target": "paper:dora-weight-decomposed-low-rank-adaptation",
       "relation": "shared-topic",
       "label": "Vision-Language Models",
       "topics": [
@@ -1603,6 +1621,43 @@
         "AI Agents"
       ],
       "weight": 3,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:mineru-papers-code-and-models|paper:beta-kd-uncertainty-aware-distillation",
+      "source": "article:mineru-papers-code-and-models",
+      "target": "paper:beta-kd-uncertainty-aware-distillation",
+      "relation": "shared-topic",
+      "label": "Vision-Language Models",
+      "topics": [
+        "Vision-Language Models"
+      ],
+      "weight": 4,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:mineru-papers-code-and-models|paper:chain-of-zoom",
+      "source": "article:mineru-papers-code-and-models",
+      "target": "paper:chain-of-zoom",
+      "relation": "shared-topic",
+      "label": "Vision-Language Models",
+      "topics": [
+        "Vision-Language Models"
+      ],
+      "weight": 4,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:mineru-papers-code-and-models|paper:novalad-document-extraction",
+      "source": "article:mineru-papers-code-and-models",
+      "target": "paper:novalad-document-extraction",
+      "relation": "shared-topic",
+      "label": "Document Parsing · Optical Character Recognition",
+      "topics": [
+        "Document Parsing",
+        "Optical Character Recognition"
+      ],
+      "weight": 7,
       "provenance": "metadata"
     },
     {
@@ -2182,9 +2237,9 @@
     }
   ],
   "stats": {
-    "nodes": 51,
-    "edges": 102,
-    "articles": 26,
+    "nodes": 52,
+    "edges": 105,
+    "articles": 27,
     "papers": 22,
     "datasets": 3
   }
