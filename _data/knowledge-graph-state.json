@@ -358,6 +358,29 @@
       "sourcePath": "_articles/meta-muse-agent-trust.md"
     },
     {
+      "id": "article:muse-wonder-models-for-agents",
+      "slug": "muse-wonder-models-for-agents",
+      "type": "article",
+      "title": "Muse Wonder Is a Model Family, Not the Muse Agent",
+      "shortTitle": "Muse Wonder: Model vs. Agent",
+      "url": "/articles/muse-wonder-models-for-agents/",
+      "summary": "Meta's Muse Wonder models launch for developers before reaching the Muse personal agent; access, memory claims, and benchmark provenance matter more than the shared name.",
+      "date": "2026-10-13",
+      "meta": "Meta Newsroom / 4 min read",
+      "topics": [
+        "AI Agents",
+        "Developer Tools",
+        "Large Language Models"
+      ],
+      "topicWeights": {
+        "AI Agents": 3,
+        "Developer Tools": 3,
+        "Large Language Models": 3
+      },
+      "sourceHash": "de8069b402eb731551fac39d3c72e8b74203ca78b99f271256dd6ab8ef577bba",
+      "sourcePath": "_articles/muse-wonder-models-for-agents.md"
+    },
+    {
       "id": "article:hancom-nomadian-ai-workforce",
       "slug": "hancom-nomadian-ai-workforce",
       "type": "article",
@@ -1449,6 +1472,19 @@
       "provenance": "metadata"
     },
     {
+      "id": "article:claude-opus-5-5|article:muse-wonder-models-for-agents",
+      "source": "article:claude-opus-5-5",
+      "target": "article:muse-wonder-models-for-agents",
+      "relation": "shared-topic",
+      "label": "AI Agents · Developer Tools",
+      "topics": [
+        "AI Agents",
+        "Developer Tools"
+      ],
+      "weight": 6,
+      "provenance": "metadata"
+    },
+    {
       "id": "article:claude-opus-5-5|article:openai-dots-delegated-work",
       "source": "article:claude-opus-5-5",
       "target": "article:openai-dots-delegated-work",
@@ -1534,18 +1570,6 @@
         "Developer Tools"
       ],
       "weight": 6,
-      "provenance": "metadata"
-    },
-    {
-      "id": "article:gemini-4-argon|article:graph-engineering",
-      "source": "article:gemini-4-argon",
-      "target": "article:graph-engineering",
-      "relation": "shared-topic",
-      "label": "Developer Tools",
-      "topics": [
-        "Developer Tools"
-      ],
-      "weight": 3,
       "provenance": "metadata"
     },
     {
@@ -1849,6 +1873,19 @@
       "provenance": "metadata"
     },
     {
+      "id": "article:graph-engineering|article:muse-wonder-models-for-agents",
+      "source": "article:graph-engineering",
+      "target": "article:muse-wonder-models-for-agents",
+      "relation": "shared-topic",
+      "label": "AI Agents · Developer Tools",
+      "topics": [
+        "AI Agents",
+        "Developer Tools"
+      ],
+      "weight": 6,
+      "provenance": "metadata"
+    },
+    {
       "id": "article:graph-engineering|article:openai-dots-delegated-work",
       "source": "article:graph-engineering",
       "target": "article:openai-dots-delegated-work",
@@ -1890,6 +1927,18 @@
       "id": "article:hancom-nomadian-ai-workforce|article:meta-muse-agent-trust",
       "source": "article:hancom-nomadian-ai-workforce",
       "target": "article:meta-muse-agent-trust",
+      "relation": "shared-topic",
+      "label": "AI Agents",
+      "topics": [
+        "AI Agents"
+      ],
+      "weight": 3,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:hancom-nomadian-ai-workforce|article:muse-wonder-models-for-agents",
+      "source": "article:hancom-nomadian-ai-workforce",
+      "target": "article:muse-wonder-models-for-agents",
       "relation": "shared-topic",
       "label": "AI Agents",
       "topics": [
@@ -2084,6 +2133,42 @@
         "Optical Character Recognition"
       ],
       "weight": 7,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:muse-wonder-models-for-agents|paper:dora-weight-decomposed-low-rank-adaptation",
+      "source": "article:muse-wonder-models-for-agents",
+      "target": "paper:dora-weight-decomposed-low-rank-adaptation",
+      "relation": "shared-topic",
+      "label": "Large Language Models",
+      "topics": [
+        "Large Language Models"
+      ],
+      "weight": 4,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:muse-wonder-models-for-agents|paper:genrec",
+      "source": "article:muse-wonder-models-for-agents",
+      "target": "paper:genrec",
+      "relation": "shared-topic",
+      "label": "Large Language Models",
+      "topics": [
+        "Large Language Models"
+      ],
+      "weight": 4,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:muse-wonder-models-for-agents|paper:lora",
+      "source": "article:muse-wonder-models-for-agents",
+      "target": "paper:lora",
+      "relation": "shared-topic",
+      "label": "Large Language Models",
+      "topics": [
+        "Large Language Models"
+      ],
+      "weight": 4,
       "provenance": "metadata"
     },
     {
@@ -2583,19 +2668,6 @@
       "provenance": "metadata"
     },
     {
-      "id": "paper:genrec|paper:prime-agent",
-      "source": "paper:genrec",
-      "target": "paper:prime-agent",
-      "relation": "shared-topic",
-      "label": "Context Engineering · Language Models",
-      "topics": [
-        "Context Engineering",
-        "Language Models"
-      ],
-      "weight": 4,
-      "provenance": "metadata"
-    },
-    {
       "id": "paper:lance-unified-multimodal|paper:mmr-ad",
       "source": "paper:lance-unified-multimodal",
       "target": "paper:mmr-ad",
@@ -2663,9 +2735,9 @@
     }
   ],
   "stats": {
-    "nodes": 52,
-    "edges": 105,
-    "articles": 27,
+    "nodes": 53,
+    "edges": 109,
+    "articles": 28,
     "papers": 22,
     "datasets": 3
   }
