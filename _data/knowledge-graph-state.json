@@ -1115,6 +1115,31 @@
       "sourcePath": "_posts/2026-08-24-prime-agent.md"
     },
     {
+      "id": "paper:rethinking-on-policy-distillation",
+      "slug": "rethinking-on-policy-distillation",
+      "type": "paper",
+      "title": "Rethinking On-Policy Distillation of Large Language Models: Phenomenology, Mechanism, and Recipe",
+      "shortTitle": "When a Stronger Teacher Fails to Teach",
+      "url": "/posts/rethinking-on-policy-distillation/",
+      "summary": "A stronger math-reasoning teacher can fail at on-policy distillation; local token agreement and transferable capabilities help explain why.",
+      "date": "2026-10-15",
+      "meta": "arXiv preprint, v2 (2026) / 7 min read",
+      "topics": [
+        "Knowledge Distillation",
+        "LLM Reasoning",
+        "Language Models",
+        "Post-Training"
+      ],
+      "topicWeights": {
+        "Knowledge Distillation": 3,
+        "LLM Reasoning": 3,
+        "Language Models": 1,
+        "Post-Training": 3
+      },
+      "sourceHash": "97655465bd74235e378bed04f5fbcbcad30aa8e72cd1f83b071d77ac9c2b974f",
+      "sourcePath": "_posts/2026-10-15-rethinking-on-policy-distillation.md"
+    },
+    {
       "id": "paper:retrieval-augmented-generation",
       "slug": "retrieval-augmented-generation",
       "type": "paper",
@@ -2505,6 +2530,19 @@
       "provenance": "metadata"
     },
     {
+      "id": "paper:beta-kd-uncertainty-aware-distillation|paper:rethinking-on-policy-distillation",
+      "source": "paper:beta-kd-uncertainty-aware-distillation",
+      "target": "paper:rethinking-on-policy-distillation",
+      "relation": "shared-topic",
+      "label": "Knowledge Distillation · Language Models",
+      "topics": [
+        "Knowledge Distillation",
+        "Language Models"
+      ],
+      "weight": 4,
+      "provenance": "metadata"
+    },
+    {
       "id": "paper:beta-kd-uncertainty-aware-distillation|paper:thinksound",
       "source": "paper:beta-kd-uncertainty-aware-distillation",
       "target": "paper:thinksound",
@@ -2735,10 +2773,10 @@
     }
   ],
   "stats": {
-    "nodes": 53,
-    "edges": 109,
+    "nodes": 54,
+    "edges": 110,
     "articles": 28,
-    "papers": 22,
+    "papers": 23,
     "datasets": 3
   }
 }

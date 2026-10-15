@@ -757,6 +757,23 @@
       ]
     },
     {
+      "id": "paper:rethinking-on-policy-distillation",
+      "slug": "rethinking-on-policy-distillation",
+      "type": "paper",
+      "title": "Rethinking On-Policy Distillation of Large Language Models: Phenomenology, Mechanism, and Recipe",
+      "shortTitle": "When a Stronger Teacher Fails to Teach",
+      "url": "/posts/rethinking-on-policy-distillation/",
+      "summary": "A stronger math-reasoning teacher can fail at on-policy distillation; local token agreement and transferable capabilities help explain why.",
+      "date": "2026-10-15",
+      "meta": "arXiv preprint, v2 (2026) / 7 min read",
+      "topics": [
+        "Knowledge Distillation",
+        "LLM Reasoning",
+        "Language Models",
+        "Post-Training"
+      ]
+    },
+    {
       "id": "paper:retrieval-augmented-generation",
       "slug": "retrieval-augmented-generation",
       "type": "paper",
@@ -2072,6 +2089,19 @@
       "provenance": "metadata"
     },
     {
+      "id": "paper:beta-kd-uncertainty-aware-distillation|paper:rethinking-on-policy-distillation",
+      "source": "paper:beta-kd-uncertainty-aware-distillation",
+      "target": "paper:rethinking-on-policy-distillation",
+      "relation": "shared-topic",
+      "label": "Knowledge Distillation · Language Models",
+      "topics": [
+        "Knowledge Distillation",
+        "Language Models"
+      ],
+      "weight": 4,
+      "provenance": "metadata"
+    },
+    {
       "id": "paper:beta-kd-uncertainty-aware-distillation|paper:thinksound",
       "source": "paper:beta-kd-uncertainty-aware-distillation",
       "target": "paper:thinksound",
@@ -2302,10 +2332,10 @@
     }
   ],
   "stats": {
-    "nodes": 53,
-    "edges": 109,
+    "nodes": 54,
+    "edges": 110,
     "articles": 28,
-    "papers": 22,
+    "papers": 23,
     "datasets": 3
   }
 }
