@@ -233,6 +233,21 @@
       ]
     },
     {
+      "id": "article:markitdown-document-to-markdown-check",
+      "slug": "markitdown-document-to-markdown-check",
+      "type": "article",
+      "title": "MarkItDown: When Document-to-Markdown Is Good Enough",
+      "shortTitle": "MarkItDown: Check the Output",
+      "url": "/articles/markitdown-document-to-markdown-check/",
+      "summary": "Microsoft's MarkItDown makes documents usable as Markdown for text-analysis pipelines, but a small DOCX/PDF test shows why structure, OCR, and input trust still need checking.",
+      "date": "2026-10-17",
+      "meta": "Microsoft MarkItDown / 3 min read",
+      "topics": [
+        "Developer Tools",
+        "Document Parsing"
+      ]
+    },
+    {
       "id": "article:meta-muse-agent-trust",
       "slug": "meta-muse-agent-trust",
       "type": "article",
@@ -1044,6 +1059,18 @@
       "provenance": "metadata"
     },
     {
+      "id": "article:claude-opus-5-5|article:markitdown-document-to-markdown-check",
+      "source": "article:claude-opus-5-5",
+      "target": "article:markitdown-document-to-markdown-check",
+      "relation": "shared-topic",
+      "label": "Developer Tools",
+      "topics": [
+        "Developer Tools"
+      ],
+      "weight": 3,
+      "provenance": "metadata"
+    },
+    {
       "id": "article:claude-opus-5-5|article:meta-muse-agent-trust",
       "source": "article:claude-opus-5-5",
       "target": "article:meta-muse-agent-trust",
@@ -1181,6 +1208,18 @@
       "provenance": "metadata"
     },
     {
+      "id": "article:gemini-4-argon|article:markitdown-document-to-markdown-check",
+      "source": "article:gemini-4-argon",
+      "target": "article:markitdown-document-to-markdown-check",
+      "relation": "shared-topic",
+      "label": "Developer Tools",
+      "topics": [
+        "Developer Tools"
+      ],
+      "weight": 3,
+      "provenance": "metadata"
+    },
+    {
       "id": "article:gemini-4-argon|article:meta-muse-agent-trust",
       "source": "article:gemini-4-argon",
       "target": "article:meta-muse-agent-trust",
@@ -1302,6 +1341,18 @@
         "Developer Tools"
       ],
       "weight": 6,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:gpt-6-1-sol-vs-astra|article:markitdown-document-to-markdown-check",
+      "source": "article:gpt-6-1-sol-vs-astra",
+      "target": "article:markitdown-document-to-markdown-check",
+      "relation": "shared-topic",
+      "label": "Developer Tools",
+      "topics": [
+        "Developer Tools"
+      ],
+      "weight": 3,
       "provenance": "metadata"
     },
     {
@@ -1668,6 +1719,18 @@
         "Optical Character Recognition"
       ],
       "weight": 7,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:markitdown-document-to-markdown-check|paper:novalad-document-extraction",
+      "source": "article:markitdown-document-to-markdown-check",
+      "target": "paper:novalad-document-extraction",
+      "relation": "shared-topic",
+      "label": "Document Parsing",
+      "topics": [
+        "Document Parsing"
+      ],
+      "weight": 4,
       "provenance": "metadata"
     },
     {
@@ -2332,9 +2395,9 @@
     }
   ],
   "stats": {
-    "nodes": 54,
-    "edges": 110,
-    "articles": 28,
+    "nodes": 55,
+    "edges": 114,
+    "articles": 29,
     "papers": 23,
     "datasets": 3
   }
