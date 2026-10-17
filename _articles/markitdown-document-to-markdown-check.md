@@ -1,6 +1,6 @@
 ---
 layout: article
-title: "MarkItDown: When Document-to-Markdown Is Good Enough"
+title: "MarkItDown: The Markdown Is Not the Document"
 short_title: "MarkItDown: Check the Output"
 date: 2026-10-17
 type: "Article Bite"
@@ -12,57 +12,67 @@ last_reviewed: 2026-10-17
 tags:
   - Document Parsing
   - Developer Tools
-summary: "Microsoft's MarkItDown makes documents usable as Markdown for text-analysis pipelines, but a small DOCX/PDF test shows why structure, OCR, and input trust still need checking."
+summary: "MarkItDown is useful for feeding document text to an LLM, not for guaranteeing layout or OCR: our tiny DOCX kept a heading, a text PDF lost structure, and an image-only PDF yielded no text."
 additional_sources:
-  - name: "MarkItDown README and security considerations"
-    url: "https://github.com/microsoft/markitdown"
+  - name: "MarkItDown v0.1.8 documentation and security guidance"
+    url: "https://github.com/microsoft/markitdown/blob/v0.1.8/README.md"
+  - name: "Built-in PDF converter implementation"
+    url: "https://github.com/microsoft/markitdown/blob/v0.1.8/packages/markitdown/src/markitdown/converters/_pdf_converter.py"
+  - name: "Built-in DOCX converter implementation"
+    url: "https://github.com/microsoft/markitdown/blob/v0.1.8/packages/markitdown/src/markitdown/converters/_docx_converter.py"
+  - name: "Optional OCR plugin documentation"
+    url: "https://github.com/microsoft/markitdown/blob/v0.1.8/packages/markitdown-ocr/README.md"
 ---
-A document can become Markdown without becoming a faithful copy of its original layout. That is the useful boundary of [Microsoft's MarkItDown](https://github.com/microsoft/markitdown): a Python library and CLI for preparing files for LLMs and other text-analysis tools. Its [September 21, 2026 v0.1.8 release](https://github.com/microsoft/markitdown/releases/tag/v0.1.8) mostly rolls up fixes; Microsoft expects typical output to remain largely unchanged from v0.1.7. This is a workflow to understand, not a dramatic new-model launch.
+**The quick take:** MarkItDown gives text-analysis systems Markdown, not a promise that every word or layout feature survived. In our three-file local check, one DOCX kept its heading, a text PDF lost that structure, and an image-only PDF produced an empty output. These are deliberately small examples, **not a benchmark**.
 
-## Markdown for analysis, not an exact replica
+Microsoft's [v0.1.8 release](https://github.com/microsoft/markitdown/releases/tag/v0.1.8), published September 21, 2026, largely rolls up fixes rather than launching a new parser. The reason to look at the tool is its workflow: one Python library or CLI can turn [many input formats](https://github.com/microsoft/markitdown/blob/v0.1.8/README.md) into Markdown for LLMs and other text-processing systems. The question is what that common format leaves behind.
 
-The [README](https://github.com/microsoft/markitdown#readme) lists PDF, Word, PowerPoint, Excel, HTML, images, audio, and other inputs. Markdown keeps headings, lists, links, and tables readable as text, which is handy before retrieval or summarization. But the project explicitly aims at **text analysis**, not high-fidelity document conversion for human presentation. Format support also depends on optional packages: installing the base package alone is not the same as installing every converter.
+## Three files, three outcomes
 
-That distinction matters if a document's visual layout carries meaning. A heading and a table can survive conversion differently from a PDF's positioned text. The [built-in and cloud-converter comparison](https://github.com/microsoft/markitdown#azure-content-understanding) distinguishes offline, format-specific extraction from billable Azure layout/OCR analysis. The separate `markitdown-ocr` plugin uses an LLM client for image text inside Office documents and PDFs; it is **not** automatic built-in OCR. Do not assume a scanned PDF will yield the words visible on its pages.
+We generated three **synthetic, one-page** files: a DOCX with a heading, sentence, and two-column table; a PDF with those words drawn as selectable text; and a PDF containing only an image of text. Then we ran the **v0.1.8 CLI** with `[docx,pdf]` extras and no plugin, LLM, or Azure integration. Here is the actual outcome, not a format-wide success rate:
 
-## A small DOCX/PDF smoke test
+<div class="paper-results-scroll" role="region" aria-label="MarkItDown v0.1.8 results on three synthetic documents" tabindex="0">
+  <table class="paper-results-table">
+    <caption>Our three-file local smoke test; swipe horizontally on small screens. No quality ranking across file types.</caption>
+    <thead><tr><th scope="col">Input</th><th scope="col">Markdown output</th><th scope="col">Check before reuse</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">DOCX</th><td>Heading, sentence, and table</td><td>An empty table header row appeared in this sample</td></tr>
+      <tr><th scope="row">Text PDF</th><td>The words as plain lines</td><td>No heading or table structure in this sample</td></tr>
+      <tr><th scope="row">Image-only PDF</th><td>Empty file</td><td>Text needs an OCR-capable route</td></tr>
+    </tbody>
+  </table>
+</div>
 
-For a reproducible check, we ran the **v0.1.8** CLI locally on two tiny, synthetic documents with the same content: a DOCX with a level-one heading, sentence, and two-column table, and a PDF drawing those words at page coordinates. Neither used Azure, plugins, or an LLM. To try a local file yourself in a Python 3.10–3.14 virtual environment:
+The DOCX table's `Item | Owner` row was made from ordinary table cells, not explicitly marked as a header; it came through as **data**, below a blank Markdown header. The text PDF preserved `Quarterly review` and `The launch is on Tuesday.` but not a Markdown heading. This is why a quick look at generated text matters more than a supported-format checklist.
 
-```bash
-pip install 'markitdown[docx,pdf]==0.1.8'
+## Why the routes differ
+
+The [DOCX converter](https://github.com/microsoft/markitdown/blob/v0.1.8/packages/markitdown/src/markitdown/converters/_docx_converter.py) passes the document through Mammoth's HTML conversion, then turns that HTML into Markdown, preserving styles and tables where possible. The [built-in PDF converter](https://github.com/microsoft/markitdown/blob/v0.1.8/packages/markitdown/src/markitdown/converters/_pdf_converter.py) extracts text using pdfplumber and pdfminer; it can recognize some form-style tables, so our plain-lines result **does not mean all PDF tables fail**. Neither path implies OCR for an image-only PDF.
+
+If images contain needed words, the separately installed [MarkItDown OCR plugin](https://github.com/microsoft/markitdown/blob/v0.1.8/packages/markitdown-ocr/README.md) can process embedded images and scanned PDF pages **when configured with a vision-capable LLM client**. Microsoft also documents billable Azure conversion routes for layout analysis and OCR. Those are different data and cost decisions from our local built-in test. The project's own [README](https://github.com/microsoft/markitdown/blob/v0.1.8/README.md) targets text analysis rather than presentation-perfect conversion; our [MinerU guide]({{ '/articles/mineru-papers-code-and-models/' | relative_url }}) examines another PDF-oriented ecosystem, not a head-to-head benchmark.
+
+## Run a safe first check
+
+In a Python 3.10–3.14 virtual environment, install only the converters you need and inspect their output:
+
+<div class="article-ascii-scroll" role="region" aria-label="MarkItDown installation and conversion commands; scroll horizontally if needed" tabindex="0">
+  <pre><code>pip install 'markitdown[docx,pdf]==0.1.8'
 markitdown review.docx -o review.md
-```
+markitdown review.pdf -o review-pdf.md</code></pre>
+</div>
+<p class="paper-results-note">On a narrow screen, swipe the commands sideways or focus this block and use the arrow keys.</p>
 
-The DOCX became a heading followed by the sentence and this Markdown table. Notice the **empty first row** before `Item | Owner`:
+For production inputs, the [security guidance](https://github.com/microsoft/markitdown/blob/v0.1.8/README.md#security-considerations) matters too: permissive `convert()` can read local paths and fetch URLs with your process's privileges. A local DOCX/PDF run need not call a cloud service, but URL inputs and configured vision or Azure routes may send data outside your machine. Do not pass arbitrary user-controlled paths or URLs into a service; validate them and use narrower APIs such as `convert_local()` or `convert_stream()`.
 
-```md
-# Quarterly review
-
-The launch is on Tuesday.
-
-|  |  |
-| --- | --- |
-| Item | Owner |
-| Checklist | Alex |
-```
-
-The PDF preserved the words but produced plain lines, not a heading or table. These are observations from **our two constructed files**, not a quality score or a claim about all DOCX and PDF conversions. Inspect the output before using headings or tables as retrieval boundaries. For a scanned page or a complex layout, this tiny test says nothing about extraction quality.
-
-## Where the convenience ends
-
-MarkItDown's default `convert()` API accepts local files, remote URIs, and streams. The project's [security guidance](https://github.com/microsoft/markitdown#security-considerations) says it performs I/O with the privileges of your process. In a service, passing a user-supplied path or URL straight to it can expose local or internal resources; validate allowed paths, URI schemes, and destinations, or use the narrower `convert_local()` or `convert_stream()` APIs. **Local conversion of these test files did not use a cloud service**, but that is not a promise for every converter: URL inputs fetch remotely, and configured OCR, vision, or Azure routes can send data outside the process. Plugins are disabled by default and should be enabled only when the extra code and its data flow are understood.
-
-For a research-paper PDF where layout and OCR are central, see our [MinerU field guide]({{ '/articles/mineru-papers-code-and-models/' | relative_url }}). The two tools are not compared on a common benchmark here; they answer different starting questions.
-
-## Before you put it in a pipeline
-
-- Install only the extras your formats need; pin the version when reproducibility matters.
-- Compare source and Markdown on a few representative files, especially tables, ordering, and missing text.
-- Decide whether OCR or a billable cloud service is appropriate before sending sensitive documents anywhere.
-- Constrain untrusted paths and URLs; prefer the narrowest conversion method your application actually needs.
+- Check representative source/output pairs for missing text, reading order, and table semantics.
+- Treat an empty scanned-PDF result as a signal to evaluate OCR, not as a successful conversion.
+- Decide whether optional vision or cloud processing is acceptable for sensitive files.
+- Restrict untrusted inputs before conversion; a file-to-Markdown library is not an access-control boundary.
 
 ## Sources
 
 - [MarkItDown v0.1.8 release — Microsoft, September 21, 2026](https://github.com/microsoft/markitdown/releases/tag/v0.1.8)
-- [MarkItDown repository, installation, converter options, and security guidance](https://github.com/microsoft/markitdown)
+- [MarkItDown v0.1.8 README, installation, Azure paths, and security guidance](https://github.com/microsoft/markitdown/blob/v0.1.8/README.md)
+- [MarkItDown v0.1.8 DOCX converter](https://github.com/microsoft/markitdown/blob/v0.1.8/packages/markitdown/src/markitdown/converters/_docx_converter.py)
+- [MarkItDown v0.1.8 PDF converter](https://github.com/microsoft/markitdown/blob/v0.1.8/packages/markitdown/src/markitdown/converters/_pdf_converter.py)
+- [MarkItDown OCR plugin documentation](https://github.com/microsoft/markitdown/blob/v0.1.8/packages/markitdown-ocr/README.md)

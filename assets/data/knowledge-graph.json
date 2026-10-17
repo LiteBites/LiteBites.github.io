@@ -236,10 +236,10 @@
       "id": "article:markitdown-document-to-markdown-check",
       "slug": "markitdown-document-to-markdown-check",
       "type": "article",
-      "title": "MarkItDown: When Document-to-Markdown Is Good Enough",
+      "title": "MarkItDown: The Markdown Is Not the Document",
       "shortTitle": "MarkItDown: Check the Output",
       "url": "/articles/markitdown-document-to-markdown-check/",
-      "summary": "Microsoft's MarkItDown makes documents usable as Markdown for text-analysis pipelines, but a small DOCX/PDF test shows why structure, OCR, and input trust still need checking.",
+      "summary": "MarkItDown is useful for feeding document text to an LLM, not for guaranteeing layout or OCR: our tiny DOCX kept a heading, a text PDF lost structure, and an image-only PDF yielded no text.",
       "date": "2026-10-17",
       "meta": "Microsoft MarkItDown / 3 min read",
       "topics": [
