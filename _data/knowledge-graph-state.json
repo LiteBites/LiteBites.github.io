@@ -634,6 +634,27 @@
       "sourcePath": "_articles/slides-grab.md"
     },
     {
+      "id": "article:wabi-shared-ai-assistant-mini-apps",
+      "slug": "wabi-shared-ai-assistant-mini-apps",
+      "type": "article",
+      "title": "Wabi's Pivot: The AI Assistant Makes the App",
+      "shortTitle": "Wabi: Apps Inside the Chat",
+      "url": "/articles/wabi-shared-ai-assistant-mini-apps/",
+      "summary": "Wabi has shifted from sharing user-made mini-apps to an assistant that puts task-specific interfaces in group chats; its actions and data boundaries matter more than the demo.",
+      "date": "2026-10-21",
+      "meta": "TechCrunch / 3 min read",
+      "topics": [
+        "AI Agents",
+        "Generative UI"
+      ],
+      "topicWeights": {
+        "AI Agents": 3,
+        "Generative UI": 3
+      },
+      "sourceHash": "592408ae0c63df09f69fa846dba5736706be54ff113717748da694466c9c214b",
+      "sourcePath": "_articles/wabi-shared-ai-assistant-mini-apps.md"
+    },
+    {
       "id": "article:jev-system-one-model",
       "slug": "jev-system-one-model",
       "type": "article",
@@ -1605,6 +1626,18 @@
       "provenance": "metadata"
     },
     {
+      "id": "article:claude-opus-5-5|article:wabi-shared-ai-assistant-mini-apps",
+      "source": "article:claude-opus-5-5",
+      "target": "article:wabi-shared-ai-assistant-mini-apps",
+      "relation": "shared-topic",
+      "label": "AI Agents",
+      "topics": [
+        "AI Agents"
+      ],
+      "weight": 3,
+      "provenance": "metadata"
+    },
+    {
       "id": "article:gemini-4-argon|article:gpt-6-1-sol-vs-astra",
       "source": "article:gemini-4-argon",
       "target": "article:gpt-6-1-sol-vs-astra",
@@ -2006,6 +2039,18 @@
       "provenance": "metadata"
     },
     {
+      "id": "article:graph-engineering|article:wabi-shared-ai-assistant-mini-apps",
+      "source": "article:graph-engineering",
+      "target": "article:wabi-shared-ai-assistant-mini-apps",
+      "relation": "shared-topic",
+      "label": "AI Agents",
+      "topics": [
+        "AI Agents"
+      ],
+      "weight": 3,
+      "provenance": "metadata"
+    },
+    {
       "id": "article:hancom-nomadian-ai-workforce|article:meta-muse-agent-trust",
       "source": "article:hancom-nomadian-ai-workforce",
       "target": "article:meta-muse-agent-trust",
@@ -2033,6 +2078,18 @@
       "id": "article:hancom-nomadian-ai-workforce|article:openai-dots-delegated-work",
       "source": "article:hancom-nomadian-ai-workforce",
       "target": "article:openai-dots-delegated-work",
+      "relation": "shared-topic",
+      "label": "AI Agents",
+      "topics": [
+        "AI Agents"
+      ],
+      "weight": 3,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:hancom-nomadian-ai-workforce|article:wabi-shared-ai-assistant-mini-apps",
+      "source": "article:hancom-nomadian-ai-workforce",
+      "target": "article:wabi-shared-ai-assistant-mini-apps",
       "relation": "shared-topic",
       "label": "AI Agents",
       "topics": [
@@ -2184,6 +2241,18 @@
       "id": "article:meta-muse-agent-trust|article:openai-dots-delegated-work",
       "source": "article:meta-muse-agent-trust",
       "target": "article:openai-dots-delegated-work",
+      "relation": "shared-topic",
+      "label": "AI Agents",
+      "topics": [
+        "AI Agents"
+      ],
+      "weight": 3,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:meta-muse-agent-trust|article:wabi-shared-ai-assistant-mini-apps",
+      "source": "article:meta-muse-agent-trust",
+      "target": "article:wabi-shared-ai-assistant-mini-apps",
       "relation": "shared-topic",
       "label": "AI Agents",
       "topics": [
@@ -2842,9 +2911,9 @@
     }
   ],
   "stats": {
-    "nodes": 55,
-    "edges": 114,
-    "articles": 29,
+    "nodes": 56,
+    "edges": 118,
+    "articles": 30,
     "papers": 23,
     "datasets": 3
   }
