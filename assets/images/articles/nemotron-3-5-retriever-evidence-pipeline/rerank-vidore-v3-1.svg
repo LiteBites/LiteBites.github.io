@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="382" viewBox="0 0 1200 382" role="img" aria-labelledby="title desc">
+<title id="title">Rerank 8B compared with Qwen3-VL Reranker 8B</title>
+<desc id="desc">ViDoRe v3.1 reranking, 40 candidate-list tasks, mean nDCG at 10 on a zero-to-100 display scale: Nemotron 3.5 Rerank 8B BF16 60.49, Qwen3-VL-Reranker-8B 59.17. Lists were assembled from four first-stage retrievers; this is not one fixed end-to-end pipeline.</desc>
+<rect width="1200" height="382" fill="#f8f7f2"/>
+<g font-family="Arial, Helvetica, sans-serif">
+<text x="50" y="59" font-size="34" font-weight="700" fill="#1d2521">Rerank: refine the shortlist</text>
+<text x="50" y="91" font-size="21" fill="#485650">ViDoRe v3.1 Reranking · 40 candidate-list tasks · mean nDCG@10 (0–100 ↑)</text>
+<g fill="#1d2521" font-size="25"><text x="78" y="148">Nemotron 3.5 Rerank 8B BF16</text><text x="78" y="238">Qwen3-VL-Reranker-8B</text></g>
+<g fill="#e1e6e0"><rect x="80" y="166" width="850" height="18" rx="9"/><rect x="80" y="256" width="850" height="18" rx="9"/></g>
+<rect x="80" y="166" width="514.2" height="18" rx="9" fill="#2e6050"/><rect x="80" y="256" width="502.9" height="18" rx="9" fill="#73827a"/>
+<g fill="#1d2521" font-size="26" font-weight="700"><text x="1010" y="184">60.49</text><text x="1010" y="274">59.17</text></g>
+<g fill="#485650" font-size="18"><text x="74" y="314">0</text><text x="281" y="314">25</text><text x="493" y="314">50</text><text x="706" y="314">75</text><text x="912" y="314">100</text></g>
+<path d="M50 334 H1150" stroke="#bcc6bd"/>
+<text x="52" y="362" font-size="17" fill="#485650">Candidate lists come from four retrievers; this is not a fixed Embed-1B pipeline.</text>
+</g>
+</svg>

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="480" viewBox="0 0 1200 480" role="img" aria-labelledby="title desc">
+<title id="title">Embed checkpoints compared with an existing multimodal retriever</title>
+<desc id="desc">ViDoRe v3.1 dense retrieval, 10 tasks, mean nDCG at 10 on a zero-to-100 display scale: Nemotron 3.5 Embed 8B BF16 61.17, Nemotron 3.5 Embed 1B BF16 58.38, Qwen3-VL-Embedding-8B 56.60. These are leaderboard retrieval scores, not agent answer accuracy. NVFP4 is not plotted as a matched v3.1 entry.</desc>
+<rect width="1200" height="480" fill="#f8f7f2"/>
+<g font-family="Arial, Helvetica, sans-serif">
+<text x="50" y="59" font-size="34" font-weight="700" fill="#1d2521">Embed: the first-stage search</text>
+<text x="50" y="91" font-size="21" fill="#485650">ViDoRe v3.1 dense · 10 tasks · mean nDCG@10 (0–100, higher is better)</text>
+<circle cx="58" cy="123" r="8" fill="#2e6050"/><text x="77" y="130" font-size="20" fill="#485650">Nemotron 3.5</text>
+<circle cx="299" cy="123" r="8" fill="#73827a"/><text x="318" y="130" font-size="20" fill="#485650">Existing multimodal model</text>
+<g fill="#1d2521" font-size="25"><text x="78" y="174">Nemotron 3.5 Embed 8B BF16</text><text x="78" y="255">Nemotron 3.5 Embed 1B BF16</text><text x="78" y="336">Qwen3-VL-Embedding-8B</text></g>
+<g fill="#e1e6e0"><rect x="80" y="190" width="850" height="18" rx="9"/><rect x="80" y="271" width="850" height="18" rx="9"/><rect x="80" y="352" width="850" height="18" rx="9"/></g>
+<rect x="80" y="190" width="519.9" height="18" rx="9" fill="#2e6050"/><rect x="80" y="271" width="496.2" height="18" rx="9" fill="#2e6050"/><rect x="80" y="352" width="481.1" height="18" rx="9" fill="#73827a"/>
+<g fill="#1d2521" font-size="26" font-weight="700"><text x="1010" y="208">61.17</text><text x="1010" y="289">58.38</text><text x="1010" y="370">56.60</text></g>
+<g fill="#485650" font-size="18"><text x="74" y="415">0</text><text x="281" y="415">25</text><text x="493" y="415">50</text><text x="706" y="415">75</text><text x="912" y="415">100</text></g>
+<path d="M50 439 H1150" stroke="#bcc6bd"/>
+<text x="52" y="465" font-size="17" fill="#485650">Dense-category comparison only; late-interaction methods are not shown.</text>
+</g>
+</svg>

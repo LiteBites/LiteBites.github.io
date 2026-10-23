@@ -29,6 +29,7 @@ SOURCES_HEADING = "Sources"
 
 MIN_WORDS = 400
 MAX_WORDS = 800
+LONG_FORM_MAX_WORDS = 1600
 
 class ArticleValidationError < StandardError; end
 
@@ -377,6 +378,9 @@ def validate_article(path)
   raise ArticleValidationError, "tags must be a non-empty list of strings" unless valid_tags
   raise ArticleValidationError, "read_time must look like '3 min read'" unless metadata["read_time"].to_s.match?(/\A\d+ min read\z/)
 
+  if metadata.key?("long_form") && ![true, false].include?(metadata["long_form"])
+    raise ArticleValidationError, "long_form must be a boolean"
+  end
   validate_https_url(metadata["source_url"], "source_url")
   %w[date source_published last_reviewed].each { |field| parse_date(metadata[field], field) }
   validate_additional_sources(metadata)
@@ -395,8 +399,9 @@ def validate_article(path)
   validate_first_party_inline_figures(body, path, source_links)
 
   words = body_word_count(body)
-  unless words.between?(MIN_WORDS, MAX_WORDS)
-    raise ArticleValidationError, "body must contain #{MIN_WORDS}–#{MAX_WORDS} words (found #{words})"
+  max_words = metadata["long_form"] == true ? LONG_FORM_MAX_WORDS : MAX_WORDS
+  unless words.between?(MIN_WORDS, max_words)
+    raise ArticleValidationError, "body must contain #{MIN_WORDS}–#{max_words} words (found #{words})"
   end
 
   words

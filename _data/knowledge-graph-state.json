@@ -402,6 +402,29 @@
       "sourcePath": "_articles/muse-wonder-models-for-agents.md"
     },
     {
+      "id": "article:nemotron-3-5-retriever-evidence-pipeline",
+      "slug": "nemotron-3-5-retriever-evidence-pipeline",
+      "type": "article",
+      "title": "Nemotron 3.5 Retriever: Five Models, Three Evidence Jobs",
+      "shortTitle": "Nemotron 3.5 Retriever Models",
+      "url": "/articles/nemotron-3-5-retriever-evidence-pipeline/",
+      "summary": "A model-by-model guide to Nemotron 3.5's multimodal embedders, reranker, and parser, with separate benchmark comparisons and deployment limits.",
+      "date": "2026-10-22",
+      "meta": "NVIDIA on Hugging Face / 7 min read",
+      "topics": [
+        "AI Agents",
+        "Document Parsing",
+        "Document Retrieval"
+      ],
+      "topicWeights": {
+        "AI Agents": 3,
+        "Document Parsing": 3,
+        "Document Retrieval": 3
+      },
+      "sourceHash": "c2cfa1cbcbc94926c831cc860af39f5972ce78b31278809230cac4738ba6d329",
+      "sourcePath": "_articles/nemotron-3-5-retriever-evidence-pipeline.md"
+    },
+    {
       "id": "article:hancom-nomadian-ai-workforce",
       "slug": "hancom-nomadian-ai-workforce",
       "type": "article",
@@ -1564,6 +1587,18 @@
       "provenance": "metadata"
     },
     {
+      "id": "article:claude-opus-5-5|article:nemotron-3-5-retriever-evidence-pipeline",
+      "source": "article:claude-opus-5-5",
+      "target": "article:nemotron-3-5-retriever-evidence-pipeline",
+      "relation": "shared-topic",
+      "label": "AI Agents",
+      "topics": [
+        "AI Agents"
+      ],
+      "weight": 3,
+      "provenance": "metadata"
+    },
+    {
       "id": "article:claude-opus-5-5|article:openai-dots-delegated-work",
       "source": "article:claude-opus-5-5",
       "target": "article:openai-dots-delegated-work",
@@ -2001,6 +2036,18 @@
       "provenance": "metadata"
     },
     {
+      "id": "article:graph-engineering|article:nemotron-3-5-retriever-evidence-pipeline",
+      "source": "article:graph-engineering",
+      "target": "article:nemotron-3-5-retriever-evidence-pipeline",
+      "relation": "shared-topic",
+      "label": "AI Agents",
+      "topics": [
+        "AI Agents"
+      ],
+      "weight": 3,
+      "provenance": "metadata"
+    },
+    {
       "id": "article:graph-engineering|article:openai-dots-delegated-work",
       "source": "article:graph-engineering",
       "target": "article:openai-dots-delegated-work",
@@ -2066,6 +2113,18 @@
       "id": "article:hancom-nomadian-ai-workforce|article:muse-wonder-models-for-agents",
       "source": "article:hancom-nomadian-ai-workforce",
       "target": "article:muse-wonder-models-for-agents",
+      "relation": "shared-topic",
+      "label": "AI Agents",
+      "topics": [
+        "AI Agents"
+      ],
+      "weight": 3,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:hancom-nomadian-ai-workforce|article:nemotron-3-5-retriever-evidence-pipeline",
+      "source": "article:hancom-nomadian-ai-workforce",
+      "target": "article:nemotron-3-5-retriever-evidence-pipeline",
       "relation": "shared-topic",
       "label": "AI Agents",
       "topics": [
@@ -2330,6 +2389,18 @@
       "label": "Large Language Models",
       "topics": [
         "Large Language Models"
+      ],
+      "weight": 4,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:nemotron-3-5-retriever-evidence-pipeline|paper:novalad-document-extraction",
+      "source": "article:nemotron-3-5-retriever-evidence-pipeline",
+      "target": "paper:novalad-document-extraction",
+      "relation": "shared-topic",
+      "label": "Document Parsing",
+      "topics": [
+        "Document Parsing"
       ],
       "weight": 4,
       "provenance": "metadata"
@@ -2911,9 +2982,9 @@
     }
   ],
   "stats": {
-    "nodes": 56,
-    "edges": 118,
-    "articles": 30,
+    "nodes": 57,
+    "edges": 122,
+    "articles": 31,
     "papers": 23,
     "datasets": 3
   }

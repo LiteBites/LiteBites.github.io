@@ -76,6 +76,30 @@ class ArticleBitesSiteTest < Minitest::Test
     end
   end
 
+  def test_article_validator_long_form_requires_explicit_boolean_flag_and_keeps_a_ceiling
+    validator = File.join(ROOT, "scripts", "validate_article_bites.rb")
+    Dir.mktmpdir("article-bites-long-form-test") do |dir|
+      standard = article_fixture(Array.new(1050, "evidence").join(" "))
+      approved = standard.sub('read_time: "3 min read"', "read_time: \"6 min read\"\nlong_form: true")
+      bad_flag = article_fixture(Array.new(410, "evidence").join(" "))
+        .sub('read_time: "3 min read"', "read_time: \"3 min read\"\nlong_form: \"true\"")
+      too_long = article_fixture(Array.new(1700, "evidence").join(" "))
+        .sub('read_time: "3 min read"', "read_time: \"9 min read\"\nlong_form: true")
+      {
+        "standard.md" => [standard, false, "800"],
+        "approved.md" => [approved, true, "PASS"],
+        "bad-flag.md" => [bad_flag, false, "long_form"],
+        "too-long.md" => [too_long, false, "1600"]
+      }.each do |name, (content, expected_pass, expected_message)|
+        path = File.join(dir, name)
+        File.write(path, content)
+        stdout, stderr, status = Open3.capture3(RbConfig.ruby, validator, path)
+        assert_equal expected_pass, status.success?, "#{name}: #{stdout}#{stderr}"
+        assert_includes "#{stdout}#{stderr}", expected_message
+      end
+    end
+  end
+
   def test_graph_generator_emits_article_nodes
     Dir.mktmpdir("article-graph-test") do |dir|
       %w[scripts _posts _datasets].each do |entry|

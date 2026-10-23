@@ -45,8 +45,9 @@ Write a new LiteBites Article Bite about:
 
 Use the canonical source and independent corroboration where available. Follow
 POLICY_ARTICLE.md, distinguish reported claims from verified evidence, keep the
-body between 400 and 800 words, use the required six sections, and choose only
-truthful tags. Store any approved local images below assets/images/articles/.
+body between 400 and 800 words, choose source-specific sections and truthful
+tags. Use `long_form: true` for an owner-approved multi-topic deep dive only.
+Store any approved local images below assets/images/articles/.
 Refresh the knowledge graph twice, build and inspect the Article page, archive,
 homepage, and graph, then show me a local preview checkpoint. Do not commit or
 push until I approve it.

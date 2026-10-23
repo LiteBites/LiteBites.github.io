@@ -4,9 +4,9 @@ This document defines the standing editorial policy for Article Bites: concise a
 
 ## Purpose and scope
 
-Article Bites explain what changed, why it matters technically, and what remains uncertain. They are not press-release rewrites, rumor roundups, or substitutes for original reporting. Public-facing prose is English-first, concrete, and readable in approximately 2–4 minutes.
+Article Bites explain what changed, why it matters technically, and what remains uncertain. They are not press-release rewrites, rumor roundups, or substitutes for original reporting. Public-facing prose is English-first, concrete, and normally readable in approximately 2–4 minutes.
 
-Each Article Bite should contain **400–800 body words**. Prefer enough context to support an informed judgment over artificial brevity, but remove background that does not change the reader's understanding.
+Each standard Article Bite should contain **400–800 body words**. When the site owner explicitly asks for a deeper, multi-topic explanation, `long_form: true` permits **400–1600 body words**; the author should still write only as much as the subject needs. This is an opt-in editorial exception, not a higher default or permission to pad a post.
 
 ## Source hierarchy
 
@@ -43,7 +43,7 @@ Article Bites should read like casual technical journalism: a knowledgeable pers
 - Explain a specialized term when the reader needs it; do not turn the post into a glossary or specification dump.
 - Use conversational bridges such as “The catch is…” or “That distinction matters…” only when they genuinely move the reasoning forward.
 - Let the source shape the story. A benchmark post may spend most of its space on protocol; a repository post may focus on workflow and trust boundaries; a security post may be direct and sober.
-- Keep the six headings as reader-friendly navigation anchors, not as a rigid paragraph template. Optional `###` subheadings are welcome only when they are source-specific, useful at 400–800 words, and clearer than keeping the text under the parent heading.
+- Use source-specific headings as reader-friendly navigation anchors. Optional `###` subheadings are useful when distinct model or topic explanations would otherwise blur together; do not multiply headings merely because a long-form exception is available.
 
 Casual does not mean promotional, vague, jokey, or slang-heavy. Facts, source attribution, LiteBites interpretation, and uncertainty must remain distinguishable. Do not repeat the same opening, paragraph count, transition pattern, or storyline across every Article Bite.
 
@@ -67,7 +67,7 @@ tags:
 summary: "One accurate sentence explaining the development and its significance."
 ```
 
-Optional fields include `additional_sources`, `card_image`, and `card_image_alt`. If `card_image` exists, `card_image_alt` is required. Card images and repository-managed media must live under `assets/images/articles/<slug>/`.
+Optional fields include `additional_sources`, `card_image`, `card_image_alt`, and the strictly boolean `long_form` flag for owner-approved deep dives. If `card_image` exists, `card_image_alt` is required. Card images and repository-managed media must live under `assets/images/articles/<slug>/`.
 
 Publisher-hosted inline images are allowed across LiteBites post types under [`POLICY_REMOTE_IMAGES.md`](POLICY_REMOTE_IMAGES.md). Use the exact original HTTPS asset from the canonical source page only when its provenance, permission basis, payload format, browser decoding, responsive rendering, accessibility, privacy, and durability checks pass. Remote images must remain supplementary to prose and must never be used as `card_image` or another discovery-surface dependency. If any admission field is unknown or unfavorable, omit the image rather than using a screenshot, downloaded copy, or local presentation substitute.
 
@@ -103,7 +103,7 @@ Keep these structural invariants:
 - Use at least three narrative `##` sections before Sources.
 - End with exactly one `## Sources` section.
 - Give the reader a clearly identifiable practical ending with three to five concise, reusable observations or checks. The heading may be source-specific (`## What to watch next`, `## If you use this tool`, or `## Practical takeaways`) rather than a fixed subtitle.
-- Use optional `###` subheadings only when they are source-specific and genuinely improve navigation at 400–800 words.
+- Use optional `###` subheadings only when they are source-specific and genuinely improve navigation; a model-by-model deep dive is one appropriate case.
 - Do not add headings merely to make the graph denser or to imitate another Article.
 
 ### Source-specific section jobs
@@ -122,7 +122,7 @@ Keep `## Sources` last. List the canonical source first, then add corroborating 
 
 ## Word count and reading time
 
-Count body words while excluding YAML front matter and raw HTML where practical. Keep the result between 400 and 800 words. Estimate reading time at approximately 200–230 words per minute and round to a sensible whole minute.
+Count body words while excluding YAML front matter and raw HTML where practical. Keep standard Articles between 400 and 800 words; an explicitly owner-approved `long_form: true` Article may contain up to 1600. Estimate reading time at approximately 200–230 words per minute and round to a sensible whole minute.
 
 ## Images and external media
 
@@ -146,7 +146,7 @@ Before review, verify:
 - The voice is approachable and conversational without hype, slang, fake certainty, or lost technical precision.
 - The internal structure follows the source rather than a repeated subtitle or paragraph-count template.
 - The final `## Sources` section lists the canonical source and any additional source that materially supports the analysis.
-- The body contains 400–800 words, at least three narrative `##` sections, and exactly one final `## Sources` section; literal section names are source-adaptive.
+- The body contains 400–800 words by default or at most 1600 with an owner-approved boolean `long_form: true`, at least three narrative `##` sections, and exactly one final `## Sources` section; literal section names are source-adaptive.
 - A clearly identified practical ending contains three to five concise, reusable observations or checks, even when its heading is source-specific.
 - Metadata, links, local assets, alt text, and reading time are valid.
 - Every remote image satisfies the publisher-hosted figure contract and has verified origin, dimensions, responsive rendering, failure behavior, and privacy/durability disclosure.

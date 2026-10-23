@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="390" viewBox="0 0 1200 390" role="img" aria-labelledby="title desc">
+<title id="title">Parse 631M compared with LightOnOCR 3 0.8B</title>
+<desc id="desc">ParseBench organizer display filtered to models under 1B parameters, five-category overall score on a zero-to-100 scale: Nemotron 3.5 Parse triple-pass region-union submission 75.20, LightOnOCR-3-0.8B submission 74.60. These are published vendor submissions, not a matched independently rerun inference protocol or throughput test.</desc>
+<rect width="1200" height="390" fill="#f8f7f2"/>
+<g font-family="Arial, Helvetica, sans-serif">
+<text x="50" y="59" font-size="34" font-weight="700" fill="#1d2521">Parse: recover page structure</text>
+<text x="50" y="91" font-size="21" fill="#485650">ParseBench · &lt;1B filter · five-category overall score (0–100, higher is better)</text>
+<g fill="#1d2521" font-size="25"><text x="78" y="148">Nemotron 3.5 Parse · triple pass</text><text x="78" y="238">LightOnOCR-3-0.8B</text></g>
+<g fill="#e1e6e0"><rect x="80" y="166" width="850" height="18" rx="9"/><rect x="80" y="256" width="850" height="18" rx="9"/></g>
+<rect x="80" y="166" width="639.2" height="18" rx="9" fill="#2e6050"/><rect x="80" y="256" width="634.1" height="18" rx="9" fill="#73827a"/>
+<g fill="#1d2521" font-size="26" font-weight="700"><text x="1010" y="184">75.20</text><text x="1010" y="274">74.60</text></g>
+<g fill="#485650" font-size="18"><text x="74" y="314">0</text><text x="281" y="314">25</text><text x="493" y="314">50</text><text x="706" y="314">75</text><text x="912" y="314">100</text></g>
+<path d="M50 334 H1150" stroke="#bcc6bd"/>
+<text x="52" y="362" font-size="17" fill="#485650">Vendor-submitted scores; pipelines were not independently rerun under identical settings.</text>
+</g>
+</svg>

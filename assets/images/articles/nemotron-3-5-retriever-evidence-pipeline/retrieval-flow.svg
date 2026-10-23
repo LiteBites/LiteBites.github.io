@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Optional parsing before retrieval, reranking, and an agent</title>
+  <desc id="desc">Document pages either go through optional Parse to produce ordered content, or directly into Embed as image or text. A text query feeds Embed and Rerank. Embed retrieves candidates; Rerank reorders them; the downstream agent receives selected evidence. This is an explanatory workflow, not a measured end-to-end system.</desc>
+  <defs><marker id="tip" markerWidth="11" markerHeight="11" refX="9" refY="5.5" orient="auto"><path d="M1 1 L9 5.5 L1 10" fill="none" stroke="#285d4a" stroke-width="1.8"/></marker></defs>
+  <rect width="1200" height="900" fill="#f8f7f2"/>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="55" y="76" font-size="37" font-weight="700" fill="#1d2521">Where the three models fit</text>
+    <text x="57" y="112" font-size="22" fill="#485650">LiteBites synthesis · model roles, not measured end-to-end performance</text>
+    <text x="55" y="166" font-size="21" font-weight="700" fill="#285d4a">A text query drives candidate retrieval and reranking.</text>
+
+    <g stroke="#a7b9ad" stroke-width="2.5">
+      <rect x="55" y="225" width="275" height="173" rx="8" fill="#ffffff"/>
+      <rect x="465" y="225" width="275" height="173" rx="8" fill="#ffffff"/>
+      <rect x="870" y="225" width="275" height="173" rx="8" fill="#e6eee8" stroke="#285d4a"/>
+      <rect x="870" y="603" width="275" height="173" rx="8" fill="#e6eee8" stroke="#285d4a"/>
+      <rect x="465" y="603" width="275" height="173" rx="8" fill="#ffffff"/>
+    </g>
+    <g fill="#1d2521">
+      <text x="76" y="275" font-size="27" font-weight="700">DOCUMENTS</text>
+      <text x="76" y="313" font-size="22">Pages, images, text</text><text x="76" y="347" font-size="22">Charts and tables</text>
+      <text x="486" y="275" font-size="24" font-weight="700">PARSE · OPTIONAL</text>
+      <text x="486" y="313" font-size="22">Ordered page content</text><text x="486" y="347" font-size="22">Regions, tables, boxes</text>
+      <text x="891" y="275" font-size="27" font-weight="700">EMBED</text>
+      <text x="891" y="313" font-size="22">Encode and search</text><text x="891" y="347" font-size="22">Vectors → candidates</text>
+      <text x="891" y="653" font-size="27" font-weight="700">RERANK</text>
+      <text x="891" y="691" font-size="22">Score query–document</text><text x="891" y="725" font-size="22">pairs → ordered list</text>
+      <text x="486" y="653" font-size="21" font-weight="700">DOWNSTREAM AGENT</text>
+      <text x="486" y="691" font-size="22">Receives selected</text><text x="486" y="725" font-size="22">evidence for its task</text>
+    </g>
+    <g fill="none" stroke="#285d4a" stroke-width="3.5" marker-end="url(#tip)">
+      <path d="M332 310 H455"/><path d="M742 310 H859"/>
+      <path d="M1147 310 H1174 V688 H1147"/>
+      <path d="M867 688 H751"/>
+    </g>
+    <path d="M191 400 V487 H1007 V408" fill="none" stroke="#65776d" stroke-width="3" stroke-dasharray="10 8" marker-end="url(#tip)"/>
+    <rect x="329" y="460" width="544" height="50" fill="#f8f7f2"/>
+    <text x="347" y="493" font-size="22" font-weight="700" fill="#485650">Direct image/text path: Parse is not required</text>
+    <path d="M55 829 H1145" stroke="#bcc6bd" stroke-width="2"/>
+    <text x="56" y="859" font-size="20" fill="#485650">SCHEMATIC · Released components may be combined; this is not a tested universal architecture.</text>
+  </g>
+</svg>
