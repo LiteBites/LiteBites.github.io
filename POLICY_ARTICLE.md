@@ -69,11 +69,11 @@ summary: "One accurate sentence explaining the development and its significance.
 
 Optional fields include `additional_sources`, `card_image`, `card_image_alt`, and the strictly boolean `long_form` flag for owner-approved deep dives. If `card_image` exists, `card_image_alt` is required. Card images and repository-managed media must live under `assets/images/articles/<slug>/`.
 
-Publisher-hosted inline images are allowed across LiteBites post types under [`POLICY_REMOTE_IMAGES.md`](POLICY_REMOTE_IMAGES.md). Use the exact original HTTPS asset from the canonical source page only when its provenance, permission basis, payload format, browser decoding, responsive rendering, accessibility, privacy, and durability checks pass. Remote images must remain supplementary to prose and must never be used as `card_image` or another discovery-surface dependency. If any admission field is unknown or unfavorable, omit the image rather than using a screenshot, downloaded copy, or local presentation substitute.
+Publisher-hosted inline images are allowed across LiteBites post types under [`POLICY_REMOTE_IMAGES.md`](POLICY_REMOTE_IMAGES.md). Use the exact original HTTPS asset from the canonical source page only when its provenance, permission basis, payload format, browser decoding, responsive rendering, accessibility, privacy, and durability checks pass. Remote images must remain supplementary to prose and must never be used as `card_image` or another discovery-surface dependency. If any admission field is unknown or unfavorable, omit that publisher image rather than using a screenshot or downloaded copy; assess a first-party synthesis independently on its explanatory merits under the rule below.
 
 **One-off project-identity exception:** At the site owner's explicit request, `_articles/pg-jev-postgres-natural-language-where.md` may embed the original `docs/assets/header.svg` from the project's official GitHub README as an attributed identity image, even though it does not explain the SQL/API mechanism. Label it as branding, not technical evidence. The README is the canonical *image* source and must appear in Sources; the dated v0.2.1 release remains the Article's separate canonical *news* source. Apply every other remote-image admission, rights, accessibility, privacy, and failure check in `POLICY_REMOTE_IMAGES.md`. This exception does not authorize other decorative images, local copies, or a card image.
 
-An original LiteBites explanatory figure is a separate, narrow exception—not a substitute for unavailable publisher artwork. Create one only when the user explicitly requests a first-party visual deliverable as a separate editorial task. The figure must add technical understanding, be derived only from cited evidence, be labeled `LiteBites synthesis`, avoid publisher branding and copied composition, contain no scripts or external resource fetches, and remain supplementary to prose that stands on its own. Store it under `assets/images/articles/<slug>/`; provide descriptive alt text, intrinsic dimensions, a source-linked caption, and a full-resolution link. Dense figures must remain readable on narrow screens through a contained keyboard/touch-scroll region with a visible caption instruction, without introducing page-level overflow.
+An original LiteBites explanatory figure is an editorial option within a requested Article; it does not require a separate visual request. Use one only when it materially clarifies a mechanism, comparison, timeline, interface, or evidence boundary—not as a quota, a decorative fallback, or an imitation of unavailable publisher artwork. Derive it from cited evidence, label it `LiteBites synthesis`, distinguish reported behavior from measured performance, avoid publisher branding and copied composition, and keep the prose independently intelligible. Store it under `assets/images/articles/<slug>/`; provide descriptive alt text, intrinsic dimensions, a source-linked caption, and a full-resolution link. It must contain no scripts or external resource fetches. Dense figures must remain readable on narrow screens through a contained keyboard/touch-scroll region with a visible caption instruction, without introducing page-level overflow. Review originality against any official figure on the same topic before publication.
 
 Every remote image must use the reviewed `<figure class="remote-publisher-image" data-source-url="…">` contract defined in `POLICY_REMOTE_IMAGES.md`.
 
@@ -102,13 +102,13 @@ Keep these structural invariants:
 
 - Use at least three narrative `##` sections before Sources.
 - End with exactly one `## Sources` section.
-- Give the reader a clearly identifiable practical ending with three to five concise, reusable observations or checks. The heading may be source-specific (`## What to watch next`, `## If you use this tool`, or `## Practical takeaways`) rather than a fixed subtitle.
+- Give the reader a useful ending appropriate to the story: a decision, a limitation worth watching, a short test plan, or concise takeaways. Use a list when it improves scanning, not by default; do not require the same number of bullets in every Article.
 - Use optional `###` subheadings only when they are source-specific and genuinely improve navigation; a model-by-model deep dive is one appropriate case.
 - Do not add headings merely to make the graph denser or to imitate another Article.
 
 ### Source-specific section jobs
 
-Across the chosen headings, the Article must still establish the development and source/date, explain why it matters, provide only the technical context needed to understand it, identify uncertainty or missing evidence, and end with practical checks. These are editorial jobs, not mandatory literal subtitles. Let the source decide their order, emphasis, and names.
+Across the chosen headings, the Article must still establish the development and source/date, explain why it matters, provide only the technical context needed to understand it, identify uncertainty or missing evidence, and end with a useful reader-facing conclusion or next step. These are editorial jobs, not mandatory literal subtitles. Let the source decide their order, emphasis, and names.
 
 Examples of useful source shapes:
 
@@ -126,7 +126,7 @@ Count body words while excluding YAML front matter and raw HTML where practical.
 
 ## Images and external media
 
-Images are optional. Include one only when it explains the technical development, interface, architecture, or evidence. The default image path is Tier A: a canonical publisher-hosted original admitted by the decision record above. An explicitly requested first-party explanatory figure may instead follow the source-grounded LiteBites-synthesis exception above. Preserve provenance, use descriptive alt text, and avoid decorative screenshots or promotional artwork that adds no understanding. If neither path is compliant, publish the Article without an image; do not force visual coverage through screenshots, downloaded copies, or locally created presentation substitutes.
+Images are optional. Include one only when it explains the technical development, interface, architecture, or evidence. Consider a canonical publisher-hosted original admitted by the decision record above, or an original, cited LiteBites synthesis when it better clarifies the story; the latter is permitted within the Article-writing request. Preserve provenance, use descriptive alt text, and avoid decorative screenshots or promotional artwork that adds no understanding. If neither path is useful and compliant, publish without an image. Never trace or locally copy publisher artwork to evade a permission decision.
 
 The named pg-jev project-identity exception above is the only exception to this explanatory-value rule; it is not a precedent for unrelated logos or hero art.
 
@@ -147,10 +147,10 @@ Before review, verify:
 - The internal structure follows the source rather than a repeated subtitle or paragraph-count template.
 - The final `## Sources` section lists the canonical source and any additional source that materially supports the analysis.
 - The body contains 400–800 words by default or at most 1600 with an owner-approved boolean `long_form: true`, at least three narrative `##` sections, and exactly one final `## Sources` section; literal section names are source-adaptive.
-- A clearly identified practical ending contains three to five concise, reusable observations or checks, even when its heading is source-specific.
+- The ending gives a concrete reader-facing conclusion or next step in a form suited to the story; a fixed checklist or bullet count is not required.
 - Metadata, links, local assets, alt text, and reading time are valid.
 - Every remote image satisfies the publisher-hosted figure contract and has verified origin, dimensions, responsive rendering, failure behavior, and privacy/durability disclosure.
-- An Article without an admissible publisher original or explicitly requested, source-grounded LiteBites synthesis contains no forced screenshot, downloaded copy, or locally created presentation substitute.
+- Any first-party synthesis has a documented explanatory purpose, cited source, original composition, accessible markup, and safe local asset; absence of admissible publisher media is not itself a reason to force or prohibit a synthesis.
 - Tags are precise and were not selected merely to force graph relationships.
 - The knowledge graph was generated twice; the second run reports zero changed sources.
 - The Article page, newest-first index, homepage, and graph were built and inspected.

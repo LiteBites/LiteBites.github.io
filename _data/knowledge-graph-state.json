@@ -126,6 +126,27 @@
       "sourcePath": "_articles/claude-opus-5-5.md"
     },
     {
+      "id": "article:dessa-speech-only-full-duplex-voice-model",
+      "slug": "dessa-speech-only-full-duplex-voice-model",
+      "type": "article",
+      "title": "Dessa's Speech-Only Bet: AI That Listens While It Talks",
+      "shortTitle": "Dessa's Speech-Only Voice Model",
+      "url": "/articles/dessa-speech-only-full-duplex-voice-model/",
+      "summary": "Block says its speech-only Dessa model can listen while it speaks; the conversational demos are promising, but reasoning and safety remain unverified.",
+      "date": "2026-10-25",
+      "meta": "The Decoder (dated report) / 3 min read",
+      "topics": [
+        "AI Safety",
+        "Speech AI"
+      ],
+      "topicWeights": {
+        "AI Safety": 3,
+        "Speech AI": 3
+      },
+      "sourceHash": "b9e3b3b8de107f9c26cbea870b464cac3e8ebcc0ee5092bc2deddb0473b0ca9e",
+      "sourcePath": "_articles/dessa-speech-only-full-duplex-voice-model.md"
+    },
+    {
       "id": "article:gemini-4-argon",
       "slug": "gemini-4-argon",
       "type": "article",
@@ -2982,9 +3003,9 @@
     }
   ],
   "stats": {
-    "nodes": 57,
+    "nodes": 58,
     "edges": 122,
-    "articles": 31,
+    "articles": 32,
     "papers": 23,
     "datasets": 3
   }

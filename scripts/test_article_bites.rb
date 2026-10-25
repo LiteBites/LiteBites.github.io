@@ -42,7 +42,8 @@ class ArticleBitesSiteTest < Minitest::Test
       assert_includes policy, heading
     end
     assert_includes policy, "400–800"
-    assert_includes policy, "three to five"
+    assert_includes policy, "a fixed checklist or bullet count is not required"
+    assert_includes policy, "an editorial option within a requested Article"
 
     index = read("articles.html")
     assert_includes index, 'site.articles | sort: "date" | reverse'
