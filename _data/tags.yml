@@ -5,9 +5,14 @@
 # describes the topic; it then becomes a knowledge-graph topic. Do not add a
 # tag just to create graph links (see _articles/AGENTS.md).
 #
-# Known near-duplicates to consolidate in a reviewed content pass:
-#   AI Models / AI Model Releases, Language Models / Large Language Models,
-#   Multimodal AI / Multimodal Models, Industrial Inspection / Industrial Vision.
+# Consolidated 2026-10-26: AI Model Releases -> AI Models, Industrial Vision
+# -> Industrial Inspection. Do not reintroduce the merged names.
+#
+# Deliberately kept apart: Language Models / Large Language Models and
+# Multimodal AI / Multimodal Models. Merging them made each a broad hub that
+# linked unrelated articles and papers and pushed real paper-to-paper links
+# out of the graph. Revisit only after the graph generator treats broad tags
+# as generic (scripts/generate_knowledge_graph.rb GENERIC_TOPICS).
 
 tags:
   - Agent Infrastructure
@@ -18,7 +23,6 @@ tags:
   - AI Coding Agents
   - AI Hardware
   - AI Infrastructure
-  - AI Model Releases
   - AI Models
   - AI Safety
   - Anomaly Detection
@@ -58,7 +62,6 @@ tags:
   - Generative UI
   - Image Generation
   - Industrial Inspection
-  - Industrial Vision
   - Inference
   - Information Retrieval
   - Kiro

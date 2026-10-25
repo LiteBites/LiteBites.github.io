@@ -77,7 +77,7 @@ scripts/litebites validate _articles/<slug>.md   # fix every reported error, re-
 scripts/litebites graph                          # after tags/slug/summary are final
 scripts/litebites check                          # validate + tests + graph --check + build + diff --check
 ```
-Mechanical success is necessary, not sufficient. Re-read the diff for copied promotional language, unsupported causality, stale relative dates, missing attribution, and links that do not support the adjacent claim. Review the new `article:<slug>` node and its edges with `litebites-site` → `references/knowledge-graph-review.md`. A truthful isolated node beats a misleading edge.
+Mechanical success is necessary, not sufficient. Re-read the diff for copied promotional language, unsupported causality, stale relative dates, missing attribution, and links that do not support the adjacent claim. Review the new `article:<slug>` node and its edges with `skill_view("litebites-site", "references/knowledge-graph-review.md")`. A truthful isolated node beats a misleading edge.
 
 ### 8. Local preview checkpoint
 ```bash

@@ -74,7 +74,7 @@ scripts/litebites validate _posts/<file>.md   # fix every reported error, re-run
 scripts/litebites graph                       # after tags/slug/summary are final
 scripts/litebites check                       # validate + tests + graph --check + build + diff --check
 ```
-Then check by hand what code cannot: every number and superlative traces to the brief; read time reflects the final text; external links resolve to the intended source; figure, caption, and section still refer to the same experiment. Review the new `paper:<slug>` node with `litebites-site` → `references/knowledge-graph-review.md`. If the paper supports a typed relation metadata cannot express (e.g. `evaluates` a Data Bite), propose a `provenance: curated` entry in `_data/knowledge-graph-relations.yml`; add it only after evidence review.
+Then check by hand what code cannot: every number and superlative traces to the brief; read time reflects the final text; external links resolve to the intended source; figure, caption, and section still refer to the same experiment. Review the new `paper:<slug>` node with `skill_view("litebites-site", "references/knowledge-graph-review.md")`. If the paper supports a typed relation metadata cannot express (e.g. `evaluates` a Data Bite), propose a `provenance: curated` entry in `_data/knowledge-graph-relations.yml`; add it only after evidence review.
 
 ### 9. Local preview checkpoint
 ```bash
