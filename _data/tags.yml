@@ -1,0 +1,122 @@
+# Controlled tag vocabulary for every Bite type.
+#
+# scripts/validate_bites.rb rejects tags that are not listed here. Reuse an
+# existing tag whenever one fits. Add a new tag only when no existing tag
+# describes the topic; it then becomes a knowledge-graph topic. Do not add a
+# tag just to create graph links (see _articles/AGENTS.md).
+#
+# Known near-duplicates to consolidate in a reviewed content pass:
+#   AI Models / AI Model Releases, Language Models / Large Language Models,
+#   Multimodal AI / Multimodal Models, Industrial Inspection / Industrial Vision.
+
+tags:
+  - Agent Infrastructure
+  - Agent Safety
+  - Agentic AI
+  - AI Agent Tooling
+  - AI Agents
+  - AI Coding Agents
+  - AI Hardware
+  - AI Infrastructure
+  - AI Model Releases
+  - AI Models
+  - AI Safety
+  - Anomaly Detection
+  - Apple
+  - Apple Intelligence
+  - Apple Silicon
+  - Audio Generation
+  - Bayesian Learning
+  - Benchmark
+  - BERT
+  - Biomedical Imaging
+  - Business Tools
+  - Chain-of-Thought
+  - Classification
+  - CLIP
+  - Computer Use
+  - Computer Vision
+  - Consumer Technology
+  - Context Engineering
+  - Cybersecurity
+  - Databases
+  - Datasets
+  - Dense Prediction
+  - Dense Retrieval
+  - Developer Platforms
+  - Developer Tools
+  - Diffusion Models
+  - Document Parsing
+  - Document Retrieval
+  - Efficient AI
+  - Efficient Inference
+  - Efficient Tuning
+  - Enterprise AI
+  - Gemini
+  - Generalization
+  - Generative Models
+  - Generative UI
+  - Image Generation
+  - Industrial Inspection
+  - Industrial Vision
+  - Inference
+  - Information Retrieval
+  - Kiro
+  - Knowledge Distillation
+  - KV Cache
+  - Language Models
+  - Large Language Models
+  - Late Interaction
+  - Layout Analysis
+  - Learning to Rank
+  - LLM Reasoning
+  - LLM Serving
+  - Local AI
+  - Localization
+  - Long-Horizon Agents
+  - LoRA
+  - Manufacturing
+  - Memory Management
+  - Mixture of Experts
+  - Model Routing
+  - Multi-Agent Systems
+  - Multimodal AI
+  - Multimodal Models
+  - Nearest Neighbor Search
+  - Neural Search
+  - Online Rumors
+  - Open Models
+  - Open Source
+  - Open-Domain Question Answering
+  - OpenAI
+  - Operating Systems
+  - Optical Character Recognition
+  - Optimization
+  - Parameter-Efficient Fine-Tuning
+  - Personalization
+  - Post-Training
+  - Presentation Tools
+  - Reasoning Systems
+  - Recommender Systems
+  - Retrieval-Augmented Generation
+  - Segmentation
+  - Siri
+  - Small Language Models
+  - Sparse Retrieval
+  - Speech AI
+  - Student Offers
+  - Super-Resolution
+  - Surface Defect
+  - Systems
+  - Test-Time Compute
+  - Token Efficiency
+  - Transfer Learning
+  - TypeSafe AI
+  - Unified Memory
+  - Vector Quantization
+  - Video Editing
+  - Video Generation
+  - Vision-Language Models
+  - Workplace AI
+  - Workplace Automation
+  - Zero-Shot Anomaly Detection

@@ -8,8 +8,13 @@ and Data Bite source files but does not modify them.
 Run from the repository root:
 
 ```bash
-ruby scripts/generate_knowledge_graph.rb
+scripts/litebites graph          # runs the generator twice and confirms the second run changes nothing
+scripts/litebites graph --check  # fails without writing if the committed files are stale (used by check and CI)
 ```
+
+Both wrap `ruby scripts/generate_knowledge_graph.rb [--check]`. Folder
+`AGENTS.md` files are ignored. The Related Bites panel on each Bite reads
+`_data/knowledge-graph-state.json`, so regenerate after tag changes.
 
 The generator:
 

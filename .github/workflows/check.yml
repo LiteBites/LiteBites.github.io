@@ -1,0 +1,29 @@
+# Runs the same checks agents run locally. It never deploys; GitHub Pages
+# builds the site from the main branch on its own.
+name: check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    env:
+      LANG: C.UTF-8
+      LC_ALL: C.UTF-8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.1"
+          bundler-cache: true   # installs the Gemfile gems the validator loads
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run scripts/litebites check
+        run: scripts/litebites check

@@ -55,9 +55,20 @@ plugins:
 exclude:
   - Gemfile
   - Gemfile.lock
+  - vendor
+  - .bundle
   - README.md
   - USAGE.md
-  - POLICY_POST.md
-  - POLICY_ARTICLE.md
+  - POLICY_*.md
+  - PLAN_REFACTOR.md
+  - AGENTS.md
+  - _articles/AGENTS.md
+  - _posts/AGENTS.md
+  - _datasets/AGENTS.md
+  - _includes/AGENTS.md
+  - assets/images/AGENTS.md
   - .hermes
+  - .github
+  - .paper-archive.toml
+  - docs
   - scripts

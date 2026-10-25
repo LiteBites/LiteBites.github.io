@@ -3,7 +3,6 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{{ site.title }}</title>
     <meta name="description" content="{{ page.description | default: site.description | escape }}" />
     <meta name="theme-color" content="#f5f4ef" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#11110f" media="(prefers-color-scheme: dark)" />
@@ -27,7 +26,7 @@
     <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}" />
     {% if page.graph_page %}<link rel="stylesheet" href="{{ '/assets/css/knowledge-graph.css' | relative_url }}" />{% endif %}
     {% feed_meta %}
-    {% seo title=false %}
+    {% seo %}
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>

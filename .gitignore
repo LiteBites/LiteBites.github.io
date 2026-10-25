@@ -1,2 +1,8 @@
 .vscode/
 .ipynb_checkpoints
+.DS_Store
+Gemfile.lock
+.bundle/
+vendor/
+_site/
+__pycache__/

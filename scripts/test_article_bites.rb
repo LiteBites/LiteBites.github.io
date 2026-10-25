@@ -1,6 +1,8 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
+Encoding.default_external = Encoding::UTF_8
+
 require "fileutils"
 require "json"
 require "minitest/autorun"
@@ -110,7 +112,7 @@ class ArticleBitesSiteTest < Minitest::Test
       FileUtils.cp(File.join(ROOT, "_data", "knowledge-graph-relations.yml"), File.join(dir, "_data"))
       FileUtils.mkdir_p(File.join(dir, "_articles"))
       article_content = article_fixture(Array.new(410, "evidence").join(" "))
-        .sub("  - Testing", "  - Agentic AI")
+        .sub("  - Developer Tools", "  - Agentic AI")
         .sub(
           'summary: "A complete test summary that explains why the source matters."',
           'summary: "A benchmark release with an intentionally narrow metadata topic."'
@@ -152,7 +154,7 @@ class ArticleBitesSiteTest < Minitest::Test
     validator = File.join(ROOT, "scripts", "validate_article_bites.rb")
     Dir.mktmpdir("article-bites-tags-test") do |dir|
       path = File.join(dir, "empty-tags.md")
-      content = article_fixture(Array.new(410, "evidence").join(" ")).sub("tags:\n  - Testing", "tags: []")
+      content = article_fixture(Array.new(410, "evidence").join(" ")).sub("tags:\n  - Developer Tools", "tags: []")
       File.write(path, content)
       stdout, stderr, status = Open3.capture3(RbConfig.ruby, validator, path)
       refute status.success?, "empty tags unexpectedly passed"
@@ -249,7 +251,7 @@ class ArticleBitesSiteTest < Minitest::Test
       numeric_tag = File.join(dir, "numeric-tag.md")
       fixture = article_fixture(Array.new(410, "evidence").join(" "))
       File.write(blank_title, fixture.sub('title: "Test Article Bite"', 'title: "   "'))
-      File.write(numeric_tag, fixture.sub("  - Testing", "  - 42"))
+      File.write(numeric_tag, fixture.sub("  - Developer Tools", "  - 42"))
 
       stdout, stderr, status = Open3.capture3(RbConfig.ruby, validator, blank_title)
       refute status.success?, "whitespace-only title unexpectedly passed"
@@ -535,7 +537,11 @@ class ArticleBitesSiteTest < Minitest::Test
       FileUtils.mkdir_p(File.join(dir, "scripts"))
       FileUtils.mkdir_p(File.join(dir, "_articles"))
       FileUtils.mkdir_p(File.join(dir, "assets", "images", "articles", "test-bite"))
-      FileUtils.cp(File.join(ROOT, "scripts", "validate_article_bites.rb"), File.join(dir, "scripts"))
+      %w[validate_article_bites.rb validate_bites.rb lib].each do |entry|
+        FileUtils.cp_r(File.join(ROOT, "scripts", entry), File.join(dir, "scripts"))
+      end
+      FileUtils.mkdir_p(File.join(dir, "_data"))
+      %w[bite_schema.yml tags.yml].each { |entry| FileUtils.cp(File.join(ROOT, "_data", entry), File.join(dir, "_data")) }
       FileUtils.cp(File.join(ROOT, "Gemfile"), dir)
       File.write(File.join(dir, "assets", "images", "articles", "test-bite", "figure.svg"), svg_source)
 
@@ -579,7 +585,7 @@ class ArticleBitesSiteTest < Minitest::Test
       source_published: "2026-08-15"
       last_reviewed: "2026-08-16"
       tags:
-        - Testing
+        - Developer Tools
       summary: "A complete test summary that explains why the source matters."
       ---
 
