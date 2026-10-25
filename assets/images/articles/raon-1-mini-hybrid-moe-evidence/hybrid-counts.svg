@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="530" viewBox="0 0 480 530" role="img" aria-labelledby="title desc">
+  <title id="title">Raon-1 mini: layer and expert counts</title>
+  <desc id="desc">A LiteBites summary of KRAFTON's configuration: 18 Raon Delta Attention layers with fixed-size state, seven gated MLA layers with a growing key-value cache, and six routed experts out of 128 plus one shared expert active per token. Counts do not show layer order or measured memory savings.</desc>
+  <rect width="480" height="530" fill="#101b1b"/>
+  <text x="28" y="41" fill="#b5d1c7" font-family="system-ui,-apple-system,sans-serif" font-size="13" font-weight="700" letter-spacing="1.8">LITEBITES  /  MODEL ANATOMY</text>
+  <text x="28" y="86" fill="#f6faf7" font-family="system-ui,-apple-system,sans-serif" font-size="29" font-weight="800">Two kinds of attention</text>
+  <text x="28" y="113" fill="#b5d1c7" font-family="system-ui,-apple-system,sans-serif" font-size="16">25 layers in the published configuration</text>
+  <rect x="28" y="139" width="424" height="136" rx="14" fill="#19352e" stroke="#55816b"/>
+  <text x="48" y="189" fill="#d6ef99" font-family="system-ui,-apple-system,sans-serif" font-size="42" font-weight="800">18</text>
+  <text x="115" y="183" fill="#f6faf7" font-family="system-ui,-apple-system,sans-serif" font-size="20" font-weight="700">Raon Delta Attention</text>
+  <text x="115" y="211" fill="#cbded4" font-family="system-ui,-apple-system,sans-serif" font-size="16">Fixed-size state</text>
+  <path d="M48 238H432" stroke="#426557"/>
+  <text x="48" y="259" fill="#b5d1c7" font-family="system-ui,-apple-system,sans-serif" font-size="13">Claimed to limit state growth; not a measured speedup</text>
+  <rect x="28" y="289" width="424" height="108" rx="14" fill="#263443" stroke="#627e9e"/>
+  <text x="48" y="353" fill="#a8cbed" font-family="system-ui,-apple-system,sans-serif" font-size="42" font-weight="800">7</text>
+  <text x="115" y="339" fill="#f6faf7" font-family="system-ui,-apple-system,sans-serif" font-size="20" font-weight="700">Gated MLA</text>
+  <text x="115" y="367" fill="#d6e0e8" font-family="system-ui,-apple-system,sans-serif" font-size="16">Growing KV cache</text>
+  <rect x="28" y="413" width="424" height="66" rx="13" fill="#f5f7ec"/>
+  <text x="45" y="440" fill="#1b2e2a" font-family="system-ui,-apple-system,sans-serif" font-size="18" font-weight="800">6 of 128 routed experts</text>
+  <text x="45" y="464" fill="#354741" font-family="system-ui,-apple-system,sans-serif" font-size="15">+ 1 shared expert used per token</text>
+  <text x="28" y="511" fill="#b5d1c7" font-family="system-ui,-apple-system,sans-serif" font-size="13">Counts only · not layer order or benchmark evidence</text>
+</svg>

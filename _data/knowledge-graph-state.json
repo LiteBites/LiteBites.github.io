@@ -655,6 +655,29 @@
       "sourcePath": "_articles/qwen3-8-max.md"
     },
     {
+      "id": "article:raon-1-mini-hybrid-moe-evidence",
+      "slug": "raon-1-mini-hybrid-moe-evidence",
+      "type": "article",
+      "title": "Raon-1 Mini: A Hybrid MoE With Uneven Benchmark Evidence",
+      "shortTitle": "Raon-1 Mini's Hybrid MoE",
+      "url": "/articles/raon-1-mini-hybrid-moe-evidence/",
+      "summary": "KRAFTON's Raon-1 mini preview combines sparse experts with two attention types; its reported scores show strengths and gaps rather than a clean sweep.",
+      "date": "2026-10-25",
+      "meta": "KRAFTON AI model card / 3 min read",
+      "topics": [
+        "Efficient AI",
+        "Language Models",
+        "Open Models"
+      ],
+      "topicWeights": {
+        "Efficient AI": 3,
+        "Language Models": 3,
+        "Open Models": 3
+      },
+      "sourceHash": "dc38d7c18fc267158df9c7edf086b5ff22ef922c0fc1c49574939322d3a51e29",
+      "sourcePath": "_articles/raon-1-mini-hybrid-moe-evidence.md"
+    },
+    {
       "id": "article:slides-grab",
       "slug": "slides-grab",
       "type": "article",
@@ -1483,6 +1506,18 @@
       "provenance": "metadata"
     },
     {
+      "id": "article:apple-mac-desktops-local-ai|article:raon-1-mini-hybrid-moe-evidence",
+      "source": "article:apple-mac-desktops-local-ai",
+      "target": "article:raon-1-mini-hybrid-moe-evidence",
+      "relation": "shared-topic",
+      "label": "Efficient AI",
+      "topics": [
+        "Efficient AI"
+      ],
+      "weight": 3,
+      "provenance": "metadata"
+    },
+    {
       "id": "article:claude-opus-5-5|article:gemini-4-argon",
       "source": "article:claude-opus-5-5",
       "target": "article:gemini-4-argon",
@@ -1852,6 +1887,19 @@
         "Multimodal AI"
       ],
       "weight": 3,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:glm-5-3-flash|article:raon-1-mini-hybrid-moe-evidence",
+      "source": "article:glm-5-3-flash",
+      "target": "article:raon-1-mini-hybrid-moe-evidence",
+      "relation": "shared-topic",
+      "label": "Efficient AI · Open Models",
+      "topics": [
+        "Efficient AI",
+        "Open Models"
+      ],
+      "weight": 6,
       "provenance": "metadata"
     },
     {
@@ -2490,6 +2538,18 @@
       "provenance": "metadata"
     },
     {
+      "id": "article:nvidia-hugging-face-acquisition|article:raon-1-mini-hybrid-moe-evidence",
+      "source": "article:nvidia-hugging-face-acquisition",
+      "target": "article:raon-1-mini-hybrid-moe-evidence",
+      "relation": "shared-topic",
+      "label": "Open Models",
+      "topics": [
+        "Open Models"
+      ],
+      "weight": 3,
+      "provenance": "metadata"
+    },
+    {
       "id": "article:orca-worktree-first-agent-ide|article:perplexity-decisions-vs-jev",
       "source": "article:orca-worktree-first-agent-ide",
       "target": "article:perplexity-decisions-vs-jev",
@@ -2553,6 +2613,19 @@
       "provenance": "metadata"
     },
     {
+      "id": "article:qwen3-8-max|article:raon-1-mini-hybrid-moe-evidence",
+      "source": "article:qwen3-8-max",
+      "target": "article:raon-1-mini-hybrid-moe-evidence",
+      "relation": "shared-topic",
+      "label": "Language Models · Open Models",
+      "topics": [
+        "Language Models",
+        "Open Models"
+      ],
+      "weight": 6,
+      "provenance": "metadata"
+    },
+    {
       "id": "article:qwen3-8-max|paper:prime-agent",
       "source": "article:qwen3-8-max",
       "target": "paper:prime-agent",
@@ -2610,6 +2683,18 @@
       "label": "Agentic AI",
       "topics": [
         "Agentic AI"
+      ],
+      "weight": 4,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:raon-1-mini-hybrid-moe-evidence|paper:retrieval-augmented-generation",
+      "source": "article:raon-1-mini-hybrid-moe-evidence",
+      "target": "paper:retrieval-augmented-generation",
+      "relation": "shared-topic",
+      "label": "Language Models",
+      "topics": [
+        "Language Models"
       ],
       "weight": 4,
       "provenance": "metadata"
@@ -2987,25 +3072,12 @@
       ],
       "weight": 5,
       "provenance": "metadata"
-    },
-    {
-      "id": "paper:novalad-document-extraction|paper:retrieval-augmented-generation",
-      "source": "paper:novalad-document-extraction",
-      "target": "paper:retrieval-augmented-generation",
-      "relation": "shared-topic",
-      "label": "Generative AI · Retrieval-Augmented Generation",
-      "topics": [
-        "Generative AI",
-        "Retrieval-Augmented Generation"
-      ],
-      "weight": 4,
-      "provenance": "metadata"
     }
   ],
   "stats": {
-    "nodes": 58,
-    "edges": 122,
-    "articles": 32,
+    "nodes": 59,
+    "edges": 126,
+    "articles": 33,
     "papers": 23,
     "datasets": 3
   }
