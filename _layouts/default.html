@@ -46,7 +46,7 @@
         </div>
         <a class="brand" href="{{ '/' | relative_url }}" {% if page.nav == 'home' %}aria-current="page"{% endif %}>{{ site.title }}</a>
         <div class="nav-tools">
-          <a class="archive-link" href="{{ '/papers/' | relative_url }}">Archive</a>
+          <a class="archive-link" {% if page.nav == 'archive' %}aria-current="page"{% endif %} href="{{ '/archive/' | relative_url }}">Archive</a>
           <button class="theme-toggle" type="button" aria-label="Switch to dark theme" aria-pressed="false">
             <span class="theme-toggle-icon" aria-hidden="true">◐</span>
             <span class="theme-toggle-text">Theme</span>
@@ -70,6 +70,7 @@
             <a href="{{ '/papers/' | relative_url }}">Paper Bites</a>
             <a href="{{ '/data/' | relative_url }}">Data Bites</a>
             {% if site.knowledge_graph.enabled %}<a href="{{ '/graph/' | relative_url }}">Knowledge Graph</a>{% endif %}
+            <a href="{{ '/archive/' | relative_url }}">Full archive</a>
             <a href="{{ '/feed.xml' | relative_url }}">RSS Feed</a>
           </div>
         </div>
