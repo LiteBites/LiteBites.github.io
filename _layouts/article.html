@@ -20,10 +20,15 @@ layout: default
           {% if page.source_published %}<span>Published {{ page.source_published | date: '%Y.%m.%d' }}</span>{% endif %}
         </p>
       {% endif %}
+      {% if content contains 'data-claim=' %}{% include claim-toggle.html %}{% endif %}
     </header>
 
     <div class="post-body">
       {{ content }}
     </div>
+
+    {% include check-yourself.html %}
+    {% assign related_id = page.slug | prepend: "article:" %}
+    {% include related-bites.html id=related_id %}
   </article>
 </main>

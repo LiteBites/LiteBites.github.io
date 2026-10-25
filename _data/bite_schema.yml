@@ -31,7 +31,7 @@ types:
     type: Article Bite
     url: /articles/<slug>/
     required: [layout, title, short_title, date, type, read_time, source_name, source_url, source_published, last_reviewed, tags, summary]
-    optional: [additional_sources, card_image, card_image_alt, description, long_form]
+    optional: [additional_sources, card_image, card_image_alt, description, long_form, benchmarks, check_yourself]
     strings: [layout, title, short_title, type, read_time, source_name, source_url, summary]
     dates: [date, source_published, last_reviewed]
     urls: [source_url]
@@ -49,7 +49,7 @@ types:
     type: Paper brief
     url: /posts/<slug>/
     required: [layout, title, short_title, date, type, read_time, venue, tags, summary, paper_url]
-    optional: [code_url, project_url, source_note_url, card_image, card_image_alt, description]
+    optional: [code_url, project_url, source_note_url, card_image, card_image_alt, description, benchmarks, check_yourself]
     strings: [layout, title, short_title, type, read_time, venue, summary, paper_url]
     dates: [date]
     urls: [paper_url, code_url, project_url, source_note_url]

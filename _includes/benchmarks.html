@@ -1,0 +1,41 @@
+{%- comment -%}
+  Sortable results table from front matter `benchmarks:`.
+  Usage (in the body, where the table belongs): {% include benchmarks.html index=0 %}
+  Data shape and rules: _includes/AGENTS.md. Quote numbers ("8.50") to keep
+  their printed precision; site.js parses them for sorting.
+{%- endcomment -%}
+{%- assign bench_index = include.index | default: 0 -%}
+{%- assign table = page.benchmarks[bench_index] -%}
+{%- assign has_caveat = false -%}
+{%- for row in table.rows -%}{%- if row.caveat -%}{%- assign has_caveat = true -%}{%- endif -%}{%- endfor -%}
+<div class="paper-results-scroll" role="region" aria-labelledby="benchmark-{{ bench_index }}-caption" tabindex="0">
+  <table class="paper-results-table benchmark-table" data-benchmark>
+    <caption id="benchmark-{{ bench_index }}-caption">{{ table.title }}<span class="benchmark-source">Source: {{ table.source | markdownify | remove: '<p>' | remove: '</p>' | strip }}</span></caption>
+    <thead>
+      <tr>
+        {%- for column in table.columns -%}
+          {%- assign flag_index = forloop.index0 | minus: 1 -%}
+          {%- assign flag = nil -%}
+          {%- if forloop.index0 > 0 and table.higher_is_better -%}{%- assign flag = table.higher_is_better[flag_index] -%}{%- endif %}
+        <th scope="col" aria-sort="none"{% if flag == true %} data-better="higher"{% elsif flag == false %} data-better="lower"{% endif %}><button type="button" data-sort-column="{{ forloop.index0 }}">{{ column }}{% if flag == true %} ↑{% elsif flag == false %} ↓{% endif %}</button></th>
+        {%- endfor -%}
+        {%- if has_caveat %}
+        <th scope="col" class="benchmark-caveat">Caveat</th>
+        {%- endif %}
+      </tr>
+    </thead>
+    <tbody>
+      {%- for row in table.rows %}
+      <tr{% if row.highlight %} class="is-highlight"{% endif %}>
+        {%- for cell in row.cells -%}
+          {%- if forloop.first %}<th scope="row">{{ cell }}</th>{% else %}<td data-value="{{ cell }}">{{ cell }}</td>{% endif -%}
+        {%- endfor -%}
+        {%- if has_caveat %}<td class="benchmark-caveat">{{ row.caveat }}</td>{% endif %}
+      </tr>
+      {%- endfor %}
+    </tbody>
+  </table>
+</div>
+{%- if table.note %}
+<p class="paper-results-note">{{ table.note }} Select a column heading to sort.</p>
+{%- endif -%}

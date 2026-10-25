@@ -7,8 +7,9 @@
 #   ruby scripts/validate_bites.rb _posts/x.md     # specific files
 #   ruby scripts/validate_bites.rb --type article path.md
 #
-# The contract lives in _data/bite_schema.yml and _data/tags.yml. Exit status
-# is nonzero when any file fails.
+# The contract lives in _data/bite_schema.yml and _data/tags.yml; interactive
+# component data is checked against _includes/AGENTS.md shapes. Exit status is
+# nonzero when any file fails.
 
 Encoding.default_external = Encoding::UTF_8
 
@@ -23,6 +24,9 @@ require_relative "lib/bite_checks"
 SCHEMA = YAML.safe_load(ROOT.join("_data", "bite_schema.yml").read, aliases: false)
 TAGS_PATH = ROOT.join(SCHEMA.fetch("tag_vocabulary"))
 TAG_VOCABULARY = TAGS_PATH.file? ? Array(YAML.safe_load(TAGS_PATH.read)["tags"]).map(&:to_s) : nil
+GLOSSARY_PATH = ROOT.join("_data", "glossary.yml")
+GLOSSARY_IDS = GLOSSARY_PATH.file? ? Array(YAML.safe_load(GLOSSARY_PATH.read)["terms"]).map { |term| term["id"].to_s } : []
+CLAIM_KINDS = %w[reported evidence interpretation uncertainty].freeze
 SLUG_PATTERN = /\A[a-z0-9]+(?:-[a-z0-9]+)*\z/
 
 def type_for(path, forced)
@@ -115,6 +119,83 @@ def validate_words(body, rules, metadata)
   words
 end
 
+def validate_benchmarks(value)
+  raise BiteValidationError, "benchmarks must be a list of tables" unless value.is_a?(Array) && !value.empty?
+
+  value.each_with_index do |table, index|
+    label = "benchmarks[#{index}]"
+    raise BiteValidationError, "#{label} must be a mapping" unless table.is_a?(Hash)
+    %w[title source].each do |field|
+      raise BiteValidationError, "#{label}.#{field} must be a non-empty string" unless non_blank_string?(table[field])
+    end
+    columns = table["columns"]
+    unless columns.is_a?(Array) && columns.length >= 2 && columns.all? { |column| non_blank_string?(column) }
+      raise BiteValidationError, "#{label}.columns must list at least two header strings"
+    end
+    if table.key?("higher_is_better")
+      flags = table["higher_is_better"]
+      unless flags.is_a?(Array) && flags.length == columns.length - 1 && flags.all? { |flag| [true, false, nil].include?(flag) }
+        raise BiteValidationError, "#{label}.higher_is_better must have one true/false/null per metric column (#{columns.length - 1})"
+      end
+    end
+    rows = table["rows"]
+    raise BiteValidationError, "#{label}.rows must be a non-empty list" unless rows.is_a?(Array) && !rows.empty?
+
+    rows.each_with_index do |row, row_index|
+      row_label = "#{label}.rows[#{row_index}]"
+      raise BiteValidationError, "#{row_label} must be a mapping with cells" unless row.is_a?(Hash) && row["cells"].is_a?(Array)
+      unless row["cells"].length == columns.length
+        raise BiteValidationError, "#{row_label}.cells has #{row['cells'].length} values; columns has #{columns.length}"
+      end
+      if row.key?("caveat") && !non_blank_string?(row["caveat"])
+        raise BiteValidationError, "#{row_label}.caveat must be a non-empty string when present"
+      end
+    end
+  end
+end
+
+def validate_check_yourself(value)
+  unless value.is_a?(Array) && value.length.between?(1, 5)
+    raise BiteValidationError, "check_yourself must be a list of 1–5 questions"
+  end
+
+  value.each_with_index do |item, index|
+    unless item.is_a?(Hash) && non_blank_string?(item["q"]) && non_blank_string?(item["a"])
+      raise BiteValidationError, "check_yourself[#{index}] requires non-empty q and a"
+    end
+  end
+end
+
+def include_params(tag)
+  tag.scan(/(\w+)=(?:"([^"]*)"|'([^']*)')/).to_h { |key, double, single| [key, double || single] }
+end
+
+def validate_component_includes(body, metadata)
+  tables = Array(metadata["benchmarks"]).length
+  used = body.scan(/\{%-?\s*include\s+benchmarks\.html\s*([^%]*)%\}/).flatten.map { |params| Integer(include_params(params)["index"] || params[/index=(\d+)/, 1] || 0) }
+  used.each do |index|
+    raise BiteValidationError, "benchmarks.html index=#{index} has no benchmarks[#{index}] in front matter" unless index < tables
+  end
+  missing = (0...tables).to_a - used
+  unless missing.empty?
+    raise BiteValidationError, "benchmarks[#{missing.join(', ')}] defined but never placed; add {% include benchmarks.html index=N %} in the body"
+  end
+
+  body.scan(/\{%-?\s*include\s+term\.html\s+([^%]*)%\}/).flatten.each do |params|
+    id = include_params(params)["id"]
+    unless GLOSSARY_IDS.include?(id.to_s)
+      raise BiteValidationError, "term.html id '#{id}' is not defined in _data/glossary.yml"
+    end
+  end
+  body.scan(/\{%-?\s*include\s+claim\.html\s+([^%]*)%\}/).flatten.each do |params|
+    values = include_params(params)
+    unless CLAIM_KINDS.include?(values["kind"].to_s)
+      raise BiteValidationError, "claim.html kind must be one of #{CLAIM_KINDS.join(', ')} (found '#{values['kind']}')"
+    end
+    raise BiteValidationError, "claim.html requires non-empty text" unless non_blank_string?(values["text"])
+  end
+end
+
 def validate_bite(path, forced_type = nil)
   metadata, body = split_front_matter(path.read(encoding: "UTF-8"))
   type = type_for(path, forced_type)
@@ -128,6 +209,7 @@ def validate_bite(path, forced_type = nil)
   end
 
   raise BiteValidationError, "body contains an unresolved TODO or TBD" if body.match?(/\b(?:TODO|TBD)\b/i)
+  raise BiteValidationError, "body must not contain <script>; interactive features are includes (see _includes/AGENTS.md)" if body.match?(/<script\b/i)
 
   source_links = []
   if (sections = rules["sections"])
@@ -144,6 +226,9 @@ def validate_bite(path, forced_type = nil)
   checks = rules.fetch("checks", [])
   validate_remote_inline_images(body, source_links) if checks.include?("remote_images")
   validate_first_party_inline_figures(body, path, source_links) if checks.include?("first_party_figures")
+  validate_benchmarks(metadata["benchmarks"]) if metadata.key?("benchmarks")
+  validate_check_yourself(metadata["check_yourself"]) if metadata.key?("check_yourself")
+  validate_component_includes(body, metadata)
 
   [type, validate_words(body, rules, metadata)]
 end

@@ -15,6 +15,35 @@ summary: "NovaLAD splits document parsing into parallel semantic and layout dete
 card_image: "/assets/images/papers/novalad-document-extraction/method-01.jpg"
 card_image_alt: "NovaLAD flowchart showing a page entering parallel layout and element detectors, image filtering, OCR, optional LLM enrichment, and JSON-derived outputs."
 paper_url: "https://arxiv.org/abs/2603.00122v1"
+benchmarks:
+  - title: "Paper Table 5: NovaLAD and October 2024 DP-Bench comparison rows"
+    source: "[Table 5](https://arxiv.org/html/2603.00122v1#S4.SS5) of the paper; comparison rows match the [October 2024 DP-Bench leaderboard](https://huggingface.co/datasets/upstage/dp-bench/blob/b29fd1c81462/README.md#leaderboard)."
+    columns: [Parser, TEDS, NID, Avg time (s)]
+    higher_is_better: [true, true, false]
+    note: "Author-reported NovaLAD result beside historical leaderboard rows; not a same-run or matched-hardware comparison. Higher TEDS/NID is better; lower average time is better. On a narrow screen, scroll the table horizontally."
+    rows:
+      - cells: [NovaLAD, "96.49", "98.51", "8.50"]
+        caveat: "Author-reported; paper does not say which rows were rerun"
+        highlight: true
+      - cells: [Upstage, "93.48", "97.02", "3.79"]
+        caveat: "October 2024 leaderboard row"
+      - cells: [AWS, "88.05", "96.71", "14.47"]
+        caveat: "October 2024 leaderboard row"
+      - cells: [Microsoft, "87.19", "87.69", "4.44"]
+        caveat: "October 2024 leaderboard row"
+      - cells: [Llamaparse, "74.57", "92.82", "4.14"]
+        caveat: "October 2024 leaderboard row"
+      - cells: [Unstructured, "65.56", "91.18", "13.14"]
+        caveat: "October 2024 leaderboard row"
+      - cells: [Google, "66.13", "90.86", "5.85"]
+        caveat: "October 2024 leaderboard row"
+check_yourself:
+  - q: "Why does NovaLAD run two detectors instead of one?"
+    a: "The element detector finds *what* each box is (headings, paragraphs, tables, figures), while the layout detector finds containers such as columns and row groups. Separating semantic identity from page topology helps place each box in reading order."
+  - q: "Can the image-usefulness gate explain NovaLAD's higher NID score?"
+    a: "No. The historical DP-Bench NID excludes figures, tables, and charts, and tables bypass the image gate. The paper also reports no component ablation."
+  - q: "Is the DP-Bench lead a matched head-to-head comparison?"
+    a: "It is not established as one. The comparison rows match October 2024 leaderboard entries, the paper does not identify which rows it reran, and no same-run, matched-hardware setup is disclosed."
 ---
 
 ## The parsing bottleneck before retrieval
@@ -44,30 +73,13 @@ Ordered entities are stored in JSON and used to build Markdown, retrieval-orient
 
 ## A benchmark lead with an old reference frame
 
-In [Table 5](https://arxiv.org/html/2603.00122v1#S4.SS5), the authors report **96.49 TEDS**, **98.51 NID**, and **8.50 seconds average time** for NovaLAD. The paper's Upstage row reports **93.48 TEDS**, **97.02 NID**, and **3.79 seconds**. NovaLAD's displayed quality scores are higher, while the Upstage row is faster. The six comparison rows for Upstage, AWS, Microsoft, LlamaParse, Unstructured, and Google match the [DP-Bench leaderboard's October 2024 entries](https://huggingface.co/datasets/upstage/dp-bench/blob/b29fd1c81462/README.md#leaderboard). The manuscript describes “the benchmark leaderboard and our runs” without identifying which rows it reran. These are **not established as a simultaneous, matched-hardware head-to-head**, and the paper does not compare Docling, MinerU, Marker, or PaddleOCR.
+{% include claim.html kind="reported" text="In [Table 5](https://arxiv.org/html/2603.00122v1#S4.SS5), the authors report **96.49 TEDS**, **98.51 NID**, and **8.50 seconds average time** for NovaLAD." %} The paper's Upstage row reports **93.48 TEDS**, **97.02 NID**, and **3.79 seconds**. NovaLAD's displayed quality scores are higher, while the Upstage row is faster. {% include claim.html kind="evidence" text="The six comparison rows for Upstage, AWS, Microsoft, LlamaParse, Unstructured, and Google match the [DP-Bench leaderboard's October 2024 entries](https://huggingface.co/datasets/upstage/dp-bench/blob/b29fd1c81462/README.md#leaderboard)." %} {% include claim.html kind="uncertainty" text="The manuscript describes “the benchmark leaderboard and our runs” without identifying which rows it reran." %} These are **not established as a simultaneous, matched-hardware head-to-head**, and the paper does not compare Docling, MinerU, Marker, or PaddleOCR.
 
-<div class="paper-results-scroll" role="region" aria-labelledby="novalad-dp-table-caption" tabindex="0">
-  <table class="paper-results-table">
-    <caption id="novalad-dp-table-caption">Paper Table 5: NovaLAD and October 2024 DP-Bench comparison rows</caption>
-    <thead>
-      <tr><th scope="col">Parser</th><th scope="col">TEDS ↑</th><th scope="col">NID ↑</th><th scope="col">Avg time (s) ↓</th></tr>
-    </thead>
-    <tbody>
-      <tr><th scope="row">NovaLAD</th><td>96.49</td><td>98.51</td><td>8.50</td></tr>
-      <tr><th scope="row">Upstage</th><td>93.48</td><td>97.02</td><td>3.79</td></tr>
-      <tr><th scope="row">AWS</th><td>88.05</td><td>96.71</td><td>14.47</td></tr>
-      <tr><th scope="row">Microsoft</th><td>87.19</td><td>87.69</td><td>4.44</td></tr>
-      <tr><th scope="row">Llamaparse</th><td>74.57</td><td>92.82</td><td>4.14</td></tr>
-      <tr><th scope="row">Unstructured</th><td>65.56</td><td>91.18</td><td>13.14</td></tr>
-      <tr><th scope="row">Google</th><td>66.13</td><td>90.86</td><td>5.85</td></tr>
-    </tbody>
-  </table>
-</div>
-<p class="paper-results-note">Author-reported NovaLAD result beside historical leaderboard rows; not a same-run or matched-hardware comparison. Higher TEDS/NID is better; lower average time is better. On a narrow screen, scroll the table horizontally.</p>
+{% include benchmarks.html index=0 %}
 
-The scores measure different parts of the flow. In the [historical DP-Bench evaluator](https://huggingface.co/datasets/upstage/dp-bench/blob/b29fd1c81462/evaluate.py), **NID** compares concatenated text in supplied reading order while excluding figures, tables, and charts. That makes the native-text and ordering paths relevant, but it does not directly test image understanding, boxes, knowledge-graph usefulness, or answers from a retrieval system. **TEDS** compares HTML table trees, including structure and cell content; TEDS-S is structure-only. In this historical evaluator, table scores are averaged over documents with reference tables, using the first HTML table tree in each; a missing prediction scores zero. A table detector plus OCR text is not an HTML table tree. The paper describes category mapping and optional VLM-produced rows but does not specify the exact conversion into the benchmark's required `content.html`, or give a VLM-off table score. Its Table 5 omits NovaLAD's TEDS-S despite mentioning that metric. See the [versioned layout evaluator](https://huggingface.co/datasets/upstage/dp-bench/blob/b29fd1c81462/src/layout_evaluation.py) and [table evaluator](https://huggingface.co/datasets/upstage/dp-bench/blob/b29fd1c81462/src/table_evaluation.py).
+The scores measure different parts of the flow. In the [historical DP-Bench evaluator](https://huggingface.co/datasets/upstage/dp-bench/blob/b29fd1c81462/evaluate.py), {% include term.html id="nid" %} compares concatenated text in supplied reading order while excluding figures, tables, and charts. That makes the native-text and ordering paths relevant, but it does not directly test image understanding, boxes, knowledge-graph usefulness, or answers from a retrieval system. {% include term.html id="teds" %} compares HTML table trees, including structure and cell content; TEDS-S is structure-only. In this historical evaluator, table scores are averaged over documents with reference tables, using the first HTML table tree in each; a missing prediction scores zero. A table detector plus OCR text is not an HTML table tree. The paper describes category mapping and optional VLM-produced rows but does not specify the exact conversion into the benchmark's required `content.html`, or give a VLM-off table score. Its Table 5 omits NovaLAD's TEDS-S despite mentioning that metric. See the [versioned layout evaluator](https://huggingface.co/datasets/upstage/dp-bench/blob/b29fd1c81462/src/layout_evaluation.py) and [table evaluator](https://huggingface.co/datasets/upstage/dp-bench/blob/b29fd1c81462/src/table_evaluation.py).
 
-This distinction prevents a tempting but unsupported causal story. The image gate cannot by itself explain a higher NID, because figures are excluded; tables bypass that gate. Geometric ordering is a plausible contributor to NID, and visual table interpretation might affect TEDS, but **there is no component ablation** showing how much each contributes. The detector validation results measure different tasks: the paper reports layout-detector mAP50 of **0.567** and element-detector mAP50 of **0.859** on their own training evaluations, not DP-Bench end-to-end accuracy. Nor are prediction JSON, per-document results, machine specifications, exact service settings, or confidence intervals supplied to reproduce the Table 5 comparison. This is a reproducibility limit, not evidence the reported scores are false.
+This distinction prevents a tempting but unsupported causal story. The image gate cannot by itself explain a higher NID, because figures are excluded; tables bypass that gate. {% include claim.html kind="interpretation" text="Geometric ordering is a plausible contributor to NID, and visual table interpretation might affect TEDS, but **there is no component ablation** showing how much each contributes." %} The detector validation results measure different tasks: the paper reports layout-detector mAP50 of **0.567** and element-detector mAP50 of **0.859** on their own training evaluations, not DP-Bench end-to-end accuracy. Nor are prediction JSON, per-document results, machine specifications, exact service settings, or confidence intervals supplied to reproduce the Table 5 comparison. This is a reproducibility limit, not evidence the reported scores are false.
 
 ## The flow comparison worth running
 

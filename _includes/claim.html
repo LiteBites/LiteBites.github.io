@@ -1,0 +1,8 @@
+{%- comment -%}
+  Marks a sentence by evidence layer for the reader's "Evidence layers" toggle.
+  Usage: {% include claim.html kind="evidence" text="Sentence with **Markdown**." %}
+  kind: reported | evidence | interpretation | uncertainty (see _includes/AGENTS.md).
+  The text must not contain straight double quotes; use curly quotes or text='...'.
+{%- endcomment -%}
+<span class="claim" data-claim="{{ include.kind }}">{{ include.text | markdownify | remove: '<p>' | remove: '</p>' | strip }}</span>
+{%- comment -%}keep inline{%- endcomment -%}

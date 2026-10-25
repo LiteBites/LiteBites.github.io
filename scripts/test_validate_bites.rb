@@ -78,6 +78,65 @@ class ValidateBitesTest < Minitest::Test
     end
   end
 
+  def test_component_data
+    good = <<~YAML
+      benchmarks:
+        - title: "Accuracy"
+          source: "Table 1"
+          columns: [Method, Score]
+          higher_is_better: [true]
+          rows:
+            - cells: [Ours, 0.9]
+              caveat: "Author-reported"
+      check_yourself:
+        - q: "Question?"
+          a: "Answer."
+    YAML
+    bad = {
+      "row width" => good.sub("[Ours, 0.9]", "[Ours]"),
+      "flags width" => good.sub("[true]", "[true, false]"),
+      "empty answer" => good.sub('a: "Answer."', 'a: ""')
+    }
+    with_repo do |dir, run|
+      placed = "{% include benchmarks.html index=0 %}"
+      write(dir, "_posts/2026-10-01-test-paper.md", paper_fixture(extra: good, body_extra: placed))
+      stdout, stderr, status = run.call
+      assert status.success?, "#{stdout}#{stderr}"
+
+      write(dir, "_posts/2026-10-01-test-paper.md", paper_fixture(extra: good))
+      stdout, stderr, status = run.call
+      refute status.success?, "unplaced benchmark table unexpectedly passed"
+      assert_includes "#{stdout}#{stderr}", "never placed"
+    end
+    bad.each do |label, yaml|
+      with_repo do |dir, run|
+        write(dir, "_posts/2026-10-01-test-paper.md", paper_fixture(extra: yaml, body_extra: "{% include benchmarks.html index=0 %}"))
+        _stdout, _stderr, status = run.call
+        refute status.success?, "#{label} unexpectedly passed"
+      end
+    end
+  end
+
+  def test_component_includes
+    with_repo do |dir, run|
+      File.write(File.join(dir, "_data", "glossary.yml"), "terms:\n  - id: lora\n    term: LoRA\n    definition: Low-rank adapters.\n")
+      body = '{% include term.html id="lora" %} and {% include claim.html kind="evidence" text="It works." %}'
+      write(dir, "_posts/2026-10-01-test-paper.md", paper_fixture(body_extra: body))
+      stdout, stderr, status = run.call
+      assert status.success?, "#{stdout}#{stderr}"
+
+      write(dir, "_posts/2026-10-01-test-paper.md", paper_fixture(body_extra: '{% include term.html id="missing" %}'))
+      stdout, stderr, status = run.call
+      refute status.success?
+      assert_includes "#{stdout}#{stderr}", "glossary"
+
+      write(dir, "_posts/2026-10-01-test-paper.md", paper_fixture(body_extra: '{% include claim.html kind="opinion" text="x" %}'))
+      stdout, stderr, status = run.call
+      refute status.success?
+      assert_includes "#{stdout}#{stderr}", "claim.html kind"
+    end
+  end
+
   private
 
   # Builds a minimal isolated repository so filename and asset rules apply.

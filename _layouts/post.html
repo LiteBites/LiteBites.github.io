@@ -15,11 +15,16 @@ layout: default
         {% if page.tags and page.tags.size > 0 %}<span>{{ page.tags | join: ' · ' }}</span>{% endif %}
         {% if page.venue %}<span>{{ page.venue }}</span>{% endif %}
       </div>
+      {% if content contains 'data-claim=' %}{% include claim-toggle.html %}{% endif %}
     </header>
 
     <div class="post-body">
       {{ content }}
     </div>
+
+    {% include check-yourself.html %}
+    {% assign related_id = page.slug | prepend: "paper:" %}
+    {% include related-bites.html id=related_id %}
 
     {% if page.previous or page.next %}
       <nav id="paper-bite-navigation" class="post-pagination" aria-label="Paper Bite navigation">

@@ -2,7 +2,7 @@
 layout: default
 title: Archive
 nav: archive
-description: Every LiteBites Article Bite and Paper Bite, newest first.
+description: Every LiteBites Article Bite and Paper Bite, newest first, filterable by topic.
 permalink: /archive/
 ---
 
@@ -15,7 +15,7 @@ permalink: /archive/
       <h1 id="archive-title">Every bite.<br /><span>One timeline.</span></h1>
     </div>
     <div class="index-intro-copy">
-      <p>Article Bites and Paper Bites in one list, newest first. Datasets live in <a href="{{ '/data/' | relative_url }}">Data Bites</a>.</p>
+      <p>Article Bites and Paper Bites in one list, newest first. Filter by topic, or press <kbd>/</kbd> to search. Datasets live in <a href="{{ '/data/' | relative_url }}">Data Bites</a>.</p>
       <p class="index-stat"><strong>{{ bites.size }}</strong><span>articles and papers<br />newest first</span></p>
     </div>
   </section>
@@ -25,10 +25,11 @@ permalink: /archive/
       <h2 id="archive-list-title" class="section-label">All Bites</h2>
       <span class="section-count">{{ site.articles.size }} articles / {{ site.posts.size }} papers</span>
     </div>
+    {% include topic-filter.html target="#archive-list" label="all Bites" %}
     <div class="paper-archive-list" id="archive-list">
       {% for bite in bites %}
       {% assign is_article = false %}{% if bite.collection == "articles" %}{% assign is_article = true %}{% endif %}
-      <a class="paper-archive-row" href="{{ bite.url | relative_url }}">
+      <a class="paper-archive-row" href="{{ bite.url | relative_url }}" data-topic-item data-topics="{{ bite.tags | join: '|' | escape }}">
         <span class="paper-archive-index">{{ bite.date | date: '%y.%m' }}</span>
         <div class="paper-archive-main">
           <span class="archive-type-label">{% if is_article %}Article Bite{% else %}Paper Bite{% endif %}</span>

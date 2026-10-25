@@ -1,0 +1,13 @@
+{%- comment -%}
+  Reader control for claim.html spans. Layouts include it only when the page
+  contains claims. Hidden until site.js runs, so the page works without JS.
+{%- endcomment -%}
+<div class="claim-toggle" data-claim-toggle hidden>
+  <button type="button" class="pill-link" aria-pressed="false">Show evidence layers</button>
+  <ul class="claim-legend" aria-label="Evidence layer legend">
+    <li><span class="claim" data-claim="reported">Reported</span></li>
+    <li><span class="claim" data-claim="evidence">Evidence</span></li>
+    <li><span class="claim" data-claim="interpretation">Interpretation</span></li>
+    <li><span class="claim" data-claim="uncertainty">Uncertainty</span></li>
+  </ul>
+</div>

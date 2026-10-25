@@ -24,6 +24,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}" />
+    <link rel="stylesheet" href="{{ '/assets/css/components.css' | relative_url }}" />
     {% if page.graph_page %}<link rel="stylesheet" href="{{ '/assets/css/knowledge-graph.css' | relative_url }}" />{% endif %}
     {% feed_meta %}
     {% seo %}
@@ -47,6 +48,11 @@
         <a class="brand" href="{{ '/' | relative_url }}" {% if page.nav == 'home' %}aria-current="page"{% endif %}>{{ site.title }}</a>
         <div class="nav-tools">
           <a class="archive-link" {% if page.nav == 'archive' %}aria-current="page"{% endif %} href="{{ '/archive/' | relative_url }}">Archive</a>
+          <button class="search-open" type="button" data-search-open hidden aria-label="Search (press / or Cmd+K)">
+            <span class="search-open-icon" aria-hidden="true">⌕</span>
+            <span class="search-open-label">Search</span>
+            <kbd aria-hidden="true">/</kbd>
+          </button>
           <button class="theme-toggle" type="button" aria-label="Switch to dark theme" aria-pressed="false">
             <span class="theme-toggle-icon" aria-hidden="true">◐</span>
             <span class="theme-toggle-text">Theme</span>
@@ -56,6 +62,8 @@
     </header>
 
     {{ content }}
+
+    {% include search.html %}
 
     <footer class="site-footer">
       <div class="footer-grid">
@@ -151,6 +159,7 @@
         }
       })();
     </script>
+    <script src="{{ '/assets/js/site.js' | relative_url }}" defer></script>
     {% if site.goatcounter_code and site.goatcounter_code != "" %}
     <script>
       (function () {

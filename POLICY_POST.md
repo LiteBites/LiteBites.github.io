@@ -196,3 +196,4 @@ Avoid:
 
 - File naming: `_posts/YYYY-MM-DD-<slug>.md`; create it with `scripts/litebites new paper <slug>`.
 - Field-level rules: `_data/bite_schema.yml` (`types.paper`) and `_posts/AGENTS.md`.
+- Optional interactive components (`benchmarks:`, `check_yourself:`, glossary terms, evidence layers): `_includes/AGENTS.md`. Use them only when they make the evidence easier to read; they never replace prose.
