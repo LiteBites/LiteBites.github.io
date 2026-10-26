@@ -21,7 +21,10 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: "3.1"
-          bundler-cache: true   # installs the Gemfile gems the validator loads
+      # The validator and tests load these directly; the Jekyll build installs
+      # the full Gemfile into a temp folder on its own (scripts/build.sh).
+      - name: Install validator gems
+        run: gem install --no-document kramdown kramdown-parser-gfm nokogiri
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"

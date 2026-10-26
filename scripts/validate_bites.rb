@@ -16,9 +16,17 @@ Encoding.default_external = Encoding::UTF_8
 require "pathname"
 
 ROOT = Pathname.new(File.expand_path("..", __dir__)) unless defined?(ROOT)
-ENV["BUNDLE_GEMFILE"] ||= ROOT.join("Gemfile").to_s
 
-require "bundler/setup"
+# The validator needs only these gems. Load them directly (CI installs them
+# with `gem install`), and fall back to the site Gemfile through Bundler.
+begin
+  require "kramdown"
+  require "kramdown-parser-gfm"
+  require "nokogiri"
+rescue LoadError
+  ENV["BUNDLE_GEMFILE"] ||= ROOT.join("Gemfile").to_s
+  require "bundler/setup"
+end
 require_relative "lib/bite_checks"
 
 SCHEMA = YAML.safe_load(ROOT.join("_data", "bite_schema.yml").read, aliases: false)
