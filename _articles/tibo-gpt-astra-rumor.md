@@ -10,7 +10,7 @@ source_url: "https://developers.openai.com/api/docs/models/gpt-6-astra"
 source_published: 2026-09-03
 last_reviewed: 2026-09-09
 tags:
-  - AI Model Releases
+  - AI Models
   - OpenAI
   - AI Coding Agents
   - Online Rumors

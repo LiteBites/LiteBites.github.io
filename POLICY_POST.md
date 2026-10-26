@@ -24,9 +24,11 @@ This document defines the default writing policy for LiteBites posts. Use it as 
    - Do not overstate the contribution beyond what the source supports.
    - Distinguish paper claims, personal interpretation, and practical reading advice.
 
+> **Mechanics live in code.** Required front matter, the word range, the section rule (at least four narrative `##` sections, then a final `## Links` that links `paper_url`), tags, and component data are defined in `_data/bite_schema.yml` and enforced by `scripts/litebites validate`. This policy covers editorial judgment only. When the two seem to disagree, report it instead of choosing one.
+
 ## Default Paper Bite structure
 
-Use the current LiteBites Paper Bite structure unless the user explicitly asks for another format.
+The six sections below are the editorial spine. Since September 2026, headings may be source-specific (for example `## Why LoRA's cheapness comes with a catch`) as long as each job below is still done and `## Links` comes last.
 
 1. `## Why this paper matters`
 2. `## The bite`
@@ -190,13 +192,8 @@ Avoid:
 - “It is obvious that…”
 - Dense acronym chains without explanation
 
-## Suggested Jekyll mapping
+## Jekyll mapping
 
-The site uses Jekyll, so every public post should live as a Markdown file under `_posts/`.
-
-- File naming: `_posts/YYYY-MM-DD-short-slug.md`
-- Layout: `layout: post`
-- Required front matter: `title`, `short_title`, `date`, `type`, `read_time`, `venue`, `tags`, `summary`
-- Recommended source fields: `paper_url`, `code_url`, `source_note_url`, `project_url`
-- `index.html` and `papers.html` should render paper post lists from `site.posts` rather than hard-coded cards.
-- `data.html` should keep Data Bites as concise curated dataset cards until a dedicated dataset collection is introduced.
+- File naming: `_posts/YYYY-MM-DD-<slug>.md`; create it with `scripts/litebites new paper <slug>`.
+- Field-level rules: `_data/bite_schema.yml` (`types.paper`) and `_posts/AGENTS.md`.
+- Optional interactive components (`benchmarks:`, `check_yourself:`, glossary terms, evidence layers): `_includes/AGENTS.md`. Use them only when they make the evidence easier to read; they never replace prose.

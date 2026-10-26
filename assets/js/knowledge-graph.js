@@ -475,6 +475,10 @@
     edgeCount.textContent = String(data.stats ? data.stats.edges : data.edges.length).padStart(2, '0');
     attachControls();
     updateVisualState();
+
+    // Related Bites panels link here as /graph/#<node id>.
+    var linkedId = decodeURIComponent(window.location.hash.slice(1));
+    if (byId.has(linkedId)) selectNode(linkedId, true);
   }
 
   fetch(root.dataset.source, { credentials: 'same-origin' })

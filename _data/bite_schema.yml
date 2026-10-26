@@ -1,0 +1,79 @@
+# Machine-readable contract for every Bite type.
+#
+# scripts/validate_bites.rb enforces this file and scripts/litebites new uses it
+# to scaffold front matter. Editorial judgment (sources, attribution, tone)
+# lives in the POLICY_*.md files; mechanical rules live here. When a rule
+# changes, change it here first, then run `scripts/litebites check`.
+#
+# Field keys:
+#   dir            collection folder
+#   filename       "slug" (<slug>.md) or "dated-slug" (YYYY-MM-DD-<slug>.md)
+#   layout/type    exact values required in front matter (omit to skip)
+#   required       front-matter fields that must be present and non-empty
+#   optional       other allowed fields; anything else is reported as unknown
+#   strings/dates/urls  type checks for the listed fields
+#   words          body word range; `from` limits the range to Bites dated on
+#                  or after that day (older Bites are recorded in docs/exceptions.md);
+#                  `long_form_max` applies when front matter sets `long_form: true`
+#                  (owner-approved deep dives only, see POLICY_ARTICLE.md)
+#   sections       level-two heading contract: `final` must be the last
+#                  heading, appear once, and link `source_field`;
+#                  `min_narrative` counts the headings before it
+#   image          card/hero image field, its alt field, and its folder
+#   checks         extra body checks: remote_images, first_party_figures
+
+types:
+  article:
+    label: Article Bite
+    dir: _articles
+    filename: slug
+    layout: article
+    type: Article Bite
+    url: /articles/<slug>/
+    required: [layout, title, short_title, date, type, read_time, source_name, source_url, source_published, last_reviewed, tags, summary]
+    optional: [additional_sources, card_image, card_image_alt, description, long_form, benchmarks, check_yourself]
+    strings: [layout, title, short_title, type, read_time, source_name, source_url, summary]
+    dates: [date, source_published, last_reviewed]
+    urls: [source_url]
+    words: { min: 400, max: 800, long_form_max: 1600 }
+    sections: { final: Sources, min_narrative: 3, source_field: source_url }
+    image: { field: card_image, alt: card_image_alt, dir: /assets/images/articles/ }
+    checks: [remote_images, first_party_figures]
+    scaffold_sections: [What happened, Why it matters, Technical context, What remains uncertain, Practical takeaways, Sources]
+
+  paper:
+    label: Paper Bite
+    dir: _posts
+    filename: dated-slug
+    layout: post
+    type: Paper brief
+    url: /posts/<slug>/
+    required: [layout, title, short_title, date, type, read_time, venue, tags, summary, paper_url]
+    optional: [code_url, project_url, source_note_url, card_image, card_image_alt, description, benchmarks, check_yourself]
+    strings: [layout, title, short_title, type, read_time, venue, summary, paper_url]
+    dates: [date]
+    urls: [paper_url, code_url, project_url, source_note_url]
+    words: { min: 900, max: 1800, from: "2026-07-06" }
+    sections: { final: Links, min_narrative: 4, source_field: paper_url }
+    image: { field: card_image, alt: card_image_alt, dir: /assets/images/papers/ }
+    checks: [remote_images]
+    scaffold_sections: [Why this paper matters, The bite, How it works, What to look at in the results, Practical takeaways, Links]
+
+  data:
+    label: Data Bite
+    dir: _datasets
+    filename: slug
+    url: /data/<slug>/
+    required: [title, short_title, domain, task, summary, use_for, scale, license, caveat, dataset_url, tags]
+    optional: [image, image_alt, paper_url, description, last_reviewed]
+    strings: [title, short_title, domain, task, summary, use_for, scale, license, caveat, dataset_url]
+    dates: [last_reviewed]
+    urls: [dataset_url, paper_url]
+    words: { min: 40, max: 400 }
+    image: { field: image, alt: image_alt, dir: /assets/images/datasets/ }
+    checks: []
+    scaffold_sections: []
+
+# Shared rules for every type.
+read_time_pattern: '\A\d+ min read\z'
+tag_vocabulary: _data/tags.yml

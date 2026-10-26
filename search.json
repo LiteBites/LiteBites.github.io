@@ -1,0 +1,25 @@
+---
+layout: null
+permalink: /search.json
+---
+{%- comment -%}
+  Search index for assets/js/site.js. One entry per Bite; built by Jekyll, so
+  it never needs manual updates.
+{%- endcomment -%}
+[
+{%- assign first = true -%}
+{%- assign articles = site.articles | sort: "date" | reverse -%}
+{%- for doc in articles -%}
+{%- unless first %},{% endunless -%}{%- assign first = false %}
+  {"type":"Article Bite","title":{{ doc.title | jsonify }},"short":{{ doc.short_title | default: doc.title | jsonify }},"url":{{ doc.url | relative_url | jsonify }},"date":{{ doc.date | date: "%Y-%m-%d" | jsonify }},"meta":{{ doc.source_name | jsonify }},"summary":{{ doc.summary | jsonify }},"tags":{{ doc.tags | jsonify }}}
+{%- endfor -%}
+{%- for doc in site.posts -%}
+{%- unless first %},{% endunless -%}{%- assign first = false %}
+  {"type":"Paper Bite","title":{{ doc.title | jsonify }},"short":{{ doc.short_title | default: doc.title | jsonify }},"url":{{ doc.url | relative_url | jsonify }},"date":{{ doc.date | date: "%Y-%m-%d" | jsonify }},"meta":{{ doc.venue | jsonify }},"summary":{{ doc.summary | jsonify }},"tags":{{ doc.tags | jsonify }}}
+{%- endfor -%}
+{%- assign datasets = site.datasets | sort: "title" -%}
+{%- for doc in datasets -%}
+{%- unless first %},{% endunless -%}{%- assign first = false %}
+  {"type":"Data Bite","title":{{ doc.title | jsonify }},"short":{{ doc.short_title | default: doc.title | jsonify }},"url":{{ doc.url | relative_url | jsonify }},"date":null,"meta":{{ doc.domain | jsonify }},"summary":{{ doc.summary | jsonify }},"tags":{{ doc.tags | jsonify }}}
+{%- endfor %}
+]

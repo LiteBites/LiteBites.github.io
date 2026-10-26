@@ -37,5 +37,8 @@ layout: default
         {% if page.paper_url %}<li><a href="{{ page.paper_url }}">Paper or reference</a></li>{% endif %}
       </ul>
     </div>
+
+    {% assign related_id = page.slug | prepend: "dataset:" %}
+    {% include related-bites.html id=related_id %}
   </article>
 </main>

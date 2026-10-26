@@ -1,6 +1,8 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
+Encoding.default_external = Encoding::UTF_8
+
 require "date"
 require "digest"
 require "fileutils"
@@ -15,6 +17,8 @@ CURATED = File.join(ROOT, "_data", "knowledge-graph-relations.yml")
 SCHEMA_VERSION = 1
 GENERATOR_VERSION = 6
 MAX_INFERRED_NEIGHBORS = 4
+# --check reports whether the committed graph files are stale without writing them.
+CHECK_ONLY = ARGV.include?("--check")
 
 CONCEPT_RULES = {
   "Anomaly Detection" => [/anomal/i, /defect/i],
@@ -193,9 +197,11 @@ existing_nodes = Array(existing["nodes"]).to_h { |node| [node["sourcePath"], nod
 existing_edges = Array(existing["edges"])
 compatible = existing["schemaVersion"] == SCHEMA_VERSION && existing["generatorVersion"] == GENERATOR_VERSION
 
-sources = Dir.glob(File.join(ROOT, "_articles", "*.md")).sort.map { |path| [path, "article"] } +
-          Dir.glob(File.join(ROOT, "_posts", "*.md")).sort.map { |path| [path, "paper"] } +
-          Dir.glob(File.join(ROOT, "_datasets", "*.md")).sort.map { |path| [path, "dataset"] }
+# Folder AGENTS.md files are agent instructions, not Bites.
+bite_files = ->(folder) { Dir.glob(File.join(ROOT, folder, "*.md")).reject { |path| File.basename(path) == "AGENTS.md" }.sort }
+sources = bite_files.call("_articles").map { |path| [path, "article"] } +
+          bite_files.call("_posts").map { |path| [path, "paper"] } +
+          bite_files.call("_datasets").map { |path| [path, "dataset"] }
 
 nodes = []
 changed_ids = Set.new
@@ -271,12 +277,22 @@ output = {
   "stats" => stats
 }
 
-FileUtils.mkdir_p(File.dirname(OUTPUT))
-FileUtils.mkdir_p(File.dirname(STATE))
 state_serialized = JSON.pretty_generate(state) + "\n"
 output_serialized = JSON.pretty_generate(output) + "\n"
 state_changed = !File.exist?(STATE) || File.read(STATE, encoding: "UTF-8") != state_serialized
 output_changed = !File.exist?(OUTPUT) || File.read(OUTPUT, encoding: "UTF-8") != output_serialized
+
+if CHECK_ONLY
+  if state_changed || output_changed
+    warn "Knowledge graph is stale (#{changed_ids.length} changed sources). Run: scripts/litebites graph"
+    exit 1
+  end
+  puts "Knowledge graph is current: #{nodes.length} nodes, #{edges.length} edges."
+  exit 0
+end
+
+FileUtils.mkdir_p(File.dirname(OUTPUT))
+FileUtils.mkdir_p(File.dirname(STATE))
 File.write(STATE, state_serialized) if state_changed
 File.write(OUTPUT, output_serialized) if output_changed
 

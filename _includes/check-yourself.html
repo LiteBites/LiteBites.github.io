@@ -1,0 +1,16 @@
+{%- comment -%}
+  Reveal-the-answer cards from front matter `check_yourself:` (1–5 items of
+  q/a). Rendered automatically by the post and article layouts.
+{%- endcomment -%}
+{%- if page.check_yourself -%}
+<section class="check-yourself" aria-labelledby="check-yourself-title">
+  <h2 id="check-yourself-title" class="section-label">Check yourself</h2>
+  <p class="check-yourself-hint">Answer in your head first, then open a card.</p>
+  {%- for item in page.check_yourself %}
+  <details class="check-card">
+    <summary><span class="check-card-index">Q{{ forloop.index }}</span><span>{{ item.q | markdownify | remove: '<p>' | remove: '</p>' | strip }}</span></summary>
+    <div class="check-card-answer">{{ item.a | markdownify }}</div>
+  </details>
+  {%- endfor %}
+</section>
+{%- endif -%}

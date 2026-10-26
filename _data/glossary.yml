@@ -1,0 +1,20 @@
+# Shared glossary for {% include term.html id="..." %}.
+#
+# One entry per term: id (lowercase kebab-case, used in the include), term
+# (display label), and definition (one or two plain sentences, no quotes
+# needed). scripts/validate_bites.rb rejects includes whose id is missing here.
+# Definitions are LiteBites explanations; keep them general and source-safe.
+
+terms:
+  - id: teds
+    term: TEDS
+    definition: Tree-Edit-Distance-based Similarity. It scores a predicted HTML table against the reference table tree, so both structure and cell text count; TEDS-S scores structure only.
+  - id: nid
+    term: NID
+    definition: Normalized Indel Distance, a text-similarity score. In document-parsing benchmarks it compares extracted text with the reference text in reading order.
+  - id: lora
+    term: LoRA
+    definition: Low-Rank Adaptation. It fine-tunes a frozen model by training small low-rank matrices added to selected weight layers.
+  - id: kv-cache
+    term: KV cache
+    definition: The stored attention keys and values from earlier tokens, reused during generation so the model does not recompute them for every new token.

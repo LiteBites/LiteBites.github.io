@@ -1,0 +1,46 @@
+---
+layout: default
+title: Archive
+nav: archive
+description: Every LiteBites Article Bite and Paper Bite, newest first, filterable by topic.
+permalink: /archive/
+---
+
+<main id="main">
+  {%- comment -%} Article and Paper Bites share one dated list; Data Bites are undated and live at /data/. {%- endcomment -%}
+  {% assign bites = site.articles | concat: site.posts | sort: "date" | reverse %}
+  <section class="index-intro" aria-labelledby="archive-title">
+    <div>
+      <p class="kicker">Archive / Everything</p>
+      <h1 id="archive-title">Every bite.<br /><span>One timeline.</span></h1>
+    </div>
+    <div class="index-intro-copy">
+      <p>Article Bites and Paper Bites in one list, newest first. Filter by topic, or press <kbd>/</kbd> to search. Datasets live in <a href="{{ '/data/' | relative_url }}">Data Bites</a>.</p>
+      <p class="index-stat"><strong>{{ bites.size }}</strong><span>articles and papers<br />newest first</span></p>
+    </div>
+  </section>
+
+  <section class="paper-archive" aria-labelledby="archive-list-title">
+    <div class="grid-section-head">
+      <h2 id="archive-list-title" class="section-label">All Bites</h2>
+      <span class="section-count">{{ site.articles.size }} articles / {{ site.posts.size }} papers</span>
+    </div>
+    {% include topic-filter.html target="#archive-list" label="all Bites" %}
+    <div class="paper-archive-list" id="archive-list">
+      {% for bite in bites %}
+      {% assign is_article = false %}{% if bite.collection == "articles" %}{% assign is_article = true %}{% endif %}
+      <a class="paper-archive-row" href="{{ bite.url | relative_url }}" data-topic-item data-topics="{{ bite.tags | join: '|' | escape }}">
+        <span class="paper-archive-index">{{ bite.date | date: '%y.%m' }}</span>
+        <div class="paper-archive-main">
+          <span class="archive-type-label">{% if is_article %}Article Bite{% else %}Paper Bite{% endif %}</span>
+          <p class="note-meta">{{ bite.date | date: '%Y.%m.%d' }} / {{ bite.read_time }} / {% if is_article %}{{ bite.source_name }}{% else %}{{ bite.venue }}{% endif %}</p>
+          <h3>{{ bite.short_title | default: bite.title }}</h3>
+          <p>{{ bite.summary }}</p>
+        </div>
+        <span class="paper-archive-tags">{{ bite.tags | slice: 0, 3 | join: ' / ' }}</span>
+        <span class="archive-arrow" aria-hidden="true">→</span>
+      </a>
+      {% endfor %}
+    </div>
+  </section>
+</main>

@@ -1,0 +1,149 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+# LiteBites maintenance CLI. One command per job, so agents and humans run the
+# same steps. Run from anywhere; paths resolve from the repository root.
+#
+#   scripts/litebites new article|paper|data <slug> [--date YYYY-MM-DD]
+#   scripts/litebites validate [paths...]
+#   scripts/litebites graph [--check]
+#   scripts/litebites test
+#   scripts/litebites build
+#   scripts/litebites check
+#   scripts/litebites preview [port]
+
+Encoding.default_external = Encoding::UTF_8
+
+require "date"
+require "fileutils"
+require "open3"
+require "yaml"
+
+ROOT = File.expand_path("..", __dir__)
+ENV["LANG"] = "en_US.UTF-8" if ENV["LANG"].to_s.empty?
+ENV["LC_ALL"] = "en_US.UTF-8" if ENV["LC_ALL"].to_s.empty?
+
+def usage(status = 2)
+  puts File.read(__FILE__)[/^#   scripts.*?(?=\n\n)/m].gsub(/^#   /, "  ")
+  exit status
+end
+
+def step(label)
+  puts "\n== #{label}"
+  ok = yield
+  puts(ok ? "-- #{label}: ok" : "-- #{label}: FAILED")
+  ok
+end
+
+def run(*command)
+  system(*command, chdir: ROOT)
+end
+
+def schema
+  YAML.safe_load(File.read(File.join(ROOT, "_data", "bite_schema.yml")))
+end
+
+def scaffold(type, slug, date)
+  rules = schema.fetch("types").fetch(type) { abort "Unknown type '#{type}'. Use: #{schema['types'].keys.join(', ')}" }
+  abort "Slug must be lowercase kebab-case: #{slug}" unless slug.match?(/\A[a-z0-9]+(?:-[a-z0-9]+)*\z/)
+
+  name = rules["filename"] == "dated-slug" ? "#{date}-#{slug}.md" : "#{slug}.md"
+  path = File.join(ROOT, rules.fetch("dir"), name)
+  abort "Already exists: #{path}" if File.exist?(path)
+
+  fixed = { "layout" => rules["layout"], "type" => rules["type"], "read_time" => "TODO min read", "tags" => ["TODO"] }
+  front = rules.fetch("required").to_h do |field|
+    value = if fixed.key?(field) then fixed[field]
+            elsif rules.fetch("dates", []).include?(field) then date
+            else "TODO"
+            end
+    [field, value]
+  end
+  front["last_reviewed"] = date if rules.fetch("optional", []).include?("last_reviewed")
+
+  sections = rules.fetch("scaffold_sections", [])
+  body = if sections.empty?
+           "TODO: two or three short paragraphs. See _datasets/AGENTS.md.\n"
+         else
+           sections.map { |heading| "## #{heading}\n\nTODO\n" }.join("\n")
+         end
+
+  FileUtils.mkdir_p(File.dirname(path))
+  File.write(path, "#{YAML.dump(front)}---\n\n#{body}")
+  puts "Created #{path.delete_prefix("#{ROOT}/")}"
+  puts "Replace every TODO, then run: scripts/litebites validate #{path.delete_prefix("#{ROOT}/")}"
+  puts "Allowed tags: _data/tags.yml. Rules: _data/bite_schema.yml and the folder's AGENTS.md."
+end
+
+def graph(check_only)
+  generator = File.join(ROOT, "scripts", "generate_knowledge_graph.rb")
+  return run(RbConfig.ruby, generator, "--check") if check_only
+
+  first = run(RbConfig.ruby, generator)
+  out, status = Open3.capture2(RbConfig.ruby, generator, chdir: ROOT)
+  puts out
+  unless status.success? && out.include?("0 changed sources")
+    warn "Second graph run was not idempotent. Inspect scripts/generate_knowledge_graph.rb output."
+    return false
+  end
+  first
+end
+
+def tests
+  ruby_tests = Dir[File.join(ROOT, "scripts", "test_*.rb")].sort
+  python_tests = Dir[File.join(ROOT, "scripts", "test_*.py")].sort
+  results = ruby_tests.map { |file| step(File.basename(file)) { run(RbConfig.ruby, file) } }
+  results += python_tests.map { |file| step(File.basename(file)) { run("python3", file) } }
+  results.all?
+end
+
+def build
+  out, status = Open3.capture2(File.join(ROOT, "scripts", "build.sh"), chdir: ROOT)
+  destination = out.lines.last.to_s.strip
+  return nil unless status.success? && File.directory?(destination)
+
+  puts "Built site: #{destination}"
+  destination
+end
+
+command = ARGV.shift
+case command
+when "new"
+  type, slug = ARGV.shift(2)
+  usage unless type && slug
+  date = ARGV.include?("--date") ? ARGV[ARGV.index("--date") + 1] : Date.today.iso8601
+  abort "--date must use YYYY-MM-DD" unless date.to_s.match?(/\A\d{4}-\d{2}-\d{2}\z/)
+  scaffold(type, slug, date)
+when "validate"
+  exit(run(RbConfig.ruby, File.join(ROOT, "scripts", "validate_bites.rb"), *ARGV) ? 0 : 1)
+when "graph"
+  exit(graph(ARGV.include?("--check")) ? 0 : 1)
+when "test"
+  exit(tests ? 0 : 1)
+when "build"
+  destination = build
+  exit(destination && run(RbConfig.ruby, File.join(ROOT, "scripts", "check_site.rb"), destination) ? 0 : 1)
+when "check"
+  results = []
+  results << step("validate Bites") { run(RbConfig.ruby, File.join(ROOT, "scripts", "validate_bites.rb")) }
+  results << step("graph freshness") { graph(true) }
+  results << step("tests") { tests }
+  results << step("build and site check") do
+    destination = build
+    destination && run(RbConfig.ruby, File.join(ROOT, "scripts", "check_site.rb"), destination)
+  end
+  results << step("whitespace") { run("git", "diff", "--check") }
+  if results.all?
+    puts "\nAll checks passed."
+  else
+    warn "\nSome checks failed. Fix the FAIL lines above, then rerun scripts/litebites check."
+    exit 1
+  end
+when "preview"
+  exec(File.join(ROOT, "scripts", "preview.sh"), *ARGV)
+when nil, "-h", "--help", "help"
+  usage(0)
+else
+  warn "Unknown command: #{command}"
+  usage
+end

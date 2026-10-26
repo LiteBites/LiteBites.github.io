@@ -23,9 +23,10 @@ permalink: /papers/
       <h2 id="paper-archive-title" class="section-label">All Paper Bites</h2>
       <span class="section-count">Newest first</span>
     </div>
-    <div class="paper-archive-list">
+    {% include topic-filter.html target="#paper-archive-list" label="Paper Bites" %}
+    <div class="paper-archive-list" id="paper-archive-list">
       {% for post in site.posts %}
-      <a class="paper-archive-row" href="{{ post.url | relative_url }}">
+      <a class="paper-archive-row" href="{{ post.url | relative_url }}" data-topic-item data-topics="{{ post.tags | join: '|' | escape }}">
         <span class="paper-archive-index">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span>
         <div class="paper-archive-main">
           <p class="note-meta">{{ post.date | date: '%Y.%m.%d' }} / {{ post.read_time }} / {{ post.venue }}</p>

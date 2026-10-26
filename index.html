@@ -2,19 +2,19 @@
 layout: default
 title: Home
 nav: home
-description: LiteBites is a research blog for focused AI and computer science paper notes.
+description: LiteBites is a research blog with focused notes on AI and computer science news and papers.
 ---
 
 <main id="main">
   <section class="grid-hero" aria-labelledby="hero-title">
     <div class="grid-hero-title">
-      <p class="kicker">Bite-sized research notes</p>
-      <h1 id="hero-title">Read papers <span>lightly.</span></h1>
+      <p class="kicker">Bite-sized AI news and paper notes</p>
+      <h1 id="hero-title">Read research <span>lightly.</span></h1>
     </div>
     <div class="grid-hero-copy">
-      <p>Keep the ideas carefully. Focused notes on AI and computer science—built for readers who want the argument, evidence, and limits without the noise.</p>
+      <p>Keep the ideas carefully. Focused notes on AI and computer science news and papers—built for readers who want the argument, evidence, and limits without the noise.</p>
       <ol class="reading-rules">
-        <li>Why the paper matters</li>
+        <li>Why it matters</li>
         <li>The central idea</li>
         <li>How the method works</li>
         <li>What the evidence actually shows</li>
@@ -30,7 +30,7 @@ description: LiteBites is a research blog for focused AI and computer science pa
     </div>
     {% if latest_articles.size > 0 %}
       <div class="article-home-list">
-        {% for article in latest_articles limit:2 %}
+        {% for article in latest_articles limit:3 %}
           <a class="article-home-row" href="{{ article.url | relative_url }}">
             <span class="article-home-index">ARTICLE—0{{ forloop.index }}</span>
             <div>
@@ -86,7 +86,7 @@ description: LiteBites is a research blog for focused AI and computer science pa
   <section class="archive-preview" aria-labelledby="archive-preview-title">
     <div class="archive-heading">
       <h2 id="archive-preview-title">From the archive.</h2>
-      <a class="pill-link" href="{{ '/papers/' | relative_url }}">View all papers →</a>
+      <a class="pill-link" href="{{ '/archive/' | relative_url }}">View full archive →</a>
     </div>
     <div class="archive-list">
       {% for post in site.posts offset:3 limit:4 %}
@@ -103,9 +103,9 @@ description: LiteBites is a research blog for focused AI and computer science pa
   <section class="manifesto" aria-labelledby="method-title">
     <div class="manifesto-title"><h2 id="method-title">Less summary.<br />More signal.</h2></div>
     <div class="manifesto-copy">
-      <p>Every note separates the paper’s claim from its evidence—and its evidence from our interpretation.</p>
+      <p>Every note separates the source’s claim from its evidence—and its evidence from our interpretation.</p>
       <p>No invented results. No decorative figures. No certainty where the paper leaves questions open.</p>
-      <a class="pill-link" href="{{ '/papers/' | relative_url }}">Start reading ↑</a>
+      <a class="pill-link" href="{{ '/archive/' | relative_url }}">Start reading ↑</a>
     </div>
   </section>
 </main>

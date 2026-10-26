@@ -25,9 +25,10 @@ permalink: /articles/
       <span class="section-count">Newest first / source reviewed</span>
     </div>
     {% if articles.size > 0 %}
-      <div class="article-archive-list">
+      {% include topic-filter.html target="#article-archive-list" label="Article Bites" %}
+      <div class="article-archive-list" id="article-archive-list">
         {% for article in articles %}
-          <a class="article-archive-row" href="{{ article.url | relative_url }}">
+          <a class="article-archive-row" href="{{ article.url | relative_url }}" data-topic-item data-topics="{{ article.tags | join: '|' | escape }}">
             <span class="article-archive-index">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span>
             <div class="article-archive-main">
               <p class="note-meta">{{ article.date | date: '%Y.%m.%d' }} / {{ article.read_time }} / {{ article.source_name }}</p>

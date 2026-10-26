@@ -639,6 +639,16 @@ button { font: inherit; }
   line-height: 1.5;
 }
 
+/* Type label on the combined /archive/ list. */
+.archive-type-label {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 3px 7px;
+  border: 1px solid var(--line);
+  font: 700 9px/1 "IBM Plex Mono", monospace;
+  text-transform: uppercase;
+}
+
 .article-archive-row {
   min-height: 164px;
   display: grid;

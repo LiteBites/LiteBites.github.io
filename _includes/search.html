@@ -1,0 +1,13 @@
+{%- comment -%}
+  Site search dialog. Opened by the header button, "/" or Cmd/Ctrl+K.
+  Data: /search.json (search.json at the repository root). Logic: assets/js/site.js.
+{%- endcomment -%}
+<dialog class="search-dialog" data-search-dialog data-source="{{ '/search.json' | relative_url }}" aria-labelledby="search-dialog-title">
+  <form method="dialog" class="search-form" role="search">
+    <label id="search-dialog-title" class="search-label" for="search-input">Search LiteBites</label>
+    <input id="search-input" type="search" placeholder="Title, topic, or idea" autocomplete="off" data-search-input aria-controls="search-results" />
+    <button type="submit" class="search-close" aria-label="Close search">Esc</button>
+  </form>
+  <p class="search-status" aria-live="polite" data-search-status></p>
+  <ol id="search-results" class="search-results" data-search-results></ol>
+</dialog>

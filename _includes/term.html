@@ -1,0 +1,7 @@
+{%- comment -%}
+  Glossary term with a hover/focus definition from _data/glossary.yml.
+  Usage: {% include term.html id="teds" %}  or  {% include term.html id="teds" text="TEDS scores" %}
+{%- endcomment -%}
+{%- assign glossary_term = site.data.glossary.terms | where: "id", include.id | first -%}
+<span class="term" tabindex="0"><span class="term-label">{{ include.text | default: glossary_term.term }}</span><span class="term-tip" role="tooltip"><strong>{{ glossary_term.term }}</strong> {{ glossary_term.definition }}</span></span>
+{%- comment -%}keep inline{%- endcomment -%}

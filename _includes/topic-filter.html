@@ -1,0 +1,9 @@
+{%- comment -%}
+  Topic chips for an archive list. site.js builds the chips from the
+  data-topics attribute of each [data-topic-item] inside include.target.
+  Usage: {% include topic-filter.html target="#paper-list" label="Paper Bites" %}
+{%- endcomment -%}
+<div class="topic-filter" data-topic-filter data-target="{{ include.target }}" hidden>
+  <div class="topic-filter-chips" role="group" aria-label="Filter {{ include.label }} by topic" data-topic-chips></div>
+  <p class="topic-filter-status" aria-live="polite" data-topic-status></p>
+</div>

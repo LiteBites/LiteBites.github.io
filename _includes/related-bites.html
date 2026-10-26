@@ -1,0 +1,35 @@
+{%- comment -%}
+  Related Bites from the knowledge graph (_data/knowledge-graph-state.json).
+  Usage: {% include related-bites.html id="paper:<slug>" %}
+  Shows up to four neighbors, strongest edge first. Renders nothing when the
+  Bite has no edges (for example before `scripts/litebites graph` has run).
+{%- endcomment -%}
+{%- assign graph = site.data["knowledge-graph-state"] -%}
+{%- if graph -%}
+{%- assign outgoing = graph.edges | where: "source", include.id -%}
+{%- assign incoming = graph.edges | where: "target", include.id -%}
+{%- assign related = outgoing | concat: incoming | sort: "weight" | reverse -%}
+{%- if related.size > 0 -%}
+<aside class="related-bites" aria-labelledby="related-bites-title">
+  <div class="related-bites-head">
+    <h2 id="related-bites-title" class="section-label">Related Bites</h2>
+    {%- if site.knowledge_graph.enabled %}
+    <a class="section-count section-link" href="{{ '/graph/' | relative_url }}#{{ include.id | uri_escape }}">Open in graph →</a>
+    {%- endif %}
+  </div>
+  <div class="related-bites-grid">
+    {%- for edge in related limit: 4 -%}
+      {%- if edge.source == include.id -%}{%- assign other_id = edge.target -%}{%- else -%}{%- assign other_id = edge.source -%}{%- endif -%}
+      {%- assign other = graph.nodes | where: "id", other_id | first -%}
+      {%- if other %}
+    <a class="related-bite" href="{{ other.url | relative_url }}">
+      <span class="related-bite-type">{% case other.type %}{% when "article" %}Article Bite{% when "paper" %}Paper Bite{% else %}Data Bite{% endcase %}</span>
+      <span class="related-bite-title">{{ other.shortTitle }}</span>
+      <span class="related-bite-why">{% if edge.provenance == "curated" %}{{ edge.label }}{% else %}Shared: {{ edge.label }}{% endif %}</span>
+    </a>
+      {%- endif -%}
+    {%- endfor %}
+  </div>
+</aside>
+{%- endif -%}
+{%- endif -%}

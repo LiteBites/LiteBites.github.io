@@ -1,83 +1,69 @@
 # LiteBites
 
-LiteBites is a minimal English research blog for bite-sized AI and computer science paper notes.
+LiteBites is a minimal English research blog with bite-sized notes on AI and computer science: **Article Bites** (news and engineering posts), **Paper Bites** (one paper each), and **Data Bites** (public datasets).
 
-See [USAGE.md](USAGE.md) for agent-assisted Bite authoring, knowledge-graph updates, and the local preview workflow.
+The site is maintained mostly by an agent (Hermes Agent). Agents start from [`AGENTS.md`](AGENTS.md); this README is the human overview.
 
 ## Stack
 
-- GitHub Pages
-- Jekyll
-- Markdown collections for Article, Paper, and Data Bites
-- IBM Plex Sans
+- GitHub Pages branch build (`main`, root folder) with Jekyll and the `github-pages` gem. Do not add `.nojekyll`.
+- Markdown collections: `_articles/`, `_posts/`, `_datasets/`.
+- IBM Plex Sans / Mono, no front-end framework. Interactive features are small includes plus `assets/js/site.js`.
 
-## Site structure
-
-- `index.html` — Home
-- `articles.html` — Article Bites index at `/articles/`
-- `papers.html` — Paper Bites index at `/papers/`
-- `data.html` — Data Bites index at `/data/`
-- `graph.html` — Knowledge graph at `/graph/`
-- `_articles/<slug>.md` — Individual Article Bites
-- `_posts/YYYY-MM-DD-slug.md` — Individual paper posts
-- `_datasets/<slug>.md` — Individual Data Bites
-- `assets/css/styles.css` — Site styles
-
-## Local development
-
-Start the local preview:
+## Everyday commands
 
 ```bash
-./scripts/preview.sh
+scripts/litebites new article <slug>      # or: paper <slug> --date YYYY-MM-DD, data <slug>
+scripts/litebites validate [paths...]     # schema checks for Bites
+scripts/litebites graph                   # regenerate the knowledge graph (runs twice)
+scripts/litebites check                   # everything CI runs
+scripts/litebites preview [port]          # http://127.0.0.1:4179/
 ```
 
-Open:
+`preview` binds to `127.0.0.1` only and keeps Bundler files and build output in your temp folder, so it never creates `Gemfile.lock` or `_site/` in the repo. Press `Ctrl+C` to stop it. If a listener stays behind, find it with `lsof -nP -iTCP:4179 -sTCP:LISTEN` and `kill <PID>`. Avoid `killall ruby`.
+
+Requirements: Ruby with Bundler (Ruby 3.1 is preferred for the Jekyll build; Homebrew `ruby@3.1` is picked up automatically) and Python 3 for the article source pipeline.
+
+## Where things live
+
+| What | Where |
+|---|---|
+| Editorial policies | `POLICY_ARTICLE.md`, `POLICY_POST.md`, `POLICY_DATA.md`, `POLICY_REMOTE_IMAGES.md` |
+| Mechanical rules (fields, word ranges, sections) | `_data/bite_schema.yml`, enforced by `scripts/validate_bites.rb` |
+| Tag vocabulary / glossary | `_data/tags.yml` / `_data/glossary.yml` |
+| Agent instructions | `AGENTS.md` and per-folder `AGENTS.md` files |
+| Agent skills | `.hermes/skills/litebites-article`, `litebites-paper`, `litebites-site` |
+| Decisions and exceptions | `docs/decisions/`, `docs/exceptions.md` |
+| Knowledge graph | `scripts/generate_knowledge_graph.rb`, `scripts/KNOWLEDGE_GRAPH.md`, `/graph/` |
+| Interactive components | `_includes/` (documented in `_includes/AGENTS.md`), `assets/css/components.css`, `assets/js/site.js` |
+
+Pages: `/` home, `/archive/` (articles and papers, filterable by topic), `/articles/`, `/papers/`, `/data/`, `/graph/`. Press `/` or `Cmd/Ctrl+K` anywhere to search.
+
+## Working with Hermes
+
+Start Hermes from the repository root so it loads `AGENTS.md` and the project skills:
+
+```bash
+cd /path/to/LiteBites.github.io
+hermes            # after adding or changing project skills: hermes skills trust, then /reload-skills
+```
+
+Example requests:
 
 ```text
-http://127.0.0.1:4179/
+Write a new LiteBites Article Bite about <canonical URL>. Stop at a local preview checkpoint.
+(Add "use long_form: true" only when you want a deep, multi-topic piece of up to 1,600 words.)
+
+Research and write a Paper Bite for <arXiv ID or URL>. Use benchmarks: for the main
+results table if it helps. Stop at a local preview checkpoint.
+
+Create a Data Bite for <dataset page>. Verify license and access terms first.
 ```
 
-Press `Ctrl+C` in the same terminal to stop the server. See [USAGE.md](USAGE.md) for custom ports, graph generation, agent-assisted authoring, validation, and project-local skills.
+Drafting and validation never imply permission to commit or push. Agents stop at a local review checkpoint, and publishing follows `litebites-site`, step 7, after you approve.
 
-## Writing posts
+The general-purpose skills `arxiv`, `ocr-and-documents`, and `humanizer` stay profile-installed and are not copied into this repo.
 
-Create a new Markdown file under `_posts/`:
+## Continuous integration
 
-```text
-_posts/YYYY-MM-DD-short-slug.md
-```
-
-Use this front matter:
-
-```yaml
----
-layout: post
-title: "Post title"
-short_title: "Short title"
-date: YYYY-MM-DD
-type: "Paper brief"
-read_time: "6 min read"
-venue: "Conference or source"
-tags:
-  - Topic
-  - Topic
-summary: "One-sentence summary."
-paper_url: ""
-code_url: ""
-source_note_url: ""
----
-```
-
-Use `POLICY_POST.md` for the post writing format.
-
-## GitHub Pages
-
-For a `*.github.io` repository, GitHub Pages can build Jekyll automatically.
-
-Recommended settings:
-
-- Source: `Deploy from a branch`
-- Branch: `main`
-- Folder: `/root`
-
-Do not add `.nojekyll`; this site intentionally uses Jekyll.
+`.github/workflows/check.yml` runs `scripts/litebites check` on every push and pull request. It only checks; deployment remains GitHub Pages' branch build.

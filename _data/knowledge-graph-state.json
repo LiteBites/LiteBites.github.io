@@ -758,17 +758,17 @@
       "meta": "OpenAI / 4 min read",
       "topics": [
         "AI Coding Agents",
-        "AI Model Releases",
+        "AI Models",
         "Online Rumors",
         "OpenAI"
       ],
       "topicWeights": {
         "AI Coding Agents": 3,
-        "AI Model Releases": 3,
+        "AI Models": 3,
         "Online Rumors": 3,
         "OpenAI": 3
       },
-      "sourceHash": "1cd7ce97c6ee2bc27110d6ceb2479d77df613a8ceb1b587b2e56708a561b8149",
+      "sourceHash": "70c90004f833ab804961712ab8919c0a34bb8f39767942135228a6109bda7254",
       "sourcePath": "_articles/tibo-gpt-astra-rumor.md"
     },
     {
@@ -1123,7 +1123,7 @@
         "Anomaly Detection",
         "Datasets",
         "Industrial AI",
-        "Industrial Vision",
+        "Industrial Inspection",
         "Language Models",
         "Multimodal AI",
         "Multimodal Models"
@@ -1132,12 +1132,12 @@
         "Anomaly Detection": 3,
         "Datasets": 3,
         "Industrial AI": 1,
-        "Industrial Vision": 3,
+        "Industrial Inspection": 3,
         "Language Models": 1,
         "Multimodal AI": 1,
         "Multimodal Models": 3
       },
-      "sourceHash": "c328af791206daed639c95a26738031b98fad7f39c8177258b38d26f47acec47",
+      "sourceHash": "48d6162c349f091540885147f150f524f129c3f38a42718cac03dc5fc58663ec",
       "sourcePath": "_posts/2026-07-07-mmr-ad.md"
     },
     {
@@ -1191,7 +1191,7 @@
         "Optical Character Recognition": 3,
         "Retrieval-Augmented Generation": 3
       },
-      "sourceHash": "2860a56a664f1fa5dd2f6571f0dfd85a53e27477d279398c46f003e41281ded4",
+      "sourceHash": "9080acd20cb0e8d1cee107fc26ccb1cf3b1d44c3f80b6408988c64af2ef9e12f",
       "sourcePath": "_posts/2026-10-06-novalad-document-extraction.md"
     },
     {
@@ -1717,6 +1717,18 @@
       "provenance": "metadata"
     },
     {
+      "id": "article:claude-opus-5-5|article:tibo-gpt-astra-rumor",
+      "source": "article:claude-opus-5-5",
+      "target": "article:tibo-gpt-astra-rumor",
+      "relation": "shared-topic",
+      "label": "AI Models",
+      "topics": [
+        "AI Models"
+      ],
+      "weight": 3,
+      "provenance": "metadata"
+    },
+    {
       "id": "article:claude-opus-5-5|article:wabi-shared-ai-assistant-mini-apps",
       "source": "article:claude-opus-5-5",
       "target": "article:wabi-shared-ai-assistant-mini-apps",
@@ -1752,18 +1764,6 @@
         "Developer Tools"
       ],
       "weight": 6,
-      "provenance": "metadata"
-    },
-    {
-      "id": "article:gemini-4-argon|article:jev-system-one-model",
-      "source": "article:gemini-4-argon",
-      "target": "article:jev-system-one-model",
-      "relation": "shared-topic",
-      "label": "AI Models",
-      "topics": [
-        "AI Models"
-      ],
-      "weight": 3,
       "provenance": "metadata"
     },
     {
@@ -1848,6 +1848,18 @@
       "label": "Developer Tools",
       "topics": [
         "Developer Tools"
+      ],
+      "weight": 3,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:gemini-4-argon|article:tibo-gpt-astra-rumor",
+      "source": "article:gemini-4-argon",
+      "target": "article:tibo-gpt-astra-rumor",
+      "relation": "shared-topic",
+      "label": "AI Models",
+      "topics": [
+        "AI Models"
       ],
       "weight": 3,
       "provenance": "metadata"
@@ -1963,6 +1975,18 @@
         "Developer Tools"
       ],
       "weight": 6,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:gpt-6-1-sol-vs-astra|article:tibo-gpt-astra-rumor",
+      "source": "article:gpt-6-1-sol-vs-astra",
+      "target": "article:tibo-gpt-astra-rumor",
+      "relation": "shared-topic",
+      "label": "AI Models",
+      "topics": [
+        "AI Models"
+      ],
+      "weight": 3,
       "provenance": "metadata"
     },
     {
@@ -2257,11 +2281,12 @@
       "source": "article:jev-system-one-model",
       "target": "article:tibo-gpt-astra-rumor",
       "relation": "shared-topic",
-      "label": "AI Coding Agents",
+      "label": "AI Coding Agents · AI Models",
       "topics": [
-        "AI Coding Agents"
+        "AI Coding Agents",
+        "AI Models"
       ],
-      "weight": 3,
+      "weight": 6,
       "provenance": "metadata"
     },
     {
@@ -2288,18 +2313,6 @@
         "Developer Tools"
       ],
       "weight": 6,
-      "provenance": "metadata"
-    },
-    {
-      "id": "article:kiro-students-offer|article:tibo-gpt-astra-rumor",
-      "source": "article:kiro-students-offer",
-      "target": "article:tibo-gpt-astra-rumor",
-      "relation": "shared-topic",
-      "label": "AI Coding Agents",
-      "topics": [
-        "AI Coding Agents"
-      ],
-      "weight": 3,
       "provenance": "metadata"
     },
     {
@@ -2573,30 +2586,6 @@
         "Developer Tools"
       ],
       "weight": 6,
-      "provenance": "metadata"
-    },
-    {
-      "id": "article:orca-worktree-first-agent-ide|article:tibo-gpt-astra-rumor",
-      "source": "article:orca-worktree-first-agent-ide",
-      "target": "article:tibo-gpt-astra-rumor",
-      "relation": "shared-topic",
-      "label": "AI Coding Agents",
-      "topics": [
-        "AI Coding Agents"
-      ],
-      "weight": 3,
-      "provenance": "metadata"
-    },
-    {
-      "id": "article:ponytail-caveman-agent-efficiency|article:tibo-gpt-astra-rumor",
-      "source": "article:ponytail-caveman-agent-efficiency",
-      "target": "article:tibo-gpt-astra-rumor",
-      "relation": "shared-topic",
-      "label": "AI Coding Agents",
-      "topics": [
-        "AI Coding Agents"
-      ],
-      "weight": 3,
       "provenance": "metadata"
     },
     {
@@ -3076,7 +3065,7 @@
   ],
   "stats": {
     "nodes": 59,
-    "edges": 126,
+    "edges": 125,
     "articles": 33,
     "papers": 23,
     "datasets": 3

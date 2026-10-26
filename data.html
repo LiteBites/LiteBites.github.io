@@ -24,9 +24,10 @@ permalink: /data/
       <h2 id="data-index-title" class="section-label">Dataset Index</h2>
       <span class="section-count">A–Z / public resources</span>
     </div>
-    <div class="data-grid">
+    {% include topic-filter.html target="#data-grid" label="Data Bites" %}
+    <div class="data-grid" id="data-grid">
       {% for dataset in datasets %}
-      <article class="data-card">
+      <article class="data-card" data-topic-item data-topics="{{ dataset.tags | join: '|' | escape }}">
         {% if dataset.image %}
           <a class="data-card-image" href="{{ dataset.url | relative_url }}" aria-label="Read {{ dataset.title }}">
             <span class="paper-card-number">DATA—0{{ forloop.index }}</span>
