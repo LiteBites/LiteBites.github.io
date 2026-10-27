@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="540" viewBox="0 0 480 540" role="img" aria-labelledby="title desc">
+  <title id="title">Standard API output token prices across five GPT-6 models</title>
+  <desc id="desc">On a linear 0 to 50 dollars per million output tokens scale: GPT-6 Luna costs 0.50 dollars, GPT-6.1 Terra 5 dollars, GPT-6 Sol 10 dollars, GPT-6.1 Sol 10 dollars, and GPT-6 Astra 50 dollars. These prices do not compare task quality or total task cost.</desc>
+  <rect width="480" height="540" fill="#f7f6f2"/>
+  <rect x="1" y="1" width="478" height="538" fill="none" stroke="#c9c9c3" stroke-width="2"/>
+  <text x="24" y="43" fill="#1a2421" font-family="system-ui, sans-serif" font-size="21" font-weight="700">OUTPUT TOKEN PRICES</text>
+  <text x="24" y="67" fill="#495550" font-family="system-ui, sans-serif" font-size="14">USD / 1M tokens · Standard API tier</text>
+  <path d="M 214 113 H 414 M 214 109 V 117 M 314 109 V 117 M 414 109 V 117" fill="none" stroke="#7d8580" stroke-width="1.5"/>
+  <g fill="#495550" font-family="system-ui, sans-serif" font-size="12">
+    <text x="214" y="102" text-anchor="middle">$0</text>
+    <text x="314" y="102" text-anchor="middle">$25</text>
+    <text x="414" y="102" text-anchor="middle">$50</text>
+  </g>
+  <g fill="#e5e8e5">
+    <rect x="214" y="160" width="200" height="18"/>
+    <rect x="214" y="230" width="200" height="18"/>
+    <rect x="214" y="300" width="200" height="18"/>
+    <rect x="214" y="370" width="200" height="18"/>
+    <rect x="214" y="440" width="200" height="18"/>
+  </g>
+  <g fill="#65798a">
+    <rect x="214" y="160" width="2" height="18"/>
+    <rect x="214" y="300" width="40" height="18"/>
+    <rect x="214" y="370" width="40" height="18"/>
+    <rect x="214" y="440" width="200" height="18"/>
+  </g>
+  <rect x="214" y="230" width="20" height="18" fill="#368861"/>
+  <g fill="#1a2421" font-family="system-ui, sans-serif" font-size="15" font-weight="600">
+    <text x="24" y="173">GPT-6 Luna</text>
+    <text x="24" y="243">GPT-6.1 Terra</text>
+    <text x="24" y="313">GPT-6 Sol</text>
+    <text x="24" y="383">GPT-6.1 Sol</text>
+    <text x="24" y="453">GPT-6 Astra</text>
+  </g>
+  <g fill="#1a2421" font-family="system-ui, sans-serif" font-size="14" font-weight="600" text-anchor="end">
+    <text x="458" y="175">$0.50</text>
+    <text x="458" y="245">$5</text>
+    <text x="458" y="315">$10</text>
+    <text x="458" y="385">$10</text>
+    <text x="458" y="455">$50</text>
+  </g>
+  <text x="24" y="510" fill="#495550" font-family="system-ui, sans-serif" font-size="12">Linear scale · Token rate is not cost per accepted task</text>
+</svg>

@@ -199,6 +199,22 @@
       ]
     },
     {
+      "id": "article:gpt-6-1-terra-family-evidence",
+      "slug": "gpt-6-1-terra-family-evidence",
+      "type": "article",
+      "title": "GPT-6.1 Terra Fits Between Luna and Sol—But the Scores Do Not Form a Ladder",
+      "shortTitle": "GPT-6.1 Terra in the GPT-6 Family",
+      "url": "/articles/gpt-6-1-terra-family-evidence/",
+      "summary": "GPT-6.1 Terra sits between Luna and Sol on standard API token prices, but different benchmarks and safety results make a simple family ranking misleading.",
+      "date": "2026-10-28",
+      "meta": "OpenAI / 4 min read",
+      "topics": [
+        "AI Models",
+        "Computer Use",
+        "Developer Tools"
+      ]
+    },
+    {
       "id": "article:graph-engineering",
       "slug": "graph-engineering",
       "type": "article",
@@ -1071,6 +1087,19 @@
       "provenance": "metadata"
     },
     {
+      "id": "article:claude-opus-5-5|article:gpt-6-1-terra-family-evidence",
+      "source": "article:claude-opus-5-5",
+      "target": "article:gpt-6-1-terra-family-evidence",
+      "relation": "shared-topic",
+      "label": "AI Models · Developer Tools",
+      "topics": [
+        "AI Models",
+        "Developer Tools"
+      ],
+      "weight": 6,
+      "provenance": "metadata"
+    },
+    {
       "id": "article:claude-opus-5-5|article:gpt-6-sol-luna",
       "source": "article:claude-opus-5-5",
       "target": "article:gpt-6-sol-luna",
@@ -1281,6 +1310,19 @@
       "provenance": "metadata"
     },
     {
+      "id": "article:gemini-4-argon|article:gpt-6-1-terra-family-evidence",
+      "source": "article:gemini-4-argon",
+      "target": "article:gpt-6-1-terra-family-evidence",
+      "relation": "shared-topic",
+      "label": "AI Models · Developer Tools",
+      "topics": [
+        "AI Models",
+        "Developer Tools"
+      ],
+      "weight": 6,
+      "provenance": "metadata"
+    },
+    {
       "id": "article:gemini-4-argon|article:gpt-6-sol-luna",
       "source": "article:gemini-4-argon",
       "target": "article:gpt-6-sol-luna",
@@ -1454,6 +1496,20 @@
       "provenance": "metadata"
     },
     {
+      "id": "article:gpt-6-1-sol-vs-astra|article:gpt-6-1-terra-family-evidence",
+      "source": "article:gpt-6-1-sol-vs-astra",
+      "target": "article:gpt-6-1-terra-family-evidence",
+      "relation": "shared-topic",
+      "label": "AI Models · Computer Use · Developer Tools",
+      "topics": [
+        "AI Models",
+        "Computer Use",
+        "Developer Tools"
+      ],
+      "weight": 9,
+      "provenance": "metadata"
+    },
+    {
       "id": "article:gpt-6-1-sol-vs-astra|article:gpt-6-sol-luna",
       "source": "article:gpt-6-1-sol-vs-astra",
       "target": "article:gpt-6-sol-luna",
@@ -1514,6 +1570,45 @@
         "AI Models"
       ],
       "weight": 3,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:gpt-6-1-terra-family-evidence|article:gpt-6-sol-luna",
+      "source": "article:gpt-6-1-terra-family-evidence",
+      "target": "article:gpt-6-sol-luna",
+      "relation": "shared-topic",
+      "label": "AI Models · Developer Tools",
+      "topics": [
+        "AI Models",
+        "Developer Tools"
+      ],
+      "weight": 6,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:gpt-6-1-terra-family-evidence|article:perplexity-decisions-vs-jev",
+      "source": "article:gpt-6-1-terra-family-evidence",
+      "target": "article:perplexity-decisions-vs-jev",
+      "relation": "shared-topic",
+      "label": "AI Models · Developer Tools",
+      "topics": [
+        "AI Models",
+        "Developer Tools"
+      ],
+      "weight": 6,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:gpt-6-1-terra-family-evidence|article:pg-jev-postgres-natural-language-where",
+      "source": "article:gpt-6-1-terra-family-evidence",
+      "target": "article:pg-jev-postgres-natural-language-where",
+      "relation": "shared-topic",
+      "label": "AI Models · Developer Tools",
+      "topics": [
+        "AI Models",
+        "Developer Tools"
+      ],
+      "weight": 6,
       "provenance": "metadata"
     },
     {
@@ -1590,32 +1685,6 @@
         "Language Models"
       ],
       "weight": 5,
-      "provenance": "metadata"
-    },
-    {
-      "id": "article:gpt-6-sol-luna|article:perplexity-decisions-vs-jev",
-      "source": "article:gpt-6-sol-luna",
-      "target": "article:perplexity-decisions-vs-jev",
-      "relation": "shared-topic",
-      "label": "AI Models · Developer Tools",
-      "topics": [
-        "AI Models",
-        "Developer Tools"
-      ],
-      "weight": 6,
-      "provenance": "metadata"
-    },
-    {
-      "id": "article:gpt-6-sol-luna|article:pg-jev-postgres-natural-language-where",
-      "source": "article:gpt-6-sol-luna",
-      "target": "article:pg-jev-postgres-natural-language-where",
-      "relation": "shared-topic",
-      "label": "AI Models · Developer Tools",
-      "topics": [
-        "AI Models",
-        "Developer Tools"
-      ],
-      "weight": 6,
       "provenance": "metadata"
     },
     {
@@ -2591,9 +2660,9 @@
     }
   ],
   "stats": {
-    "nodes": 59,
-    "edges": 125,
-    "articles": 33,
+    "nodes": 60,
+    "edges": 129,
+    "articles": 34,
     "papers": 23,
     "datasets": 3
   }
