@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="700" viewBox="0 0 600 700" role="img" aria-labelledby="title desc">
+  <title id="title">Unlimited-OCR-2 bounds selected visual attention and resident page-level visual KV cache</title>
+  <desc id="desc">Two overlapping page windows share page ten. Within an active window, sparse attention selects a fixed number of current-page visual blocks and retains nearby text. The serving pipeline keeps the shared page's visual KV cache and a text tail, and releases inactive page caches before advancing. This depicts bounded resident page-level visual KV cache, not every kind of working memory. Schematic, not to scale.</desc>
+  <rect width="600" height="700" fill="#f5f4ee"/>
+  <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif" fill="#202522">
+    <text x="30" y="43" font-size="25" font-weight="700">One request, bounded page-KV cache</text>
+    <text x="30" y="70" font-size="14" fill="#4a5750">Two distinct controls: attention at each step and page-cache lifetime</text>
+    <line x1="30" y1="88" x2="570" y2="88" stroke="#a7b2a9"/>
+
+    <text x="30" y="118" font-size="13" font-weight="700" fill="#266443">01  SERVING: OVERLAPPING PAGE WINDOWS</text>
+    <rect x="30" y="136" width="540" height="128" rx="5" fill="#ffffff" stroke="#c3cbc5"/>
+    <text x="46" y="166" font-size="15" font-weight="600">Window A</text>
+    <rect x="190" y="146" width="196" height="31" rx="3" fill="#e6ece6"/>
+    <rect x="391" y="146" width="149" height="31" rx="3" fill="#c3e4cd"/>
+    <text x="247" y="167" font-size="14">Pages 1–9</text>
+    <text x="436" y="167" font-size="14" font-weight="700">Page 10</text>
+    <text x="46" y="216" font-size="15" font-weight="600">Window B</text>
+    <rect x="190" y="195" width="149" height="31" rx="3" fill="#c3e4cd"/>
+    <rect x="344" y="195" width="196" height="31" rx="3" fill="#e6ece6"/>
+    <text x="232" y="216" font-size="14" font-weight="700">Page 10</text>
+    <text x="402" y="216" font-size="14">Pages 11–19</text>
+    <text x="46" y="248" font-size="12" fill="#4a5750">Shared page 10 bridges the windows; numbers illustrate the 10-page example.</text>
+
+    <text x="30" y="303" font-size="13" font-weight="700" fill="#266443">02  MODEL: SELECTED REFERENCES AT A DECODING STEP</text>
+    <rect x="30" y="320" width="540" height="164" rx="5" fill="#ffffff" stroke="#c3cbc5"/>
+    <rect x="46" y="342" width="149" height="78" rx="4" fill="#e6ece6"/>
+    <text x="58" y="370" font-size="14" font-weight="650">Current page</text>
+    <text x="58" y="393" font-size="12">visual blocks</text>
+    <path d="M202 380 H227" fill="none" stroke="#266443" stroke-width="2"/>
+    <path d="M227 380 l-7 -5 v10 z" fill="#266443"/>
+    <rect x="233" y="342" width="149" height="78" rx="4" fill="#c3e4cd"/>
+    <text x="246" y="370" font-size="14" font-weight="650">Page Gate +</text>
+    <text x="246" y="393" font-size="12">Token Sieve</text>
+    <path d="M389 380 H414" fill="none" stroke="#266443" stroke-width="2"/>
+    <path d="M414 380 l-7 -5 v10 z" fill="#266443"/>
+    <rect x="420" y="342" width="134" height="78" rx="4" fill="#e6ece6"/>
+    <text x="431" y="369" font-size="13" font-weight="650">Fixed selected</text>
+    <text x="431" y="392" font-size="12">visual blocks</text>
+    <rect x="46" y="436" width="508" height="30" rx="3" fill="#f1f3ef"/>
+    <text x="58" y="456" font-size="12">Nearby text stays in a local window; remote visual access is bounded.</text>
+
+    <text x="30" y="528" font-size="13" font-weight="700" fill="#266443">03  BEFORE MOVING TO THE NEXT WINDOW</text>
+    <rect x="30" y="545" width="540" height="88" rx="5" fill="#ffffff" stroke="#c3cbc5"/>
+    <rect x="46" y="563" width="237" height="49" rx="3" fill="#c3e4cd"/>
+    <text x="58" y="583" font-size="13" font-weight="650">Keep shared boundary cache</text>
+    <text x="58" y="601" font-size="11">to carry limited continuity forward</text>
+    <rect x="291" y="563" width="263" height="49" rx="3" fill="#e6ece6"/>
+    <text x="303" y="583" font-size="13" font-weight="650">Release inactive page caches</text>
+    <text x="303" y="601" font-size="11">rather than hold the whole document</text>
+    <line x1="30" y1="651" x2="570" y2="651" stroke="#a7b2a9"/>
+    <text x="30" y="675" font-size="12" fill="#4a5750">LiteBites synthesis · Baidu technical report &amp; serving instructions · schematic, not to scale</text>
+  </g>
+</svg>

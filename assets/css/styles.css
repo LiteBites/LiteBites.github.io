@@ -999,6 +999,13 @@ button { font: inherit; }
   max-width: none;
   min-width: 56rem;
 }
+.post-body .article-figure--ocr2 {
+  max-width: 600px;
+  margin-inline: auto;
+}
+.post-body .article-figure--ocr2 .article-figure-scroll img {
+  min-width: 600px;
+}
 .post-body .article-figure--compact {
   max-width: 480px;
   margin-inline: auto;

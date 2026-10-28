@@ -724,6 +724,29 @@
       "sourcePath": "_articles/slides-grab.md"
     },
     {
+      "id": "article:unlimited-ocr-2-long-document-memory",
+      "slug": "unlimited-ocr-2-long-document-memory",
+      "type": "article",
+      "title": "Unlimited-OCR-2 Makes Hundred-Page Parsing a Memory-Management Problem",
+      "shortTitle": "Unlimited-OCR-2 and Long Documents",
+      "url": "/articles/unlimited-ocr-2-long-document-memory/",
+      "summary": "Baidu's Unlimited-OCR-2 combines sparse visual attention with page-window cache reuse to parse hundred-page documents, but its benchmark lead measures an author-run pipeline.",
+      "date": "2026-10-28",
+      "meta": "Baidu on Hugging Face / 4 min read",
+      "topics": [
+        "Document Parsing",
+        "Efficient Inference",
+        "Optical Character Recognition"
+      ],
+      "topicWeights": {
+        "Document Parsing": 3,
+        "Efficient Inference": 3,
+        "Optical Character Recognition": 3
+      },
+      "sourceHash": "82bddd09f1a385ad84394a0197b0b1ccd815e127a82b45e484b786d7720ccfef",
+      "sourcePath": "_articles/unlimited-ocr-2-long-document-memory.md"
+    },
+    {
       "id": "article:wabi-shared-ai-assistant-mini-apps",
       "slug": "wabi-shared-ai-assistant-mini-apps",
       "type": "article",
@@ -2406,6 +2429,19 @@
       "provenance": "metadata"
     },
     {
+      "id": "article:lightonocr-3-grounded-document-parsing|article:unlimited-ocr-2-long-document-memory",
+      "source": "article:lightonocr-3-grounded-document-parsing",
+      "target": "article:unlimited-ocr-2-long-document-memory",
+      "relation": "shared-topic",
+      "label": "Document Parsing · Optical Character Recognition",
+      "topics": [
+        "Document Parsing",
+        "Optical Character Recognition"
+      ],
+      "weight": 6,
+      "provenance": "metadata"
+    },
+    {
       "id": "article:lightonocr-3-grounded-document-parsing|paper:beta-kd-uncertainty-aware-distillation",
       "source": "article:lightonocr-3-grounded-document-parsing",
       "target": "paper:beta-kd-uncertainty-aware-distillation",
@@ -2476,6 +2512,19 @@
         "AI Agents"
       ],
       "weight": 3,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:mineru-papers-code-and-models|article:unlimited-ocr-2-long-document-memory",
+      "source": "article:mineru-papers-code-and-models",
+      "target": "article:unlimited-ocr-2-long-document-memory",
+      "relation": "shared-topic",
+      "label": "Document Parsing · Optical Character Recognition",
+      "topics": [
+        "Document Parsing",
+        "Optical Character Recognition"
+      ],
+      "weight": 6,
       "provenance": "metadata"
     },
     {
@@ -2784,6 +2833,31 @@
       "label": "Agentic AI",
       "topics": [
         "Agentic AI"
+      ],
+      "weight": 4,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:unlimited-ocr-2-long-document-memory|paper:novalad-document-extraction",
+      "source": "article:unlimited-ocr-2-long-document-memory",
+      "target": "paper:novalad-document-extraction",
+      "relation": "shared-topic",
+      "label": "Document Parsing · Optical Character Recognition",
+      "topics": [
+        "Document Parsing",
+        "Optical Character Recognition"
+      ],
+      "weight": 7,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:unlimited-ocr-2-long-document-memory|paper:slm-agents",
+      "source": "article:unlimited-ocr-2-long-document-memory",
+      "target": "paper:slm-agents",
+      "relation": "shared-topic",
+      "label": "Efficient Inference",
+      "topics": [
+        "Efficient Inference"
       ],
       "weight": 4,
       "provenance": "metadata"
@@ -3140,9 +3214,9 @@
     }
   ],
   "stats": {
-    "nodes": 60,
-    "edges": 129,
-    "articles": 34,
+    "nodes": 61,
+    "edges": 133,
+    "articles": 35,
     "papers": 23,
     "datasets": 3
   }
