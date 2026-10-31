@@ -1006,6 +1006,13 @@ button { font: inherit; }
 .post-body .article-figure--ocr2 .article-figure-scroll img {
   min-width: 600px;
 }
+.post-body .article-figure--agent-desktop {
+  max-width: 600px;
+  margin-inline: auto;
+}
+.post-body .article-figure--agent-desktop .article-figure-scroll img {
+  min-width: 600px;
+}
 .post-body .article-figure--compact {
   max-width: 480px;
   margin-inline: auto;

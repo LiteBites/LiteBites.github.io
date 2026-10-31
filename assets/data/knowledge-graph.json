@@ -19,6 +19,22 @@
       ]
     },
     {
+      "id": "article:agent-desktop-refusal-boundary",
+      "slug": "agent-desktop-refusal-boundary",
+      "type": "article",
+      "title": "Agent Desktop Gives AI Agents a Refusal Path Before the Wrong Click",
+      "shortTitle": "Agent Desktop's Refusal Path",
+      "url": "/articles/agent-desktop-refusal-boundary/",
+      "summary": "Now under Vercel Labs, Agent Desktop turns OS accessibility trees into snapshot-qualified actions that can refuse stale targets, while leaving verification and privacy decisions to the calling agent.",
+      "date": "2026-11-01",
+      "meta": "Vercel Labs — Agent Desktop / 4 min read",
+      "topics": [
+        "AI Agent Tooling",
+        "Agent Safety",
+        "Computer Use"
+      ]
+    },
+    {
       "id": "article:qwenwork-workplace-agent-platform",
       "slug": "qwenwork-workplace-agent-platform",
       "type": "article",
@@ -1041,6 +1057,54 @@
   ],
   "edges": [
     {
+      "id": "article:agent-desktop-refusal-boundary|article:gpt-6-1-sol-vs-astra",
+      "source": "article:agent-desktop-refusal-boundary",
+      "target": "article:gpt-6-1-sol-vs-astra",
+      "relation": "shared-topic",
+      "label": "Computer Use",
+      "topics": [
+        "Computer Use"
+      ],
+      "weight": 3,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:agent-desktop-refusal-boundary|article:gpt-6-1-terra-family-evidence",
+      "source": "article:agent-desktop-refusal-boundary",
+      "target": "article:gpt-6-1-terra-family-evidence",
+      "relation": "shared-topic",
+      "label": "Computer Use",
+      "topics": [
+        "Computer Use"
+      ],
+      "weight": 3,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:agent-desktop-refusal-boundary|article:gpt-6-astra",
+      "source": "article:agent-desktop-refusal-boundary",
+      "target": "article:gpt-6-astra",
+      "relation": "shared-topic",
+      "label": "Computer Use",
+      "topics": [
+        "Computer Use"
+      ],
+      "weight": 3,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:agent-desktop-refusal-boundary|article:openai-dots-delegated-work",
+      "source": "article:agent-desktop-refusal-boundary",
+      "target": "article:openai-dots-delegated-work",
+      "relation": "shared-topic",
+      "label": "Agent Safety",
+      "topics": [
+        "Agent Safety"
+      ],
+      "weight": 3,
+      "provenance": "metadata"
+    },
+    {
       "id": "article:apple-mac-desktops-local-ai|article:glm-5-3-flash",
       "source": "article:apple-mac-desktops-local-ai",
       "target": "article:glm-5-3-flash",
@@ -2004,18 +2068,6 @@
       "provenance": "metadata"
     },
     {
-      "id": "article:meta-muse-agent-trust|article:openai-dots-delegated-work",
-      "source": "article:meta-muse-agent-trust",
-      "target": "article:openai-dots-delegated-work",
-      "relation": "shared-topic",
-      "label": "AI Agents",
-      "topics": [
-        "AI Agents"
-      ],
-      "weight": 3,
-      "provenance": "metadata"
-    },
-    {
       "id": "article:meta-muse-agent-trust|article:wabi-shared-ai-assistant-mini-apps",
       "source": "article:meta-muse-agent-trust",
       "target": "article:wabi-shared-ai-assistant-mini-apps",
@@ -2727,9 +2779,9 @@
     }
   ],
   "stats": {
-    "nodes": 61,
-    "edges": 133,
-    "articles": 35,
+    "nodes": 62,
+    "edges": 136,
+    "articles": 36,
     "papers": 23,
     "datasets": 3
   }
