@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="780" viewBox="0 0 600 780" role="img" aria-labelledby="title description">
+  <title id="title">A virtual Mac separates agent controls from the physical desktop</title>
+  <desc id="description">Terminal viewer and MCP actions on an Apple-silicon host communicate with a helper in a macOS virtual machine through a writable control share. The host also supplies a tools share that is read-only from the guest. Default network access remains a separate path and can reach outside the virtual machine. The diagram is a code-grounded schematic, not a live test.</desc>
+  <rect width="600" height="780" fill="#111a1a"/>
+  <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+    <text x="30" y="43" fill="#ddff71" font-size="13" font-weight="700" letter-spacing="2">LITEBITES  /  SYSTEM BOUNDARY</text>
+    <text x="30" y="76" fill="#f6f5e9" font-size="24" font-weight="700">A Mac inside a Mac</text>
+    <text x="30" y="98" fill="#adc0bb" font-size="14">A guest desktop for agent actions, not a hardened sandbox.</text>
+
+    <rect x="30" y="120" width="540" height="175" rx="15" fill="#213331" stroke="#65827b" stroke-width="1.5"/>
+    <text x="50" y="150" fill="#ddff71" font-size="13" font-weight="700" letter-spacing="1.3">PHYSICAL MAC  ·  APPLE SILICON</text>
+    <text x="50" y="175" fill="#f6f5e9" font-size="18" font-weight="700">Terminal viewer + agent MCP</text>
+    <text x="50" y="197" fill="#c7d5cf" font-size="14">View guest frames; send click, type and key actions.</text>
+    <line x1="50" y1="215" x2="550" y2="215" stroke="#58726a"/>
+    <text x="50" y="239" fill="#c7d5cf" font-size="14">Apple Virtualization hosts the guest VM.</text>
+    <text x="50" y="263" fill="#adc0bb" font-size="13">Host files and clipboard are not explicitly shared.</text>
+
+    <rect x="30" y="307" width="261" height="103" rx="12" fill="#243d3a" stroke="#84c3b0" stroke-width="1.5"/>
+    <text x="48" y="332" fill="#a8e0cf" font-size="13" font-weight="700">CONTROL  ·  READ / WRITE</text>
+    <text x="48" y="356" fill="#f6f5e9" font-size="15">Actions ↓  ·  frames ↑</text>
+    <text x="48" y="380" fill="#c7d5cf" font-size="13">Requests, replies, screen data</text>
+
+    <rect x="309" y="307" width="261" height="103" rx="12" fill="#3a3730" stroke="#c9aa76" stroke-width="1.5"/>
+    <text x="327" y="332" fill="#eed29a" font-size="13" font-weight="700">TOOLS  ·  GUEST READ-ONLY</text>
+    <text x="327" y="356" fill="#f6f5e9" font-size="15">Bundled guest helper ↓</text>
+    <text x="327" y="380" fill="#d0c4b1" font-size="13">Host-supplied, not immutable</text>
+
+    <rect x="30" y="423" width="540" height="207" rx="15" fill="#1c2c39" stroke="#649db5" stroke-width="1.5"/>
+    <text x="50" y="454" fill="#9ed8ec" font-size="13" font-weight="700" letter-spacing="1.2">VIRTUAL MAC  ·  SEPARATE APPS AND ACCOUNTS</text>
+    <text x="50" y="481" fill="#f6f5e9" font-size="18" font-weight="700">Guest helper captures and acts</text>
+    <text x="50" y="505" fill="#d1e2e9" font-size="14">Screen Recording → display frames</text>
+    <text x="50" y="528" fill="#d1e2e9" font-size="14">Accessibility → mouse and keyboard events</text>
+    <line x1="50" y1="546" x2="550" y2="546" stroke="#517184"/>
+    <text x="50" y="569" fill="#d1e2e9" font-size="14">Guest permissions require interactive approval.</text>
+    <text x="50" y="596" fill="#9eb7c1" font-size="13">A virtual-model check guards accidental host launch;</text>
+    <text x="50" y="614" fill="#9eb7c1" font-size="13">it does not attest the VM or secure hostile code.</text>
+
+    <rect x="30" y="645" width="540" height="75" rx="12" fill="#3a2d29" stroke="#d09373" stroke-width="1.5"/>
+    <text x="50" y="671" fill="#ffc29e" font-size="13" font-weight="700">SEPARATE NETWORK PATH</text>
+    <text x="50" y="696" fill="#f1dbcf" font-size="14">Default NAT may reach host / LAN; --offline removes the NIC.</text>
+
+    <text x="30" y="750" fill="#a6b3af" font-size="12">Schematic of repository code and README  ·  not an end-to-end test</text>
+  </g>
+</svg>

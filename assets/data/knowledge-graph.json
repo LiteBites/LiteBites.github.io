@@ -519,6 +519,22 @@
       ]
     },
     {
+      "id": "article:terminal-mac-guest-control-boundary",
+      "slug": "terminal-mac-guest-control-boundary",
+      "type": "article",
+      "title": "terminal-mac Gives Agents a Virtual Mac, Not a Hardened Sandbox",
+      "shortTitle": "terminal-mac's Virtual Mac Boundary",
+      "url": "/articles/terminal-mac-guest-control-boundary/",
+      "summary": "terminal-mac routes agent screenshots and input through a separate macOS guest, but its live end-to-end validation and security isolation remain important open questions.",
+      "date": "2026-11-05",
+      "meta": "govijr — terminal-mac / 4 min read",
+      "topics": [
+        "AI Agent Tooling",
+        "Apple Silicon",
+        "Computer Use"
+      ]
+    },
+    {
       "id": "article:unlimited-ocr-2-long-document-memory",
       "slug": "unlimited-ocr-2-long-document-memory",
       "type": "article",
@@ -1105,6 +1121,19 @@
       "provenance": "metadata"
     },
     {
+      "id": "article:agent-desktop-refusal-boundary|article:terminal-mac-guest-control-boundary",
+      "source": "article:agent-desktop-refusal-boundary",
+      "target": "article:terminal-mac-guest-control-boundary",
+      "relation": "shared-topic",
+      "label": "AI Agent Tooling · Computer Use",
+      "topics": [
+        "AI Agent Tooling",
+        "Computer Use"
+      ],
+      "weight": 6,
+      "provenance": "metadata"
+    },
+    {
       "id": "article:apple-mac-desktops-local-ai|article:glm-5-3-flash",
       "source": "article:apple-mac-desktops-local-ai",
       "target": "article:glm-5-3-flash",
@@ -1136,6 +1165,18 @@
       "label": "Efficient AI",
       "topics": [
         "Efficient AI"
+      ],
+      "weight": 3,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:apple-mac-desktops-local-ai|article:terminal-mac-guest-control-boundary",
+      "source": "article:apple-mac-desktops-local-ai",
+      "target": "article:terminal-mac-guest-control-boundary",
+      "relation": "shared-topic",
+      "label": "Apple Silicon",
+      "topics": [
+        "Apple Silicon"
       ],
       "weight": 3,
       "provenance": "metadata"
@@ -1641,6 +1682,18 @@
       "provenance": "metadata"
     },
     {
+      "id": "article:gpt-6-1-sol-vs-astra|article:terminal-mac-guest-control-boundary",
+      "source": "article:gpt-6-1-sol-vs-astra",
+      "target": "article:terminal-mac-guest-control-boundary",
+      "relation": "shared-topic",
+      "label": "Computer Use",
+      "topics": [
+        "Computer Use"
+      ],
+      "weight": 3,
+      "provenance": "metadata"
+    },
+    {
       "id": "article:gpt-6-1-sol-vs-astra|article:tibo-gpt-astra-rumor",
       "source": "article:gpt-6-1-sol-vs-astra",
       "target": "article:tibo-gpt-astra-rumor",
@@ -1689,6 +1742,18 @@
         "Developer Tools"
       ],
       "weight": 6,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:gpt-6-1-terra-family-evidence|article:terminal-mac-guest-control-boundary",
+      "source": "article:gpt-6-1-terra-family-evidence",
+      "target": "article:terminal-mac-guest-control-boundary",
+      "relation": "shared-topic",
+      "label": "Computer Use",
+      "topics": [
+        "Computer Use"
+      ],
+      "weight": 3,
       "provenance": "metadata"
     },
     {
@@ -2779,9 +2844,9 @@
     }
   ],
   "stats": {
-    "nodes": 62,
-    "edges": 136,
-    "articles": 36,
+    "nodes": 63,
+    "edges": 140,
+    "articles": 37,
     "papers": 23,
     "datasets": 3
   }
