@@ -1056,6 +1056,26 @@
       ]
     },
     {
+      "id": "paper:v-lumen-visual-lookup-memory",
+      "slug": "v-lumen-visual-lookup-memory",
+      "type": "paper",
+      "title": "V-LUMEN: Visual Lookup Memory for Embedding Scaling in Vision-Language Models",
+      "shortTitle": "Can Visual Memory Replace Adapter Capacity?",
+      "url": "/posts/v-lumen-visual-lookup-memory/",
+      "summary": "Sparse visual lookup memory roughly preserves matched-adapter accuracy, but more memory rows have not yet improved it.",
+      "date": "2026-11-07",
+      "meta": "NeurIPS 2026 poster; arXiv v2 / 7 min read",
+      "topics": [
+        "Computer Vision",
+        "Efficient AI",
+        "Efficient Tuning",
+        "Language Models",
+        "Memory Management",
+        "Multimodal AI",
+        "Vision-Language Models"
+      ]
+    },
+    {
       "id": "paper:vit-comer",
       "slug": "vit-comer",
       "type": "paper",
@@ -2170,18 +2190,6 @@
       "provenance": "metadata"
     },
     {
-      "id": "article:mineru-papers-code-and-models|paper:chain-of-zoom",
-      "source": "article:mineru-papers-code-and-models",
-      "target": "paper:chain-of-zoom",
-      "relation": "shared-topic",
-      "label": "Vision-Language Models",
-      "topics": [
-        "Vision-Language Models"
-      ],
-      "weight": 4,
-      "provenance": "metadata"
-    },
-    {
       "id": "article:mineru-papers-code-and-models|paper:novalad-document-extraction",
       "source": "article:mineru-papers-code-and-models",
       "target": "paper:novalad-document-extraction",
@@ -2641,9 +2649,37 @@
       "provenance": "metadata"
     },
     {
+      "id": "paper:beta-kd-uncertainty-aware-distillation|paper:v-lumen-visual-lookup-memory",
+      "source": "paper:beta-kd-uncertainty-aware-distillation",
+      "target": "paper:v-lumen-visual-lookup-memory",
+      "relation": "shared-topic",
+      "label": "Language Models · Multimodal AI · Vision-Language Models",
+      "topics": [
+        "Language Models",
+        "Multimodal AI",
+        "Vision-Language Models"
+      ],
+      "weight": 5,
+      "provenance": "metadata"
+    },
+    {
       "id": "paper:chain-of-zoom|paper:dora-weight-decomposed-low-rank-adaptation",
       "source": "paper:chain-of-zoom",
       "target": "paper:dora-weight-decomposed-low-rank-adaptation",
+      "relation": "shared-topic",
+      "label": "Language Models · Multimodal AI · Vision-Language Models",
+      "topics": [
+        "Language Models",
+        "Multimodal AI",
+        "Vision-Language Models"
+      ],
+      "weight": 5,
+      "provenance": "metadata"
+    },
+    {
+      "id": "paper:chain-of-zoom|paper:v-lumen-visual-lookup-memory",
+      "source": "paper:chain-of-zoom",
+      "target": "paper:v-lumen-visual-lookup-memory",
       "relation": "shared-topic",
       "label": "Language Models · Multimodal AI · Vision-Language Models",
       "topics": [
@@ -2748,6 +2784,21 @@
       "provenance": "metadata"
     },
     {
+      "id": "paper:dora-weight-decomposed-low-rank-adaptation|paper:v-lumen-visual-lookup-memory",
+      "source": "paper:dora-weight-decomposed-low-rank-adaptation",
+      "target": "paper:v-lumen-visual-lookup-memory",
+      "relation": "shared-topic",
+      "label": "Efficient AI · Language Models · Multimodal AI · Vision-Language Models",
+      "topics": [
+        "Efficient AI",
+        "Language Models",
+        "Multimodal AI",
+        "Vision-Language Models"
+      ],
+      "weight": 6,
+      "provenance": "metadata"
+    },
+    {
       "id": "paper:dreambooth|paper:lance-unified-multimodal",
       "source": "paper:dreambooth",
       "target": "paper:lance-unified-multimodal",
@@ -2817,6 +2868,20 @@
       "provenance": "metadata"
     },
     {
+      "id": "paper:lora|paper:v-lumen-visual-lookup-memory",
+      "source": "paper:lora",
+      "target": "paper:v-lumen-visual-lookup-memory",
+      "relation": "shared-topic",
+      "label": "Efficient AI · Efficient Tuning · Language Models",
+      "topics": [
+        "Efficient AI",
+        "Efficient Tuning",
+        "Language Models"
+      ],
+      "weight": 5,
+      "provenance": "metadata"
+    },
+    {
       "id": "paper:mmr-ad|paper:moeclip",
       "source": "paper:mmr-ad",
       "target": "paper:moeclip",
@@ -2841,13 +2906,27 @@
       ],
       "weight": 5,
       "provenance": "metadata"
+    },
+    {
+      "id": "paper:pagedattention|paper:v-lumen-visual-lookup-memory",
+      "source": "paper:pagedattention",
+      "target": "paper:v-lumen-visual-lookup-memory",
+      "relation": "shared-topic",
+      "label": "Efficient AI · Language Models · Memory Management",
+      "topics": [
+        "Efficient AI",
+        "Language Models",
+        "Memory Management"
+      ],
+      "weight": 5,
+      "provenance": "metadata"
     }
   ],
   "stats": {
-    "nodes": 63,
-    "edges": 140,
+    "nodes": 64,
+    "edges": 144,
     "articles": 37,
-    "papers": 23,
+    "papers": 24,
     "datasets": 3
   }
 }

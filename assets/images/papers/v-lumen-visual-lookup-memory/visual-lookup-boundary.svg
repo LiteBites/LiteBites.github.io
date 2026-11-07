@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">How V-LUMEN turns a visual token into a sparse memory read</title>
+  <desc id="desc">An original four-stage diagram. Visual patch features and a text query enter fixed addressing: visual codes, spatial context and question-conditioned rank bins make integer keys. Keys select a small number of rows in learned GPU-resident memory tables. Learned gates and projections add retrieved vectors to a frozen vision-language model. Bottom labels distinguish frozen addressing, learned memory and fusion, and the measured-versus-proposed serving boundary.</desc>
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#111a35"/><stop offset="1" stop-color="#142e43"/></linearGradient>
+    <marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M1 1L8 4.5 1 8" fill="none" stroke="#9ed4db" stroke-width="2"/></marker>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <text x="54" y="74" fill="#f4f7fb" font-family="Arial,Helvetica,sans-serif" font-size="35" font-weight="700">Visual memory is an address, a read, then an update</text>
+  <text x="54" y="109" fill="#b8cad8" font-family="Arial,Helvetica,sans-serif" font-size="18">A simplified explanation of V-LUMEN — not a model trace or an accuracy result</text>
+  <g font-family="Arial,Helvetica,sans-serif">
+    <rect x="54" y="160" width="234" height="300" rx="18" fill="#1d3050" stroke="#5f82a2" stroke-width="2"/>
+    <text x="76" y="202" fill="#9fdbf0" font-size="17" font-weight="700">01 · INPUT</text>
+    <text x="76" y="248" fill="#fff" font-size="25" font-weight="700">Visual patches</text>
+    <text x="76" y="279" fill="#d4e4ef" font-size="18">continuous features</text>
+    <rect x="76" y="318" width="190" height="1" fill="#526987"/>
+    <text x="76" y="356" fill="#fff" font-size="25" font-weight="700">Text question</text>
+    <text x="76" y="385" fill="#d4e4ef" font-size="18">changes which rows</text>
+    <text x="76" y="411" fill="#d4e4ef" font-size="18">the image can read</text>
+    <path d="M294 310H324" stroke="#9ed4db" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect x="330" y="160" width="270" height="300" rx="18" fill="#243e49" stroke="#65bcb0" stroke-width="2"/>
+    <text x="352" y="202" fill="#a2f1dc" font-size="17" font-weight="700">02 · FIXED ADDRESSING</text>
+    <text x="352" y="249" fill="#fff" font-size="24" font-weight="700">Visual code IDs</text>
+    <text x="352" y="281" fill="#d4e8e6" font-size="18">frozen codebook + projection</text>
+    <text x="352" y="333" fill="#fff" font-size="22" font-weight="700">Spatial + query keys</text>
+    <text x="352" y="365" fill="#d4e8e6" font-size="18">row/column context, position,</text>
+    <text x="352" y="391" fill="#d4e8e6" font-size="18">rank-bucketed text signal</text>
+    <path d="M606 310H636" stroke="#9ed4db" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect x="642" y="160" width="226" height="300" rx="18" fill="#443651" stroke="#d1a1dc" stroke-width="2"/>
+    <text x="664" y="202" fill="#ebbcf1" font-size="17" font-weight="700">03 · SPARSE READ</text>
+    <text x="664" y="249" fill="#fff" font-size="24" font-weight="700">Learned table</text>
+    <text x="664" y="282" fill="#f0dcee" font-size="18">many stored rows</text>
+    <g fill="#d7aee4"><rect x="666" y="312" width="32" height="18" rx="4"/><rect x="704" y="312" width="32" height="18" rx="4"/><rect x="742" y="312" width="32" height="18" rx="4"/><rect x="780" y="312" width="32" height="18" rx="4"/><rect x="818" y="312" width="32" height="18" rx="4"/></g>
+    <g fill="#8ee5d6"><rect x="666" y="339" width="32" height="18" rx="4"/><rect x="780" y="339" width="32" height="18" rx="4"/></g>
+    <text x="664" y="406" fill="#f0dcee" font-size="18">addressed rows only</text>
+    <path d="M874 310H904" stroke="#9ed4db" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect x="910" y="160" width="236" height="300" rx="18" fill="#364351" stroke="#e9bd78" stroke-width="2"/>
+    <text x="932" y="202" fill="#ffddab" font-size="17" font-weight="700">04 · LEARNED FUSION</text>
+    <text x="932" y="249" fill="#fff" font-size="24" font-weight="700">Gate + project</text>
+    <text x="932" y="280" fill="#ebdfce" font-size="18">retrieved vectors</text>
+    <rect x="932" y="314" width="192" height="1" fill="#7f7669"/>
+    <text x="932" y="355" fill="#fff" font-size="22" font-weight="700">Residual update</text>
+    <text x="932" y="388" fill="#ebdfce" font-size="18">at decoder layers</text>
+    <text x="932" y="414" fill="#ebdfce" font-size="18">2 and 8</text>
+    <rect x="54" y="492" width="1092" height="97" rx="15" fill="#182637" stroke="#52697a"/>
+    <circle cx="78" cy="519" r="6" fill="#65bcb0"/><text x="95" y="525" fill="#dce8ef" font-size="17">Frozen backbone and address map</text>
+    <circle cx="438" cy="519" r="6" fill="#d1a1dc"/><text x="455" y="525" fill="#dce8ef" font-size="17">Trained memory and fusion</text>
+    <circle cx="774" cy="519" r="6" fill="#e9bd78"/><text x="791" y="525" fill="#dce8ef" font-size="17">GPU-resident in tests</text>
+    <text x="78" y="562" fill="#aebfcc" font-size="17">CPU/SSD serving is a proposed deployment, not a measured result.</text>
+  </g>
+</svg>
