@@ -26,6 +26,29 @@
       "sourcePath": "_articles/mineru-papers-code-and-models.md"
     },
     {
+      "id": "article:weight-space-programming-loop-fix",
+      "slug": "weight-space-programming-loop-fix",
+      "type": "article",
+      "title": "A Small Weight Edit Unstuck a Reasoning Model—But Did It Teach Math?",
+      "shortTitle": "Weight-Space Programming's Loop Fix",
+      "url": "/articles/weight-space-programming-loop-fix/",
+      "summary": "An MIT CSAIL team's direct edit to a small Qwen model sharply improved its reported math score by stopping reasoning loops, while a non-looping model resisted the same approach.",
+      "date": "2026-11-08",
+      "meta": "Rikiya Takehi et al. / 3 min read",
+      "topics": [
+        "LLM Reasoning",
+        "Optimization",
+        "Small Language Models"
+      ],
+      "topicWeights": {
+        "LLM Reasoning": 3,
+        "Optimization": 3,
+        "Small Language Models": 3
+      },
+      "sourceHash": "8aad1d569e1cb2b3d75e221e990e51baa74c4880d6480cbe921fe499044c6f18",
+      "sourcePath": "_articles/weight-space-programming-loop-fix.md"
+    },
+    {
       "id": "article:agent-desktop-refusal-boundary",
       "slug": "agent-desktop-refusal-boundary",
       "type": "article",
@@ -3013,6 +3036,42 @@
       "provenance": "metadata"
     },
     {
+      "id": "article:weight-space-programming-loop-fix|paper:rethinking-on-policy-distillation",
+      "source": "article:weight-space-programming-loop-fix",
+      "target": "paper:rethinking-on-policy-distillation",
+      "relation": "shared-topic",
+      "label": "LLM Reasoning",
+      "topics": [
+        "LLM Reasoning"
+      ],
+      "weight": 4,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:weight-space-programming-loop-fix|paper:seal-generalization",
+      "source": "article:weight-space-programming-loop-fix",
+      "target": "paper:seal-generalization",
+      "relation": "shared-topic",
+      "label": "Optimization",
+      "topics": [
+        "Optimization"
+      ],
+      "weight": 4,
+      "provenance": "metadata"
+    },
+    {
+      "id": "article:weight-space-programming-loop-fix|paper:slm-agents",
+      "source": "article:weight-space-programming-loop-fix",
+      "target": "paper:slm-agents",
+      "relation": "shared-topic",
+      "label": "Small Language Models",
+      "topics": [
+        "Small Language Models"
+      ],
+      "weight": 4,
+      "provenance": "metadata"
+    },
+    {
       "id": "dataset:kolektor-sdd2|dataset:mvtec-ad",
       "source": "dataset:kolektor-sdd2",
       "target": "dataset:mvtec-ad",
@@ -3435,9 +3494,9 @@
     }
   ],
   "stats": {
-    "nodes": 64,
-    "edges": 144,
-    "articles": 37,
+    "nodes": 65,
+    "edges": 147,
+    "articles": 38,
     "papers": 24,
     "datasets": 3
   }

@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="720" viewBox="0 0 960 720" role="img" aria-labelledby="title desc">
+  <title id="title">Weight-space programming: diagnosing a loop, editing weights, testing the result</title>
+  <desc id="desc">Original LiteBites synthesis of the authors' Experiment 8 and separate Gemma test. Astra inspected Qwen weights and practice answers through 50 batched forward passes, targeted 131,072 weight positions without gradients, and the team evaluated on held-out MATH-500. Reported accuracy rose from 7.9 to 48.1 percent and token-limit hits fell from 93.0 to 33.1 percent. The result is consistent with repairing a loop, not proving a general gain in math ability.</desc>
+  <rect width="960" height="720" fill="#f7f5ef"/>
+  <text x="48" y="62" fill="#183039" font-family="Arial, Helvetica, sans-serif" font-size="31" font-weight="700">A weight edit that let answers finish</text>
+  <text x="48" y="95" fill="#52656a" font-family="Arial, Helvetica, sans-serif" font-size="18">Experiment 8 · Qwen3.5-0.8B · author-reported, schematic workflow</text>
+
+  <!-- The connectors are drawn before the panels so they cannot cross labels. -->
+  <path d="M302 286 H334" stroke="#397478" stroke-width="3" fill="none"/>
+  <path d="M326 279 L335 286 L326 293" fill="none" stroke="#397478" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M594 286 H626" stroke="#397478" stroke-width="3" fill="none"/>
+  <path d="M618 279 L627 286 L618 293" fill="none" stroke="#397478" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="48" y="140" width="254" height="294" rx="14" fill="#ffffff" stroke="#cbd4d0" stroke-width="2"/>
+  <rect x="340" y="140" width="254" height="294" rx="14" fill="#ffffff" stroke="#cbd4d0" stroke-width="2"/>
+  <rect x="632" y="140" width="280" height="294" rx="14" fill="#ffffff" stroke="#cbd4d0" stroke-width="2"/>
+
+  <text x="68" y="177" fill="#326a6d" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700">01 / PRACTICE</text>
+  <text x="68" y="216" fill="#183039" font-family="Arial, Helvetica, sans-serif" font-size="27" font-weight="700">Diagnose</text>
+  <text x="68" y="261" fill="#344950" font-family="Arial, Helvetica, sans-serif" font-size="19">Weights + practice</text>
+  <text x="68" y="288" fill="#344950" font-family="Arial, Helvetica, sans-serif" font-size="19">answers reveal loops</text>
+  <path d="M68 319 H282" stroke="#d9dfd9"/>
+  <text x="68" y="350" fill="#183039" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700">50</text>
+  <text x="68" y="377" fill="#52656a" font-family="Arial, Helvetica, sans-serif" font-size="18">batched forward passes</text>
+  <text x="68" y="405" fill="#52656a" font-family="Arial, Helvetica, sans-serif" font-size="17">Not 50 questions</text>
+
+  <text x="360" y="177" fill="#326a6d" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700">02 / INTERVENE</text>
+  <text x="360" y="216" fill="#183039" font-family="Arial, Helvetica, sans-serif" font-size="27" font-weight="700">Edit weights</text>
+  <text x="360" y="261" fill="#344950" font-family="Arial, Helvetica, sans-serif" font-size="19">MLP layers 15 and 19</text>
+  <text x="360" y="288" fill="#344950" font-family="Arial, Helvetica, sans-serif" font-size="19">Targeted subtraction</text>
+  <path d="M360 319 H574" stroke="#d9dfd9"/>
+  <text x="360" y="350" fill="#183039" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700">131,072</text>
+  <text x="360" y="377" fill="#52656a" font-family="Arial, Helvetica, sans-serif" font-size="18">targeted · 0.016%</text>
+  <text x="360" y="405" fill="#52656a" font-family="Arial, Helvetica, sans-serif" font-size="17">No gradient training</text>
+
+  <text x="652" y="177" fill="#326a6d" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700">03 / HELD-OUT TEST</text>
+  <text x="652" y="216" fill="#183039" font-family="Arial, Helvetica, sans-serif" font-size="27" font-weight="700">Measure</text>
+  <text x="652" y="254" fill="#344950" font-family="Arial, Helvetica, sans-serif" font-size="19">MATH-500 accuracy</text>
+  <text x="652" y="287" fill="#1e625d" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="700">7.9% → 48.1%</text>
+  <path d="M652 319 H892" stroke="#d9dfd9"/>
+  <text x="652" y="348" fill="#344950" font-family="Arial, Helvetica, sans-serif" font-size="18">Hit 32,768-token limit</text>
+  <text x="652" y="382" fill="#a14e35" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="700">93.0% → 33.1%</text>
+  <text x="652" y="408" fill="#52656a" font-family="Arial, Helvetica, sans-serif" font-size="16">Same Qwen sampling setup</text>
+
+  <rect x="48" y="468" width="864" height="172" rx="14" fill="#e9efea" stroke="#c3d3c9" stroke-width="2"/>
+  <text x="73" y="508" fill="#265d60" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700">THE BOUNDARY OF THE RESULT</text>
+  <text x="73" y="547" fill="#183039" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700">Stopping a loop is not teaching new math.</text>
+  <text x="73" y="580" fill="#344950" font-family="Arial, Helvetica, sans-serif" font-size="18">The team's non-looping Gemma 3 270M test showed no comparable gain.</text>
+  <text x="73" y="610" fill="#52656a" font-family="Arial, Helvetica, sans-serif" font-size="17">Different model and sampling; not a matched head-to-head comparison.</text>
+  <text x="48" y="683" fill="#52656a" font-family="Arial, Helvetica, sans-serif" font-size="16">LiteBites synthesis · source: Takehi et al., “Sparks of Weight-Space Programming” (2026)</text>
+</svg>
